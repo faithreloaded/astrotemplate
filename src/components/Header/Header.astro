@@ -1,0 +1,106 @@
+---
+import "./Header.css";
+---
+
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="/">
+          <img src="/images/logo.svg" alt="Logo" class="logo-img" />
+        </a>
+      </div>
+      
+      <nav class="nav desktop-nav">
+        <a href="/" class="nav-link">Inicio</a>
+        <a href="/about" class="nav-link">Nosotros</a>
+        <a href="/services" class="nav-link">Servicios</a>
+        <a href="/contact" class="nav-link">Contactos</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="/contact" class="contact-btn desktop-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Contacto
+        </a>
+        
+        <button class="menu-toggle mobile-nav" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <nav class="mobile-nav-menu" id="mobile-nav">
+      <div class="mobile-nav-header">
+        <img src="/images/logo.svg" alt="Logo" class="mobile-logo" />
+        <button class="mobile-close-btn" id="mobile-close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="/" class="mobile-nav-link">Inicio</a>
+        <a href="/about" class="mobile-nav-link">Nosotros</a>
+        <a href="/services" class="mobile-nav-link">Servicios</a>
+        <a href="/contact" class="mobile-nav-link">Contactos</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="/contact" class="mobile-contact-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Contacto
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const mobileClose = document.getElementById('mobile-close');
+
+  function closeMenu() {
+    mobileNav.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    menuToggle.classList.remove('active');
+  }
+
+  function openMenu() {
+    mobileNav.classList.add('active');
+    mobileOverlay.classList.add('active');
+    document.body.classList.add('menu-open');
+    menuToggle.classList.add('active');
+  }
+
+  if (menuToggle && mobileNav && mobileOverlay && mobileClose) {
+    menuToggle.addEventListener('click', () => {
+      if (mobileNav.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    mobileClose.addEventListener('click', closeMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
+
+    // Close menu when clicking on links
+    const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link, .mobile-contact-btn');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+</script>

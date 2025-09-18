@@ -1,16 +1,24 @@
 ---
-
+import '../styles/main.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header/Header.astro';
+import Footer from '../components/Footer/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout 
+  title="Astro Boilerplate | Bcn Web Studio" 
+  description="Boilerplate profesional de Astro con CSS puro, diseño responsive y componentes modernos. Perfecto para crear sitios web rápidos y eficientes."
+>
+  <Header />
+  
+  <main class="main">
+    <div class="container">
+      <div class="hero-section">
+        <h1 class="hero-title">Astro Boilerplate</h1>
+        <p class="hero-subtitle">Empieza aquí</p>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
