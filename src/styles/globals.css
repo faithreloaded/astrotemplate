@@ -14,12 +14,33 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-black);
-  background-color: var(--color-white);
+  background-color: var(--color-cream);
+}
+
+/* Tipografía según especificación */
+h1 {
+  font-family: var(--font-family-primary); /* Cormorant Garamond */
+  font-weight: var(--font-weight-light); /* Light weight (300) for luxury look */
+}
+
+h2 {
+  font-family: var(--font-family-secondary); /* Roboto */
+  font-weight: var(--font-weight-regular);
+}
+
+h3 {
+  font-family: var(--font-family-secondary); /* Roboto */
+  font-weight: var(--font-weight-bold);
+}
+
+p, body, .body-text {
+  font-family: var(--font-family-primary); /* Cormorant Garamond */
+  font-weight: var(--font-weight-regular);
 }
 
 /* Container con ancho máximo */
 .container {
-  max-width: calc(1040px + 2rem);
+  max-width: calc(1440px + 2rem);
   margin: 0 auto;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -49,5 +70,15 @@ body {
   
   .mobile-block {
     display: block;
+  }
+  
+  .container {
+    padding: 0 1.5rem; /* More padding on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem; /* Standard padding on small mobile */
   }
 }
