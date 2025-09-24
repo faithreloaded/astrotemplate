@@ -1,57 +1,24 @@
 ---
 import '../styles/main.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SimpleHeader from '../components/react/SimpleHeader.tsx';
+import Header from '../components/Header/Header.astro';
 import Footer from '../components/Footer/Footer.astro';
 ---
 
 <BaseLayout 
-  title="Insider Events | Luxury Events & Crafted Experiences" 
-  description="Exclusive luxury events and crafted experiences. Corporate events, incentives, and concierge services for discerning clients."
+  title="Astro Boilerplate | Bcn Web Studio" 
+  description="Boilerplate profesional de Astro con CSS puro, diseño responsive y componentes modernos. Perfecto para crear sitios web rápidos y eficientes."
 >
-  <SimpleHeader client:load />
+  <Header />
   
   <main class="main">
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-video-container">
-          <video class="hero-video" autoplay muted loop playsinline>
-            <source src="/images/videohero.mp4" type="video/mp4">
-          </video>
-          <div class="hero-overlay">
-            <div class="hero-content">
-              <h1 class="hero-title">Bespoke events. Insider experiences.</h1>
-              <p class="hero-subtitle">From leadership retreats to incentive programs and private cultural moments, we design seamless experiences across Spain & the Mediterranean</p>
-              <a href="#contact" class="hero-cta">Let's craft it together</a>
-            </div>
-          </div>
-        </div>
+    <div class="container">
+      <div class="hero-section">
+        <h1 class="hero-title">Astro Boilerplate</h1>
+        <p class="hero-subtitle">Empieza aquí</p>
       </div>
-    </section>
+    </div>
   </main>
   
   <Footer />
 </BaseLayout>
-
-<script>
-  // Smooth scroll functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const ctaButton = document.querySelector('.hero-cta');
-    
-    if (ctaButton) {
-      ctaButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Find the contact section (footer for now)
-        const contactSection = document.querySelector('.footer');
-        
-        if (contactSection) {
-          contactSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    }
-  });
-</script>

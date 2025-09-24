@@ -2,106 +2,104 @@
 import "./Header.css";
 ---
 
-<header class="luxury-header">
+<header class="header">
   <div class="container">
     <div class="header-content">
-      <!-- Left side - Menu button -->
-      <div class="header-left">
-        <button class="menu-button" id="menu-toggle">
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <span class="menu-text">Menu</span>
+      <div class="logo">
+        <a href="/">
+          <img src="/images/logo.svg" alt="Logo" class="logo-img" />
+        </a>
+      </div>
+      
+      <nav class="nav desktop-nav">
+        <a href="/" class="nav-link">Inicio</a>
+        <a href="/about" class="nav-link">Nosotros</a>
+        <a href="/services" class="nav-link">Servicios</a>
+        <a href="/contact" class="nav-link">Contactos</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="/contact" class="contact-btn desktop-nav">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Contacto
+        </a>
+        
+        <button class="menu-toggle mobile-nav" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
-
-      <!-- Center - Logo -->
-      <div class="header-center">
-        <a href="/" class="logo-link">
-          <img src="/images/logo.svg" alt="Insider Events" class="logo-img" />
-        </a>
-      </div>
-
-      <!-- Right side - Contact button -->
-      <div class="header-right">
-        <a href="/contact" class="contact-button">
-          Contact
-        </a>
-      </div>
     </div>
     
-    <!-- Slide Menu Overlay -->
-    <div class="menu-overlay" id="menu-overlay"></div>
-    
-    <!-- Slide Menu -->
-    <div class="slide-menu" id="slide-menu">
-      <div class="slide-menu-content">
-        <div class="slide-menu-header">
-          <h2 class="menu-title">Menu</h2>
-          <button class="close-button" id="close-button">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="18" y1="6" x2="6" y2="18"/>
-              <line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-          </button>
-        </div>
-        
-        <nav class="slide-menu-nav">
-          <ul class="menu-list">
-            <li class="menu-item"><a href="/" class="menu-link">Home</a></li>
-            <li class="menu-item"><a href="/about" class="menu-link">About</a></li>
-            <li class="menu-item"><a href="/corporate-events" class="menu-link">Corporate Events & Incentives</a></li>
-            <li class="menu-item"><a href="/crafted-experiences" class="menu-link">Crafted Experiences</a></li>
-            <li class="menu-item"><a href="/concierge" class="menu-link">Concierge</a></li>
-            <li class="menu-item"><a href="/contact" class="menu-link">Contact</a></li>
-          </ul>
-        </nav>
-
-        <div class="slide-menu-footer">
-          <div class="contact-info">
-            <p class="contact-email">hello@insidersevents.com</p>
-          </div>
-        </div>
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <nav class="mobile-nav-menu" id="mobile-nav">
+      <div class="mobile-nav-header">
+        <img src="/images/logo.svg" alt="Logo" class="mobile-logo" />
+        <button class="mobile-close-btn" id="mobile-close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
       </div>
-    </div>
+      <div class="mobile-nav-links">
+        <a href="/" class="mobile-nav-link">Inicio</a>
+        <a href="/about" class="mobile-nav-link">Nosotros</a>
+        <a href="/services" class="mobile-nav-link">Servicios</a>
+        <a href="/contact" class="mobile-nav-link">Contactos</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="/contact" class="mobile-contact-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Contacto
+        </a>
+      </div>
+    </nav>
   </div>
 </header>
 
 <script>
   const menuToggle = document.getElementById('menu-toggle');
-  const slideMenu = document.getElementById('slide-menu');
-  const menuOverlay = document.getElementById('menu-overlay');
-  const closeButton = document.getElementById('close-button');
+  const mobileNav = document.getElementById('mobile-nav');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const mobileClose = document.getElementById('mobile-close');
 
   function closeMenu() {
-    slideMenu.classList.remove('open');
-    menuOverlay.style.display = 'none';
-    document.body.style.overflow = '';
+    mobileNav.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    menuToggle.classList.remove('active');
   }
 
   function openMenu() {
-    slideMenu.classList.add('open');
-    menuOverlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+    mobileNav.classList.add('active');
+    mobileOverlay.classList.add('active');
+    document.body.classList.add('menu-open');
+    menuToggle.classList.add('active');
   }
 
-  if (menuToggle && slideMenu && menuOverlay && closeButton) {
+  if (menuToggle && mobileNav && mobileOverlay && mobileClose) {
     menuToggle.addEventListener('click', () => {
-      if (slideMenu.classList.contains('open')) {
+      if (mobileNav.classList.contains('active')) {
         closeMenu();
       } else {
         openMenu();
       }
     });
 
-    closeButton.addEventListener('click', closeMenu);
-    menuOverlay.addEventListener('click', closeMenu);
+    mobileClose.addEventListener('click', closeMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
 
     // Close menu when clicking on links
-    const menuLinks = slideMenu.querySelectorAll('.menu-link');
-    menuLinks.forEach(link => {
+    const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link, .mobile-contact-btn');
+    mobileLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
     });
   }
