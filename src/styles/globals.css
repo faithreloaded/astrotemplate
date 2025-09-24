@@ -19,7 +19,7 @@ body {
 
 /* Container con ancho máximo */
 .container {
-  max-width: calc(1040px + 2rem);
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
   box-sizing: border-box;

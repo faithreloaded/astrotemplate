@@ -9,16 +9,19 @@
   --color-light-gray: #cccccc;
   
   /* Tipografía */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-weight-light: 300;
   --font-size-base: 16px;
   --font-size-lg: 18px;
   --font-size-xl: 24px;
   --font-size-4xl: 36px;
   --font-size-5xl: 48px;
+  --font-size-section-title: 70px;
   
   /* Pesos de fuente */
   --font-weight-medium: 500;
   --font-weight-bold: 700;
+  --font-weight-section: 550;
   
   /* Espaciados */
   --space-1: 8px;
@@ -28,7 +31,7 @@
   --space-5: 48px;
   
   /* Layout */
-  --max-width: 1040px;
+  --max-width: 1120px;
   
   /* Radios de borde */
   --radius-lg: 8px;

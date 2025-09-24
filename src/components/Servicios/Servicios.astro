@@ -1,0 +1,59 @@
+---
+import './Servicios.css';
+const cards = [
+  {
+    title: 'Servicio A',
+    description: 'Descripción breve del servicio. Resultados rápidos y profesionales.',
+    price: '750€',
+    tags: ['Nature', '5-day stay'],
+    image: '/images/placeholder.jpg'
+  },
+  {
+    title: 'Servicio B',
+    description: 'Texto breve y sutil para explicar el servicio.',
+    price: '950€',
+    tags: ['Business', 'Consulting'],
+    image: '/images/placeholder.jpg'
+  },
+  {
+    title: 'Servicio C',
+    description: 'Pequeña descripción que no ocupe mucho espacio.',
+    price: '1200€',
+    tags: ['Design', 'Web'],
+    image: '/images/placeholder.jpg'
+  }
+];
+---
+
+<section class="services-section">
+  <div class="container">
+    <div class="services-header">
+      <span class="services-pill">Servicios</span>
+      <h2 class="services-title">Soluciones que impulsan tu negocio</h2>
+    </div>
+    <div class="services-grid">
+      {cards.map((card) => (
+        <article class="service-card">
+          <img src={card.image} alt={card.title} class="card-bg" loading="lazy" />
+
+          <div class="card-overlay-bottom">
+            <div class="card-row">
+              <h3 class="card-heading">{card.title}</h3>
+              <span class="price-pill">{card.price}</span>
+            </div>
+            <p class="card-description">{card.description}</p>
+            <div class="card-tags">
+              {card.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <button class="card-cta">Reservar</button>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+  
+</section>
+
+

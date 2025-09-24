@@ -1,0 +1,30 @@
+---
+import './LogosCarousel.css';
+
+const logos = [
+  '/images/logos/logo1.svg',
+  '/images/logos/logo2.svg',
+  '/images/logos/logo3.svg',
+  '/images/logos/logo4.svg',
+  '/images/logos/logo5.svg'
+];
+---
+
+<section class="logos-carousel-section">
+  <div class="container">
+    <div class="logos-carousel">
+      <div class="logos-track">
+        {logos.map((logo) => (
+          <div class="logo-item">
+            <img src={logo} alt="Logo" class="logo-img" loading="lazy" />
+          </div>
+        ))}
+        {logos.map((logo) => (
+          <div class="logo-item">
+            <img src={logo} alt="Logo" class="logo-img" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
