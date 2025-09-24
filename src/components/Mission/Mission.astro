@@ -1,0 +1,66 @@
+---
+import './Mission.css';
+---
+
+<script>
+  // Animaciones de scroll para Mission
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos de Mission
+  document.addEventListener('DOMContentLoaded', () => {
+    const missionCard = document.querySelector('.mission-card');
+    const missionHeader = document.querySelector('.mission-header');
+    const missionTitle = document.querySelector('.mission-title');
+    const missionContent = document.querySelector('.mission-content');
+    const missionFooter = document.querySelector('.mission-footer');
+    const cornerImage = document.querySelector('.mission-corner-image');
+
+    if (missionCard) observer.observe(missionCard);
+    if (missionHeader) observer.observe(missionHeader);
+    if (missionTitle) observer.observe(missionTitle);
+    if (missionContent) observer.observe(missionContent);
+    if (missionFooter) observer.observe(missionFooter);
+    if (cornerImage) observer.observe(cornerImage);
+  });
+</script>
+
+<section class="mission-section">
+  <div class="container">
+    <div class="mission-card">
+      <div class="mission-corner-image">
+        <img src="/images/placeholder.jpg" alt="Mission" class="corner-img" />
+      </div>
+      
+      <div class="mission-header">
+        <span class="section-pill">Our mission</span>
+      </div>
+      
+      <h2 class="mission-title">Turning content chaos into consistent growth</h2>
+      
+      <div class="mission-content">
+        <p>We work with brands who are ready to take their social media presence seriously.</p>
+        <p>Not just to fill a feed or chase trends, but to show up with purpose and build something that actually grows.</p>
+        <p>For us, content is just the starting point.</p>
+        <p>Our approach combines strategy, execution, and consistency. We handle the planning, posting, and platform management so you can focus on running the business.</p>
+        <p>If you're ready to grow with intention, we'd love to help.</p>
+      </div>
+      
+      <div class="mission-footer">
+        <div class="mission-brand">
+          <img src="/images/logo.svg" alt="Logo" class="brand-logo" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

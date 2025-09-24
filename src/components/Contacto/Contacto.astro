@@ -1,0 +1,120 @@
+---
+// Contacto Component
+---
+
+<style>
+  @import './Contacto.css';
+</style>
+
+<script>
+  // Animaciones de scroll para Contacto
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos de Contacto
+  document.addEventListener('DOMContentLoaded', () => {
+    const sectionHeader = document.querySelector('.section-header');
+    const contactoImage = document.querySelector('.contacto-image');
+    const contactoContainer = document.querySelector('.contacto-container');
+    const contactoInfo = document.querySelector('.contacto-info');
+    const form = document.querySelector('.form');
+    const formFields = document.querySelectorAll('.form-field');
+    const submitButton = document.querySelector('.submit-button');
+
+    if (sectionHeader) observer.observe(sectionHeader);
+    if (contactoImage) observer.observe(contactoImage);
+    if (contactoContainer) observer.observe(contactoContainer);
+    if (contactoInfo) observer.observe(contactoInfo);
+    if (form) observer.observe(form);
+    
+    formFields.forEach((field, index) => {
+      observer.observe(field);
+    });
+    
+    if (submitButton) observer.observe(submitButton);
+  });
+</script>
+
+<section class="contacto-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-pill">Contacta con nosotros</span>
+      <h2 class="section-title">Hablemos de tu proyecto</h2>
+    </div>
+    
+    <div class="contacto-content">
+      <!-- Imagen izquierda -->
+      <div class="contacto-image">
+        <div class="whatsapp-notification">
+          <div class="notification-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div class="notification-content">
+            <div class="notification-title">Para un contacto más rápido</div>
+            <div class="notification-text">Envíanos un WhatsApp</div>
+            <a href="https://wa.me/34123456789?text=Hola,%20estoy%20interesado%20en%20tus%20servicios" class="notification-number" target="_blank">+34 123 456 789</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contenedor derecha -->
+      <div class="contacto-container">
+        <div class="contacto-info">
+          <div class="info-item">
+            <svg class="info-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span class="info-value">hola@ejemplo.com</span>
+          </div>
+          
+          <div class="info-separator">/</div>
+          
+          <div class="info-item">
+            <svg class="info-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span class="info-value">Barcelona, España</span>
+          </div>
+        </div>
+        
+        <form class="form">
+          <div class="form-row">
+            <div class="form-field">
+              <input type="text" placeholder="Tu nombre" required>
+            </div>
+            
+            <div class="form-field">
+              <input type="email" placeholder="Tu email" required>
+            </div>
+          </div>
+          
+          <div class="form-field">
+            <input type="tel" placeholder="Teléfono">
+          </div>
+          
+          <div class="form-field">
+            <textarea placeholder="Cuéntanos sobre tu proyecto" rows="4" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-button">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

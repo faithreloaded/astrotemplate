@@ -15,6 +15,7 @@ body {
   line-height: 1.6;
   color: var(--color-black);
   background-color: var(--color-white);
+  overflow-x: hidden;
 }
 
 /* Container con ancho máximo */
@@ -40,6 +41,11 @@ body {
 
 .hidden {
   display: none;
+}
+
+/* Espaciado estándar para secciones */
+.section {
+  padding: 72px 0;
 }
 
 @media (max-width: 768px) {

@@ -1,0 +1,230 @@
+---
+import './ServiciosCards.css';
+const cards = [
+  {
+    title: 'Servicio A',
+    description: 'Descripción breve del servicio. Resultados rápidos y profesionales.',
+    price: '750€',
+    tags: ['Nature', '5-day stay'],
+    image: '/images/placeholder.jpg'
+  },
+  {
+    title: 'Servicio B',
+    description: 'Texto breve y sutil para explicar el servicio.',
+    price: '950€',
+    tags: ['Business', 'Consulting'],
+    image: '/images/placeholder.jpg'
+  },
+  {
+    title: 'Servicio C',
+    description: 'Pequeña descripción que no ocupe mucho espacio.',
+    price: '1200€',
+    tags: ['Design', 'Web'],
+    image: '/images/placeholder.jpg'
+  },
+  {
+    title: 'Servicio D',
+    description: 'Nuevo servicio con características innovadoras.',
+    price: '850€',
+    tags: ['Innovation', 'Tech'],
+    image: '/images/placeholder.jpg'
+  },
+  {
+    title: 'Servicio E',
+    description: 'Solución premium para empresas grandes.',
+    price: '1500€',
+    tags: ['Enterprise', 'Premium'],
+    image: '/images/placeholder.jpg'
+  }
+];
+---
+
+<section class="servicios-cards-section">
+  <div class="container">
+    <div class="servicios-cards-header">
+      <span class="section-pill">Servicios</span>
+      <h2 class="section-title">Soluciones que impulsan tu negocio</h2>
+    </div>
+    
+    <div class="carousel-container">
+      <div class="carousel-controls">
+        <button class="carousel-arrow" id="prevBtn" aria-label="Anterior">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15,18 9,12 15,6"></polyline>
+          </svg>
+        </button>
+        <button class="carousel-arrow" id="nextBtn" aria-label="Siguiente">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="carousel-wrapper" id="carouselWrapper">
+        <div class="carousel-track" id="carouselTrack">
+          {cards.map((card, index) => (
+            <article class="servicio-card">
+              <img src={index % 2 === 1 ? '/images/paceholder2.jpg' : card.image} alt={card.title} class="card-bg" loading="lazy" />
+              <div class="card-overlay-bottom">
+                <div class="card-row">
+                  <h3 class="card-heading">{card.title}</h3>
+                  <span class="price-pill">{card.price}</span>
+                </div>
+                <p class="card-description">{card.description}</p>
+                <div class="card-tags">
+                  {card.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+                <button class="card-cta">Reservar</button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Animaciones de scroll para las cards
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observar todas las cards
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.servicio-card');
+      cards.forEach(card => {
+        observer.observe(card);
+      });
+    });
+
+    const track = document.getElementById('carouselTrack');
+    const wrapper = document.getElementById('carouselWrapper');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    let currentIndex = 0;
+    
+    function getCardWidth() {
+      const cards = document.querySelectorAll('.servicio-card');
+      const firstCard = cards[0];
+      if (!firstCard) return 364; // 340px + 24px gap
+      const style = window.getComputedStyle(firstCard);
+      const width = firstCard.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(track).gap) || 24;
+      return width + gap;
+    }
+    
+    function getVisibleCards() {
+      const cards = document.querySelectorAll('.servicio-card');
+      const wrapperWidth = wrapper.offsetWidth;
+      const cardWidth = getCardWidth();
+      return Math.max(1, Math.floor(wrapperWidth / cardWidth));
+    }
+    
+    function updateCarousel() {
+      const cards = document.querySelectorAll('.servicio-card');
+      const cardWidth = getCardWidth();
+      const translateX = -currentIndex * cardWidth;
+      track.style.transform = `translateX(${translateX}px)`;
+      
+      const visibleCards = getVisibleCards();
+      const maxIndex = Math.max(0, cards.length - visibleCards);
+      
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex >= maxIndex;
+    }
+    
+    prevBtn.addEventListener('click', () => {
+      const cards = document.querySelectorAll('.servicio-card');
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      const cards = document.querySelectorAll('.servicio-card');
+      const visibleCards = getVisibleCards();
+      const maxIndex = Math.max(0, cards.length - visibleCards);
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    // Drag simple
+    let startX = 0;
+    let isDragging = false;
+
+    wrapper.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      isDragging = true;
+      startX = e.clientX;
+      track.style.transition = 'none';
+      wrapper.classList.add('dragging');
+    });
+
+    wrapper.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const diff = startX - e.clientX;
+      if (Math.abs(diff) > 50) {
+        const cards = document.querySelectorAll('.servicio-card');
+        const visibleCards = getVisibleCards();
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+        
+        if (diff > 0 && currentIndex < maxIndex) {
+          currentIndex++;
+        } else if (diff < 0 && currentIndex > 0) {
+          currentIndex--;
+        }
+        isDragging = false;
+        track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        wrapper.classList.remove('dragging');
+        updateCarousel();
+      }
+    });
+
+    wrapper.addEventListener('mouseup', () => {
+      isDragging = false;
+      track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      wrapper.classList.remove('dragging');
+      updateCarousel();
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        wrapper.classList.remove('dragging');
+        updateCarousel();
+      }
+    });
+    
+    // Redimensionar ventana
+    window.addEventListener('resize', () => {
+      updateCarousel();
+    });
+    
+    // Observar elementos para animar
+    const header = document.querySelector('.servicios-cards-section .servicios-cards-header');
+    const carousel = document.querySelector('.servicios-cards-section .carousel-container');
+
+    if (header) observer.observe(header);
+    if (carousel) observer.observe(carousel);
+    
+    // Inicializar
+    updateCarousel();
+  </script>
+</section>

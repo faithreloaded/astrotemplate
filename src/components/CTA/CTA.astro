@@ -1,0 +1,67 @@
+---
+// CTA Component
+---
+
+<style>
+  @import './CTA.css';
+</style>
+
+<script>
+  // Animaciones de scroll para el CTA
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos del CTA
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctaHeader = document.querySelector('.cta-header');
+    const ctaTitle = document.querySelector('.cta-title');
+    const ctaDescription = document.querySelector('.cta-description');
+    const ctaButton = document.querySelector('.cta-button');
+
+    if (ctaHeader) observer.observe(ctaHeader);
+    if (ctaTitle) observer.observe(ctaTitle);
+    if (ctaDescription) observer.observe(ctaDescription);
+    if (ctaButton) observer.observe(ctaButton);
+  });
+</script>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <div class="cta-header">
+        <div class="client-avatars">
+          <div class="avatar avatar-1">
+            <img src="/images/placeholder.jpg" alt="Cliente" />
+          </div>
+          <div class="avatar avatar-2">
+            <img src="/images/placeholder.jpg" alt="Cliente" />
+          </div>
+          <div class="avatar avatar-3">
+            <img src="/images/placeholder.jpg" alt="Cliente" />
+          </div>
+          <div class="avatar avatar-4">
+            <img src="/images/placeholder.jpg" alt="Cliente" />
+          </div>
+        </div>
+        <div class="cta-stats">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">marcas confían en nosotros</span>
+        </div>
+      </div>
+      
+      <h2 class="cta-title">¿Listo para impulsar tu marca?</h2>
+      <p class="cta-description">Trabajamos con marcas que están listas para tomar en serio su presencia en redes sociales.</p>
+      <button class="cta-button">Empezar ahora</button>
+    </div>
+  </div>
+</section>

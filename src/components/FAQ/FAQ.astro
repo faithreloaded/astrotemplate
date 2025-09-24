@@ -1,0 +1,136 @@
+---
+import './FAQ.css';
+---
+
+<script>
+  // Animaciones de scroll para FAQ
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos de FAQ
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqSection = document.querySelector('.faq-section');
+    const faqHeader = document.querySelector('.faq-header');
+    const faqItems = document.querySelectorAll('.faq-item');
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    const faqAnswers = document.querySelectorAll('.faq-answer');
+
+    if (faqSection) observer.observe(faqSection);
+    if (faqHeader) observer.observe(faqHeader);
+    
+    faqItems.forEach((item, index) => {
+      observer.observe(item);
+    });
+    
+    faqQuestions.forEach((question, index) => {
+      observer.observe(question);
+    });
+    
+    faqAnswers.forEach((answer, index) => {
+      observer.observe(answer);
+    });
+  });
+
+  // Toggle FAQ items
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const faqAnswer = faqItem.querySelector('.faq-answer');
+        const isOpen = faqItem.classList.contains('open');
+        
+        // Close all other FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('open');
+        });
+        
+        // Toggle current item
+        if (!isOpen) {
+          faqItem.classList.add('open');
+        }
+      });
+    });
+  });
+</script>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-header">
+      <span class="section-pill">FAQ</span>
+      <h2 class="section-title">Preguntas frecuentes</h2>
+    </div>
+    
+    <div class="faq-content">
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cuánto tiempo toma ver resultados?</span>
+            <div class="faq-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Los primeros resultados suelen aparecer en 2-4 semanas. Sin embargo, el crecimiento sostenido y significativo se ve típicamente después de 2-3 meses de trabajo consistente.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Trabajan con marcas de cualquier tamaño?</span>
+            <div class="faq-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, trabajamos con marcas de todos los tamaños, desde startups hasta empresas establecidas. Adaptamos nuestra estrategia según el presupuesto y objetivos específicos de cada cliente.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Qué plataformas manejan?</span>
+            <div class="faq-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Nos especializamos en Instagram, TikTok, LinkedIn y YouTube. Creamos contenido optimizado para cada plataforma, aprovechando las características únicas de cada una.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cómo miden el éxito de las campañas?</span>
+            <div class="faq-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <p>Utilizamos métricas específicas como engagement rate, alcance, conversiones y crecimiento de seguidores. Proporcionamos reportes mensuales detallados con insights y recomendaciones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

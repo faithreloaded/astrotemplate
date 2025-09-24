@@ -1,0 +1,111 @@
+---
+import './AboutUs.css';
+---
+
+<script>
+  // Animaciones de scroll para AboutUs
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos de AboutUs
+  document.addEventListener('DOMContentLoaded', () => {
+    const caseStudies = document.querySelectorAll('.case-study');
+    const caseContents = document.querySelectorAll('.case-content');
+    const caseImages = document.querySelectorAll('.case-image');
+    const casePills = document.querySelectorAll('.case-pill');
+    const caseTitles = document.querySelectorAll('.case-title');
+    const caseDescriptions = document.querySelectorAll('.case-description');
+    const caseStats = document.querySelectorAll('.case-stats');
+
+    caseStudies.forEach((study, index) => {
+      observer.observe(study);
+    });
+    
+    caseContents.forEach((content, index) => {
+      observer.observe(content);
+    });
+    
+    caseImages.forEach((image, index) => {
+      observer.observe(image);
+    });
+    
+    casePills.forEach((pill, index) => {
+      observer.observe(pill);
+    });
+    
+    caseTitles.forEach((title, index) => {
+      observer.observe(title);
+    });
+    
+    caseDescriptions.forEach((description, index) => {
+      observer.observe(description);
+    });
+    
+    caseStats.forEach((stats, index) => {
+      observer.observe(stats);
+    });
+  });
+</script>
+
+<section class="about-us-section">
+  <div class="container">
+    <!-- Primer caso: Glowhaus -->
+    <div class="case-study">
+      <div class="case-content">
+        <span class="section-pill">Client results</span>
+        <h2 class="case-title">Scaling a beauty brand with reels</h2>
+        <p class="case-description">Beauty brand Glowhaus came to us with great products but low engagement. We developed a UGC-driven content strategy focused on short-form video, optimized for Reels.</p>
+        
+        <div class="case-stats">
+          <div class="stat-item">
+            <div class="stat-number">128<span class="stat-unit">K</span></div>
+            <div class="stat-label">Reel Views</div>
+            <div class="stat-subtitle">In the first 30 days</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">245<span class="stat-unit">%</span></div>
+            <div class="stat-label">Engagement</div>
+            <div class="stat-subtitle">Compared to previous month</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="case-image case-image-1"></div>
+    </div>
+
+    <!-- Segundo caso: Theo -->
+    <div class="case-study">
+      <div class="case-image case-image-2"></div>
+      
+      <div class="case-content">
+        <span class="section-pill">Client results</span>
+        <h2 class="case-title">Growing a clothing brand with video</h2>
+        <p class="case-description">Theo came to us ahead of a new collection launch, looking to grow their reach and build anticipation. We combined UGC with light influencer seeding and short-form video.</p>
+        
+        <div class="case-stats">
+          <div class="stat-item">
+            <div class="stat-number">18<span class="stat-unit">K</span></div>
+            <div class="stat-label">Followers</div>
+            <div class="stat-subtitle">In six weeks</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">156<span class="stat-unit">%</span></div>
+            <div class="stat-label">Engagement</div>
+            <div class="stat-subtitle">Compared to previous month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

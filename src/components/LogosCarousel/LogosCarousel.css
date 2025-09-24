@@ -1,9 +1,19 @@
 /* ===== LOGOS CAROUSEL STYLES ===== */
 
 .logos-carousel-section {
-  padding: 40px 0;
-  background-color: white;
+  padding: 72px 0;
+  background-color: var(--color-cream);
   overflow: hidden;
+}
+
+/* Animación simple con scroll */
+.logos-carousel {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.logos-carousel.animate {
+  opacity: 1;
 }
 
 .logos-carousel {
@@ -35,9 +45,6 @@
   transition: filter 0.3s ease;
 }
 
-.logo-img:hover {
-  filter: grayscale(0%) opacity(1) !important;
-}
 
 @keyframes scroll {
   0% {
