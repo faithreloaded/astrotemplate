@@ -29,6 +29,9 @@
   --space-3: 24px;
   --space-4: 32px;
   --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 80px;
+  --space-8: 96px;
   
   /* Layout */
   --max-width: 1140px;
@@ -156,15 +159,49 @@
   transform: translateY(0);
 }
 
+/* Text Button with Arrow */
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  color: var(--color-black);
+  text-decoration: none;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.btn-text:hover {
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
+
+.btn-text .arrow-icon {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.2s ease;
+}
+
+.btn-text:hover .arrow-icon {
+  transform: translate(2px, -2px);
+}
+
 /* Button Sizes */
 .btn-primary.btn-sm,
-.btn-secondary.btn-sm {
+.btn-secondary.btn-sm,
+.btn-text.btn-sm {
   padding: 6px 12px;
   font-size: 13px;
 }
 
 .btn-primary.btn-lg,
-.btn-secondary.btn-lg {
+.btn-secondary.btn-lg,
+.btn-text.btn-lg {
   padding: 12px 24px;
   font-size: 16px;
 }

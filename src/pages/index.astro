@@ -1,22 +1,20 @@
 ---
 import '../styles/main.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/header/header-right/Header.astro';
-import HeaderCenter from '../components/header/header-center/Header.astro';
 import HeaderMega from '../components/header/header-mega/Header.astro';
 import Footer from '../components/footer/footer-grid/Footer.astro';
+import FooterCTA from '../components/footer/footer-cta/Footer.astro';
 ---
 
 <BaseLayout 
   title="Astro Boilerplate | Bcn Web Studio" 
   description="Boilerplate profesional de Astro con CSS puro, diseño responsive y componentes modernos. Perfecto para crear sitios web rápidos y eficientes."
 >
-  <Header />
-  <HeaderCenter />
   <HeaderMega />
   
   <main class="main">
   </main>
   
+  <FooterCTA />
   <Footer />
 </BaseLayout>
