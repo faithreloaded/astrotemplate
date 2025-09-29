@@ -78,6 +78,16 @@
   padding-right: 0;
 }
 
+/* Responsive: cuando la pantalla es más pequeña que el max-width, centrar el carousel */
+@media (max-width: 1040px) {
+  .carousel-container {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 /* Responsive: en móvil no hacer full-bleed */
 @media (max-width: 768px) {
   .carousel-container {
@@ -116,6 +126,12 @@
   left: calc((100vw - var(--max-width)) / 2);
   display: flex;
   gap: 12px;
+}
+
+@media (max-width: 1040px) {
+  .carousel-controls {
+    left: 0;
+  }
 }
 
 @media (max-width: 768px) {

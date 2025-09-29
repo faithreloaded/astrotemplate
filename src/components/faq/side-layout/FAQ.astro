@@ -1,0 +1,96 @@
+---
+import './FAQ.css';
+---
+
+<script>
+  // Animaciones de scroll para FAQ
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos de FAQ
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqSection = document.querySelector('.faq-side-section');
+    const faqHeader = document.querySelector('.faq-side-header');
+    const faqLeft = document.querySelector('.faq-side-left');
+    const faqRight = document.querySelector('.faq-side-right');
+    const faqItems = document.querySelectorAll('.faq-side-item');
+
+    if (faqSection) observer.observe(faqSection);
+    if (faqHeader) observer.observe(faqHeader);
+    if (faqLeft) observer.observe(faqLeft);
+    if (faqRight) observer.observe(faqRight);
+    
+    faqItems.forEach((item, index) => {
+      observer.observe(item);
+    });
+  });
+
+</script>
+
+<section class="faq-side-section">
+  <div class="container">
+    <div class="faq-side-header">
+      <span class="section-pill">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    
+    <div class="faq-side-content">
+      <div class="faq-side-left">
+        <h3 class="faq-side-subtitle">Can't find the answer you're looking for?</h3>
+        <p class="faq-side-description">
+          Reach out to our <a href="#" class="faq-side-link">customer support team</a> and we'll help you with any questions you have.
+        </p>
+      </div>
+      
+      <div class="faq-side-right">
+        <div class="faq-side-list">
+          <div class="faq-side-item">
+            <div class="faq-side-question">
+              <span>How long does it take to see results?</span>
+            </div>
+            <div class="faq-side-answer">
+              <p>Initial results typically appear within 2-4 weeks. However, sustained and significant growth is usually seen after 2-3 months of consistent work and optimization.</p>
+            </div>
+          </div>
+
+          <div class="faq-side-item">
+            <div class="faq-side-question">
+              <span>Do you work with businesses of all sizes?</span>
+            </div>
+            <div class="faq-side-answer">
+              <p>Yes, we work with businesses of all sizes, from startups to established enterprises. We adapt our strategy based on your specific budget and business objectives.</p>
+            </div>
+          </div>
+
+          <div class="faq-side-item">
+            <div class="faq-side-question">
+              <span>What platforms do you specialize in?</span>
+            </div>
+            <div class="faq-side-answer">
+              <p>We specialize in Instagram, TikTok, LinkedIn, and YouTube. We create platform-optimized content that leverages the unique features and audience behaviors of each platform.</p>
+            </div>
+          </div>
+
+          <div class="faq-side-item">
+            <div class="faq-side-question">
+              <span>How do you measure campaign success?</span>
+            </div>
+            <div class="faq-side-answer">
+              <p>We track key metrics including engagement rate, reach, conversions, and follower growth. We provide detailed monthly reports with actionable insights and strategic recommendations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

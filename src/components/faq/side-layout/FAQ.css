@@ -1,0 +1,262 @@
+/* ===== FAQ SIDE LAYOUT STYLES ===== */
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-side-section {
+  padding: 80px 0;
+  background-color: var(--color-cream);
+}
+
+.faq-side-header {
+  text-align: center;
+  margin-bottom: 100px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.faq-side-header.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-side-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  align-items: start;
+}
+
+.faq-side-left {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease 0.2s;
+}
+
+.faq-side-left.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-side-subtitle {
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0 0 24px 0;
+}
+
+.faq-side-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+.faq-side-link {
+  color: var(--color-black);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: all 0.3s ease;
+}
+
+.faq-side-link:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration-thickness: 2px;
+}
+
+.faq-side-right {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease 0.4s;
+}
+
+.faq-side-right.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-side-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-side-item {
+  opacity: 1;
+  transform: translateY(0);
+  margin-bottom: 32px;
+}
+
+.faq-side-item:last-child {
+  margin-bottom: 0;
+}
+
+.faq-side-item.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-side-item:nth-child(1).animate {
+  transition-delay: 0.5s;
+}
+
+.faq-side-item:nth-child(2).animate {
+  transition-delay: 0.6s;
+}
+
+.faq-side-item:nth-child(3).animate {
+  transition-delay: 0.7s;
+}
+
+.faq-side-item:nth-child(4).animate {
+  transition-delay: 0.8s;
+}
+
+.faq-side-question {
+  padding: 0 0 12px 0;
+  margin: 0;
+}
+
+.faq-side-question span {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-black);
+  text-align: left;
+  display: block;
+}
+
+.faq-side-answer {
+  padding: 0 0 32px 0;
+  margin: 0;
+}
+
+.faq-side-answer p {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .faq-side-content {
+    gap: 60px;
+  }
+  
+  .faq-side-subtitle {
+    font-size: 26px;
+  }
+  
+  .faq-side-description {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-side-section {
+    padding: 60px 0;
+  }
+  
+  .faq-side-header {
+    margin-bottom: 80px;
+  }
+  
+  .faq-side-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .faq-side-left {
+    text-align: center;
+  }
+  
+  .faq-side-subtitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .faq-side-description {
+    font-size: 16px;
+  }
+  
+  .faq-side-question {
+    padding: 0 0 10px 0;
+  }
+  
+  .faq-side-item {
+    margin-bottom: 24px;
+  }
+  
+  .faq-side-question span {
+    font-size: 16px;
+  }
+  
+  .faq-side-answer {
+    padding: 0;
+  }
+  
+  .faq-side-answer p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-side-section {
+    padding: 48px 0;
+  }
+  
+  .faq-side-header {
+    margin-bottom: 60px;
+  }
+  
+  .faq-side-content {
+    gap: 40px;
+  }
+  
+  .faq-side-subtitle {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+  
+  .faq-side-description {
+    font-size: 15px;
+  }
+  
+  .faq-side-question {
+    padding: 0 0 8px 0;
+  }
+  
+  .faq-side-item {
+    margin-bottom: 20px;
+  }
+  
+  .faq-side-question span {
+    font-size: 15px;
+  }
+  
+  .faq-side-answer {
+    padding: 0;
+  }
+  
+  .faq-side-answer p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

@@ -95,3 +95,76 @@
     margin-bottom: 40px;
   }
 }
+
+/* ===== GLOBAL BUTTON CLASSES ===== */
+
+/* Primary Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--color-white);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--color-black);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--color-black);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Button Sizes */
+.btn-primary.btn-sm,
+.btn-secondary.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.btn-primary.btn-lg,
+.btn-secondary.btn-lg {
+  padding: 12px 24px;
+  font-size: 16px;
+}

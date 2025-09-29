@@ -48,6 +48,8 @@ import './FAQ.css';
     faqQuestions.forEach(question => {
       question.addEventListener('click', () => {
         const faqItem = question.parentElement;
+        if (!faqItem) return;
+        
         const faqAnswer = faqItem.querySelector('.faq-answer');
         const isOpen = faqItem.classList.contains('open');
         
@@ -69,7 +71,7 @@ import './FAQ.css';
   <div class="container">
     <div class="faq-header">
       <span class="section-pill">FAQ</span>
-      <h2 class="section-title">Preguntas frecuentes</h2>
+      <h2 class="section-title">Frequently Asked Questions</h2>
     </div>
     
     <div class="faq-content">
@@ -77,7 +79,7 @@ import './FAQ.css';
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-question">
-            <span>¿Cuánto tiempo toma ver resultados?</span>
+            <span>How long does it take to see results?</span>
             <div class="faq-icon">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -85,13 +87,13 @@ import './FAQ.css';
             </div>
           </div>
           <div class="faq-answer">
-            <p>Los primeros resultados suelen aparecer en 2-4 semanas. Sin embargo, el crecimiento sostenido y significativo se ve típicamente después de 2-3 meses de trabajo consistente.</p>
+            <p>Initial results typically appear within 2-4 weeks. However, sustained and significant growth is usually seen after 2-3 months of consistent work and optimization.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question">
-            <span>¿Trabajan con marcas de cualquier tamaño?</span>
+            <span>Do you work with businesses of all sizes?</span>
             <div class="faq-icon">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -99,13 +101,13 @@ import './FAQ.css';
             </div>
           </div>
           <div class="faq-answer">
-            <p>Sí, trabajamos con marcas de todos los tamaños, desde startups hasta empresas establecidas. Adaptamos nuestra estrategia según el presupuesto y objetivos específicos de cada cliente.</p>
+            <p>Yes, we work with businesses of all sizes, from startups to established enterprises. We adapt our strategy based on your specific budget and business objectives.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question">
-            <span>¿Qué plataformas manejan?</span>
+            <span>What platforms do you specialize in?</span>
             <div class="faq-icon">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -113,13 +115,13 @@ import './FAQ.css';
             </div>
           </div>
           <div class="faq-answer">
-            <p>Nos especializamos en Instagram, TikTok, LinkedIn y YouTube. Creamos contenido optimizado para cada plataforma, aprovechando las características únicas de cada una.</p>
+            <p>We specialize in Instagram, TikTok, LinkedIn, and YouTube. We create platform-optimized content that leverages the unique features and audience behaviors of each platform.</p>
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question">
-            <span>¿Cómo miden el éxito de las campañas?</span>
+            <span>How do you measure campaign success?</span>
             <div class="faq-icon">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -127,7 +129,7 @@ import './FAQ.css';
             </div>
           </div>
           <div class="faq-answer">
-            <p>Utilizamos métricas específicas como engagement rate, alcance, conversiones y crecimiento de seguidores. Proporcionamos reportes mensuales detallados con insights y recomendaciones.</p>
+            <p>We track key metrics including engagement rate, reach, conversions, and follower growth. We provide detailed monthly reports with actionable insights and strategic recommendations.</p>
           </div>
         </div>
       </div>

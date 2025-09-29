@@ -1,0 +1,100 @@
+---
+import "./Header.css";
+---
+
+<header class="header-center">
+  <div class="container">
+    <div class="header-center-content">
+      <div class="logo">
+        <a href="/">
+          <img src="/images/logo.svg" alt="Logo" class="logo-img" />
+        </a>
+      </div>
+      
+      <nav class="nav-center desktop-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/projects" class="nav-link">Projects</a>
+        <a href="/blog" class="nav-link">Blog</a>
+      </nav>
+      
+      <div class="header-center-actions">
+        <a href="/contact" class="btn-primary desktop-nav">
+          Contact
+        </a>
+        
+        <button class="menu-toggle mobile-nav" id="menu-toggle-center">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="mobile-overlay" id="mobile-overlay-center"></div>
+    <nav class="mobile-nav-menu" id="mobile-nav-center">
+      <div class="mobile-nav-header">
+        <img src="/images/logo.svg" alt="Logo" class="mobile-logo" />
+        <button class="mobile-close-btn" id="mobile-close-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="/" class="mobile-nav-link">Home</a>
+        <a href="/about" class="mobile-nav-link">About</a>
+        <a href="/services" class="mobile-nav-link">Services</a>
+        <a href="/projects" class="mobile-nav-link">Projects</a>
+        <a href="/blog" class="mobile-nav-link">Blog</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="/contact" class="btn-primary">
+          Contact
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle-center');
+  const mobileNav = document.getElementById('mobile-nav-center');
+  const mobileOverlay = document.getElementById('mobile-overlay-center');
+  const mobileClose = document.getElementById('mobile-close-center');
+
+  function closeMenu() {
+    if (mobileNav) mobileNav.classList.remove('active');
+    if (mobileOverlay) mobileOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+    if (menuToggle) menuToggle.classList.remove('active');
+  }
+
+  function openMenu() {
+    if (mobileNav) mobileNav.classList.add('active');
+    if (mobileOverlay) mobileOverlay.classList.add('active');
+    document.body.classList.add('menu-open');
+    if (menuToggle) menuToggle.classList.add('active');
+  }
+
+  if (menuToggle && mobileNav && mobileOverlay && mobileClose) {
+    menuToggle.addEventListener('click', () => {
+      if (mobileNav.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    mobileClose.addEventListener('click', closeMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
+
+    // Close menu when clicking on links
+    const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link, .mobile-contact-btn');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+</script>

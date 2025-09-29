@@ -1,18 +1,10 @@
 ---
 import '../styles/main.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header/Header.astro';
-import Footer from '../components/Footer/Footer.astro';
-import Hero from '../components/Hero/Hero.astro';
-import LogosCarousel from '../components/LogosCarousel/LogosCarousel.astro';
-import Mission from '../components/Mission/Mission.astro';
-import AboutUs from '../components/AboutUs/AboutUs.astro';
-import Testimonials from '../components/Testimonials/Testimonials.astro';
-import ServiciosTabs from '../components/ServiciosTabs/ServiciosTabs.astro';
-import ServiciosCards from '../components/ServiciosCards/ServiciosCards.astro';
-import FAQ from '../components/FAQ/FAQ.astro';
-import Contacto from '../components/Contacto/Contacto.astro';
-import CTA from '../components/CTA/CTA.astro';
+import Header from '../components/header/header-right/Header.astro';
+import HeaderCenter from '../components/header/header-center/Header.astro';
+import HeaderMega from '../components/header/header-mega/Header.astro';
+import Footer from '../components/footer/footer-grid/Footer.astro';
 ---
 
 <BaseLayout 
@@ -20,17 +12,10 @@ import CTA from '../components/CTA/CTA.astro';
   description="Boilerplate profesional de Astro con CSS puro, diseño responsive y componentes modernos. Perfecto para crear sitios web rápidos y eficientes."
 >
   <Header />
+  <HeaderCenter />
+  <HeaderMega />
   
   <main class="main">
-    <Hero />
-    <LogosCarousel />
-    <Mission />
-    <AboutUs />
-    <Testimonials />
-        <ServiciosCards />
-        <FAQ />
-        <Contacto />
-        <CTA />
   </main>
   
   <Footer />

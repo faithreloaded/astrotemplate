@@ -1,0 +1,137 @@
+---
+import './FAQ.css';
+---
+
+<script>
+  // Animaciones de scroll para FAQ
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos de FAQ Minimal Lines
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqMinimalSection = document.querySelector('.faq-minimal-section');
+    const faqMinimalHeader = document.querySelector('.faq-minimal-header');
+    const faqMinimalItems = document.querySelectorAll('.faq-minimal-item');
+    const faqMinimalQuestions = document.querySelectorAll('.faq-minimal-question');
+    const faqMinimalAnswers = document.querySelectorAll('.faq-minimal-answer');
+
+    if (faqMinimalSection) observer.observe(faqMinimalSection);
+    if (faqMinimalHeader) observer.observe(faqMinimalHeader);
+    
+    faqMinimalItems.forEach((item, index) => {
+      observer.observe(item);
+    });
+    
+    faqMinimalQuestions.forEach((question, index) => {
+      observer.observe(question);
+    });
+    
+    faqMinimalAnswers.forEach((answer, index) => {
+      observer.observe(answer);
+    });
+  });
+
+  // Toggle FAQ Minimal items
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqMinimalQuestions = document.querySelectorAll('.faq-minimal-question');
+    
+    faqMinimalQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const faqMinimalItem = question.parentElement;
+        if (!faqMinimalItem) return;
+        
+        const faqMinimalAnswer = faqMinimalItem.querySelector('.faq-minimal-answer');
+        const isOpen = faqMinimalItem.classList.contains('open');
+        
+        // Close all other FAQ Minimal items
+        document.querySelectorAll('.faq-minimal-item').forEach(item => {
+          item.classList.remove('open');
+        });
+        
+        // Toggle current item
+        if (!isOpen) {
+          faqMinimalItem.classList.add('open');
+        }
+      });
+    });
+  });
+</script>
+
+<section class="faq-minimal-section">
+  <div class="container">
+    <div class="faq-minimal-header">
+      <span class="section-pill">FAQ</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    
+    <div class="faq-minimal-content">
+      <div class="faq-minimal-list">
+        <div class="faq-minimal-item">
+          <div class="faq-minimal-question">
+            <span>How long does it take to see results?</span>
+            <div class="faq-minimal-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-minimal-answer">
+            <p>Initial results typically appear within 2-4 weeks. However, sustained and significant growth is usually seen after 2-3 months of consistent work and optimization.</p>
+          </div>
+        </div>
+
+        <div class="faq-minimal-item">
+          <div class="faq-minimal-question">
+            <span>Do you work with businesses of all sizes?</span>
+            <div class="faq-minimal-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-minimal-answer">
+            <p>Yes, we work with businesses of all sizes, from startups to established enterprises. We adapt our strategy based on your specific budget and business objectives.</p>
+          </div>
+        </div>
+
+        <div class="faq-minimal-item">
+          <div class="faq-minimal-question">
+            <span>What platforms do you specialize in?</span>
+            <div class="faq-minimal-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-minimal-answer">
+            <p>We specialize in Instagram, TikTok, LinkedIn, and YouTube. We create platform-optimized content that leverages the unique features and audience behaviors of each platform.</p>
+          </div>
+        </div>
+
+        <div class="faq-minimal-item">
+          <div class="faq-minimal-question">
+            <span>How do you measure campaign success?</span>
+            <div class="faq-minimal-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-minimal-answer">
+            <p>We track key metrics including engagement rate, reach, conversions, and follower growth. We provide detailed monthly reports with actionable insights and strategic recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

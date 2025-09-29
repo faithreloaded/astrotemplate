@@ -19,7 +19,7 @@
 
 .faq-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
@@ -99,7 +99,7 @@
 
 .faq-question span {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-black);
   text-align: left;
   flex: 1;
@@ -154,7 +154,7 @@
   }
   
   .faq-header {
-    margin-bottom: 48px;
+    margin-bottom: 80px;
   }
   
   .faq-title {
@@ -187,7 +187,7 @@
   }
   
   .faq-header {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
   
   .faq-title {
