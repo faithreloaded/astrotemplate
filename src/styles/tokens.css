@@ -10,7 +10,7 @@
   
   /* Tipografía */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-weight-light: 300;
+  --font-sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-size-base: 16px;
   --font-size-lg: 18px;
   --font-size-xl: 24px;
@@ -18,10 +18,31 @@
   --font-size-5xl: 48px;
   --font-size-section-title: 70px;
   
-  /* Pesos de fuente */
+  /* Pesos de fuente (Inter 100–900) */
+  --font-weight-thin: 100;
+  --font-weight-extra-light: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
   --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
-  --font-weight-section: 550;
+  --font-weight-extra-bold: 800;
+  --font-weight-black: 900;
+
+  /* Weights (nuevas variables) */
+  --font-thin: 100;
+  --font-extralight: 200;
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* Styles */
+  --font-normal: normal;
+  --font-italic: italic;
   
   /* Espaciados */
   --space-1: 8px;
@@ -72,6 +93,32 @@
   cursor: default;
 }
 
+/* Pill Outline */
+.pill-outline {
+  display: inline-block !important;
+  background: transparent;
+  color: rgba(0,0,0,0.8);
+  padding: 8px 14px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: auto !important;
+  flex-shrink: 0 !important;
+  align-self: flex-start !important;
+  max-width: fit-content !important;
+}
+
+.pill-outline:hover {
+  background: rgba(0,0,0,0.02);
+  border-color: rgba(0,0,0,0.15);
+  color: rgba(0,0,0,0.9);
+  cursor: default;
+}
+
 /* Section Title Global */
 .section-title {
   font-size: 40px;
@@ -109,10 +156,12 @@
   background-color: var(--color-black);
   color: var(--color-white);
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 12px 22px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
+  font-family: var(--font-sans);
+  line-height: 1;
   transition: all 0.2s ease;
   border: none;
   cursor: pointer;
@@ -138,14 +187,43 @@
   background-color: rgba(0, 0, 0, 0.05);
   color: var(--color-black);
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 12px 22px;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
+  font-family: var(--font-sans);
+  line-height: 1;
   transition: all 0.2s ease;
   border: none;
   cursor: pointer;
   justify-content: center;
+}
+
+/* Link Button */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--color-black);
+  text-decoration: none;
+  padding: 0; /* estilo enlace, sin padding */
+  border-radius: 0;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-link::after {
+  content: " →";
+  transition: transform 0.2s ease;
+}
+
+.btn-link:hover::after {
+  transform: translateX(2px);
 }
 
 .btn-secondary:hover {
@@ -159,49 +237,3 @@
   transform: translateY(0);
 }
 
-/* Text Button with Arrow */
-.btn-text {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: none;
-  color: var(--color-black);
-  text-decoration: none;
-  padding: 8px 0;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-  justify-content: center;
-}
-
-.btn-text:hover {
-  color: rgba(0, 0, 0, 0.7);
-  text-decoration: none;
-}
-
-.btn-text .arrow-icon {
-  width: 12px;
-  height: 12px;
-  transition: transform 0.2s ease;
-}
-
-.btn-text:hover .arrow-icon {
-  transform: translate(2px, -2px);
-}
-
-/* Button Sizes */
-.btn-primary.btn-sm,
-.btn-secondary.btn-sm,
-.btn-text.btn-sm {
-  padding: 6px 12px;
-  font-size: 13px;
-}
-
-.btn-primary.btn-lg,
-.btn-secondary.btn-lg,
-.btn-text.btn-lg {
-  padding: 12px 24px;
-  font-size: 16px;
-}

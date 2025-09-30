@@ -1,0 +1,341 @@
+---
+import '../styles/main.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderMega from '../components/header/header-mega/Header.astro';
+import Footer from '../components/footer/footer-grid/Footer.astro';
+---
+
+<BaseLayout 
+  title="Botones | Astro Boilerplate" 
+  description="Galería de botones del sistema de diseño"
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="buttons-page">
+        <header class="buttons-header">
+          <h1 class="buttons-title">Sistema de Botones</h1>
+          <p class="buttons-description">
+            Todos los botones disponibles en el sistema de diseño
+          </p>
+        </header>
+
+        <section class="buttons-section">
+          <h2 class="buttons-section-title">Botón Primario</h2>
+          <p class="buttons-section-description">
+            Botón principal para acciones importantes
+          </p>
+          <div class="buttons-grid">
+            <div class="button-example">
+              <h3>Normal</h3>
+              <button class="btn-primary">Get started</button>
+            </div>
+            <div class="button-example">
+              <h3>Con icono</h3>
+              <button class="btn-primary">
+                Log in
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </button>
+            </div>
+            <div class="button-example">
+              <h3>Como enlace</h3>
+              <a href="#" class="btn-primary">Get started</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="buttons-section">
+          <h2 class="buttons-section-title">Botón Secundario</h2>
+          <p class="buttons-section-description">
+            Botón secundario para acciones menos importantes
+          </p>
+          <div class="buttons-grid">
+            <div class="button-example">
+              <h3>Normal</h3>
+              <button class="btn-secondary">Learn more</button>
+            </div>
+            <div class="button-example">
+              <h3>Con flecha</h3>
+              <button class="btn-secondary learn-more-btn">Learn more</button>
+            </div>
+            <div class="button-example">
+              <h3>Como enlace</h3>
+              <a href="#" class="btn-secondary">Learn more</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="buttons-section">
+          <h2 class="buttons-section-title">Botón Link</h2>
+          <p class="buttons-section-description">
+            Estilo enlace, sin fondo ni borde, con flecha animada
+          </p>
+          <div class="buttons-grid">
+            <div class="button-example">
+              <h3>Normal</h3>
+              <a href="#" class="btn-link">Learn more</a>
+            </div>
+            <div class="button-example">
+              <h3>Como botón</h3>
+              <button class="btn-link">Learn more</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="buttons-section">
+          <h2 class="buttons-section-title">Estados</h2>
+          <p class="buttons-section-description">
+            Diferentes estados de los botones
+          </p>
+          <div class="buttons-grid">
+            <div class="button-example">
+              <h3>Normal</h3>
+              <button class="btn-primary">Normal</button>
+            </div>
+            <div class="button-example">
+              <h3>Hover</h3>
+              <button class="btn-primary hover-demo">Hover me</button>
+            </div>
+            <div class="button-example">
+              <h3>Active</h3>
+              <button class="btn-primary active-demo">Active</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="buttons-section">
+          <h2 class="buttons-section-title">En Contexto</h2>
+          <p class="buttons-section-description">
+            Cómo se ven los botones en situaciones reales
+          </p>
+          <div class="buttons-context">
+            <div class="context-example">
+              <h3>Hero Section</h3>
+              <div class="context-buttons">
+                <button class="btn-primary">Get started</button>
+                <button class="btn-secondary learn-more-btn">Learn more</button>
+              </div>
+            </div>
+            <div class="context-example">
+              <h3>Header</h3>
+              <div class="context-buttons">
+                <button class="btn-primary">
+                  Log in
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="context-example">
+              <h3>Footer CTA</h3>
+              <div class="context-buttons">
+                <button class="btn-primary">Get started</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="buttons-section">
+          <h2 class="buttons-section-title">Especificaciones</h2>
+          <div class="specs-grid">
+            <div class="spec-item">
+              <h3>Padding</h3>
+              <p>10px 20px</p>
+            </div>
+            <div class="spec-item">
+              <h3>Border Radius</h3>
+              <p>6px</p>
+            </div>
+            <div class="spec-item">
+              <h3>Font Size</h3>
+              <p>14px</p>
+            </div>
+            <div class="spec-item">
+              <h3>Font Weight</h3>
+              <p>500</p>
+            </div>
+            <div class="spec-item">
+              <h3>Font Family</h3>
+              <p>Inter</p>
+            </div>
+            <div class="spec-item">
+              <h3>Transition</h3>
+              <p>0.2s ease</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .buttons-page {
+    padding: var(--space-8) 0;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .buttons-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+  }
+
+  .buttons-title {
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .buttons-description {
+    font-size: 18px;
+    color: var(--color-gray);
+    margin: 0;
+  }
+
+  .buttons-section {
+    margin-bottom: var(--space-8);
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .buttons-section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+  }
+
+  .buttons-section-description {
+    font-size: 16px;
+    color: var(--color-gray);
+    margin: 0 0 var(--space-5) 0;
+  }
+
+  .buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .button-example {
+    text-align: center;
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .button-example h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-gray);
+    margin: 0 0 var(--space-3) 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .buttons-context {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .context-example {
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .context-example h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .context-buttons {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .spec-item {
+    text-align: center;
+    padding: var(--space-3);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .spec-item h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-gray);
+    margin: 0 0 var(--space-1) 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .spec-item p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0;
+  }
+
+  /* Flecha para botón Learn More */
+  .learn-more-btn::after {
+    content: " →";
+    transition: transform 0.2s ease;
+  }
+
+  .learn-more-btn:hover::after {
+    transform: translateX(2px);
+  }
+
+  /* Demo de hover */
+  .hover-demo:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-1px);
+  }
+
+  /* Demo de active */
+  .active-demo:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .buttons-page {
+      padding: var(--space-6) 0;
+    }
+
+    .buttons-title {
+      font-size: 36px;
+    }
+
+    .buttons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .context-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import "./Footer.css";
+const year = new Date().getFullYear();
 ---
 
 <footer class="footer-cta">
@@ -12,7 +13,7 @@ import "./Footer.css";
         <p class="footer-cta-description-main">
           Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.
         </p>
-        <a href="/get-started" class="btn-primary btn-lg">
+        <a href="/get-started" class="btn-primary">
           Get started
         </a>
       </div>
@@ -75,8 +76,9 @@ import "./Footer.css";
     
     <div class="footer-cta-bottom">
       <div class="footer-cta-copyright">
-        <p>Web design by <a href="https://example.com" target="_blank" rel="noopener" class="credit-link">example.com</a></p>
+        <p>© {year} Your Company, Inc. All rights reserved.</p>
       </div>
+      <p class="footer-credit">Web design by <a href="https://example.com" target="_blank" rel="noopener" class="credit-link">example.com</a></p>
       <div class="footer-cta-social">
         <a href="#" class="footer-cta-social-link" aria-label="Facebook">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

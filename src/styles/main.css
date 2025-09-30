@@ -1,5 +1,12 @@
 /* ===== MAIN CONTENT STYLES ===== */
 
+/* Configuración global de fuente */
+html, body {
+  font-family: var(--font-sans);
+  font-weight: var(--font-regular);
+  font-style: var(--font-normal);
+}
+
 .main {
   flex: 1;
   background-color: var(--color-cream);
@@ -22,19 +29,6 @@
   min-width: 160px;
 }
 
-.btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  text-decoration: none;
-}
 
 .btn-secondary {
   background-color: transparent;

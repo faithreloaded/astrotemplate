@@ -66,7 +66,7 @@
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  min-width: 320px;
+  min-width: 340px; /* sutilmente más ancho para caber textos largos */
   opacity: 0;
   visibility: hidden;
   transform: translateX(-50%) translateY(-10px);
@@ -138,7 +138,8 @@
 .mega-menu-actions {
   padding: 16px 24px 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* dos columnas iguales */
   gap: 12px;
 }
 
@@ -152,8 +153,10 @@
   font-size: 13px;
   font-weight: 500;
   transition: all 0.2s ease;
-  flex: 1;
-  justify-content: center;
+  width: 100%;             /* ocupar todo el ancho de su celda */
+  min-width: 0;            /* permitir encajar en grid */
+  white-space: nowrap;     /* evitar salto de línea */
+  justify-content: center; /* centrar texto dentro del botón */
 }
 
 .mega-menu-btn.primary {
@@ -184,22 +187,6 @@
   justify-self: end;
 }
 
-.login-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--color-black);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: var(--transition);
-  padding: 8px 0;
-}
-
-.login-btn:hover {
-  color: rgba(0,0,0,0.7);
-  text-decoration: none;
-}
 
 .header-mega .menu-toggle {
   background: none;
@@ -404,19 +391,6 @@
   transform: translateY(0);
 }
 
-.header-mega .mobile-login-btn {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  background-color: var(--color-black);
-  color: var(--color-white);
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 100px;
-  font-size: 14px;
-  font-weight: 500;
-  justify-content: center;
-}
 
 /* Prevent body scroll when menu is open */
 body.menu-open {
@@ -443,7 +417,7 @@ body.menu-open {
   }
   
   .mega-menu {
-    min-width: 280px;
+    min-width: 330px; /* ligero aumento también en tablet */
   }
 }
 
