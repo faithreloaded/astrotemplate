@@ -1,0 +1,272 @@
+---
+// HeroWithCarousel Component
+---
+
+<section class="hero-with-carousel">
+  <div class="hero-with-carousel-content">
+    <!-- Título principal -->
+    <h1 class="hero-with-carousel-title">
+      Lorem ipsum dolor sit amet.<br>
+      Consectetur adipiscing elit.
+    </h1>
+    
+    <!-- Descripción -->
+    <p class="hero-with-carousel-description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+    </p>
+    
+    <!-- Botón CTA -->
+    <button class="btn-primary hero-with-carousel-cta">
+      Get Started
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Carrusel de imágenes -->
+  <div class="hero-with-carousel-portfolio">
+    <div class="hero-with-carousel-container">
+      <div class="hero-with-carousel-slider">
+        <!-- Duplicar las imágenes para efecto infinito -->
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 1" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 2" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 3" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 4" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 5" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <!-- Duplicar para efecto infinito -->
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 1" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 2" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 3" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 4" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+        <div class="hero-with-carousel-slide">
+          <img src="/images/placeholder.jpg" alt="Portfolio 5" class="hero-with-carousel-image" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animaciones */
+  @keyframes heroWithCarouselFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* HeroWithCarousel Styles */
+  .hero-with-carousel {
+    width: 100%;
+    background-color: var(--color-background);
+    position: relative;
+    padding: var(--space-20) 0 var(--space-16) 0;
+  }
+
+  /* Contenido del Hero */
+  .hero-with-carousel-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Título principal */
+  .hero-with-carousel-title {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroWithCarouselFadeInUp 0.6s ease 0.1s forwards;
+  }
+
+  /* Descripción */
+  .hero-with-carousel-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-gray);
+    margin: 0 0 var(--space-4) 0;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroWithCarouselFadeInUp 0.6s ease 0.2s forwards;
+  }
+
+  /* Botón CTA */
+  .hero-with-carousel-cta {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroWithCarouselFadeInUp 0.6s ease 0.3s forwards;
+  }
+
+  /* Carrusel de Portfolio */
+  .hero-with-carousel-portfolio {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+    position: relative;
+  }
+
+  .hero-with-carousel-container {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+    position: relative;
+  }
+
+  /* Gradientes laterales para suavizar bordes */
+  .hero-with-carousel-container::before,
+  .hero-with-carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-with-carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-background), transparent);
+  }
+
+  .hero-with-carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-background), transparent);
+  }
+
+  /* Slider con animación infinita */
+  .hero-with-carousel-slider {
+    display: flex;
+    gap: var(--space-4);
+    animation: heroCarouselSlide 30s linear infinite;
+  }
+
+  /* Animación del carrusel */
+  @keyframes heroCarouselSlide {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  /* Slides individuales */
+  .hero-with-carousel-slide {
+    flex-shrink: 0;
+    border-radius: 8px;
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    opacity: 0;
+    animation: heroCarouselFadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Imágenes del carrusel */
+  .hero-with-carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Animación de entrada escalonada */
+  @keyframes heroCarouselFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Delays escalonados para cada slide */
+  .hero-with-carousel-slide:nth-child(1) { animation-delay: 0.1s; }
+  .hero-with-carousel-slide:nth-child(2) { animation-delay: 0.2s; }
+  .hero-with-carousel-slide:nth-child(3) { animation-delay: 0.3s; }
+  .hero-with-carousel-slide:nth-child(4) { animation-delay: 0.4s; }
+  .hero-with-carousel-slide:nth-child(5) { animation-delay: 0.5s; }
+  .hero-with-carousel-slide:nth-child(6) { animation-delay: 0.6s; }
+  .hero-with-carousel-slide:nth-child(7) { animation-delay: 0.7s; }
+  .hero-with-carousel-slide:nth-child(8) { animation-delay: 0.8s; }
+  .hero-with-carousel-slide:nth-child(9) { animation-delay: 0.9s; }
+  .hero-with-carousel-slide:nth-child(10) { animation-delay: 1.0s; }
+
+  /* Responsive Design */
+  @media (max-width: 767px) {
+    .hero-with-carousel {
+      padding: var(--space-16) 0 var(--space-12) 0;
+    }
+
+    .hero-with-carousel-content {
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .hero-with-carousel-title {
+      font-size: 36px;
+      font-weight: 600;
+    }
+
+    .hero-with-carousel-description {
+      font-size: 16px;
+    }
+
+    .hero-with-carousel-slide {
+      width: 280px;
+      height: 280px;
+    }
+
+    .hero-with-carousel-slider {
+      animation: heroCarouselSlide 20s linear infinite;
+      gap: var(--space-3);
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-with-carousel-slide {
+      width: 360px;
+      height: 360px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-with-carousel-slide {
+      width: 480px;
+      height: 480px;
+    }
+  }
+</style>

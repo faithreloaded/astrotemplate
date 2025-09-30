@@ -1,0 +1,209 @@
+---
+// SplitWithImage Hero Component
+---
+
+<section class="split-with-image-hero">
+  <div class="split-with-image-container">
+    <!-- Left Content Section -->
+    <div class="split-with-image-content">
+      <!-- Banner -->
+      <div class="pill-outline-hero">
+        <span class="split-with-image-banner-text">
+          Lorem ipsum dolor. 
+          <a href="#" class="btn-link-blue">Read more →</a>
+        </span>
+      </div>
+      
+      <!-- Main Heading -->
+      <h1 class="split-with-image-title">
+        Lorem ipsum dolor sit amet consectetur
+      </h1>
+      
+      <!-- Description -->
+      <p class="split-with-image-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+      </p>
+      
+      <!-- Action Buttons -->
+      <div class="split-with-image-actions">
+        <button class="btn-primary">
+          Get started
+        </button>
+        <a href="#" class="btn-secondary">
+          Learn more
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Right Image Section -->
+    <div class="split-with-image-visual">
+      <img src="/images/placeholder.jpg" alt="Workspace with laptop" class="split-with-image-img" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animaciones */
+  @keyframes splitWithImageFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes splitWithImageFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* SplitWithImage Hero Styles */
+  .split-with-image-hero {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .split-with-image-container {
+    display: contents;
+  }
+
+  /* Left Content Section */
+  .split-with-image-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: var(--space-8);
+    gap: var(--space-6);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Banner */
+  .split-with-image-banner-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.4;
+  }
+
+  /* Main Heading */
+  .split-with-image-title {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #1f2937;
+    margin: 0;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splitWithImageFadeInUp 0.6s ease 0.2s forwards;
+  }
+
+  /* Description */
+  .split-with-image-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #6b7280;
+    margin: 0;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splitWithImageFadeInUp 0.6s ease 0.3s forwards;
+  }
+
+  /* Action Buttons */
+  .split-with-image-actions {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: splitWithImageFadeInUp 0.6s ease 0.4s forwards;
+  }
+
+  /* Right Image Section */
+  .split-with-image-visual {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    opacity: 0;
+    animation: splitWithImageFadeIn 0.6s ease 0.5s forwards;
+  }
+
+  .split-with-image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .split-with-image-hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    
+    .split-with-image-content {
+      padding: var(--space-6) var(--space-4);
+      order: 1;
+      text-align: left;
+      align-items: flex-start;
+    }
+    
+    .split-with-image-visual {
+      height: 50vh;
+      order: 2;
+    }
+    
+    .split-with-image-title {
+      font-size: 36px;
+      font-weight: 600;
+    }
+    
+    .split-with-image-description {
+      font-size: 16px;
+    }
+    
+    .split-with-image-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .split-with-image-actions .btn-primary,
+    .split-with-image-actions .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .split-with-image-content {
+      padding: var(--space-4) var(--space-3);
+    }
+    
+    .split-with-image-title {
+      font-size: 32px;
+      font-weight: 600;
+    }
+    
+    .split-with-image-visual {
+      height: 40vh;
+    }
+  }
+</style>

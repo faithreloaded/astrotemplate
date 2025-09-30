@@ -1,11 +1,19 @@
 /* ===== SIMPLE CENTERED HERO ===== */
 
+/* Animaciones */
+@keyframes simpleCenteredFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .simple-centered-hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-6) var(--space-4);
+  padding: 6rem var(--space-4) 8rem var(--space-4);
   font-family: var(--font-family);
 }
 
@@ -29,17 +37,6 @@
   line-height: 1.4;
 }
 
-.simple-centered-banner-link {
-  color: #3b82f6;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.simple-centered-banner-link:hover {
-  color: #2563eb;
-  text-decoration: none;
-}
 
 /* Título principal */
 .simple-centered-title {
@@ -49,6 +46,9 @@
   color: #1f2937;
   margin: 0 0 var(--space-5) 0;
   letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: simpleCenteredFadeInUp 0.6s ease 0.2s forwards;
 }
 
 /* Descripción */
@@ -60,6 +60,9 @@
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: simpleCenteredFadeInUp 0.6s ease 0.3s forwards;
 }
 
 /* Botones de acción */
@@ -69,6 +72,9 @@
   justify-content: center;
   gap: var(--space-4);
   flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: simpleCenteredFadeInUp 0.6s ease 0.4s forwards;
 }
 
 /* Flecha para el botón Learn More */
@@ -86,8 +92,7 @@
 
 @media (max-width: 768px) {
   .simple-centered-hero {
-    padding: var(--space-4) var(--space-3);
-    min-height: 80vh;
+    padding: 4rem var(--space-3) 6rem var(--space-3);
   }
   
   .simple-centered-title {
@@ -106,6 +111,10 @@
 }
 
 @media (max-width: 480px) {
+  .simple-centered-hero {
+    padding: 3rem var(--space-3) 4rem var(--space-3);
+  }
+  
   .simple-centered-title {
     font-size: 36px;
     line-height: 1.3;

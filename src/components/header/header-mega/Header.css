@@ -277,8 +277,9 @@
 
 .header-mega .mobile-nav-menu .mobile-logo {
   height: 32px;
-  width: auto;
-  filter: brightness(0) !important;
+  width: 32px;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
 .header-mega .mobile-close-btn {
@@ -389,6 +390,20 @@
 .header-mega .mobile-nav-menu.active .mobile-nav-footer {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Botón del mobile menu - negro con texto blanco */
+.header-mega .mobile-nav-footer .btn-primary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.header-mega .mobile-nav-footer .btn-primary:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--color-white);
 }
 
 
