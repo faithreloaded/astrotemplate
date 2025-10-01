@@ -25,7 +25,6 @@
 .footer-logo .logo-img {
   height: 32px;
   width: auto;
-  filter: brightness(0) !important;
 }
 
 .footer-title {

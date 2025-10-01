@@ -1,0 +1,71 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import Footer from '../../components/footer/footer-grid/Footer.astro';
+import './_buttons.css';
+---
+
+<BaseLayout 
+  title="Buttons | Starter UI" 
+  description="Button system design gallery"
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="buttons-page">
+        <header class="buttons-header">
+          <h1 class="buttons-title">Button System</h1>
+          <p class="buttons-description">
+            Three button styles for all your needs
+          </p>
+        </header>
+
+        <div class="buttons-showcase">
+          <div class="button-group">
+            <h2>Primary</h2>
+            <div class="button-examples">
+              <button class="btn-primary">Get started</button>
+              <button class="btn-primary">
+                Log in
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <h2>Secondary</h2>
+            <div class="button-examples">
+              <button class="btn-secondary">Learn more</button>
+              <button class="btn-secondary learn-more-btn">Learn more</button>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <h2>Link</h2>
+            <div class="button-examples">
+              <a href="#" class="btn-link">Learn more</a>
+              <div class="link-variant">
+                <a href="#" class="btn-link-blue">Learn more</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <h2>Dark Variants</h2>
+            <div class="button-examples dark-bg">
+              <button class="btn-primary-dark">Get started</button>
+              <button class="btn-secondary-dark">Learn more</button>
+              <a href="#" class="btn-link-dark">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>

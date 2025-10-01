@@ -18,7 +18,6 @@
 .header-center .logo-img {
   height: 40px;
   width: auto;
-  filter: brightness(0) !important;
 }
 
 .nav-center {
@@ -155,7 +154,6 @@
 .header-center .mobile-nav-menu .mobile-logo {
   height: 32px;
   width: auto;
-  filter: brightness(0) !important;
 }
 
 .header-center .mobile-close-btn {

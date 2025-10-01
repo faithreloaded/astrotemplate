@@ -64,7 +64,6 @@
 .footer-cta-logo-img {
   height: 40px;
   width: auto;
-  filter: brightness(0) !important;
 }
 
 .footer-cta-description {

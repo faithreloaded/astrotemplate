@@ -1,0 +1,229 @@
+.buttons-page {
+  padding: var(--space-6) 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.buttons-header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.buttons-title {
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.buttons-description {
+  font-size: 18px;
+  color: var(--color-gray);
+  margin: 0;
+}
+
+.buttons-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.button-group {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-group h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin: 0 0 var(--space-4) 0;
+  text-align: center;
+}
+
+.button-examples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: center;
+}
+
+.link-variant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.link-variant-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.states-showcase {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.states-showcase h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin: 0 0 var(--space-4) 0;
+  text-align: center;
+}
+
+.states-examples {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.dark-showcase {
+  background: linear-gradient(135deg, #1f2937, #374151);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.dark-showcase h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-white);
+  margin: 0 0 var(--space-2) 0;
+  text-align: center;
+}
+
+.dark-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 var(--space-4) 0;
+  text-align: center;
+}
+
+.dark-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.dark-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.dark-group h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  text-align: center;
+}
+
+.specs-showcase {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: var(--space-5);
+}
+
+.specs-showcase h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin: 0 0 var(--space-4) 0;
+  text-align: center;
+}
+
+.specs-inline {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.specs-inline span {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-gray);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* Flecha para botón Learn More */
+.learn-more-btn::after {
+  content: " →";
+  transition: transform 0.2s ease;
+}
+
+.learn-more-btn:hover::after {
+  transform: translateX(2px);
+}
+
+/* Demo de hover */
+.hover-demo:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Demo de active */
+.active-demo:active {
+  transform: translateY(0);
+}
+
+/* Dark background for dark variants */
+.dark-bg {
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .buttons-page {
+    padding: var(--space-4) 0;
+  }
+
+  .buttons-title {
+    font-size: 32px;
+  }
+
+  .buttons-showcase {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .button-examples {
+    flex-direction: column;
+  }
+
+  .dark-buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .states-examples {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .specs-inline {
+    flex-direction: column;
+    align-items: center;
+  }
+}

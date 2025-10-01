@@ -6,35 +6,35 @@ const cards = [
     description: 'Descripción breve del servicio. Resultados rápidos y profesionales.',
     price: '750€',
     tags: ['Nature', '5-day stay'],
-    image: '/images/placeholder.jpg'
+    image: '/images/images/placeholder/placeholder.jpg'
   },
   {
     title: 'Servicio B',
     description: 'Texto breve y sutil para explicar el servicio.',
     price: '950€',
     tags: ['Business', 'Consulting'],
-    image: '/images/placeholder.jpg'
+    image: '/images/images/placeholder/placeholder.jpg'
   },
   {
     title: 'Servicio C',
     description: 'Pequeña descripción que no ocupe mucho espacio.',
     price: '1200€',
     tags: ['Design', 'Web'],
-    image: '/images/placeholder.jpg'
+    image: '/images/images/placeholder/placeholder.jpg'
   },
   {
     title: 'Servicio D',
     description: 'Nuevo servicio con características innovadoras.',
     price: '850€',
     tags: ['Innovation', 'Tech'],
-    image: '/images/placeholder.jpg'
+    image: '/images/images/placeholder/placeholder.jpg'
   },
   {
     title: 'Servicio E',
     description: 'Solución premium para empresas grandes.',
     price: '1500€',
     tags: ['Enterprise', 'Premium'],
-    image: '/images/placeholder.jpg'
+    image: '/images/images/placeholder/placeholder.jpg'
   }
 ];
 ---
@@ -64,7 +64,7 @@ const cards = [
         <div class="carousel-track" id="carouselTrack">
           {cards.map((card, index) => (
             <article class="servicio-card">
-              <img src={index % 2 === 1 ? '/images/paceholder2.jpg' : card.image} alt={card.title} class="card-bg" loading="lazy" />
+              <img src={index % 2 === 1 ? '/images/images/placeholder/paceholder2.jpg' : card.image} alt={card.title} class="card-bg" loading="lazy" />
               <div class="card-overlay-bottom">
                 <div class="card-row">
                   <h3 class="card-heading">{card.title}</h3>

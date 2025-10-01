@@ -18,7 +18,6 @@
 .header-login-signup .logo-img {
   height: 40px;
   width: auto;
-  filter: brightness(0) !important;
 }
 
 .nav-login-signup {
@@ -239,7 +238,6 @@
 .header-login-signup .mobile-nav-menu .mobile-logo {
   height: 32px;
   width: auto;
-  filter: brightness(0) !important;
 }
 
 .header-login-signup .mobile-close-btn {

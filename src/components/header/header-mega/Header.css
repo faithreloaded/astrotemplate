@@ -18,7 +18,6 @@
 .header-mega .logo-img {
   height: 40px;
   width: auto;
-  filter: brightness(0) !important;
 }
 
 .nav-mega {
@@ -66,7 +65,7 @@
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  min-width: 340px; /* sutilmente más ancho para caber textos largos */
+  min-width: 500px; /* más ancho para mejor distribución */
   opacity: 0;
   visibility: hidden;
   transform: translateX(-50%) translateY(-10px);
@@ -81,17 +80,24 @@
 }
 
 .mega-menu-content {
-  padding: 24px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.mega-menu-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  flex: 1;
 }
 
 .mega-menu-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding: 8px 0;
+  padding: 6px 0;
   transition: all 0.2s ease;
   border-radius: 8px;
   cursor: pointer;
@@ -138,9 +144,13 @@
 .mega-menu-actions {
   padding: 16px 24px 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* dos columnas iguales */
+  display: flex;
   gap: 12px;
+}
+
+.btn-primary.full-width {
+  width: 100%;
+  justify-content: center;
 }
 
 .mega-menu-btn {

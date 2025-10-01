@@ -1,0 +1,222 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+import './_global-styles.css';
+---
+
+<BaseLayout 
+  title="Global Styles | Starter UI" 
+  description="Design tokens, colors, typography, spacing, and global styles for the Starter UI template."
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="global-styles-page">
+        <header class="page-header">
+          <h1>Global Styles</h1>
+          <p>Design tokens, colors, typography, spacing, and global styles for the Starter UI template.</p>
+        </header>
+
+        <div class="styles-container">
+          <!-- Colors Section -->
+          <section class="style-section">
+            <h2>Colors</h2>
+            <div class="color-grid">
+              <div class="color-item">
+                <div class="color-swatch" style="background: var(--color-primary);"></div>
+                <div>
+                  <h3>Primary</h3>
+                  <code>--color-primary</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background: var(--color-black);"></div>
+                <div>
+                  <h3>Black</h3>
+                  <code>--color-black</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background: var(--color-white);"></div>
+                <div>
+                  <h3>White</h3>
+                  <code>--color-white</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background: var(--color-gray);"></div>
+                <div>
+                  <h3>Gray</h3>
+                  <code>--color-gray</code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Typography Section -->
+          <section class="style-section">
+            <h2>Typography</h2>
+            <div class="typography-grid">
+              <div class="typography-item">
+                <h3>Heading 1</h3>
+                <h1 style="margin: 0;">Heading 1</h1>
+                <code>h1</code>
+              </div>
+              <div class="typography-item">
+                <h3>Heading 2</h3>
+                <h2 style="margin: 0;">Heading 2</h2>
+                <code>h2</code>
+              </div>
+              <div class="typography-item">
+                <h3>Heading 3</h3>
+                <h3 style="margin: 0;">Heading 3</h3>
+                <code>h3</code>
+              </div>
+              <div class="typography-item">
+                <h3>Body Text</h3>
+                <p style="margin: 0;">Body text paragraph</p>
+                <code>p</code>
+              </div>
+            </div>
+          </section>
+
+          <!-- Spacing Section -->
+          <section class="style-section">
+            <h2>Spacing</h2>
+            <div class="spacing-grid">
+              <div class="spacing-item">
+                <div class="spacing-demo" style="width: var(--space-1); height: var(--space-1);"></div>
+                <h3>Space 1</h3>
+                <code>--space-1</code>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-demo" style="width: var(--space-2); height: var(--space-2);"></div>
+                <h3>Space 2</h3>
+                <code>--space-2</code>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-demo" style="width: var(--space-3); height: var(--space-3);"></div>
+                <h3>Space 3</h3>
+                <code>--space-3</code>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-demo" style="width: var(--space-4); height: var(--space-4);"></div>
+                <h3>Space 4</h3>
+                <code>--space-4</code>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-demo" style="width: var(--space-5); height: var(--space-5);"></div>
+                <h3>Space 5</h3>
+                <code>--space-5</code>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-demo" style="width: var(--space-6); height: var(--space-6);"></div>
+                <h3>Space 6</h3>
+                <code>--space-6</code>
+              </div>
+            </div>
+          </section>
+
+          <!-- Buttons Section -->
+          <section class="style-section">
+            <h2>Buttons</h2>
+            <div class="button-grid">
+              <div class="button-item">
+                <h3>Primary</h3>
+                <button class="btn-primary">Primary Button</button>
+                <code>.btn-primary</code>
+              </div>
+              <div class="button-item">
+                <h3>Secondary</h3>
+                <button class="btn-secondary">Secondary Button</button>
+                <code>.btn-secondary</code>
+              </div>
+              <div class="button-item">
+                <h3>Link</h3>
+                <button class="btn-link">Link Button</button>
+                <code>.btn-link</code>
+              </div>
+              <div class="button-item">
+                <h3>Primary Dark</h3>
+                <div style="background: #000; padding: 20px; border-radius: 8px;">
+                  <button class="btn-primary-dark">Primary Dark</button>
+                </div>
+                <code>.btn-primary-dark</code>
+              </div>
+              <div class="button-item">
+                <h3>Secondary Dark</h3>
+                <div style="background: #000; padding: 20px; border-radius: 8px;">
+                  <button class="btn-secondary-dark">Secondary Dark</button>
+                </div>
+                <code>.btn-secondary-dark</code>
+              </div>
+              <div class="button-item">
+                <h3>Link Dark</h3>
+                <div style="background: #000; padding: 20px; border-radius: 8px;">
+                  <button class="btn-link-dark">Link Dark</button>
+                </div>
+                <code>.btn-link-dark</code>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pills Section -->
+          <section class="style-section">
+            <h2>Pills</h2>
+            <div class="pill-grid">
+              <div class="pill-item">
+                <h3>Section Pill</h3>
+                <div class="section-pill">Section Pill</div>
+                <code>.section-pill</code>
+              </div>
+              <div class="pill-item">
+                <h3>Pill Outline</h3>
+                <div class="pill-outline">Pill Outline</div>
+                <code>.pill-outline</code>
+              </div>
+              <div class="pill-item">
+                <h3>Pill Outline Dark</h3>
+                <div style="background: #000; padding: 20px; border-radius: 8px;">
+                  <div class="pill-outline-dark">Pill Outline Dark</div>
+                </div>
+                <code>.pill-outline-dark</code>
+              </div>
+            </div>
+          </section>
+
+          <!-- Layout Section -->
+          <section class="style-section">
+            <h2>Layout</h2>
+            <div class="layout-grid">
+              <div class="layout-item">
+                <h3>Max Width</h3>
+                <p><code>--max-width</code></p>
+                <p>1140px</p>
+              </div>
+              <div class="layout-item">
+                <h3>Border Radius</h3>
+                <p><code>--radius-lg</code></p>
+                <p>8px</p>
+              </div>
+              <div class="layout-item">
+                <h3>Shadow</h3>
+                <p><code>--shadow-lg</code></p>
+                <div class="shadow-demo" style="box-shadow: var(--shadow-lg); width: 100px; height: 50px; background: white; border-radius: 8px;"></div>
+              </div>
+              <div class="layout-item">
+                <h3>Transition</h3>
+                <p><code>--transition</code></p>
+                <p>0.3s ease</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <FooterGrid />
+</BaseLayout>
