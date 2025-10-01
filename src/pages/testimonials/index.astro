@@ -7,6 +7,7 @@ import Footer from '../../components/footer/footer-grid/Footer.astro';
 // Importar todos los componentes Testimonials
 import TestimonialsMasonry from '../../components/testimonials/masonry/Testimonials.astro';
 import TestimonialCarousel from '../../components/testimonials/carousel/TestimonialCarousel.astro';
+import TestimonialsSimple from '../../components/testimonials/simple/TestimonialsSimple.astro';
 ---
 
 <BaseLayout 
@@ -37,18 +38,29 @@ import TestimonialCarousel from '../../components/testimonials/carousel/Testimon
             </div>
           </div>
 
-          <!-- Carousel Testimonials -->
-          <div class="testimonials-showcase-item">
-            <div class="testimonials-showcase-header">
-              <h2 class="testimonials-showcase-title">Carousel</h2>
-              <p class="testimonials-showcase-description">Infinite scrolling carousel with dual-direction testimonials</p>
-            </div>
-            <div class="testimonials-showcase-preview">
-              <TestimonialCarousel />
-            </div>
-          </div>
+                 <!-- Carousel Testimonials -->
+                 <div class="testimonials-showcase-item">
+                   <div class="testimonials-showcase-header">
+                     <h2 class="testimonials-showcase-title">Carousel</h2>
+                     <p class="testimonials-showcase-description">Infinite scrolling carousel with dual-direction testimonials</p>
+                   </div>
+                   <div class="testimonials-showcase-preview">
+                     <TestimonialCarousel />
+                   </div>
+                 </div>
 
-        </div>
+                 <!-- Simple Testimonials -->
+                 <div class="testimonials-showcase-item">
+                   <div class="testimonials-showcase-header">
+                     <h2 class="testimonials-showcase-title">Simple</h2>
+                     <p class="testimonials-showcase-description">Clean and minimal testimonial slider with drag support</p>
+                   </div>
+                   <div class="testimonials-showcase-preview">
+                     <TestimonialsSimple />
+                   </div>
+                 </div>
+
+               </div>
       </div>
     </div>
   </main>
