@@ -3,9 +3,11 @@ import '../styles/main.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeaderMega from '../components/header/header-mega/Header.astro';
 import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.astro';
+import HeroWithBackground from '../components/hero/with-background/HeroWithBackground.astro';
 import TestimonialCarousel from '../components/testimonials/carousel/TestimonialCarousel.astro';
 import TestimonialsMasonry from '../components/testimonials/masonry/Testimonials.astro';
 import TestimonialsSimple from '../components/testimonials/simple/TestimonialsSimple.astro';
+import TestimonialSingle from '../components/testimonials/single/TestimonialSingle.astro';
 import FooterGrid from '../components/footer/footer-grid/Footer.astro';
 ---
 
@@ -16,10 +18,12 @@ import FooterGrid from '../components/footer/footer-grid/Footer.astro';
   <HeaderMega />
   
   <main class="main">
+    <HeroWithBackground />
     <SimpleCentered />
     <TestimonialCarousel />
     <TestimonialsMasonry />
     <TestimonialsSimple />
+    <TestimonialSingle />
   </main>
   
   <FooterGrid />

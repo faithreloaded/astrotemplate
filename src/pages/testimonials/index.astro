@@ -8,6 +8,7 @@ import Footer from '../../components/footer/footer-grid/Footer.astro';
 import TestimonialsMasonry from '../../components/testimonials/masonry/Testimonials.astro';
 import TestimonialCarousel from '../../components/testimonials/carousel/TestimonialCarousel.astro';
 import TestimonialsSimple from '../../components/testimonials/simple/TestimonialsSimple.astro';
+import TestimonialSingle from '../../components/testimonials/single/TestimonialSingle.astro';
 ---
 
 <BaseLayout 
@@ -57,6 +58,17 @@ import TestimonialsSimple from '../../components/testimonials/simple/Testimonial
                    </div>
                    <div class="testimonials-showcase-preview">
                      <TestimonialsSimple />
+                   </div>
+                 </div>
+
+                 <!-- Single Testimonial -->
+                 <div class="testimonials-showcase-item">
+                   <div class="testimonials-showcase-header">
+                     <h2 class="testimonials-showcase-title">Single</h2>
+                     <p class="testimonials-showcase-description">Featured testimonial with prominent quote and detailed feedback</p>
+                   </div>
+                   <div class="testimonials-showcase-preview">
+                     <TestimonialSingle />
                    </div>
                  </div>
 
