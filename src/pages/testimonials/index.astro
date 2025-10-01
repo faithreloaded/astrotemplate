@@ -1,0 +1,184 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import Footer from '../../components/footer/footer-grid/Footer.astro';
+
+// Importar todos los componentes Testimonials
+import TestimonialsMasonry from '../../components/testimonials/masonry/Testimonials.astro';
+import TestimonialCarousel from '../../components/testimonials/carousel/TestimonialCarousel.astro';
+---
+
+<BaseLayout 
+  title="Testimonials | Starter UI" 
+  description="Collection of testimonials section components for modern web design"
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="testimonials-page">
+        <header class="testimonials-page-header">
+          <h1 class="testimonials-page-title">Testimonials</h1>
+          <p class="testimonials-page-description">
+            A curated collection of testimonials section components designed for modern web experiences
+          </p>
+        </header>
+
+        <div class="testimonials-showcase">
+          <!-- Masonry Testimonials -->
+          <div class="testimonials-showcase-item">
+            <div class="testimonials-showcase-header">
+              <h2 class="testimonials-showcase-title">Masonry</h2>
+              <p class="testimonials-showcase-description">Dynamic masonry layout for customer testimonials</p>
+            </div>
+            <div class="testimonials-showcase-preview">
+              <TestimonialsMasonry />
+            </div>
+          </div>
+
+          <!-- Carousel Testimonials -->
+          <div class="testimonials-showcase-item">
+            <div class="testimonials-showcase-header">
+              <h2 class="testimonials-showcase-title">Carousel</h2>
+              <p class="testimonials-showcase-description">Infinite scrolling carousel with dual-direction testimonials</p>
+            </div>
+            <div class="testimonials-showcase-preview">
+              <TestimonialCarousel />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .testimonials-page {
+    padding: var(--space-8) 0;
+  }
+
+  .testimonials-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonials-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .testimonials-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .testimonials-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .testimonials-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .testimonials-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .testimonials-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .testimonials-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .testimonials-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: auto;
+    position: relative;
+  }
+
+  /* Resetear estilos de los componentes Testimonials para que se vean bien en el contenedor */
+  .testimonials-showcase-preview :global(.testimonials-section),
+  .testimonials-showcase-preview :global(.testimonials-section-masonry),
+  .testimonials-showcase-preview :global(.testimonials-masonry) {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible;
+  }
+
+
+
+
+  @media (max-width: 768px) {
+    .testimonials-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .testimonials-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+    
+    .testimonials-page-title {
+      font-size: 36px;
+    }
+    
+    .testimonials-showcase {
+      gap: var(--space-12);
+    }
+    
+    .testimonials-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+    
+    .testimonials-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+    
+    .testimonials-showcase-title {
+      font-size: 16px;
+    }
+    
+    .testimonials-showcase-description {
+      font-size: 13px;
+    }
+    
+    .testimonials-showcase-preview {
+      height: auto;
+    }
+    
+    .testimonials-showcase-preview :global(.testimonials-section),
+    .testimonials-showcase-preview :global(.testimonials-masonry) {
+      min-height: auto !important;
+    }
+  }
+</style>

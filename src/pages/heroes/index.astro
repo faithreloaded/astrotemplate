@@ -1,0 +1,245 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import Footer from '../../components/footer/footer-grid/Footer.astro';
+
+// Importar todos los componentes Hero
+import SimpleCentered from '../../components/hero/simple-centered/SimpleCentered.astro';
+import BentoLeft from '../../components/hero/bento-left/Hero.astro';
+import BentoRight from '../../components/hero/bento-right/Hero.astro';
+import SplitWithImage from '../../components/hero/split-with-image/SplitWithImage.astro';
+import HeroWithBackground from '../../components/hero/with-background/HeroWithBackground.astro';
+import HeroWithCarousel from '../../components/hero/with-carousel/HeroWithCarousel.astro';
+---
+
+<BaseLayout 
+  title="Hero Sections | Starter UI" 
+  description="Collection of hero section components for modern web design"
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="hero-page">
+        <header class="hero-page-header">
+          <h1 class="hero-page-title">Hero Sections</h1>
+          <p class="hero-page-description">
+            A curated collection of hero section components designed for modern web experiences
+          </p>
+        </header>
+
+        <div class="hero-showcase">
+          <!-- Simple Centered Hero -->
+          <div class="hero-showcase-item">
+            <div class="hero-showcase-header">
+              <h2 class="hero-showcase-title">Simple Centered</h2>
+              <p class="hero-showcase-description">Clean and minimal hero with centered content</p>
+            </div>
+            <div class="hero-showcase-preview">
+              <SimpleCentered />
+            </div>
+          </div>
+
+          <!-- Split with Image Hero -->
+          <div class="hero-showcase-item">
+            <div class="hero-showcase-header">
+              <h2 class="hero-showcase-title">Split with Image</h2>
+              <p class="hero-showcase-description">Content and image side by side layout</p>
+            </div>
+            <div class="hero-showcase-preview">
+              <SplitWithImage />
+            </div>
+          </div>
+
+          <!-- Bento Left Hero -->
+          <div class="hero-showcase-item">
+            <div class="hero-showcase-header">
+              <h2 class="hero-showcase-title">Bento Left</h2>
+              <p class="hero-showcase-description">Modern bento grid layout with content on the left</p>
+            </div>
+            <div class="hero-showcase-preview">
+              <BentoLeft />
+            </div>
+          </div>
+
+          <!-- Bento Right Hero -->
+          <div class="hero-showcase-item">
+            <div class="hero-showcase-header">
+              <h2 class="hero-showcase-title">Bento Right</h2>
+              <p class="hero-showcase-description">Modern bento grid layout with content on the right</p>
+            </div>
+            <div class="hero-showcase-preview">
+              <BentoRight />
+            </div>
+          </div>
+
+          <!-- Hero with Background -->
+          <div class="hero-showcase-item">
+            <div class="hero-showcase-header">
+              <h2 class="hero-showcase-title">With Background</h2>
+              <p class="hero-showcase-description">Hero with background image or gradient</p>
+            </div>
+            <div class="hero-showcase-preview">
+              <HeroWithBackground />
+            </div>
+          </div>
+
+          <!-- Hero with Carousel -->
+          <div class="hero-showcase-item">
+            <div class="hero-showcase-header">
+              <h2 class="hero-showcase-title">With Carousel</h2>
+              <p class="hero-showcase-description">Dynamic hero with rotating content carousel</p>
+            </div>
+            <div class="hero-showcase-preview">
+              <HeroWithCarousel />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero-page {
+    padding: var(--space-8) 0;
+  }
+
+  .hero-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .hero-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .hero-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .hero-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .hero-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .hero-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .hero-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: auto;
+    position: relative;
+  }
+
+  /* Resetear estilos de los componentes Hero para que se vean bien en el contenedor */
+  .hero-showcase-preview :global(.simple-centered-hero),
+  .hero-showcase-preview :global(.split-with-image-hero),
+  .hero-showcase-preview :global(.hero-section),
+  .hero-showcase-preview :global(.hero-with-background),
+  .hero-showcase-preview :global(.hero-with-carousel) {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible;
+  }
+
+  .hero-showcase-preview :global(.split-with-image-visual) {
+    height: auto !important;
+  }
+
+  .hero-showcase-preview :global(.split-with-image-hero) {
+    min-height: auto !important;
+  }
+
+  @media (max-width: 768px) {
+    .hero-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .hero-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+    
+    .hero-showcase {
+      gap: var(--space-12);
+    }
+    
+    .hero-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+    
+    .hero-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+    
+    .hero-page-title {
+      font-size: 36px;
+    }
+    
+    .hero-showcase-title {
+      font-size: 16px;
+    }
+    
+    .hero-showcase-description {
+      font-size: 13px;
+    }
+    
+    .hero-showcase-preview {
+      height: auto;
+    }
+    
+    .hero-showcase-preview :global(.simple-centered-hero),
+    .hero-showcase-preview :global(.split-with-image-hero),
+    .hero-showcase-preview :global(.hero-section),
+    .hero-showcase-preview :global(.hero-with-background),
+    .hero-showcase-preview :global(.hero-with-carousel) {
+      min-height: auto !important;
+    }
+    
+    .hero-showcase-preview :global(.split-with-image-visual) {
+      height: auto !important;
+    }
+  }
+</style>
