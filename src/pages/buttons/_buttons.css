@@ -55,6 +55,13 @@
   justify-content: center;
 }
 
+/* Estilos específicos para botones Outlined with Icon */
+.button-examples .btn-outlined-icon {
+  width: 100%;
+  max-width: 200px;
+  justify-content: center;
+}
+
 .link-variant {
   display: flex;
   flex-direction: column;

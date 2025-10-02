@@ -1,0 +1,107 @@
+---
+import './MinimalCards.css';
+import ButtonOutlinedIcon from '../../buttons/outlined-with-icon/ButtonOutlinedIcon.astro';
+---
+
+<section class="minimal-cards-section">
+  <div class="container">
+    <header class="minimal-cards-header">
+      <span class="section-pill minimal-header-item">Minimal Design</span>
+      <h2 class="minimal-cards-title minimal-header-item">Clean Solutions</h2>
+      <p class="minimal-cards-description minimal-header-item">
+        Discover our minimalist approach to design, where simplicity meets functionality
+      </p>
+    </header>
+
+    <div class="minimal-cards-grid">
+      <article class="minimal-card">
+        <div class="minimal-card-content">
+          <div class="minimal-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="minimal-card-title">Layered Architecture</h3>
+          <p class="minimal-card-description">
+            Built with a clean, layered approach that ensures scalability and maintainability for your projects.
+          </p>
+        </div>
+        <div class="minimal-card-action">
+          <ButtonOutlinedIcon size="medium" variant="primary" icon="arrow-right">Explore</ButtonOutlinedIcon>
+        </div>
+      </article>
+
+      <article class="minimal-card">
+        <div class="minimal-card-content">
+          <div class="minimal-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3 class="minimal-card-title">Precision Focus</h3>
+          <p class="minimal-card-description">
+            Every detail is carefully crafted with precision, ensuring optimal performance and user experience.
+          </p>
+        </div>
+        <div class="minimal-card-action">
+          <ButtonOutlinedIcon size="medium" variant="primary" icon="arrow-right">Explore</ButtonOutlinedIcon>
+        </div>
+      </article>
+
+      <article class="minimal-card">
+        <div class="minimal-card-content">
+          <div class="minimal-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 class="minimal-card-title">Secure Foundation</h3>
+          <p class="minimal-card-description">
+            Built on a secure foundation with enterprise-grade security measures to protect your data.
+          </p>
+        </div>
+        <div class="minimal-card-action">
+          <ButtonOutlinedIcon size="medium" variant="primary" icon="arrow-right">Explore</ButtonOutlinedIcon>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Staggered animation for header and cards
+  document.addEventListener('DOMContentLoaded', function() {
+    const headerItems = document.querySelectorAll('.minimal-header-item');
+    const cards = document.querySelectorAll('.minimal-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 150);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Animate header items first
+    headerItems.forEach(item => {
+      observer.observe(item);
+    });
+
+    // Then animate cards
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>

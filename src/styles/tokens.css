@@ -32,6 +32,16 @@
   --font-weight-extra-bold: 800;
   --font-weight-black: 900;
 
+  /* Border Radius - 8px Grid System */
+  --radius-xs: 2px;    /* Elementos muy pequeños */
+  --radius-sm: 4px;    /* Elementos pequeños */
+  --radius-md: 6px;    /* Elementos medianos */
+  --radius-lg: 8px;    /* Elementos grandes */
+  --radius-xl: 12px;   /* Elementos extra grandes */
+  --radius-2xl: 16px;  /* Elementos muy grandes */
+  --radius-3xl: 24px;  /* Elementos enormes */
+  --radius-full: 9999px; /* Círculos perfectos */
+
   /* Weights (nuevas variables) */
   --font-thin: 100;
   --font-extralight: 200;
@@ -66,9 +76,10 @@
   /* Sombras */
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   
-  /* Transiciones */
-  --transition: 0.3s ease;
-}
+    /* Transiciones */
+    --transition: 0.3s ease;
+  }
+
 
 /* ===== CLASES GLOBALES ===== */
 
@@ -230,231 +241,3 @@
 }
 
 /* ===== GLOBAL BUTTON CLASSES ===== */
-
-/* Primary Button */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: var(--color-black);
-  color: var(--color-white);
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  line-height: 1;
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-  justify-content: center;
-}
-
-.btn-primary:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: var(--color-white);
-  text-decoration: none;
-  transform: translateY(-1px);
-}
-
-.btn-primary:active {
-  transform: translateY(0);
-}
-
-/* Secondary Button */
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: rgba(0, 0, 0, 0.05);
-  color: var(--color-black);
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  line-height: 1;
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-  justify-content: center;
-}
-
-/* Link Button */
-.btn-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  color: var(--color-black);
-  text-decoration: none;
-  padding: 0; /* estilo enlace, sin padding */
-  border-radius: 0;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  line-height: 1;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-link::after {
-  content: " →";
-  transition: transform 0.2s ease;
-}
-
-.btn-link:hover::after {
-  transform: translateX(2px);
-}
-
-/* Dark Variants for Dark Backgrounds */
-.btn-primary-dark {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: var(--color-white);
-  color: var(--color-black);
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  line-height: 1;
-  transition: all 0.2s ease;
-  border: none;
-  cursor: pointer;
-  justify-content: center;
-}
-
-.btn-primary-dark:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: var(--color-black);
-  text-decoration: none;
-  transform: translateY(-1px);
-}
-
-.btn-primary-dark:active {
-  transform: translateY(0);
-}
-
-.btn-secondary-dark {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--color-white);
-  text-decoration: none;
-  padding: 12px 22px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  line-height: 1;
-  transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  justify-content: center;
-}
-
-.btn-secondary-dark:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: var(--color-white);
-  text-decoration: none;
-  transform: translateY(-1px);
-}
-
-.btn-secondary-dark:active {
-  transform: translateY(0);
-}
-
-.btn-link-dark {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  color: var(--color-white);
-  text-decoration: none;
-  padding: 0;
-  border-radius: 0;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  line-height: 1;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-link-dark::after {
-  content: " →";
-  transition: transform 0.2s ease;
-}
-
-.btn-link-dark:hover::after {
-  transform: translateX(2px);
-}
-
-/* Link Blue for Light Backgrounds */
-.btn-link-blue {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  color: #3b82f6;
-  text-decoration: none;
-  padding: 0;
-  border-radius: 0;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  line-height: 1;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.btn-link-blue:hover {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-/* Link Dark for Dark Backgrounds */
-.btn-link-dark-text {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.5);
-  text-underline-offset: 2px;
-  padding: 0;
-  border-radius: 0;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-sans);
-  line-height: 1;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-link-dark-text:hover {
-  color: rgba(255, 255, 255, 1);
-  text-decoration-color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-}
-
-.btn-secondary:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: var(--color-black);
-  text-decoration: none;
-  transform: translateY(-1px);
-}
-
-.btn-secondary:active {
-  transform: translateY(0);
-}
-

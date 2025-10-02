@@ -1,0 +1,74 @@
+---
+export interface Props {
+  href?: string;
+  target?: string;
+  disabled?: boolean;
+}
+
+const { 
+  href = '#',
+  target = '_self',
+  disabled = false
+} = Astro.props;
+---
+
+<a 
+  href={href} 
+  target={target}
+  class={`btn btn-link-dark ${disabled ? 'disabled' : ''}`}
+  aria-disabled={disabled}
+>
+  <slot />
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  }
+
+  .btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .btn-link-dark {
+    gap: 6px;
+    background: transparent;
+    color: var(--color-white);
+    padding: 0;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: auto;
+  }
+
+  .btn-link-dark:hover {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .btn-link-dark::after {
+    content: " →";
+    transition: transform 0.2s ease;
+  }
+
+  .btn-link-dark:hover::after {
+    transform: translateX(2px);
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+import './PricingDivided.css';
+import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
+import ButtonSecondary from '../../buttons/secondary/ButtonSecondary.astro';
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.querySelector('.pricing-divided-section');
+    if (section) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) section.classList.add('animate');
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      observer.observe(section);
+    }
+
+    const toggle = document.querySelector('.pricing-divided-toggle');
+    const monthly = document.querySelectorAll('.pd-monthly');
+    const annually = document.querySelectorAll('.pd-annually');
+    const slider = document.querySelector('.pricing-divided-toggle-slider');
+    if (toggle && slider) {
+      toggle.addEventListener('click', () => {
+        const isMonthly = toggle.classList.contains('is-monthly');
+        toggle.classList.toggle('is-monthly', !isMonthly);
+        toggle.classList.toggle('is-annually', isMonthly);
+        slider.setAttribute('style', `transform: translateX(${isMonthly ? 0 : 100}%)`);
+        monthly.forEach(p => (p as HTMLElement).style.display = isMonthly ? 'inline' : 'none');
+        annually.forEach(p => (p as HTMLElement).style.display = isMonthly ? 'none' : 'inline');
+      });
+    }
+  });
+</script>
+
+<section class="pricing-divided-section">
+  <div class="container">
+    <div class="pd-header">
+      <span class="section-pill">Pricing</span>
+      <h2 class="pd-title">Choose your plan</h2>
+      <p class="pd-description">Select the perfect plan for your needs. All plans include our core features with no hidden fees.</p>
+    </div>
+
+    <div class="pd-toggle-wrap">
+      <div class="pricing-divided-toggle is-monthly">
+        <span class="pd-toggle-option">Monthly</span>
+        <span class="pd-toggle-option">Annually</span>
+        <div class="pricing-divided-toggle-slider"></div>
+      </div>
+    </div>
+
+    <!-- Tres columnas limpias separadas por divisores verticales -->
+    <div class="pd-columns">
+      <div class="pd-col">
+        <h3 class="pd-col-name">Basic</h3>
+        <div class="pd-price">
+          <span class="pd-amount pd-monthly">$19</span>
+          <span class="pd-amount pd-annually" style="display:none;">$15</span>
+          <span class="pd-period">/month</span>
+        </div>
+        <p class="pd-subprice">$15 per month if paid annually</p>
+        <div class="pd-col-cta">
+          <ButtonPrimary href="#">Buy plan</ButtonPrimary>
+        </div>
+        <p class="pd-col-summary">Everything necessary to get started.</p>
+        <ul class="pd-col-features">
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            5 products
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Up to 1,000 subscribers
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Basic analytics
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            48-hour support response time
+          </li>
+        </ul>
+      </div>
+
+      <div class="pd-divider-vertical"></div>
+
+      <div class="pd-col">
+        <h3 class="pd-col-name">Essential</h3>
+        <div class="pd-price">
+          <span class="pd-amount pd-monthly">$49</span>
+          <span class="pd-amount pd-annually" style="display:none;">$39</span>
+          <span class="pd-period">/month</span>
+        </div>
+        <p class="pd-subprice">$39 per month if paid annually</p>
+        <div class="pd-col-cta">
+          <ButtonPrimary href="#">Buy plan</ButtonPrimary>
+        </div>
+        <p class="pd-col-summary">Everything in Basic, plus essential tools for growing your business.</p>
+        <ul class="pd-col-features">
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            25 products
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Up to 10,000 subscribers
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Advanced analytics
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            24-hour support response time
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Marketing automations
+          </li>
+        </ul>
+      </div>
+
+      <div class="pd-divider-vertical"></div>
+
+      <div class="pd-col">
+        <h3 class="pd-col-name">Growth</h3>
+        <div class="pd-price">
+          <span class="pd-amount pd-monthly">$99</span>
+          <span class="pd-amount pd-annually" style="display:none;">$79</span>
+          <span class="pd-period">/month</span>
+        </div>
+        <p class="pd-subprice">$79 per month if paid annually</p>
+        <div class="pd-col-cta">
+          <ButtonPrimary href="#">Buy plan</ButtonPrimary>
+        </div>
+        <p class="pd-col-summary">Everything in Essential, plus collaboration tools and deeper insights.</p>
+        <ul class="pd-col-features">
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Unlimited products
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Unlimited subscribers
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Advanced analytics
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            1-hour, dedicated support response time
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Marketing automations
+          </li>
+          <li class="pd-feature">
+            <svg class="pd-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Custom reporting tools
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,222 @@
+/* Features Split Overlay Component */
+.features-split-overlay-section {
+  padding: 120px 0;
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+.features-split-overlay-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 0;
+  min-height: 600px;
+  align-items: stretch;
+}
+
+/* Left Container - Image Background Only */
+.features-split-overlay-left {
+  background-image: url('/images/images/placeholder/placeholder.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 600px;
+  border-radius: var(--radius-lg);
+}
+
+/* Right Container - Text Content */
+.features-split-overlay-right {
+  background: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 110px 60px;
+  min-height: 600px;
+  border-radius: var(--radius-lg);
+}
+
+.features-split-overlay-text {
+  max-width: 400px;
+}
+
+.features-split-overlay-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin: 0 0 24px 0;
+  font-family: var(--font-sans);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.features-split-overlay-description {
+  font-size: 16px;
+  color: var(--color-gray);
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.features-split-overlay-text-description {
+  font-size: 16px;
+  color: var(--color-gray);
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.features-split-overlay-action {
+  margin-top: 24px;
+}
+
+
+/* Overlapping Image - On top of left container */
+.features-split-overlay-overlap {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 350px;
+  height: 250px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.features-split-overlay-overlap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .features-split-overlay-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .features-split-overlay-left {
+    min-height: 400px;
+  }
+
+  .features-split-overlay-right {
+    min-height: 300px;
+    padding: 80px 40px;
+  }
+
+  .features-split-overlay-overlap {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 300px;
+    height: 200px;
+    margin: -25px auto 0;
+    order: 3;
+  }
+
+  .features-split-overlay-content {
+    max-width: 500px;
+    padding: 30px;
+  }
+
+  .features-split-overlay-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-split-overlay-section {
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .features-split-overlay-left {
+    min-height: 350px;
+  }
+
+  .features-split-overlay-right {
+    min-height: 250px;
+    padding: 60px 30px;
+  }
+
+  .features-split-overlay-content {
+    padding: 20px;
+  }
+
+  .features-split-overlay-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .features-split-overlay-description {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .features-split-overlay-subtitle {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .features-split-overlay-text-description {
+    font-size: 15px;
+  }
+
+  .features-split-overlay-overlap {
+    width: 250px;
+    height: 160px;
+    margin: -20px auto 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-split-overlay-left {
+    min-height: 300px;
+  }
+
+  .features-split-overlay-right {
+    min-height: 200px;
+    padding: 40px 20px;
+  }
+
+  .features-split-overlay-content {
+    padding: 16px;
+  }
+
+  .features-split-overlay-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .features-split-overlay-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .features-split-overlay-subtitle {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .features-split-overlay-text-description {
+    font-size: 14px;
+  }
+
+  .features-split-overlay-overlap {
+    width: 200px;
+    height: 130px;
+    margin: -15px auto 0;
+  }
+}

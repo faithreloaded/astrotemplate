@@ -1,0 +1,82 @@
+---
+export interface Props {
+  href?: string;
+  target?: string;
+  disabled?: boolean;
+  width?: 'auto' | 'fit-content' | 'full';
+}
+
+const { 
+  href = '#',
+  target = '_self',
+  disabled = false,
+  width = 'auto'
+} = Astro.props;
+---
+
+<a 
+  href={href} 
+  target={target}
+  class={`btn btn-primary ${disabled ? 'disabled' : ''} ${width === 'fit-content' ? 'fit-content' : ''} ${width === 'full' ? 'full-width' : ''}`}
+  aria-disabled={disabled}
+>
+  <slot />
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .btn-primary {
+    gap: 6px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 120px;
+  }
+
+  .btn-primary.fit-content {
+    width: fit-content;
+    min-width: auto;
+  }
+
+  .btn-primary.full-width {
+    width: 100%;
+  }
+
+  .btn-primary:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--color-white);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+</style>

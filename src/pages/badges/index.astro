@@ -1,0 +1,616 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import BadgeFilled from '../../components/badges/filled/BadgeFilled.astro';
+import BadgeOutlined from '../../components/badges/outlined/BadgeOutlined.astro';
+import BadgeSoft from '../../components/badges/soft/BadgeSoft.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+---
+
+<BaseLayout 
+  title="Badges - Starter UI" 
+  description="Badge components with Material UI inspired design. Choose from filled, outlined, and soft variants in multiple colors and sizes."
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="badges-page">
+        <header class="badges-page-header">
+          <h1 class="badges-page-title">Badge Components</h1>
+          <p class="badges-page-description">
+            Material UI inspired badge components with clean, modern styling. Perfect for labels, status indicators, and categorization.
+          </p>
+        </header>
+
+        <div class="badges-showcase">
+          <!-- Soft Badges -->
+          <div class="badges-showcase-item">
+            <div class="badges-showcase-header">
+              <h2 class="badges-showcase-title">Soft Badges</h2>
+              <p class="badges-showcase-description">Subtle background badges with colored text</p>
+            </div>
+            <div class="badges-showcase-preview">
+              <div class="badges-grid">
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Primary</h3>
+                  <div class="badges-examples">
+                    <BadgeSoft variant="primary" size="small">Small</BadgeSoft>
+                    <BadgeSoft variant="primary" size="medium">Medium</BadgeSoft>
+                    <BadgeSoft variant="primary" size="large">Large</BadgeSoft>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Success</h3>
+                  <div class="badges-examples">
+                    <BadgeSoft variant="success" size="small">New</BadgeSoft>
+                    <BadgeSoft variant="success" size="medium">Active</BadgeSoft>
+                    <BadgeSoft variant="success" size="large">Completed</BadgeSoft>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Warning</h3>
+                  <div class="badges-examples">
+                    <BadgeSoft variant="warning" size="small">Pending</BadgeSoft>
+                    <BadgeSoft variant="warning" size="medium">Review</BadgeSoft>
+                    <BadgeSoft variant="warning" size="large">In Progress</BadgeSoft>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Error</h3>
+                  <div class="badges-examples">
+                    <BadgeSoft variant="error" size="small">Failed</BadgeSoft>
+                    <BadgeSoft variant="error" size="medium">Error</BadgeSoft>
+                    <BadgeSoft variant="error" size="large">Critical</BadgeSoft>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Info</h3>
+                  <div class="badges-examples">
+                    <BadgeSoft variant="info" size="small">Beta</BadgeSoft>
+                    <BadgeSoft variant="info" size="medium">Info</BadgeSoft>
+                    <BadgeSoft variant="info" size="large">Details</BadgeSoft>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Secondary</h3>
+                  <div class="badges-examples">
+                    <BadgeSoft variant="secondary" size="small">Tag</BadgeSoft>
+                    <BadgeSoft variant="secondary" size="medium">Category</BadgeSoft>
+                    <BadgeSoft variant="secondary" size="large">Archive</BadgeSoft>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filled Badges -->
+          <div class="badges-showcase-item">
+            <div class="badges-showcase-header">
+              <h2 class="badges-showcase-title">Filled Badges</h2>
+              <p class="badges-showcase-description">Solid background badges with high contrast text</p>
+            </div>
+            <div class="badges-showcase-preview">
+              <div class="badges-grid">
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Primary</h3>
+                  <div class="badges-examples">
+                    <BadgeFilled variant="primary" size="small">Small</BadgeFilled>
+                    <BadgeFilled variant="primary" size="medium">Medium</BadgeFilled>
+                    <BadgeFilled variant="primary" size="large">Large</BadgeFilled>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Success</h3>
+                  <div class="badges-examples">
+                    <BadgeFilled variant="success" size="small">New</BadgeFilled>
+                    <BadgeFilled variant="success" size="medium">Active</BadgeFilled>
+                    <BadgeFilled variant="success" size="large">Completed</BadgeFilled>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Warning</h3>
+                  <div class="badges-examples">
+                    <BadgeFilled variant="warning" size="small">Pending</BadgeFilled>
+                    <BadgeFilled variant="warning" size="medium">Review</BadgeFilled>
+                    <BadgeFilled variant="warning" size="large">In Progress</BadgeFilled>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Error</h3>
+                  <div class="badges-examples">
+                    <BadgeFilled variant="error" size="small">Failed</BadgeFilled>
+                    <BadgeFilled variant="error" size="medium">Error</BadgeFilled>
+                    <BadgeFilled variant="error" size="large">Critical</BadgeFilled>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Info</h3>
+                  <div class="badges-examples">
+                    <BadgeFilled variant="info" size="small">Beta</BadgeFilled>
+                    <BadgeFilled variant="info" size="medium">Info</BadgeFilled>
+                    <BadgeFilled variant="info" size="large">Details</BadgeFilled>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Secondary</h3>
+                  <div class="badges-examples">
+                    <BadgeFilled variant="secondary" size="small">Tag</BadgeFilled>
+                    <BadgeFilled variant="secondary" size="medium">Category</BadgeFilled>
+                    <BadgeFilled variant="secondary" size="large">Archive</BadgeFilled>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outlined Badges -->
+          <div class="badges-showcase-item">
+            <div class="badges-showcase-header">
+              <h2 class="badges-showcase-title">Outlined Badges</h2>
+              <p class="badges-showcase-description">Border-only badges with transparent background</p>
+            </div>
+            <div class="badges-showcase-preview">
+              <div class="badges-grid">
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Primary</h3>
+                  <div class="badges-examples">
+                    <BadgeOutlined variant="primary" size="small">Small</BadgeOutlined>
+                    <BadgeOutlined variant="primary" size="medium">Medium</BadgeOutlined>
+                    <BadgeOutlined variant="primary" size="large">Large</BadgeOutlined>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Success</h3>
+                  <div class="badges-examples">
+                    <BadgeOutlined variant="success" size="small">New</BadgeOutlined>
+                    <BadgeOutlined variant="success" size="medium">Active</BadgeOutlined>
+                    <BadgeOutlined variant="success" size="large">Completed</BadgeOutlined>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Warning</h3>
+                  <div class="badges-examples">
+                    <BadgeOutlined variant="warning" size="small">Pending</BadgeOutlined>
+                    <BadgeOutlined variant="warning" size="medium">Review</BadgeOutlined>
+                    <BadgeOutlined variant="warning" size="large">In Progress</BadgeOutlined>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Error</h3>
+                  <div class="badges-examples">
+                    <BadgeOutlined variant="error" size="small">Failed</BadgeOutlined>
+                    <BadgeOutlined variant="error" size="medium">Error</BadgeOutlined>
+                    <BadgeOutlined variant="error" size="large">Critical</BadgeOutlined>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Info</h3>
+                  <div class="badges-examples">
+                    <BadgeOutlined variant="info" size="small">Beta</BadgeOutlined>
+                    <BadgeOutlined variant="info" size="medium">Info</BadgeOutlined>
+                    <BadgeOutlined variant="info" size="large">Details</BadgeOutlined>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Secondary</h3>
+                  <div class="badges-examples">
+                    <BadgeOutlined variant="secondary" size="small">Tag</BadgeOutlined>
+                    <BadgeOutlined variant="secondary" size="medium">Category</BadgeOutlined>
+                    <BadgeOutlined variant="secondary" size="large">Archive</BadgeOutlined>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Dark Theme Badges -->
+          <div class="badges-showcase-item">
+            <div class="badges-showcase-header">
+              <h2 class="badges-showcase-title">Dark Theme Variants</h2>
+              <p class="badges-showcase-description">All badge styles adapted for dark theme with improved contrast</p>
+            </div>
+            <div class="badges-showcase-preview badges-dark-preview">
+              <div class="badges-grid">
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Filled</h3>
+                  <div class="badges-examples">
+                    <span class="badge badge-filled badge-filled-primary badge-size-small" style="background: #ffffff !important; color: #000000 !important;">Primary</span>
+                    <BadgeFilled variant="success" size="medium">Success</BadgeFilled>
+                    <BadgeFilled variant="warning" size="large">Warning</BadgeFilled>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Outlined</h3>
+                  <div class="badges-examples">
+                    <span class="badge badge-outlined badge-outlined-primary badge-size-small" style="border-color: #ffffff !important; color: #ffffff !important; background: transparent !important;">Primary</span>
+                    <BadgeOutlined variant="success" size="medium">Success</BadgeOutlined>
+                    <BadgeOutlined variant="warning" size="large">Warning</BadgeOutlined>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Soft</h3>
+                  <div class="badges-examples">
+                    <span class="badge badge-soft badge-soft-primary badge-size-small" style="background: rgba(255, 255, 255, 0.2) !important; color: #ffffff !important;">Primary</span>
+                    <BadgeSoft variant="success" size="medium">Success</BadgeSoft>
+                    <BadgeSoft variant="warning" size="large">Warning</BadgeSoft>
+                  </div>
+                </div>
+                <div class="badges-variant">
+                  <h3 class="badges-variant-title">Error & Info</h3>
+                  <div class="badges-examples">
+                    <BadgeFilled variant="error" size="small">Error</BadgeFilled>
+                    <BadgeOutlined variant="info" size="medium">Info</BadgeOutlined>
+                    <span class="badge badge-soft badge-soft-secondary badge-size-large" style="background: rgba(255, 255, 255, 0.15) !important; color: #e5e7eb !important;">Secondary</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .badges-page {
+    padding: var(--space-8) 0;
+  }
+
+  .badges-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .badges-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .badges-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .badges-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .badges-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .badges-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .badges-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .badges-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .badges-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: var(--space-6);
+  }
+
+  .badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .badges-variant {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .badges-variant-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  .badges-examples {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    .badges-page {
+      padding: var(--space-6) 0;
+    }
+
+    .badges-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+
+    .badges-page-title {
+      font-size: 36px;
+    }
+
+    .badges-showcase {
+      gap: var(--space-12);
+    }
+
+    .badges-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+
+    .badges-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+
+    .badges-showcase-title {
+      font-size: 16px;
+    }
+
+    .badges-showcase-description {
+      font-size: 13px;
+    }
+
+    .badges-showcase-preview {
+      padding: var(--space-4);
+    }
+
+    .badges-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+  .badges-examples {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+}
+
+/* Dark theme preview section */
+.badges-dark-preview {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.badges-dark-preview .badges-variant-title {
+  color: #ffffff;
+}
+
+/* Base badge styles for dark preview */
+.badges-dark-preview .badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: default;
+  user-select: none;
+  border: 1px solid;
+}
+
+.badges-dark-preview .badge-size-small {
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.badges-dark-preview .badge-size-medium {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.badges-dark-preview .badge-size-large {
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Specific dark theme styles for preview section - using !important to override Astro's scoped styles */
+.badges-showcase-preview.badges-dark-preview .badge-filled-primary {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-primary:hover {
+  background: #f3f4f6 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-secondary {
+  background: #d1d5db !important;
+  color: #000000 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-secondary:hover {
+  background: #9ca3af !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-success {
+  background: #10b981 !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-success:hover {
+  background: #059669 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-warning {
+  background: #f59e0b !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-warning:hover {
+  background: #d97706 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-error {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-error:hover {
+  background: #dc2626 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-info {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-filled-info:hover {
+  background: #2563eb !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-primary {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-primary:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-secondary {
+  border-color: #d1d5db !important;
+  color: #d1d5db !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-secondary:hover {
+  background: #d1d5db !important;
+  color: #000000 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-success {
+  border-color: #10b981 !important;
+  color: #10b981 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-success:hover {
+  background: #10b981 !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-warning {
+  border-color: #f59e0b !important;
+  color: #f59e0b !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-warning:hover {
+  background: #f59e0b !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-error {
+  border-color: #ef4444 !important;
+  color: #ef4444 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-error:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-info {
+  border-color: #3b82f6 !important;
+  color: #3b82f6 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-outlined-info:hover {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-primary {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-primary:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-secondary {
+  background: rgba(209, 213, 219, 0.2) !important;
+  color: #d1d5db !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-secondary:hover {
+  background: rgba(209, 213, 219, 0.3) !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-success {
+  background: rgba(16, 185, 129, 0.2) !important;
+  color: #10b981 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-success:hover {
+  background: rgba(16, 185, 129, 0.3) !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-warning {
+  background: rgba(245, 158, 11, 0.2) !important;
+  color: #f59e0b !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-warning:hover {
+  background: rgba(245, 158, 11, 0.3) !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-error {
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #ef4444 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-error:hover {
+  background: rgba(239, 68, 68, 0.3) !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-info {
+  background: rgba(59, 130, 246, 0.2) !important;
+  color: #3b82f6 !important;
+}
+
+.badges-showcase-preview.badges-dark-preview .badge-soft-info:hover {
+  background: rgba(59, 130, 246, 0.3) !important;
+}
+</style>

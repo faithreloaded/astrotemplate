@@ -112,20 +112,7 @@
   animation: fadeInUp 0.6s ease 0.3s forwards;
 }
 
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-black);
-  color: var(--color-white);
-  border: none;
-  padding: 12px 24px;
-  border-radius: 100px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  align-self: flex-start;
+.hero-cta-container {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease 0.4s forwards;

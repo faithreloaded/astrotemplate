@@ -1,0 +1,127 @@
+/* Features Split Reverse Component */
+.features-split-reverse-section {
+  padding: 120px 0;
+  background: var(--color-background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.features-split-reverse-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: stretch;
+  min-height: 600px;
+}
+
+.features-split-reverse-image {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.features-split-reverse-image-bg {
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/images/placeholder/placeholder.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.features-split-reverse-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 600px;
+}
+
+.features-split-reverse-title {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0;
+  font-family: var(--font-sans);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.features-split-reverse-description {
+  font-size: 18px;
+  color: var(--color-gray);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .features-split-reverse-grid {
+    gap: 60px;
+  }
+  
+  .features-split-reverse-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-split-reverse-section {
+    padding: 80px 0;
+  }
+  
+  .features-split-reverse-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .features-split-reverse-content {
+    gap: 32px;
+    min-height: auto;
+    height: auto;
+  }
+  
+  .features-split-reverse-title {
+    font-size: 36px;
+  }
+  
+  .features-split-reverse-description {
+    font-size: 16px;
+  }
+  
+  .features-split-reverse-image {
+    height: 300px;
+    min-height: 300px;
+    order: -1;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-split-reverse-section {
+    padding: 60px 0;
+  }
+  
+  .features-split-reverse-title {
+    font-size: 32px;
+  }
+  
+  .features-split-reverse-description {
+    font-size: 15px;
+  }
+  
+  .features-split-reverse-image {
+    height: 250px;
+    min-height: 250px;
+  }
+}

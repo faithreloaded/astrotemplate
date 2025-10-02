@@ -1,0 +1,91 @@
+---
+import './ElegantCards.css';
+import ButtonOutlinedIcon from '../../buttons/outlined-with-icon/ButtonOutlinedIcon.astro';
+import PillOverDark from '../../pills/overdark/PillOverDark.astro';
+// Elegant Cards Component - Minimal and sophisticated card design
+---
+
+<section class="elegant-cards-section">
+  <div class="container">
+    <header class="elegant-cards-header">
+      <span class="section-pill">Premium Components</span>
+      <h2 class="elegant-cards-title">Elegant Solutions</h2>
+      <p class="elegant-cards-description">
+        Discover our carefully crafted solutions designed with attention to detail and modern aesthetics
+      </p>
+    </header>
+
+    <div class="elegant-cards-grid">
+      <article class="elegant-card">
+        <div class="elegant-card-image">
+          <img src="/images/images/placeholder/placeholder.jpg" alt="Premium Quality" />
+          <div class="elegant-card-pill">
+            <PillOverDark variant="light" size="sm">Premium</PillOverDark>
+          </div>
+        </div>
+        <div class="elegant-card-content">
+          <h3 class="elegant-card-title">Premium Quality</h3>
+          <p class="elegant-card-description">
+            Crafted with the finest materials and attention to detail, ensuring exceptional quality in every aspect.
+          </p>
+          <ButtonOutlinedIcon size="medium" variant="primary" icon="arrow-right">Learn more</ButtonOutlinedIcon>
+        </div>
+      </article>
+
+      <article class="elegant-card">
+        <div class="elegant-card-image">
+          <img src="/images/images/placeholder/paceholder2.jpg" alt="Lightning Fast" />
+          <div class="elegant-card-pill">
+            <PillOverDark variant="light" size="sm">Fast</PillOverDark>
+          </div>
+        </div>
+        <div class="elegant-card-content">
+          <h3 class="elegant-card-title">Lightning Fast</h3>
+          <p class="elegant-card-description">
+            Optimized for speed and performance, delivering results in record time without compromising quality.
+          </p>
+          <ButtonOutlinedIcon size="medium" variant="primary" icon="arrow-right">Learn more</ButtonOutlinedIcon>
+        </div>
+      </article>
+
+      <article class="elegant-card">
+        <div class="elegant-card-image">
+          <img src="/images/images/placeholder/placeholder.jpg" alt="Secure & Reliable" />
+          <div class="elegant-card-pill">
+            <PillOverDark variant="light" size="sm">Secure</PillOverDark>
+          </div>
+        </div>
+        <div class="elegant-card-content">
+          <h3 class="elegant-card-title">Secure & Reliable</h3>
+          <p class="elegant-card-description">
+            Built with enterprise-grade security and reliability, ensuring your data is always protected and accessible.
+          </p>
+          <ButtonOutlinedIcon size="medium" variant="primary" icon="arrow-right">Learn more</ButtonOutlinedIcon>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  // Elegant fade-in animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('.elegant-cards-section');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    if (section) {
+      observer.observe(section);
+    }
+  });
+</script>

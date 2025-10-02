@@ -1,0 +1,190 @@
+---
+export interface Props {
+  href?: string;
+  target?: string;
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
+  icon?: 'arrow-right' | 'arrow-left' | 'external-link' | 'download' | 'plus' | 'check';
+  disabled?: boolean;
+}
+
+const { 
+  href = '#',
+  target = '_self',
+  size = 'medium',
+  variant = 'primary',
+  icon = 'arrow-right',
+  disabled = false
+} = Astro.props;
+
+const sizeClasses = {
+  small: 'btn-outlined-icon-small',
+  medium: 'btn-outlined-icon-medium',
+  large: 'btn-outlined-icon-large'
+};
+
+const variantClasses = {
+  primary: 'btn-outlined-icon-primary',
+  secondary: 'btn-outlined-icon-secondary',
+  success: 'btn-outlined-icon-success',
+  warning: 'btn-outlined-icon-warning',
+  error: 'btn-outlined-icon-error',
+  info: 'btn-outlined-icon-info'
+};
+
+const iconPaths = {
+  'arrow-right': 'm9 18 6-6-6-6',
+  'arrow-left': 'm15 18-6-6 6-6',
+  'external-link': 'M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6 M15 3h6v6 M10 14L21 3',
+  'download': 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4 M7 10l5 5 5-5 M12 15V3',
+  'plus': 'M12 5v14 M5 12h14',
+  'check': 'M20 6L9 17l-5-5'
+};
+---
+
+<a 
+  href={href} 
+  target={target}
+  class={`btn btn-outlined-icon ${sizeClasses[size]} ${variantClasses[variant]} ${disabled ? 'disabled' : ''}`}
+  aria-disabled={disabled}
+>
+  <slot />
+  <svg class="btn-outlined-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d={iconPaths[icon]} />
+  </svg>
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Outlined Icon Button Base */
+  .btn-outlined-icon {
+    gap: 8px;
+  }
+
+  .btn-outlined-icon-svg {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-outlined-icon:hover .btn-outlined-icon-svg {
+    transform: translateX(2px);
+  }
+
+  /* Sizes */
+  .btn-outlined-icon-small {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .btn-outlined-icon-small .btn-outlined-icon-svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .btn-outlined-icon-medium {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .btn-outlined-icon-large {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
+  .btn-outlined-icon-large .btn-outlined-icon-svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Variants */
+  .btn-outlined-icon-primary {
+    border-color: rgba(0, 0, 0, 0.1);
+    color: var(--color-black);
+  }
+
+  .btn-outlined-icon-primary:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .btn-outlined-icon-secondary {
+    border-color: rgba(107, 114, 128, 0.3);
+    color: #6b7280;
+  }
+
+  .btn-outlined-icon-secondary:hover {
+    background: rgba(107, 114, 128, 0.05);
+    border-color: rgba(107, 114, 128, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-outlined-icon-success {
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #10b981;
+  }
+
+  .btn-outlined-icon-success:hover {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-outlined-icon-warning {
+    border-color: rgba(245, 158, 11, 0.3);
+    color: #f59e0b;
+  }
+
+  .btn-outlined-icon-warning:hover {
+    background: rgba(245, 158, 11, 0.05);
+    border-color: rgba(245, 158, 11, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-outlined-icon-error {
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+  }
+
+  .btn-outlined-icon-error:hover {
+    background: rgba(239, 68, 68, 0.05);
+    border-color: rgba(239, 68, 68, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-outlined-icon-info {
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+  }
+
+  .btn-outlined-icon-info:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateY(-1px);
+  }
+</style>

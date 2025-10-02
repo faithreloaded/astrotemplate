@@ -1,0 +1,168 @@
+/* ===== PRICING DIVIDED (COLUMNS) ===== */
+
+.pricing-divided-section {
+  background: transparent;
+  padding: 80px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.pricing-divided-section.animate { opacity: 1; transform: translateY(0); }
+
+.pd-header { text-align: center; margin-bottom: 48px; }
+
+/* Animaciones escalonadas para header */
+.pd-header .section-pill {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.pd-header .pd-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  transition-delay: 0.1s;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0 0 12px 0;
+}
+
+.pd-header .pd-description {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  transition-delay: 0.2s;
+  font-size: 16px;
+  color: rgba(0,0,0,0.7);
+  margin: 0;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cuando la sección se anima, animar los elementos del header */
+.pricing-divided-section.animate .pd-header .section-pill,
+.pricing-divided-section.animate .pd-header .pd-title,
+.pricing-divided-section.animate .pd-header .pd-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Toggle */
+.pd-toggle-wrap { 
+  display: flex; 
+  justify-content: center; 
+  margin-bottom: 40px; 
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  transition-delay: 0.25s;
+}
+
+.pricing-divided-section.animate .pd-toggle-wrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pricing-divided-toggle { 
+  position: relative; 
+  display: inline-flex; 
+  padding: 4px; 
+  border-radius: 100px; 
+  background: transparent; /* sin fondo */
+  border: 1px solid rgba(0,0,0,0.1); 
+  cursor: pointer; 
+}
+.pd-toggle-option { padding: 8px 20px; font-size: 14px; font-weight: 500; color: rgba(0,0,0,0.7); position: relative; z-index: 2; border-radius: 100px; }
+.is-monthly .pd-toggle-option:first-child, .is-annually .pd-toggle-option:last-child { color: var(--color-black); }
+.pricing-divided-toggle-slider { 
+  position: absolute; 
+  top: 4px; 
+  left: 4px; 
+  width: calc(50% - 4px); 
+  height: calc(100% - 8px); 
+  background: #e8e3d8; /* restaurar la pastilla grisácea */
+  border-radius: 100px; 
+  transition: transform 0.3s ease; 
+  z-index: 1; 
+}
+
+/* Columns layout */
+.pd-columns { display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr; gap: 0; max-width: 1200px; margin: 0 auto; }
+
+/* Vertical divider */
+.pd-divider-vertical { width: 1px; background: rgba(0,0,0,0.08); }
+
+/* Column content */
+.pd-col { 
+  padding: 0 32px; 
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+/* Animación escalonada para las columnas */
+.pricing-divided-section.animate .pd-col:nth-child(1) {
+  transition-delay: 0.3s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pricing-divided-section.animate .pd-col:nth-child(3) {
+  transition-delay: 0.4s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pricing-divided-section.animate .pd-col:nth-child(5) {
+  transition-delay: 0.5s;
+  opacity: 1;
+  transform: translateY(0);
+}
+.pd-col-name { font-size: 18px; font-weight: 600; color: var(--color-black); margin: 0 0 16px 0; }
+.pd-price { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+.pd-amount { font-size: 56px; font-weight: 500; color: var(--color-black); letter-spacing: -0.5px; }
+.pd-period { font-size: 16px; color: rgba(0,0,0,0.7); }
+.pd-subprice { font-size: 14px; color: rgba(0,0,0,0.6); margin: 8px 0 24px 0; }
+.pd-col-cta { margin: 0 0 28px 0; }
+.pd-col-cta .btn-primary { width: 100%; }
+.pd-col-summary { font-size: 16px; color: rgba(0,0,0,0.9); margin: 0 0 20px 0; font-weight: 600; }
+.pd-col-features { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.pd-feature { display: flex; align-items: center; gap: 12px; font-size: 15px; color: rgba(0,0,0,0.85); }
+.pd-check-icon { color: #16a34a; flex-shrink: 0; }
+
+/* Dark optional */
+[data-theme="dark"] .pd-divider-vertical { background: rgba(255,255,255,0.16); }
+[data-theme="dark"] .pd-description { color: rgba(255,255,255,0.7); }
+[data-theme="dark"] .pd-col-name { color: rgba(255,255,255,0.95); }
+[data-theme="dark"] .pd-period, [data-theme="dark"] .pd-subprice { color: rgba(255,255,255,0.7); }
+[data-theme="dark"] .pd-col-summary, [data-theme="dark"] .pd-feature { color: rgba(255,255,255,0.9); }
+
+/* Responsive */
+@media (max-width: 1024px) { .pd-col { padding: 0 24px; } .pd-amount { font-size: 48px; } }
+@media (max-width: 768px) {
+  .pricing-divided-section { padding: 60px 0; }
+  .pd-title { font-size: 32px; }
+  .pd-columns { 
+    grid-template-columns: 1fr; 
+    max-width: 400px; /* centrado como las cards del otro componente */
+    margin: 0 auto;
+  }
+  .pd-divider-vertical { display: none; }
+  .pd-col { 
+    padding: 24px 0; 
+    border-top: 1px solid rgba(0,0,0,0.08);
+    text-align: left; /* todo alineado a la izquierda */
+  }
+  .pd-col:first-child { border-top: none; }
+  .pd-col-cta { display: block; } /* botón ocupa todo el ancho */
+}
+@media (max-width: 480px) { 
+  .pd-title { font-size: 28px; } 
+  .pd-amount { font-size: 44px; } 
+  .pd-columns { max-width: 360px; }
+}

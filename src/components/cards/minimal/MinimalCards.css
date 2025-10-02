@@ -1,0 +1,228 @@
+/* Minimal Cards Component */
+.minimal-cards-section {
+  padding: 120px 0;
+  background: var(--color-background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.minimal-cards-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.7);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  margin-bottom: 24px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.minimal-header-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.minimal-cards-title {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0 0 24px 0;
+  font-family: var(--font-sans);
+  letter-spacing: -0.5px;
+}
+
+.minimal-cards-description {
+  font-size: 18px;
+  color: var(--color-gray);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.minimal-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.minimal-card {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all 0.4s ease;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+}
+
+.minimal-card:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.minimal-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.minimal-card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+.minimal-card:hover .minimal-card-icon {
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.05);
+}
+
+.minimal-card-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0 0 16px 0;
+  font-family: var(--font-sans);
+  letter-spacing: -0.2px;
+}
+
+.minimal-card-description {
+  font-size: 16px;
+  color: var(--color-gray);
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+  font-weight: 400;
+  flex: 1;
+}
+
+
+.minimal-card-action {
+  margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .minimal-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .minimal-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .minimal-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .minimal-cards-section {
+    padding: 80px 0;
+  }
+  
+  .minimal-cards-header {
+    margin-bottom: 60px;
+    padding: 0 16px;
+  }
+  
+  .minimal-cards-title {
+    font-size: 36px;
+  }
+  
+  .minimal-cards-description {
+    font-size: 16px;
+  }
+  
+  .minimal-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .minimal-card {
+    padding: 24px;
+    min-height: 240px;
+  }
+  
+  .minimal-card-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .minimal-card-title {
+    font-size: 18px;
+  }
+  
+  .minimal-card-description {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .minimal-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .minimal-card {
+    padding: 20px;
+    min-height: 220px;
+  }
+  
+  .minimal-card-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 16px;
+  }
+  
+  .minimal-card-title {
+    font-size: 16px;
+  }
+  
+  .minimal-card-description {
+    font-size: 14px;
+  }
+}

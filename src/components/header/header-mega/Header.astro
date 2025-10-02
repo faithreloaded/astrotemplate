@@ -1,6 +1,7 @@
 ---
 import "./Header.css";
 import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
+import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
 ---
 
 <header class="header-mega">
@@ -69,7 +70,7 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
                   </div>
                 </a>
                 
-                <div class="mega-menu-item">
+                <a href="/ctas" class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="Zap" size={20} client:load />
                   </div>
@@ -77,9 +78,9 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
                     <h4>CTA</h4>
                     <p>Call-to-action sections</p>
                   </div>
-                </div>
+                </a>
                 
-                <div class="mega-menu-item">
+                <a href="/features" class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="Layers" size={20} client:load />
                   </div>
@@ -87,17 +88,18 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
                     <h4>Features</h4>
                     <p>Product features showcase</p>
                   </div>
-                </div>
+                </a>
+                
               </div>
             </div>
             
             <div class="mega-menu-actions">
-              <a href="/sections" class="btn-primary full-width">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="5,3 19,12 5,21 5,3"/>
-                </svg>
-                View All Sections
-              </a>
+                  <ButtonPrimary href="/sections" width="full">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="5,3 19,12 5,21 5,3"/>
+                    </svg>
+                    View All Sections
+                  </ButtonPrimary>
             </div>
           </div>
         </div>
@@ -144,7 +146,7 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
               </div>
               
               <div class="mega-menu-column">
-                <div class="mega-menu-item">
+                <a href="/cards" class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="Calendar" size={20} client:load />
                   </div>
@@ -152,17 +154,27 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
                     <h4>Cards</h4>
                     <p>Content card layouts</p>
                   </div>
-                </div>
+                </a>
                 
-                <div class="mega-menu-item">
+                <a href="/badges" class="mega-menu-item">
+                  <div class="mega-menu-icon">
+                    <MegaMenuIcon name="Tag" size={20} client:load />
+                  </div>
+                  <div class="mega-menu-text">
+                    <h4>Badges</h4>
+                    <p>Material UI inspired badges</p>
+                  </div>
+                </a>
+                
+                <a href="/pills" class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="Circle" size={20} client:load />
                   </div>
                   <div class="mega-menu-text">
-                    <h4>Badges</h4>
-                    <p>Status and label badges</p>
+                    <h4>Pills</h4>
+                    <p>Elegant pill components</p>
                   </div>
-                </div>
+                </a>
                 
                 <div class="mega-menu-item">
                   <div class="mega-menu-icon">
@@ -177,12 +189,12 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
             </div>
             
             <div class="mega-menu-actions">
-              <a href="/components" class="btn-primary full-width">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="5,3 19,12 5,21 5,3"/>
-                </svg>
-                View All Components
-              </a>
+                  <ButtonPrimary href="/components" width="full">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polygon points="5,3 19,12 5,21 5,3"/>
+                    </svg>
+                    View All Components
+                  </ButtonPrimary>
             </div>
           </div>
         </div>
@@ -198,12 +210,12 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
       </nav>
       
       <div class="header-mega-actions">
-        <a href="/buy" class="btn-primary desktop-nav">
+        <ButtonPrimary href="/buy" class="desktop-nav">
           Buy Template
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M7 17L17 7M17 7H7M17 7V17"/>
           </svg>
-        </a>
+        </ButtonPrimary>
         
         <button class="menu-toggle mobile-nav" id="menu-toggle-mega">
           <span></span>
@@ -239,8 +251,9 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
             <a href="/faqs" class="mobile-submenu-link">FAQ</a>
             <a href="/testimonials" class="mobile-submenu-link">Testimonials</a>
             <a href="/pricing" class="mobile-submenu-link">Pricing</a>
-            <a href="/cta" class="mobile-submenu-link">CTA</a>
+            <a href="/ctas" class="mobile-submenu-link">CTA</a>
             <a href="/features" class="mobile-submenu-link">Features</a>
+            <a href="/badges" class="mobile-submenu-link">Badges</a>
           </div>
         </div>
         
@@ -257,6 +270,7 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
             <a href="/footers" class="mobile-submenu-link">Footers</a>
             <a href="/cards" class="mobile-submenu-link">Cards</a>
             <a href="/badges" class="mobile-submenu-link">Badges</a>
+            <a href="/pills" class="mobile-submenu-link">Pills</a>
             <a href="/modals" class="mobile-submenu-link">Modals</a>
           </div>
         </div>
@@ -266,9 +280,9 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
         
       </div>
       <div class="mobile-nav-footer">
-        <a href="/buy" class="btn-primary">
+        <ButtonPrimary href="/buy">
           Buy Template
-        </a>
+        </ButtonPrimary>
       </div>
     </nav>
   </div>

@@ -14,42 +14,9 @@ html, body {
 }
 
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-3) var(--space-6);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
-  border-radius: var(--radius-lg);
-  transition: all var(--transition);
-  cursor: pointer;
-  border: 2px solid transparent;
-  min-width: 160px;
-}
-
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--color-black);
-  border-color: var(--color-border);
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-background-alt);
-  border-color: var(--color-text);
-  transform: translateY(-2px);
-  text-decoration: none;
-}
 
 @media (max-width: 768px) {
   .main {
     padding: var(--space-16) 0;
-  }
-  
-  .btn {
-    width: 100%;
-    max-width: 280px;
   }
 }

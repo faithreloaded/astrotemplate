@@ -1,5 +1,8 @@
 ---
 // SplitWithImage Hero Component
+import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
+import ButtonSecondary from '../../buttons/secondary/ButtonSecondary.astro';
+import ButtonLinkBlue from '../../buttons/link-blue/ButtonLinkBlue.astro';
 ---
 
 <section class="split-with-image-hero">
@@ -10,7 +13,7 @@
       <div class="pill-outline-hero">
         <span class="split-with-image-banner-text">
           Lorem ipsum dolor. 
-          <a href="#" class="btn-link-blue">Read more →</a>
+          <ButtonLinkBlue href="#">Read more →</ButtonLinkBlue>
         </span>
       </div>
       
@@ -26,15 +29,15 @@
       
       <!-- Action Buttons -->
       <div class="split-with-image-actions">
-        <button class="btn-primary">
+        <ButtonPrimary href="#">
           Get started
-        </button>
-        <a href="#" class="btn-secondary">
+        </ButtonPrimary>
+        <ButtonSecondary href="#">
           Learn more
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M7 17L17 7M17 7H7M17 7V17"/>
           </svg>
-        </a>
+        </ButtonSecondary>
       </div>
     </div>
     

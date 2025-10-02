@@ -1,0 +1,156 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
+  href?: string;
+  target?: string;
+  disabled?: boolean;
+}
+
+const { 
+  variant = 'primary',
+  size = 'md',
+  href,
+  target = '_self',
+  disabled = false
+} = Astro.props;
+
+const baseClasses = `pill pill-outlined pill-${variant} pill-${size}`;
+const element = href ? 'a' : 'span';
+const elementProps = href ? { href, target, title: "" } : {};
+---
+
+<element 
+  class={baseClasses}
+  {...elementProps}
+  aria-disabled={disabled}
+>
+  <slot />
+</element>
+
+<style>
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    transition: all 0.3s ease;
+    border: 1px solid;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: transparent;
+    user-select: none;
+  }
+
+  .pill:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .pill[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Sizes */
+  .pill-xs {
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .pill-sm {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .pill-md {
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .pill-lg {
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+
+  /* Outlined Variants */
+  .pill-outlined.pill-primary {
+    color: var(--color-black);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .pill-outlined.pill-primary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .pill-outlined.pill-secondary {
+    color: var(--color-gray);
+    border-color: rgba(102, 102, 102, 0.3);
+  }
+
+  .pill-outlined.pill-secondary:hover {
+    background-color: rgba(102, 102, 102, 0.05);
+    border-color: rgba(102, 102, 102, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .pill-outlined.pill-success {
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+
+  .pill-outlined.pill-success:hover {
+    background-color: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .pill-outlined.pill-warning {
+    color: #f59e0b;
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+
+  .pill-outlined.pill-warning:hover {
+    background-color: rgba(245, 158, 11, 0.05);
+    border-color: rgba(245, 158, 11, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .pill-outlined.pill-error {
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  .pill-outlined.pill-error:hover {
+    background-color: rgba(239, 68, 68, 0.05);
+    border-color: rgba(239, 68, 68, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .pill-outlined.pill-info {
+    color: #3b82f6;
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .pill-outlined.pill-info:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .pill-outlined:active {
+    transform: translateY(0);
+  }
+</style>

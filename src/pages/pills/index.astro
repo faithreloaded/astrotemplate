@@ -1,0 +1,374 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+import PillOutlined from '../../components/pills/outlined/PillOutlined.astro';
+import PillSoft from '../../components/pills/soft/PillSoft.astro';
+import PillOverDark from '../../components/pills/overdark/PillOverDark.astro';
+---
+
+<BaseLayout 
+  title="Pills – Starter UI" 
+  description="Elegant pill components with outlined and soft variants. Perfect for tags, labels, and status indicators."
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <section class="pills-section">
+      <div class="container">
+        <div class="pills-header">
+          <h1 class="pills-title">Pills</h1>
+          <p class="pills-description">
+            Elegant pill components perfect for tags, labels, and status indicators. 
+            Available in outlined, soft, and overdark variants with multiple sizes and colors.
+          </p>
+        </div>
+
+
+        <!-- Outlined Pills -->
+        <div class="pills-category">
+          <h2 class="pills-category-title">Outlined Pills</h2>
+          <p class="pills-category-description">Border-only pills with subtle backgrounds on hover</p>
+          
+          <div class="pills-examples">
+            <div class="pills-example">
+              <h3 class="pills-example-title">Colors</h3>
+              <div class="pills-grid">
+                <PillOutlined variant="primary">Primary</PillOutlined>
+                <PillOutlined variant="secondary">Secondary</PillOutlined>
+                <PillOutlined variant="success">Success</PillOutlined>
+                <PillOutlined variant="warning">Warning</PillOutlined>
+                <PillOutlined variant="error">Error</PillOutlined>
+                <PillOutlined variant="info">Info</PillOutlined>
+              </div>
+            </div>
+
+            <div class="pills-example">
+              <h3 class="pills-example-title">Sizes</h3>
+              <div class="pills-grid">
+                <PillOutlined size="xs">Extra Small</PillOutlined>
+                <PillOutlined size="sm">Small</PillOutlined>
+                <PillOutlined size="md">Medium</PillOutlined>
+                <PillOutlined size="lg">Large</PillOutlined>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Pills -->
+        <div class="pills-category">
+          <h2 class="pills-category-title">Soft Pills</h2>
+          <p class="pills-category-description">Subtle background pills with colored text</p>
+          
+          <div class="pills-examples">
+            <div class="pills-example">
+              <h3 class="pills-example-title">Colors</h3>
+              <div class="pills-grid">
+                <PillSoft variant="primary">Primary</PillSoft>
+                <PillSoft variant="secondary">Secondary</PillSoft>
+                <PillSoft variant="success">Success</PillSoft>
+                <PillSoft variant="warning">Warning</PillSoft>
+                <PillSoft variant="error">Error</PillSoft>
+                <PillSoft variant="info">Info</PillSoft>
+              </div>
+            </div>
+
+            <div class="pills-example">
+              <h3 class="pills-example-title">Sizes</h3>
+              <div class="pills-grid">
+                <PillSoft size="xs">Extra Small</PillSoft>
+                <PillSoft size="sm">Small</PillSoft>
+                <PillSoft size="md">Medium</PillSoft>
+                <PillSoft size="lg">Large</PillSoft>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OverDark Pills -->
+        <div class="pills-category">
+          <h2 class="pills-category-title">OverDark Pills</h2>
+          <p class="pills-category-description">Blurry white pills perfect for overlaying on images and dark backgrounds</p>
+          
+          <div class="pills-overdark-preview">
+            <div class="pills-overdark-content">
+              <h3 class="pills-overdark-title">Variants</h3>
+              <div class="pills-grid">
+                <PillOverDark variant="light">Light</PillOverDark>
+                <PillOverDark variant="warm">Warm</PillOverDark>
+              </div>
+              
+              <h3 class="pills-overdark-title">Sizes</h3>
+              <div class="pills-grid">
+                <PillOverDark size="xs">Extra Small</PillOverDark>
+                <PillOverDark size="sm">Small</PillOverDark>
+                <PillOverDark size="md">Medium</PillOverDark>
+                <PillOverDark size="lg">Large</PillOverDark>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Theme Preview -->
+        <div class="pills-category">
+          <h2 class="pills-category-title">Dark Theme Preview</h2>
+          <p class="pills-category-description">How pills look on dark backgrounds</p>
+          
+          <div class="pills-dark-preview">
+            <div class="pills-examples">
+              <div class="pills-example">
+                <h3 class="pills-example-title">Outlined Variants</h3>
+                <div class="pills-grid">
+                  <PillOutlined variant="primary">Primary</PillOutlined>
+                  <PillOutlined variant="secondary">Secondary</PillOutlined>
+                  <PillOutlined variant="success">Success</PillOutlined>
+                  <PillOutlined variant="warning">Warning</PillOutlined>
+                  <PillOutlined variant="error">Error</PillOutlined>
+                  <PillOutlined variant="info">Info</PillOutlined>
+                </div>
+              </div>
+
+              <div class="pills-example">
+                <h3 class="pills-example-title">Soft Variants</h3>
+                <div class="pills-grid">
+                  <PillSoft variant="primary">Primary</PillSoft>
+                  <PillSoft variant="secondary">Secondary</PillSoft>
+                  <PillSoft variant="success">Success</PillSoft>
+                  <PillSoft variant="warning">Warning</PillSoft>
+                  <PillSoft variant="error">Error</PillSoft>
+                  <PillSoft variant="info">Info</PillSoft>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .pills-section {
+    background: transparent;
+    padding: 120px 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .pills-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .section-pill {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--color-gray);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+  }
+
+  .pills-title {
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 24px 0;
+    font-family: var(--font-sans);
+    letter-spacing: -0.5px;
+  }
+
+  .pills-description {
+    font-size: 18px;
+    color: var(--color-gray);
+    margin: 0;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .pills-category {
+    margin-bottom: 80px;
+  }
+
+  .pills-category-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 12px 0;
+    font-family: var(--font-sans);
+    letter-spacing: -0.3px;
+  }
+
+  .pills-category-description {
+    font-size: 16px;
+    color: var(--color-gray);
+    margin: 0 0 40px 0;
+    line-height: 1.5;
+  }
+
+  .pills-examples {
+    display: grid;
+    gap: 40px;
+  }
+
+  .pills-example {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+
+  .pills-example-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 24px 0;
+    font-family: var(--font-sans);
+  }
+
+  .pills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .pills-dark-preview {
+    background: var(--color-black);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+  }
+
+  .pills-dark-preview .pills-example {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .pills-dark-preview .pills-example-title {
+    color: var(--color-white);
+  }
+
+  /* Dark theme specific pill adjustments */
+  .pills-dark-preview .pill-outlined.pill-secondary {
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .pills-dark-preview .pill-outlined.pill-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .pills-dark-preview .pill-soft.pill-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .pills-dark-preview .pill-soft.pill-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* OverDark Preview Styles */
+  .pills-overdark-preview {
+    background-image: url('/images/images/placeholder/placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    position: relative;
+    min-height: 400px;
+  }
+
+  .pills-overdark-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  .pills-overdark-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+  }
+
+  .pills-overdark-title {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+    font-family: var(--font-sans);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pills-section {
+      padding: 80px 0;
+    }
+
+    .pills-header {
+      margin-bottom: 60px;
+    }
+
+    .pills-title {
+      font-size: 36px;
+    }
+
+    .pills-description {
+      font-size: 16px;
+    }
+
+    .pills-category {
+      margin-bottom: 60px;
+    }
+
+    .pills-category-title {
+      font-size: 28px;
+    }
+
+    .pills-example {
+      padding: 24px;
+    }
+
+    .pills-grid {
+      gap: 8px;
+    }
+
+    .pills-dark-preview {
+      padding: 24px;
+    }
+
+    .pills-overdark-preview {
+      min-height: 300px;
+    }
+
+    .pills-overdark-content {
+      padding: 24px;
+      gap: 24px;
+    }
+  }
+</style>

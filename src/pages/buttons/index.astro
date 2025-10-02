@@ -3,6 +3,14 @@ import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeaderMega from '../../components/header/header-mega/Header.astro';
 import Footer from '../../components/footer/footer-grid/Footer.astro';
+import ButtonPrimary from '../../components/buttons/primary/ButtonPrimary.astro';
+import ButtonSecondary from '../../components/buttons/secondary/ButtonSecondary.astro';
+import ButtonLink from '../../components/buttons/link/ButtonLink.astro';
+import ButtonPrimaryDark from '../../components/buttons/primary-dark/ButtonPrimaryDark.astro';
+import ButtonSecondaryDark from '../../components/buttons/secondary-dark/ButtonSecondaryDark.astro';
+import ButtonLinkDark from '../../components/buttons/link-dark/ButtonLinkDark.astro';
+import ButtonLinkBlue from '../../components/buttons/link-blue/ButtonLinkBlue.astro';
+import ButtonOutlinedIcon from '../../components/buttons/outlined-with-icon/ButtonOutlinedIcon.astro';
 import './_buttons.css';
 ---
 
@@ -26,30 +34,30 @@ import './_buttons.css';
           <div class="button-group">
             <h2>Primary</h2>
             <div class="button-examples">
-              <button class="btn-primary">Get started</button>
-              <button class="btn-primary">
+              <ButtonPrimary>Get started</ButtonPrimary>
+              <ButtonPrimary>
                 Log in
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M7 17L17 7M17 7H7M17 7V17"/>
                 </svg>
-              </button>
+              </ButtonPrimary>
             </div>
           </div>
 
           <div class="button-group">
             <h2>Secondary</h2>
             <div class="button-examples">
-              <button class="btn-secondary">Learn more</button>
-              <button class="btn-secondary learn-more-btn">Learn more</button>
+              <ButtonSecondary>Learn more</ButtonSecondary>
+              <ButtonSecondary class="learn-more-btn">Learn more</ButtonSecondary>
             </div>
           </div>
 
           <div class="button-group">
             <h2>Link</h2>
             <div class="button-examples">
-              <a href="#" class="btn-link">Learn more</a>
+              <ButtonLink>Learn more</ButtonLink>
               <div class="link-variant">
-                <a href="#" class="btn-link-blue">Learn more</a>
+                <ButtonLinkBlue>Learn more</ButtonLinkBlue>
               </div>
             </div>
           </div>
@@ -57,9 +65,21 @@ import './_buttons.css';
           <div class="button-group">
             <h2>Dark Variants</h2>
             <div class="button-examples dark-bg">
-              <button class="btn-primary-dark">Get started</button>
-              <button class="btn-secondary-dark">Learn more</button>
-              <a href="#" class="btn-link-dark">Learn more</a>
+              <ButtonPrimaryDark>Get started</ButtonPrimaryDark>
+              <ButtonSecondaryDark>Learn more</ButtonSecondaryDark>
+              <ButtonLinkDark>Learn more</ButtonLinkDark>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <h2>Outlined with Icon</h2>
+            <div class="button-examples">
+              <ButtonOutlinedIcon size="small" variant="primary" icon="arrow-right">Learn more</ButtonOutlinedIcon>
+              <ButtonOutlinedIcon size="medium" variant="success" icon="check">Get started</ButtonOutlinedIcon>
+              <ButtonOutlinedIcon size="large" variant="info" icon="external-link">View details</ButtonOutlinedIcon>
+              <ButtonOutlinedIcon size="medium" variant="secondary" icon="download">Download</ButtonOutlinedIcon>
+              <ButtonOutlinedIcon size="medium" variant="warning" icon="plus">Add item</ButtonOutlinedIcon>
+              <ButtonOutlinedIcon size="medium" variant="error" icon="arrow-left">Go back</ButtonOutlinedIcon>
             </div>
           </div>
         </div>

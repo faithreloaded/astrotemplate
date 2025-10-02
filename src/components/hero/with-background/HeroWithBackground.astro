@@ -1,5 +1,7 @@
 ---
 import './HeroWithBackground.css';
+import ButtonPrimaryDark from '../../buttons/primary-dark/ButtonPrimaryDark.astro';
+import ButtonLinkDark from '../../buttons/link-dark/ButtonLinkDark.astro';
 ---
 
 <section class="hero-with-background">
@@ -14,7 +16,7 @@ import './HeroWithBackground.css';
       <div class="pill-outline-hero">
         <span class="hero-with-bg-banner-text">
           Lorem ipsum dolor. 
-          <a href="#" class="btn-link-dark-text">Read more →</a>
+          <ButtonLinkDark href="#">Read more →</ButtonLinkDark>
         </span>
       </div>
       
@@ -30,12 +32,12 @@ import './HeroWithBackground.css';
       
       <!-- Botones de acción -->
       <div class="hero-with-bg-actions">
-        <button class="btn-primary-dark">
+        <ButtonPrimaryDark href="#">
           Get started
-        </button>
-        <a href="#" class="btn-link-dark">
+        </ButtonPrimaryDark>
+        <ButtonLinkDark href="#">
           Learn more
-        </a>
+        </ButtonLinkDark>
       </div>
     </div>
   </div>

@@ -1,0 +1,234 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import Footer from '../../components/footer/footer-grid/Footer.astro';
+
+// Importar todos los componentes Cards
+import ElegantCards from '../../components/cards/elegant/ElegantCards.astro';
+import MinimalCards from '../../components/cards/minimal/MinimalCards.astro';
+import FeaturesGrid from '../../components/features/grid/FeaturesGrid.astro';
+import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
+---
+
+<BaseLayout 
+  title="Cards | Starter UI" 
+  description="Collection of card components for modern web design"
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="cards-page">
+        <header class="cards-page-header">
+          <h1 class="cards-page-title">Cards</h1>
+          <p class="cards-page-description">
+            A curated collection of card components designed for modern web experiences
+          </p>
+        </header>
+
+        <div class="cards-showcase">
+          <!-- Elegant Cards -->
+          <div class="cards-showcase-item">
+            <div class="cards-showcase-header">
+              <h2 class="cards-showcase-title">Elegant Cards</h2>
+              <p class="cards-showcase-description">Minimal and sophisticated card design with subtle hover effects</p>
+            </div>
+            <div class="cards-showcase-preview">
+              <ElegantCards />
+            </div>
+          </div>
+
+          <!-- Minimal Cards -->
+          <div class="cards-showcase-item">
+            <div class="cards-showcase-header">
+              <h2 class="cards-showcase-title">Minimal Cards</h2>
+              <p class="cards-showcase-description">Clean and minimal card design with integrated icons and subtle interactions</p>
+            </div>
+            <div class="cards-showcase-preview">
+              <MinimalCards />
+            </div>
+          </div>
+
+              <!-- Features Grid -->
+              <div class="cards-showcase-item">
+                <div class="cards-showcase-header">
+                  <h2 class="cards-showcase-title">Features Grid</h2>
+                  <p class="cards-showcase-description">Grid layout with feature cards, integrated icons, and interactive link buttons</p>
+                </div>
+                <div class="cards-showcase-preview">
+                  <FeaturesGrid />
+                </div>
+              </div>
+
+              <!-- Services Grid -->
+              <div class="cards-showcase-item">
+                <div class="cards-showcase-header">
+                  <h2 class="cards-showcase-title">Services Grid</h2>
+                  <p class="cards-showcase-description">Service cards that expand downward with animated arrows and hover effects</p>
+                </div>
+                <div class="cards-showcase-preview">
+                  <ServicesGrid />
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .cards-page {
+    padding: var(--space-8) 0;
+  }
+
+  .cards-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cards-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .cards-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .cards-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .cards-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .cards-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .cards-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .cards-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .cards-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: auto;
+    position: relative;
+  }
+
+  /* Resetear estilos de los componentes Cards para que se vean bien en el contenedor */
+  .cards-showcase-preview :global(.elegant-cards-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+  }
+
+  .cards-showcase-preview :global(.minimal-cards-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+  }
+
+      .cards-showcase-preview :global(.features-grid-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+      }
+
+      .cards-showcase-preview :global(.services-grid-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+  .cards-showcase-preview :global(.container) {
+    max-width: 100% !important;
+    padding: 0 var(--space-6) !important;
+  }
+
+  @media (max-width: 768px) {
+    .cards-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .cards-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+    
+    .cards-showcase {
+      gap: var(--space-12);
+    }
+    
+    .cards-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+    
+    .cards-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+    
+    .cards-page-title {
+      font-size: 36px;
+    }
+    
+    .cards-showcase-title {
+      font-size: 16px;
+    }
+    
+    .cards-showcase-description {
+      font-size: 13px;
+    }
+    
+    .cards-showcase-preview {
+      height: auto;
+    }
+    
+    .cards-showcase-preview :global(.elegant-cards-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .cards-showcase-preview :global(.minimal-cards-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .cards-showcase-preview :global(.features-grid-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .cards-showcase-preview :global(.container) {
+      padding: 0 var(--space-4) !important;
+    }
+  }
+</style>

@@ -1,0 +1,220 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import FeaturesSplitRight from '../../components/features/split-right/FeaturesSplitRight.astro';
+import FeaturesSplitLeft from '../../components/features/split-left/FeaturesSplitLeft.astro';
+import FeaturesGrid from '../../components/features/grid/FeaturesGrid.astro';
+import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+---
+
+<BaseLayout 
+  title="Features - Starter UI" 
+  description="Feature components with clean, engaging designs to showcase your product capabilities and benefits."
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="features-page">
+        <header class="features-page-header">
+          <h1 class="features-page-title">Feature Components</h1>
+          <p class="features-page-description">
+            Showcase your product features with clean, modern components designed to highlight capabilities and benefits
+          </p>
+        </header>
+
+            <div class="features-showcase">
+              <div class="features-showcase-item">
+                <div class="features-showcase-header">
+                  <h2 class="features-showcase-title">Split layout - Image Right</h2>
+                  <p class="features-showcase-description">Two-column layout with content on the left and background image on the right</p>
+                </div>
+                <div class="features-showcase-preview">
+                  <FeaturesSplitRight />
+                </div>
+              </div>
+
+              <div class="features-showcase-item">
+                <div class="features-showcase-header">
+                  <h2 class="features-showcase-title">Split layout - Image Left</h2>
+                  <p class="features-showcase-description">Two-column layout with background image on the left and content on the right</p>
+                </div>
+                <div class="features-showcase-preview">
+                  <FeaturesSplitLeft />
+                </div>
+              </div>
+
+              <div class="features-showcase-item">
+                <div class="features-showcase-header">
+                  <h2 class="features-showcase-title">Grid layout with hover effects</h2>
+                  <p class="features-showcase-description">Six feature cards in a responsive grid with sophisticated hover animations</p>
+                </div>
+                <div class="features-showcase-preview">
+                  <FeaturesGrid />
+                </div>
+              </div>
+
+              <div class="features-showcase-item">
+                <div class="features-showcase-header">
+                  <h2 class="features-showcase-title">Services with expandable cards</h2>
+                  <p class="features-showcase-description">Service cards that expand downward with animated arrows on hover</p>
+                </div>
+                <div class="features-showcase-preview">
+                  <ServicesGrid />
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </main>
+  
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .features-page {
+    padding: var(--space-8) 0;
+  }
+
+  .features-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .features-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .features-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .features-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .features-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .features-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .features-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .features-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .features-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: auto;
+    position: relative;
+  }
+
+      /* Resetear estilos del componente FeaturesGrid para que se vea bien en el contenedor */
+      .features-showcase-preview :global(.features-grid-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+      }
+
+      .features-showcase-preview :global(.services-grid-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .features-showcase-preview :global(.features-split-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+      }
+
+      .features-showcase-preview :global(.features-split-reverse-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+      }
+
+  .features-showcase-preview :global(.container) {
+    max-width: 100% !important;
+    padding: 0 var(--space-6) !important;
+  }
+
+  @media (max-width: 768px) {
+    .features-page {
+      padding: var(--space-6) 0;
+    }
+
+    .features-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+
+    .features-page-title {
+      font-size: 36px;
+    }
+
+    .features-showcase {
+      gap: var(--space-12);
+    }
+
+    .features-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+
+    .features-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+
+    .features-showcase-title {
+      font-size: 16px;
+    }
+
+    .features-showcase-description {
+      font-size: 13px;
+    }
+
+    .features-showcase-preview {
+      height: auto;
+    }
+    
+    .features-showcase-preview :global(.features-grid-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .features-showcase-preview :global(.container) {
+      padding: 0 var(--space-4) !important;
+    }
+  }
+</style>

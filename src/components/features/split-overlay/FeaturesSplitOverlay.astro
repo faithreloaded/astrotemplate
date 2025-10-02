@@ -1,0 +1,36 @@
+---
+import './FeaturesSplitOverlay.css';
+import ButtonLink from '../../buttons/link/ButtonLink.astro';
+---
+
+<section class="features-split-overlay-section">
+  <div class="container">
+    <div class="features-split-overlay-grid">
+      <!-- Left Container - Image Background Only -->
+      <div class="features-split-overlay-left">
+        <!-- Overlapping Image - On top of left container -->
+        <div class="features-split-overlay-overlap">
+          <img src="/images/images/placeholder/paceholder2.jpg" alt="Team collaboration" />
+        </div>
+      </div>
+
+      <!-- Right Container - Text Content -->
+      <div class="features-split-overlay-right">
+        <div class="features-split-overlay-text">
+          <h2 class="features-split-overlay-title">A Present Partnership</h2>
+          <p class="features-split-overlay-description">
+            We focus on solving strategic challenges for our portfolio companies. 
+            The team has experience both as founders and from strategic work in a variety of industries.
+          </p>
+          <p class="features-split-overlay-text-description">
+            Our working method is proven, and we give our companies access to an extensive network 
+            of industry experts and strategic partners.
+          </p>
+          <div class="features-split-overlay-action">
+            <ButtonLink href="#">Read more about our method</ButtonLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

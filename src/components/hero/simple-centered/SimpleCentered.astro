@@ -1,5 +1,8 @@
 ---
 import './SimpleCentered.css';
+import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
+import ButtonLink from '../../buttons/link/ButtonLink.astro';
+import ButtonLinkBlue from '../../buttons/link-blue/ButtonLinkBlue.astro';
 ---
 
 <section class="simple-centered-hero">
@@ -9,7 +12,7 @@ import './SimpleCentered.css';
       <div class="pill-outline-hero">
         <span class="simple-centered-banner-text">
           Lorem ipsum dolor. 
-          <a href="#" class="btn-link-blue">Read more →</a>
+          <ButtonLinkBlue href="#">Read more →</ButtonLinkBlue>
         </span>
       </div>
       
@@ -25,12 +28,12 @@ import './SimpleCentered.css';
       
       <!-- Botones de acción -->
       <div class="simple-centered-actions">
-        <button class="btn-primary">
+        <ButtonPrimary href="#">
           Get started
-        </button>
-        <a href="#" class="btn-link">
+        </ButtonPrimary>
+        <ButtonLink href="#">
           Learn more
-        </a>
+        </ButtonLink>
       </div>
     </div>
   </div>

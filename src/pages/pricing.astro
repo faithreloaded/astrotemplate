@@ -3,6 +3,7 @@ import '../styles/main.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeaderMega from '../components/header/header-mega/Header.astro';
 import PricingSection from '../components/pricing/three-cards/PricingSection.astro';
+import PricingDivided from '../components/pricing/divided-cards/PricingDivided.astro';
 import FooterGrid from '../components/footer/footer-grid/Footer.astro';
 ---
 
@@ -30,6 +31,16 @@ import FooterGrid from '../components/footer/footer-grid/Footer.astro';
             </div>
             <div class="pricing-showcase-preview">
               <PricingSection />
+            </div>
+          </div>
+
+          <div class="pricing-showcase-item">
+            <div class="pricing-showcase-header">
+              <h2 class="pricing-showcase-title">Divided columns layout</h2>
+              <p class="pricing-showcase-description">Three columns separated by vertical dividers, no card containers</p>
+            </div>
+            <div class="pricing-showcase-preview">
+              <PricingDivided />
             </div>
           </div>
         </div>

@@ -1,0 +1,124 @@
+---
+export interface Props {
+  variant?: 'light' | 'warm';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
+  href?: string;
+  target?: string;
+  disabled?: boolean;
+}
+
+const { 
+  variant = 'light',
+  size = 'md',
+  href,
+  target = '_self',
+  disabled = false
+} = Astro.props;
+
+const baseClasses = `pill pill-overdark pill-${variant} pill-${size}`;
+const element = href ? 'a' : 'span';
+const elementProps = href ? { href, target, title: "" } : {};
+---
+
+<element 
+  class={baseClasses}
+  {...elementProps}
+  aria-disabled={disabled}
+>
+  <slot />
+</element>
+
+<style>
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .pill:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+  }
+
+  .pill[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Sizes */
+  .pill-xs {
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .pill-sm {
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .pill-md {
+    padding: 4px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .pill-lg {
+    padding: 5px 18px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  /* OverDark Variants */
+  .pill-overdark.pill-light {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .pill-overdark.pill-light:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: rgba(0, 0, 0, 0.9);
+    border-color: rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .pill-overdark.pill-warm {
+    background-color: rgba(250, 245, 235, 0.9);
+    color: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .pill-overdark.pill-warm:hover {
+    background-color: rgba(250, 245, 235, 0.95);
+    color: rgba(0, 0, 0, 0.85);
+    border-color: rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .pill-overdark:active {
+    transform: translateY(0);
+  }
+</style>
