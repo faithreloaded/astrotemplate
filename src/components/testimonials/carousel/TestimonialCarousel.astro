@@ -1,0 +1,268 @@
+---
+import './TestimonialCarousel.css';
+---
+
+<script>
+  // Animaciones de scroll para Testimonials
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos de Testimonials
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      // Buscar específicamente la sección del carousel
+      const testimonialsSection = document.querySelector('.testimonials-section');
+      console.log('Carousel section found:', testimonialsSection);
+      
+      if (testimonialsSection) {
+        const testimonialsHeader = testimonialsSection.querySelector('.testimonials-header-carousel');
+        console.log('Carousel header found:', testimonialsHeader);
+        
+        const carousels = testimonialsSection.querySelectorAll('.carousel');
+        console.log('Carousels found:', carousels);
+        
+        if (testimonialsHeader) {
+          observer.observe(testimonialsHeader);
+          console.log('Carousel header observer added');
+        }
+        
+        carousels.forEach((carousel, index) => {
+          observer.observe(carousel);
+          console.log(`Carousel ${index} observer added`);
+        });
+      }
+    }, 100);
+  });
+</script>
+
+<script type="module" is:inline>
+  // Carrusel infinito sin "reset" usando reciclado de nodos.
+  // Soporta múltiples .carousel, direcciones y velocidades por data-atributos.
+  const mqlReduce = matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.querySelectorAll('.carousel').forEach(initCarousel);
+
+  function initCarousel(root) {
+    const track = root.querySelector('.carousel-track');
+    if (!track) return;
+
+    // Dirección: ltr -> desplazar a la izquierda; rtl -> a la derecha
+    let dir = (root.dataset.direction || 'ltr').toLowerCase() === 'rtl' ? 1 : -1;
+    let speed = Number(root.dataset.speed || 50); // px/seg
+    let paused = false;
+    let pos = 0;          // translateX actual
+    let last = performance.now();
+    let raf = null;
+
+    // Pausa en hover (sin "quedarse parado")
+    root.addEventListener('mouseenter', () => paused = true);
+    root.addEventListener('mouseleave', () => paused = false);
+
+    // Clonar hasta garantizar > 2x el ancho del contenedor (cinta larga y estable)
+    ensureLongTrack();
+
+    // Recalcular en resize
+    const ro = new ResizeObserver(() => ensureLongTrack());
+    ro.observe(root);
+
+    // Iniciar bucle
+    loop(performance.now());
+
+    function loop(now) {
+      const dt = (now - last) / 1000;
+      last = now;
+
+      if (!paused && !mqlReduce.matches) {
+        pos += dir * speed * dt; // dir: -1 izq, 1 der
+        recycleIfNeeded();
+        track.style.transform = `translate3d(${pos}px,0,0)`;
+      }
+      raf = requestAnimationFrame(loop);
+    }
+
+    function ensureLongTrack() {
+      // Duplicar hijos hasta que el ancho del track sea al menos 2× el ancho del viewport del carrusel
+      const min = root.clientWidth * 2;
+      let guard = 0;
+      while (track.scrollWidth < min && guard < 20) {
+        track.append(...[...track.children].map(n => n.cloneNode(true)));
+        guard++;
+      }
+    }
+
+    function recycleIfNeeded() {
+      // Reciclar nodos según dirección sin que se note
+      const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+      const rootRect = root.getBoundingClientRect();
+
+      if (dir < 0) {
+        // Nos movemos hacia la izquierda: si el 1º salió por la izquierda -> mandarlo al final
+        let first = track.firstElementChild;
+        // while por si "empujamos" más de un item en frames lentos
+        while (first) {
+          const r = first.getBoundingClientRect();
+          if (r.right <= rootRect.left) {
+            const w = first.offsetWidth + gap;
+            track.appendChild(first);
+            pos += w; // compensar translate para que no haya salto visual
+            // aplicar de inmediato para mantener continuidad
+            track.style.transform = `translate3d(${pos}px,0,0)`;
+            first = track.firstElementChild;
+          } else break;
+        }
+      } else {
+        // Nos movemos hacia la derecha: si el último salió por la derecha -> mandarlo al inicio
+        let lastEl = track.lastElementChild;
+        while (lastEl) {
+          const r = lastEl.getBoundingClientRect();
+          if (r.left >= rootRect.right) {
+            const w = lastEl.offsetWidth + gap;
+            track.prepend(lastEl);
+            pos -= w; // compensar translate
+            track.style.transform = `translate3d(${pos}px,0,0)`;
+            lastEl = track.lastElementChild;
+          } else break;
+        }
+      }
+    }
+  }
+</script>
+
+<section class="testimonials-section">
+  <div class="container">
+        <div class="testimonials-header-carousel">
+          <span class="section-pill">Rated 5 stars by 1000+ clients</span>
+          <h2 class="section-title-carousel">Meet our happy clients</h2>
+          <p class="section-subtitle-carousel">Join a global network of thought leaders, product developers, and innovators who trust our platform.</p>
+          <a href="#" class="btn-link">View all testimonials</a>
+        </div>
+    
+    <!-- Primera fila: derecha a izquierda -->
+    <div class="carousel" data-speed="40" data-direction="ltr">
+      <div class="carousel-track">
+        <div class="card">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">Mark Thompson</h3>
+                <p class="testimonial-role">COO</p>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-text">Managing our day-to-day tasks has never been easier. The interface is intuitive and saves us a lot of time.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">Emily Carter</h3>
+                <p class="testimonial-role">Product Manager</p>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-text">The tools provided have significantly improved our team's workflow and collaboration. Highly recommend it!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">Sophia Turner</h3>
+                <p class="testimonial-role">Design Director</p>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-text">From a design perspective, the flexibility and ease of use are outstanding. This has become an indispensable tool for our team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segunda fila: izquierda a derecha -->
+    <div class="carousel" data-speed="40" data-direction="rtl">
+      <div class="carousel-track">
+        <div class="card">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">James Wilson</h3>
+                <p class="testimonial-role">CEO</p>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-text">Outstanding service and results. Our productivity has increased dramatically since implementing their solutions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">Sarah Martinez</h3>
+                <p class="testimonial-role">Marketing Director</p>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-text">The team's expertise and attention to detail is remarkable. They've transformed our digital presence completely.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonial-info">
+                <h3 class="testimonial-name">David Brown</h3>
+                <p class="testimonial-role">CTO</p>
+              </div>
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-text">Exceptional technical implementation and seamless integration. Highly professional and reliable team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

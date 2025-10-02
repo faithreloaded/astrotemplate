@@ -101,11 +101,13 @@
   transition: all 0.2s ease;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 .mega-menu-item:hover {
   background: rgba(0, 0, 0, 0.02);
   transform: translateX(4px);
+  text-decoration: none !important;
 }
 
 .mega-menu-icon {

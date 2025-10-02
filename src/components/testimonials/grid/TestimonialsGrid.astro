@@ -1,0 +1,297 @@
+---
+import './TestimonialsGrid.css';
+---
+
+<script>
+  // Testimonials Grid Component
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe the testimonials section
+    const testimonialsSection = document.querySelector('.testimonials-grid-section');
+    if (testimonialsSection) {
+      observer.observe(testimonialsSection);
+      
+      // Inicializar carrusel solo después de la animación
+      setTimeout(() => {
+        initCarousel();
+      }, 800); // Esperar a que termine la animación (0.6s + margen)
+    }
+
+    function initCarousel() {
+      // ----- Infinite carousel (node recycling) -----
+      const track = document.querySelector('.testimonials-grid-track');
+      const prevBtn = document.querySelector('.testimonials-grid-prev');
+      const nextBtn = document.querySelector('.testimonials-grid-next');
+      const container = document.querySelector('.testimonials-grid-container');
+
+      if (track && prevBtn && nextBtn && container) {
+      let isAnimating = false;
+      let itemWidth = 0;
+      let currentTranslate = 0;
+      let isDragging = false;
+      let startX = 0;
+      let currentX = 0;
+      let dragOffset = 0;
+      let isInitialized = false;
+
+      const measureItemWidth = () => {
+        const children = Array.from(track.children);
+        if (children.length < 2) {
+          // Fallback: take single width
+          itemWidth = children[0]?.getBoundingClientRect().width || 0;
+          return;
+        }
+        const rect1 = children[0].getBoundingClientRect();
+        const rect2 = children[1].getBoundingClientRect();
+        const gap = Math.round(rect2.left - (rect1.left + rect1.width));
+        itemWidth = rect1.width + (isNaN(gap) ? 0 : gap);
+      };
+
+      const setTransform = (value, withTransition = true) => {
+        track.style.transition = withTransition ? 'transform 0.5s ease-in-out' : 'none';
+        track.style.transform = `translate3d(${value}px, 0, 0)`;
+        currentTranslate = value;
+      };
+
+      const initializePosition = () => {
+        if (!isInitialized) {
+          measureItemWidth();
+          currentTranslate = -itemWidth * 3; // Posición de la primera card original
+          setTransform(currentTranslate, false);
+          isInitialized = true;
+        }
+      };
+
+      const slideNext = () => {
+        if (isAnimating) return;
+        initializePosition(); // Inicializar solo en la primera interacción
+        isAnimating = true;
+        measureItemWidth();
+        // Mover hacia la izquierda
+        currentTranslate -= itemWidth;
+        setTransform(currentTranslate, true);
+        const onTransitionEnd = () => {
+          track.removeEventListener('transitionend', onTransitionEnd);
+          // Si llegamos al final de los clones, saltar al principio de los originales
+          if (currentTranslate <= -itemWidth * 6) { // 3 clones + 3 originales
+            currentTranslate = -itemWidth * 3; // Volver a la primera card original
+            setTransform(currentTranslate, false);
+          }
+          requestAnimationFrame(() => { isAnimating = false; });
+        };
+        track.addEventListener('transitionend', onTransitionEnd);
+      };
+
+      const slidePrev = () => {
+        if (isAnimating) return;
+        initializePosition(); // Inicializar solo en la primera interacción
+        isAnimating = true;
+        measureItemWidth();
+        // Mover hacia la derecha
+        currentTranslate += itemWidth;
+        setTransform(currentTranslate, true);
+        const onTransitionEnd = () => {
+          track.removeEventListener('transitionend', onTransitionEnd);
+          // Si llegamos al principio de los clones, saltar al final de los originales
+          if (currentTranslate >= 0) {
+            currentTranslate = -itemWidth * 5; // Ir a la última card original
+            setTransform(currentTranslate, false);
+          }
+          requestAnimationFrame(() => { isAnimating = false; });
+        };
+        track.addEventListener('transitionend', onTransitionEnd);
+      };
+
+      nextBtn.addEventListener('click', slideNext);
+      prevBtn.addEventListener('click', slidePrev);
+
+      // Resize handling
+      const ro = new ResizeObserver(() => measureItemWidth());
+      ro.observe(container);
+      measureItemWidth();
+      
+      // Crear clones para el drag infinito
+      const createClones = () => {
+        const children = Array.from(track.children);
+        if (children.length >= 3) {
+          // Crear múltiples clones para asegurar que siempre haya suficientes cards
+          // Clonar las 3 cards originales al final
+          for (let i = 0; i < 3; i++) {
+            const clone = children[i].cloneNode(true);
+            track.appendChild(clone);
+          }
+          // Clonar las 3 cards originales al principio
+          for (let i = 2; i >= 0; i--) {
+            const clone = children[i].cloneNode(true);
+            track.prepend(clone);
+          }
+        }
+      };
+      
+      // Crear clones iniciales
+      createClones();
+      
+      // NO posicionar automáticamente - dejar las cards en su posición natural
+      // El posicionamiento solo ocurrirá cuando el usuario interactúe
+
+      // ----- Drag (mouse & touch) -----
+      const thresholdPx = () => Math.min(40, itemWidth * 0.12); // alta sensibilidad
+
+      const onDragStart = (clientX) => {
+        if (isAnimating) return;
+        initializePosition(); // Inicializar solo en la primera interacción
+        isDragging = true;
+        startX = clientX;
+        currentX = clientX;
+        dragOffset = 0;
+        // Desactivar transiciones durante el drag
+        track.style.transition = 'none';
+      };
+
+      const onDragMove = (clientX) => {
+        if (!isDragging) return;
+        currentX = clientX;
+        dragOffset = currentX - startX;
+        // Mover el carrusel en tiempo real siguiendo el ratón
+        const newTranslate = currentTranslate + dragOffset;
+        track.style.transform = `translate3d(${newTranslate}px, 0, 0)`;
+      };
+
+      const onDragEnd = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        // Reactivar transiciones
+        track.style.transition = 'transform 0.5s ease-in-out';
+        
+        const abs = Math.abs(dragOffset);
+        if (abs > thresholdPx()) {
+          if (dragOffset < 0) {
+            // arrastre hacia la izquierda -> siguiente
+            slideNext();
+          } else {
+            slidePrev();
+          }
+        } else {
+          // volver a la posición actual suavemente
+          track.style.transform = `translate3d(${currentTranslate}px, 0, 0)`;
+        }
+        dragOffset = 0;
+        startX = 0;
+        currentX = 0;
+      };
+
+      // mouse
+      container.addEventListener('mousedown', (e) => {
+        onDragStart(e.clientX);
+        e.preventDefault();
+      });
+      window.addEventListener('mousemove', (e) => onDragMove(e.clientX));
+      window.addEventListener('mouseup', onDragEnd);
+
+      // touch
+      container.addEventListener('touchstart', (e) => {
+        const x = e.touches[0]?.clientX || 0;
+        onDragStart(x);
+      }, { passive: true });
+      container.addEventListener('touchmove', (e) => {
+        const x = e.touches[0]?.clientX || 0;
+        onDragMove(x);
+        e.preventDefault();
+      }, { passive: false });
+      container.addEventListener('touchend', onDragEnd, { passive: true });
+      }
+    }
+  });
+</script>
+
+<section class="testimonials-grid-section">
+  <div class="container">
+    <div class="testimonials-grid-header">
+      <h2 class="testimonials-grid-title">Why Clients Love Us</h2>
+      <div class="testimonials-grid-navigation">
+        <button class="testimonials-grid-prev" aria-label="Previous testimonials">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15,18 9,12 15,6"></polyline>
+          </svg>
+        </button>
+        <button class="testimonials-grid-next" aria-label="Next testimonials">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="testimonials-grid-container">
+      <div class="testimonials-grid-track">
+        <!-- Testimonial 1 -->
+        <div class="testimonials-grid-item">
+          <div class="testimonials-grid-card">
+            <blockquote class="testimonials-grid-quote">
+              "This platform has completely transformed how we manage our daily operations and team collaboration."
+            </blockquote>
+            <div class="testimonials-grid-author">
+              <div class="testimonials-grid-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonials-grid-info">
+                <h4 class="testimonials-grid-name">Marcus Thompson</h4>
+                <p class="testimonials-grid-role">Operations Manager</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonials-grid-item">
+          <div class="testimonials-grid-card">
+            <blockquote class="testimonials-grid-quote">
+              "The user experience is outstanding and the results speak for themselves in our productivity metrics."
+            </blockquote>
+            <div class="testimonials-grid-author">
+              <div class="testimonials-grid-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonials-grid-info">
+                <h4 class="testimonials-grid-name">Sarah Williams</h4>
+                <p class="testimonials-grid-role">Product Director</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonials-grid-item">
+          <div class="testimonials-grid-card">
+            <blockquote class="testimonials-grid-quote">
+              "Implementation was seamless and the support team has been incredibly responsive to our needs."
+            </blockquote>
+            <div class="testimonials-grid-author">
+              <div class="testimonials-grid-avatar">
+                <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+              </div>
+              <div class="testimonials-grid-info">
+                <h4 class="testimonials-grid-name">David Chen</h4>
+                <p class="testimonials-grid-role">Engineering Lead</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

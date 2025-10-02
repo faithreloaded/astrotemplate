@@ -14,7 +14,7 @@
 
 .hero-section {
   padding: 40px 0;
-  background-color: var(--color-cream);
+  background-color: transparent;
 }
 
 .hero-content {

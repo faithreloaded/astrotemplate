@@ -1,0 +1,66 @@
+---
+import './TestimonialSingle.css';
+---
+
+<script>
+  // Testimonial Single Component
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      // Animation observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      }, observerOptions);
+
+      // Observe the testimonials section
+      const testimonialsSection = document.querySelector('.testimonials-single-section');
+      if (testimonialsSection) {
+        observer.observe(testimonialsSection);
+        
+        // Also observe the header separately
+        const testimonialsHeader = testimonialsSection.querySelector('.testimonials-single-header');
+        if (testimonialsHeader) {
+          observer.observe(testimonialsHeader);
+        }
+      }
+    }, 100);
+  });
+</script>
+
+<section class="testimonials-single-section">
+  <div class="container">
+    <div class="testimonials-single-header">
+      <span class="section-pill">Trusted by 500+ companies worldwide</span>
+      <h2 class="testimonials-single-title">What our clients say</h2>
+      <p class="testimonials-single-description">Discover how our solutions have transformed businesses and empowered teams across different industries.</p>
+      <a href="#" class="btn-link">Read more stories</a>
+    </div>
+    
+    <div class="testimonials-single-card">
+      <div class="testimonials-single-stars">★★★★★</div>
+      <blockquote class="testimonials-single-quote">
+        "This platform has revolutionized how we approach our daily business operations"
+      </blockquote>
+      <p class="testimonials-single-text">
+        The comprehensive features and intuitive design have streamlined our workflow significantly. Our team productivity has increased dramatically, and the user experience has been consistently outstanding across all touchpoints.
+      </p>
+      <div class="testimonials-single-author">
+        <div class="testimonials-single-avatar">
+          <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
+        </div>
+        <div class="testimonials-single-info">
+          <h4 class="testimonials-single-name">Alex Thompson</h4>
+          <p class="testimonials-single-role">Founder & CEO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

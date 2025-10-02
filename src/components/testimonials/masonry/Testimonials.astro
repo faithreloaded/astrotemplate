@@ -3,138 +3,133 @@ import './Testimonials.css';
 ---
 
 <script>
-  // Animaciones de scroll para Testimonials
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-      }
-    });
-  }, observerOptions);
-
-  // Observar elementos de Testimonials
+  // Testimonials Masonry Component (copiado de Simple)
   document.addEventListener('DOMContentLoaded', () => {
-    const testimonialsSection = document.querySelector('.testimonials-section');
-    const testimonialsHeader = document.querySelector('.testimonials-header');
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    // Animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-    if (testimonialsSection) observer.observe(testimonialsSection);
-    if (testimonialsHeader) observer.observe(testimonialsHeader);
-    
-    testimonialCards.forEach((card, index) => {
-      observer.observe(card);
-    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe the testimonials section
+    const testimonialsSection = document.querySelector('.masonry-testimonials-section');
+    if (testimonialsSection) {
+      observer.observe(testimonialsSection);
+    }
   });
 </script>
 
-<section class="testimonials-section">
+<section class="masonry-testimonials-section">
   <div class="container">
-    <div class="testimonials-header">
-      <span class="section-pill">Testimonios</span>
-      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    <div class="masonry-testimonials-header">
+      <span class="section-pill">Testimonials</span>
+      <h2 class="masonry-section-title">What our clients say</h2>
     </div>
     
-    <div class="testimonials-grid">
+    <div class="masonry-testimonials-grid">
       <!-- Columna 1 -->
-      <div class="testimonials-column">
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/images/placeholder/placeholder.jpg" alt="Cliente" />
+      <div class="masonry-testimonials-column">
+        <div class="masonry-testimonial-card">
+          <div class="masonry-testimonial-header">
+            <div class="masonry-testimonial-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
             </div>
-            <div class="testimonial-info">
-              <h3 class="testimonial-name">Carlos Mendoza</h3>
-              <p class="testimonial-role">CEO · Tech Startup</p>
+            <div class="masonry-testimonial-info">
+              <h3 class="masonry-testimonial-name">James Thompson</h3>
+              <p class="masonry-testimonial-role">CEO · Tech Startup</p>
             </div>
           </div>
-          <div class="testimonial-content">
-            <p class="testimonial-text">"<span class="highlight">Increíble trabajo</span>. Nuestro engagement creció un 300% en solo 3 meses. El equipo entiende perfectamente nuestra audiencia y crea contenido que realmente conecta."</p>
+          <div class="masonry-testimonial-content">
+            <p class="masonry-testimonial-text"><span class="highlight">Amazing work</span>. Our engagement grew 300% in just 3 months. The team perfectly understands our audience and creates content that truly connects.</p>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/images/placeholder/placeholder.jpg" alt="Cliente" />
+        <div class="masonry-testimonial-card">
+          <div class="masonry-testimonial-header">
+            <div class="masonry-testimonial-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
             </div>
-            <div class="testimonial-info">
-              <h3 class="testimonial-name">Laura Fernández</h3>
-              <p class="testimonial-role">E-commerce Manager</p>
+            <div class="masonry-testimonial-info">
+              <h3 class="masonry-testimonial-name">Sarah Williams</h3>
+              <p class="masonry-testimonial-role">E-commerce Manager</p>
             </div>
           </div>
-          <div class="testimonial-content">
-            <p class="testimonial-text">"Llevamos trabajando juntos más de un año y los <span class="highlight">resultados hablan por sí solos</span>. Nuestras ventas online han aumentado un 150% gracias a su estrategia de contenido."</p>
+          <div class="masonry-testimonial-content">
+            <p class="masonry-testimonial-text">We've been working together for over a year and the <span class="highlight">results speak for themselves</span>. Our online sales have increased 150% thanks to their content strategy.</p>
           </div>
         </div>
       </div>
 
       <!-- Columna 2 -->
-      <div class="testimonials-column">
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/images/placeholder/placeholder.jpg" alt="Cliente" />
+      <div class="masonry-testimonials-column">
+        <div class="masonry-testimonial-card">
+          <div class="masonry-testimonial-header">
+            <div class="masonry-testimonial-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
             </div>
-            <div class="testimonial-info">
-              <h3 class="testimonial-name">Ana Rodríguez</h3>
-              <p class="testimonial-role">Fundadora · Beauty Brand</p>
+            <div class="masonry-testimonial-info">
+              <h3 class="masonry-testimonial-name">Emily Johnson</h3>
+              <p class="masonry-testimonial-role">Founder · Beauty Brand</p>
             </div>
           </div>
-          <div class="testimonial-content">
-            <p class="testimonial-text">"<span class="highlight">Profesionales excepcionales</span>. Transformaron completamente nuestra presencia digital. Ahora tenemos una comunidad real y comprometida. El ROI ha sido impresionante."</p>
+          <div class="masonry-testimonial-content">
+            <p class="masonry-testimonial-text"><span class="highlight">Exceptional professionals</span>. They completely transformed our digital presence. Now we have a real and engaged community. The ROI has been impressive.</p>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/images/placeholder/placeholder.jpg" alt="Cliente" />
+        <div class="masonry-testimonial-card">
+          <div class="masonry-testimonial-header">
+            <div class="masonry-testimonial-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
             </div>
-            <div class="testimonial-info">
-              <h3 class="testimonial-name">Miguel Torres</h3>
-              <p class="testimonial-role">Restaurante Owner</p>
+            <div class="masonry-testimonial-info">
+              <h3 class="masonry-testimonial-name">Michael Davis</h3>
+              <p class="masonry-testimonial-role">Restaurant Owner</p>
             </div>
           </div>
-          <div class="testimonial-content">
-            <p class="testimonial-text">"<span class="highlight">Perfecto</span> para nuestro restaurante. Las reservas han aumentado un 80%."</p>
+          <div class="masonry-testimonial-content">
+            <p class="masonry-testimonial-text"><span class="highlight">Perfect</span> for our restaurant. Reservations have increased 80%.</p>
           </div>
         </div>
       </div>
 
       <!-- Columna 3 -->
-      <div class="testimonials-column">
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/images/placeholder/placeholder.jpg" alt="Cliente" />
+      <div class="masonry-testimonials-column">
+        <div class="masonry-testimonial-card">
+          <div class="masonry-testimonial-header">
+            <div class="masonry-testimonial-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
             </div>
-            <div class="testimonial-info">
-              <h3 class="testimonial-name">David Kim</h3>
-              <p class="testimonial-role">Marketing Director</p>
+            <div class="masonry-testimonial-info">
+              <h3 class="masonry-testimonial-name">David Kim</h3>
+              <p class="masonry-testimonial-role">Marketing Director</p>
             </div>
           </div>
-          <div class="testimonial-content">
-            <p class="testimonial-text">"<span class="highlight">Excelente</span> trabajo con nuestro equipo de marketing. Han logrado optimizar nuestras campañas de manera impresionante, mejorando significativamente nuestro ROI y alcance en redes sociales."</p>
+          <div class="masonry-testimonial-content">
+            <p class="masonry-testimonial-text"><span class="highlight">Excellent</span> work with our marketing team. They've managed to optimize our campaigns impressively, significantly improving our ROI and social media reach.</p>
           </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/images/placeholder/placeholder.jpg" alt="Cliente" />
+        <div class="masonry-testimonial-card">
+          <div class="masonry-testimonial-header">
+            <div class="masonry-testimonial-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Client" />
             </div>
-            <div class="testimonial-info">
-              <h3 class="testimonial-name">Sofia Chen</h3>
-              <p class="testimonial-role">Fashion Designer</p>
+            <div class="masonry-testimonial-info">
+              <h3 class="masonry-testimonial-name">Sophia Chen</h3>
+              <p class="masonry-testimonial-role">Fashion Designer</p>
             </div>
           </div>
-          <div class="testimonial-content">
-            <p class="testimonial-text">"<span class="highlight">Increíble transformación</span> de nuestra marca. El equipo no solo entiende el mundo de la moda, sino que sabe cómo conectar con nuestra audiencia de manera auténtica. Nuestro alcance se multiplicó por 5."</p>
+          <div class="masonry-testimonial-content">
+            <p class="masonry-testimonial-text"><span class="highlight">Incredible transformation</span> of our brand. The team not only understands the fashion world, but knows how to connect with our audience authentically. Our reach multiplied by 5.</p>
           </div>
         </div>
       </div>

@@ -18,26 +18,26 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
         </div>
         
         <div class="nav-item-mega dropdown-mega">
-          <a href="/sections" class="nav-link-mega">
+          <span class="nav-link-mega">
             Sections
             <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </a>
+          </span>
           <div class="mega-menu">
             <div class="mega-menu-content">
               <div class="mega-menu-column">
-                <div class="mega-menu-item">
+                <a href="/heroes" class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="Layout" size={20} client:load />
                   </div>
                   <div class="mega-menu-text">
                     <h4>Hero</h4>
-                    <p>Landing page headers and banners</p>
+                    <p>Landing page hero sections</p>
                   </div>
-                </div>
+                </a>
                 
-                <div class="mega-menu-item">
+                <a href="/faqs" class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="HelpCircle" size={20} client:load />
                   </div>
@@ -45,17 +45,17 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
                     <h4>FAQ</h4>
                     <p>Frequently asked questions</p>
                   </div>
-                </div>
+                </a>
                 
-                <div class="mega-menu-item">
+                <a href="/testimonials" class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="Users" size={20} client:load />
                   </div>
                   <div class="mega-menu-text">
                     <h4>Testimonials</h4>
-                    <p>Customer reviews and feedback</p>
+                    <p>Customer reviews and testimonials</p>
                   </div>
-                </div>
+                </a>
               </div>
               
               <div class="mega-menu-column">
@@ -112,19 +112,41 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
           <div class="mega-menu">
             <div class="mega-menu-content">
               <div class="mega-menu-column">
-                <div class="mega-menu-item">
+                <a href="/buttons" class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="Square" size={20} client:load />
                   </div>
                   <div class="mega-menu-text">
-                    <h4><a href="/buttons/buttons">Buttons</a></h4>
+                    <h4>Buttons</h4>
                     <p>Interactive button components</p>
+                  </div>
+                </a>
+                
+                <div class="mega-menu-item">
+                  <div class="mega-menu-icon">
+                    <MegaMenuIcon name="Navigation" size={20} client:load />
+                  </div>
+                  <div class="mega-menu-text">
+                    <h4>Headers</h4>
+                    <p>Navigation header layouts</p>
                   </div>
                 </div>
                 
                 <div class="mega-menu-item">
                   <div class="mega-menu-icon">
                     <MegaMenuIcon name="Layout" size={20} client:load />
+                  </div>
+                  <div class="mega-menu-text">
+                    <h4>Footers</h4>
+                    <p>Footer layout components</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mega-menu-column">
+                <div class="mega-menu-item">
+                  <div class="mega-menu-icon">
+                    <MegaMenuIcon name="Calendar" size={20} client:load />
                   </div>
                   <div class="mega-menu-text">
                     <h4>Cards</h4>
@@ -139,28 +161,6 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
                   <div class="mega-menu-text">
                     <h4>Badges</h4>
                     <p>Status and label badges</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="mega-menu-column">
-                <div class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Calendar" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Forms</h4>
-                    <p>Input and form components</p>
-                  </div>
-                </div>
-                
-                <div class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Navigation" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Navigation</h4>
-                    <p>Menu and nav components</p>
                   </div>
                 </div>
                 
@@ -195,9 +195,6 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
           <a href="/docs/docs" class="nav-link-mega">Docs</a>
         </div>
         
-        <div class="nav-item-mega">
-          <a href="/examples" class="nav-link-mega">Examples</a>
-        </div>
       </nav>
       
       <div class="header-mega-actions">
@@ -219,7 +216,7 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
     <div class="mobile-overlay" id="mobile-overlay-mega"></div>
     <nav class="mobile-nav-menu" id="mobile-nav-mega">
       <div class="mobile-nav-header">
-        <img src="/images/isotipo.svg" alt="Logo" class="mobile-logo" />
+        <img src="/images/logo.svg" alt="Logo" class="mobile-logo" />
         <button class="mobile-close-btn" id="mobile-close-mega">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="18" y1="6" x2="6" y2="18"/>
@@ -238,8 +235,8 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
             </svg>
           </a>
           <div class="mobile-submenu">
-            <a href="/hero" class="mobile-submenu-link">Hero</a>
-            <a href="/faq" class="mobile-submenu-link">FAQ</a>
+            <a href="/heroes" class="mobile-submenu-link">Hero</a>
+            <a href="/faqs" class="mobile-submenu-link">FAQ</a>
             <a href="/testimonials" class="mobile-submenu-link">Testimonials</a>
             <a href="/pricing" class="mobile-submenu-link">Pricing</a>
             <a href="/cta" class="mobile-submenu-link">CTA</a>
@@ -255,18 +252,18 @@ import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
             </svg>
           </a>
           <div class="mobile-submenu">
-            <a href="/buttons/buttons" class="mobile-submenu-link">Buttons</a>
+            <a href="/buttons" class="mobile-submenu-link">Buttons</a>
+            <a href="/headers" class="mobile-submenu-link">Headers</a>
+            <a href="/footers" class="mobile-submenu-link">Footers</a>
             <a href="/cards" class="mobile-submenu-link">Cards</a>
             <a href="/badges" class="mobile-submenu-link">Badges</a>
-            <a href="/forms" class="mobile-submenu-link">Forms</a>
-            <a href="/navigation" class="mobile-submenu-link">Navigation</a>
             <a href="/modals" class="mobile-submenu-link">Modals</a>
           </div>
         </div>
         
         <a href="/global-styles/global-styles" class="mobile-nav-link">Global Styles</a>
         <a href="/docs/docs" class="mobile-nav-link">Docs</a>
-        <a href="/examples" class="mobile-nav-link">Examples</a>
+        
       </div>
       <div class="mobile-nav-footer">
         <a href="/buy" class="btn-primary">

@@ -1,0 +1,255 @@
+---
+import './TestimonialsSimple.css';
+---
+
+<script>
+  // Testimonials Simple Component
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe the testimonials section
+    const testimonialsSection = document.querySelector('.testimonials-simple-section');
+    if (testimonialsSection) {
+      observer.observe(testimonialsSection);
+    }
+    const testimonialsContainer = document.querySelector('.testimonials-simple-container');
+    const testimonialsTrack = document.querySelector('.testimonials-simple-track');
+    const prevBtn = document.querySelector('.testimonials-simple-prev');
+    const nextBtn = document.querySelector('.testimonials-simple-next');
+    const dots = document.querySelectorAll('.testimonials-simple-dot');
+    
+    if (!testimonialsContainer || !testimonialsTrack) return;
+    
+    let currentIndex = 0;
+    const testimonials = testimonialsTrack.querySelectorAll('.testimonial-simple-item');
+    const totalTestimonials = testimonials.length;
+    
+    function updateTestimonial() {
+      const translateX = -currentIndex * 100;
+      testimonialsTrack.style.transform = `translateX(${translateX}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+    
+    function nextTestimonial() {
+      currentIndex = (currentIndex + 1) % totalTestimonials;
+      updateTestimonial();
+    }
+    
+    function prevTestimonial() {
+      currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+      updateTestimonial();
+    }
+    
+    function goToTestimonial(index) {
+      currentIndex = index;
+      updateTestimonial();
+    }
+    
+    // Event listeners
+    nextBtn?.addEventListener('click', () => {
+      nextTestimonial();
+    });
+    
+    prevBtn?.addEventListener('click', () => {
+      prevTestimonial();
+    });
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToTestimonial(index);
+      });
+    });
+    
+    // Enhanced drag support
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let dragOffset = 0;
+    
+    // Mouse events
+    testimonialsContainer.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      currentX = e.clientX;
+      isDragging = true;
+      testimonialsTrack.style.transition = 'none';
+      e.preventDefault();
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      currentX = e.clientX;
+      dragOffset = currentX - startX;
+      const translateX = -currentIndex * 100 + (dragOffset / testimonialsContainer.offsetWidth) * 100;
+      testimonialsTrack.style.transform = `translateX(${translateX}%)`;
+    });
+    
+    document.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      testimonialsTrack.style.transition = 'transform 0.5s ease-in-out';
+      
+      const threshold = testimonialsContainer.offsetWidth * 0.1;
+      
+      if (Math.abs(dragOffset) > threshold) {
+        if (dragOffset > 0) {
+          prevTestimonial();
+        } else {
+          nextTestimonial();
+        }
+      } else {
+        updateTestimonial();
+      }
+      
+      dragOffset = 0;
+    });
+    
+    // Touch events
+    testimonialsContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      currentX = e.touches[0].clientX;
+      isDragging = true;
+      testimonialsTrack.style.transition = 'none';
+    });
+    
+    testimonialsContainer.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      currentX = e.touches[0].clientX;
+      dragOffset = currentX - startX;
+      const translateX = -currentIndex * 100 + (dragOffset / testimonialsContainer.offsetWidth) * 100;
+      testimonialsTrack.style.transform = `translateX(${translateX}%)`;
+    });
+    
+    testimonialsContainer.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      testimonialsTrack.style.transition = 'transform 0.5s ease-in-out';
+      
+      const threshold = testimonialsContainer.offsetWidth * 0.1;
+      
+      if (Math.abs(dragOffset) > threshold) {
+        if (dragOffset > 0) {
+          prevTestimonial();
+        } else {
+          nextTestimonial();
+        }
+      } else {
+        updateTestimonial();
+      }
+      
+      dragOffset = 0;
+    });
+    
+    // Initialize
+    updateTestimonial();
+  });
+</script>
+
+<section class="testimonials-simple-section">
+  <div class="container">
+    <div class="testimonials-simple-container">
+      <div class="testimonials-simple-track">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-simple-item">
+          <blockquote class="testimonial-simple-quote">
+            "This solution has completely revolutionized our workflow. The intuitive design and powerful features have made our daily tasks so much more efficient and enjoyable."
+          </blockquote>
+          <div class="testimonial-simple-author">
+            <div class="testimonial-simple-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Customer" />
+            </div>
+            <div class="testimonial-simple-info">
+              <h4 class="testimonial-simple-name">Sarah Johnson</h4>
+              <p class="testimonial-simple-role">Marketing Director</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-simple-item">
+          <blockquote class="testimonial-simple-quote">
+            "Exceptional service and outstanding results. The team's expertise and attention to detail transformed our digital presence completely."
+          </blockquote>
+          <div class="testimonial-simple-author">
+            <div class="testimonial-simple-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Customer" />
+            </div>
+            <div class="testimonial-simple-info">
+              <h4 class="testimonial-simple-name">Michael Chen</h4>
+              <p class="testimonial-simple-role">CEO</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-simple-item">
+          <blockquote class="testimonial-simple-quote">
+            "Working with this team has been a game-changer for our business. Their innovative approach and dedication are unmatched."
+          </blockquote>
+          <div class="testimonial-simple-author">
+            <div class="testimonial-simple-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Customer" />
+            </div>
+            <div class="testimonial-simple-info">
+              <h4 class="testimonial-simple-name">Emily Rodriguez</h4>
+              <p class="testimonial-simple-role">Product Manager</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 4 -->
+        <div class="testimonial-simple-item">
+          <blockquote class="testimonial-simple-quote">
+            "The results speak for themselves. This platform has transformed how we approach our daily operations and improved our overall efficiency significantly."
+          </blockquote>
+          <div class="testimonial-simple-author">
+            <div class="testimonial-simple-avatar">
+              <img src="/images/images/placeholder/placeholder.jpg" alt="Customer" />
+            </div>
+            <div class="testimonial-simple-info">
+              <h4 class="testimonial-simple-name">David Thompson</h4>
+              <p class="testimonial-simple-role">Operations Director</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Navigation -->
+      <div class="testimonials-simple-navigation">
+        <button class="testimonials-simple-prev" aria-label="Previous testimonial">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15,18 9,12 15,6"></polyline>
+          </svg>
+        </button>
+        <button class="testimonials-simple-next" aria-label="Next testimonial">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Dots -->
+      <div class="testimonials-simple-dots">
+        <button class="testimonials-simple-dot active" aria-label="Go to testimonial 1"></button>
+        <button class="testimonials-simple-dot" aria-label="Go to testimonial 2"></button>
+        <button class="testimonials-simple-dot" aria-label="Go to testimonial 3"></button>
+        <button class="testimonials-simple-dot" aria-label="Go to testimonial 4"></button>
+      </div>
+    </div>
+  </div>
+</section>

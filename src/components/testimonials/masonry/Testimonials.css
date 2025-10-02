@@ -1,106 +1,127 @@
-/* ===== TESTIMONIALS SECTION STYLES ===== */
+/* ===== TESTIMONIALS MASONRY SECTION STYLES ===== */
 
-/* Animaciones */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.testimonials-section {
-  background: var(--color-cream);
+.masonry-testimonials-section {
+  background: transparent;
   padding: 80px 0;
+  position: relative;
+  z-index: 1;
 }
 
-.testimonials-header {
+.masonry-testimonials-header {
   text-align: center;
   margin-bottom: 60px;
+}
+
+/* Animaciones escalonadas */
+.masonry-testimonials-section .section-pill {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
 }
 
-.testimonials-header.animate {
+.masonry-testimonials-section .masonry-section-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  transition-delay: 0.1s;
+}
+
+.masonry-testimonials-section .masonry-testimonial-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+/* Cuando la sección se anima, animar los elementos escalonadamente */
+.masonry-testimonials-section.animate .section-pill {
   opacity: 1;
   transform: translateY(0);
 }
 
+.masonry-testimonials-section.animate .masonry-section-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.masonry-testimonials-section.animate .masonry-testimonial-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays escalonados para las cards */
+.masonry-testimonials-section.animate .masonry-testimonials-column:nth-child(1) .masonry-testimonial-card:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.masonry-testimonials-section.animate .masonry-testimonials-column:nth-child(2) .masonry-testimonial-card:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.masonry-testimonials-section.animate .masonry-testimonials-column:nth-child(3) .masonry-testimonial-card:nth-child(1) {
+  transition-delay: 0.4s;
+}
+
+.masonry-testimonials-section.animate .masonry-testimonials-column:nth-child(1) .masonry-testimonial-card:nth-child(2) {
+  transition-delay: 0.5s;
+}
+
+.masonry-testimonials-section.animate .masonry-testimonials-column:nth-child(2) .masonry-testimonial-card:nth-child(2) {
+  transition-delay: 0.6s;
+}
+
+.masonry-testimonials-section.animate .masonry-testimonials-column:nth-child(3) .masonry-testimonial-card:nth-child(2) {
+  transition-delay: 0.7s;
+}
+
+.masonry-testimonials-header .masonry-section-title {
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0;
+}
 
 
-.testimonials-grid {
+
+.masonry-testimonials-grid {
   display: flex;
   gap: 24px;
   align-items: flex-start;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
-.testimonials-column {
+.masonry-testimonials-column {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.testimonial-card {
+.masonry-testimonial-card {
   background: #f0ede4;
   border-radius: 12px;
   padding: 24px;
   border: 1px solid transparent;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
-.testimonial-card:hover {
+.masonry-testimonial-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
 }
 
-.testimonial-card.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
 
-.testimonials-column:nth-child(1) .testimonial-card:nth-child(1).animate {
-  transition-delay: 0.1s;
-}
-
-.testimonials-column:nth-child(2) .testimonial-card:nth-child(1).animate {
-  transition-delay: 0.2s;
-}
-
-.testimonials-column:nth-child(3) .testimonial-card:nth-child(1).animate {
-  transition-delay: 0.3s;
-}
-
-.testimonials-column:nth-child(1) .testimonial-card:nth-child(2).animate {
-  transition-delay: 0.4s;
-}
-
-.testimonials-column:nth-child(2) .testimonial-card:nth-child(2).animate {
-  transition-delay: 0.5s;
-}
-
-.testimonials-column:nth-child(3) .testimonial-card:nth-child(2).animate {
-  transition-delay: 0.6s;
-}
-
-.testimonial-header {
+.masonry-testimonial-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
 }
 
-.testimonial-avatar {
+.masonry-testimonial-avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -108,18 +129,18 @@
   flex-shrink: 0;
 }
 
-.testimonial-avatar img {
+.masonry-testimonial-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.testimonial-info {
+.masonry-testimonial-info {
   flex: 1;
   min-width: 0;
 }
 
-.testimonial-name {
+.masonry-testimonial-name {
   font-size: 16px;
   font-weight: 600;
   color: var(--color-black);
@@ -127,7 +148,7 @@
   line-height: 1.2;
 }
 
-.testimonial-role {
+.masonry-testimonial-role {
   font-size: 13px;
   font-weight: 400;
   color: rgba(0,0,0,0.6);
@@ -135,11 +156,11 @@
   line-height: 1.2;
 }
 
-.testimonial-content {
+.masonry-testimonial-content {
   /* Sin estilos adicionales */
 }
 
-.testimonial-text {
+.masonry-testimonial-text {
   font-size: 15px;
   line-height: 22px;
   font-weight: 400;
@@ -159,119 +180,107 @@
 
 /* Responsive */
 @media (max-width: 1200px) {
-  .testimonials-grid {
+  .masonry-testimonials-grid {
     gap: 20px;
   }
 }
 
 @media (max-width: 1024px) and (min-width: 901px) {
-  .testimonials-grid {
+  .masonry-testimonials-grid {
     gap: 18px;
   }
   
-  .testimonials-column {
+  .masonry-testimonials-column {
     gap: 18px;
   }
 }
 
 @media (max-width: 900px) {
-  .testimonials-grid {
+  .masonry-testimonials-grid {
     gap: 20px;
   }
   
-  .testimonials-column {
+  .masonry-testimonials-column {
     gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .testimonials-grid {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonials-grid {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .testimonials-section {
+  .masonry-testimonials-section {
     padding: 60px 0;
   }
   
-  .testimonials-header {
+  .masonry-testimonials-header {
     margin-bottom: 48px;
   }
   
-  .testimonials-title {
+  .masonry-section-title {
     font-size: 28px;
     line-height: 32px;
   }
   
-  .testimonials-grid {
+  .masonry-testimonials-grid {
+    flex-direction: column;
     gap: 16px;
   }
   
-  .testimonial-card {
+  .masonry-testimonial-card {
     padding: 20px;
   }
   
-  .testimonial-avatar {
+  .masonry-testimonial-avatar {
     width: 42px;
     height: 42px;
   }
   
-  .testimonial-name {
+  .masonry-testimonial-name {
     font-size: 15px;
   }
   
-  .testimonial-role {
+  .masonry-testimonial-role {
     font-size: 12px;
   }
   
-  .testimonial-text {
+  .masonry-testimonial-text {
     font-size: 14px;
     line-height: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .testimonials-section {
+  .masonry-testimonials-section {
     padding: 48px 0;
   }
   
-  .testimonials-header {
+  .masonry-testimonials-header {
     margin-bottom: 40px;
   }
   
-  .testimonials-title {
+  .masonry-section-title {
     font-size: 26px;
     line-height: 30px;
   }
   
-  .testimonial-card {
+  .masonry-testimonial-card {
     padding: 18px;
   }
   
-  .testimonial-avatar {
+  .masonry-testimonial-avatar {
     width: 40px;
     height: 40px;
   }
   
-  .testimonial-name {
+  .masonry-testimonial-name {
     font-size: 14px;
   }
   
-  .testimonial-role {
+  .masonry-testimonial-role {
     font-size: 11px;
   }
   
-  .testimonial-text {
+  .masonry-testimonial-text {
     font-size: 13px;
     line-height: 18px;
   }
 }
+
