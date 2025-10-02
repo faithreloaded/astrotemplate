@@ -136,31 +136,37 @@
   padding: 32px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
-  transition: all 0.3s ease;
+  /* Sólo transiciones para hover, sin delay */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
+  /* Estado inicial para animación de entrada */
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.6s ease;
+}
+
+/* Animación de entrada sin afectar hover */
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .pricing-section.animate .pricing-card {
-  opacity: 1;
-  transform: translateY(0);
+  animation: cardFadeUp 0.6s ease forwards;
 }
 
-/* Delays escalonados para las cards */
+/* Delays escalonados usando animación (no afecta hover) */
 .pricing-section.animate .pricing-card:nth-child(1) {
-  transition-delay: 0.3s;
+  animation-delay: 0.3s;
 }
 
 .pricing-section.animate .pricing-card:nth-child(2) {
-  transition-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 
 .pricing-section.animate .pricing-card:nth-child(3) {
-  transition-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 
 .pricing-card:hover {
