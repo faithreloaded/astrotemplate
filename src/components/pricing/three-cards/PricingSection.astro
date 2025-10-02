@@ -1,0 +1,221 @@
+---
+import './PricingSection.css';
+---
+
+<script>
+  // Pricing Section Component
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe the pricing section
+    const pricingSection = document.querySelector('.pricing-section');
+    if (pricingSection) {
+      observer.observe(pricingSection);
+    }
+
+    // Toggle functionality
+    const toggle = document.querySelector('.pricing-toggle');
+    const monthlyPrices = document.querySelectorAll('.pricing-monthly');
+    const annuallyPrices = document.querySelectorAll('.pricing-annually');
+    const toggleSlider = document.querySelector('.pricing-toggle-slider');
+
+    if (toggle && monthlyPrices.length && annuallyPrices.length && toggleSlider) {
+      toggle.addEventListener('click', () => {
+        const isMonthly = toggle.classList.contains('pricing-toggle-monthly');
+        
+        if (isMonthly) {
+          // Switch to annually
+          toggle.classList.remove('pricing-toggle-monthly');
+          toggle.classList.add('pricing-toggle-annually');
+          toggleSlider.style.transform = 'translateX(100%)';
+          
+          // Show annually prices, hide monthly
+          monthlyPrices.forEach(price => price.style.display = 'none');
+          annuallyPrices.forEach(price => price.style.display = 'block');
+        } else {
+          // Switch to monthly
+          toggle.classList.remove('pricing-toggle-annually');
+          toggle.classList.add('pricing-toggle-monthly');
+          toggleSlider.style.transform = 'translateX(0)';
+          
+          // Show monthly prices, hide annually
+          monthlyPrices.forEach(price => price.style.display = 'block');
+          annuallyPrices.forEach(price => price.style.display = 'none');
+        }
+      });
+    }
+  });
+</script>
+
+<section class="pricing-section">
+  <div class="container">
+    <!-- Header -->
+    <div class="pricing-header">
+      <span class="section-pill">Pricing</span>
+      <h2 class="pricing-title">Choose your plan</h2>
+      <p class="pricing-description">
+        Select the perfect plan for your needs. All plans include our core features with no hidden fees.
+      </p>
+    </div>
+
+    <!-- Toggle -->
+    <div class="pricing-toggle-container">
+      <div class="pricing-toggle pricing-toggle-monthly">
+        <span class="pricing-toggle-option">Monthly</span>
+        <span class="pricing-toggle-option">Annually</span>
+        <div class="pricing-toggle-slider"></div>
+      </div>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="pricing-cards">
+      <!-- Starter Plan -->
+      <div class="pricing-card">
+        <div class="pricing-card-content">
+          <h3 class="pricing-card-title">Starter</h3>
+          <p class="pricing-card-description">Perfect for individuals and small projects</p>
+          <div class="pricing-card-price">
+            <span class="pricing-monthly">$29<span class="pricing-period">/month</span></span>
+            <span class="pricing-annually" style="display: none;">$23<span class="pricing-period">/month</span></span>
+          </div>
+          <button class="btn-secondary">
+            Buy plan
+          </button>
+        </div>
+        <div class="pricing-card-features">
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Up to 5 projects</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>10GB storage</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Email support</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Basic analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Plan -->
+      <div class="pricing-card pricing-card-featured">
+        <div class="pricing-card-badge">Most Popular</div>
+        <div class="pricing-card-content">
+          <h3 class="pricing-card-title">Professional</h3>
+          <p class="pricing-card-description">Ideal for growing businesses and teams</p>
+          <div class="pricing-card-price">
+            <span class="pricing-monthly">$79<span class="pricing-period">/month</span></span>
+            <span class="pricing-annually" style="display: none;">$63<span class="pricing-period">/month</span></span>
+          </div>
+          <button class="btn-primary">
+            Buy plan
+          </button>
+        </div>
+        <div class="pricing-card-features">
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Unlimited projects</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>100GB storage</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Priority support</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Advanced analytics</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Team collaboration</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="pricing-card">
+        <div class="pricing-card-content">
+          <h3 class="pricing-card-title">Enterprise</h3>
+          <p class="pricing-card-description">For large organizations with custom needs</p>
+          <div class="pricing-card-price">
+            <span class="pricing-monthly">$199<span class="pricing-period">/month</span></span>
+            <span class="pricing-annually" style="display: none;">$159<span class="pricing-period">/month</span></span>
+          </div>
+          <button class="btn-secondary">
+            Buy plan
+          </button>
+        </div>
+        <div class="pricing-card-features">
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Everything in Professional</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Unlimited storage</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>24/7 phone support</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Custom integrations</span>
+          </div>
+          <div class="pricing-feature">
+            <svg class="pricing-check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Dedicated account manager</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

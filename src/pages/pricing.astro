@@ -1,0 +1,151 @@
+---
+import '../styles/main.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderMega from '../components/header/header-mega/Header.astro';
+import PricingSection from '../components/pricing/three-cards/PricingSection.astro';
+import FooterGrid from '../components/footer/footer-grid/Footer.astro';
+---
+
+<BaseLayout 
+  title="Pricing - Starter UI" 
+  description="Choose the perfect plan for your needs. All plans include our core features with no hidden fees."
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="pricing-page">
+        <header class="pricing-page-header">
+          <h1 class="pricing-page-title">Pricing</h1>
+          <p class="pricing-page-description">
+            Explore pricing section components with clean, consistent styling and interactions
+          </p>
+        </header>
+
+        <div class="pricing-showcase">
+          <div class="pricing-showcase-item">
+            <div class="pricing-showcase-header">
+              <h2 class="pricing-showcase-title">Three cards with toggle</h2>
+              <p class="pricing-showcase-description">Monthly/Annually toggle with three responsive pricing cards</p>
+            </div>
+            <div class="pricing-showcase-preview">
+              <PricingSection />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .pricing-page {
+    padding: var(--space-8) 0;
+  }
+
+  .pricing-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .pricing-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .pricing-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .pricing-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .pricing-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .pricing-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .pricing-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .pricing-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: auto;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-page {
+      padding: var(--space-6) 0;
+    }
+
+    .pricing-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+
+    .pricing-page-title {
+      font-size: 36px;
+    }
+
+    .pricing-showcase {
+      gap: var(--space-12);
+    }
+
+    .pricing-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+
+    .pricing-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+
+    .pricing-showcase-title {
+      font-size: 16px;
+    }
+
+    .pricing-showcase-description {
+      font-size: 13px;
+    }
+
+    .pricing-showcase-preview {
+      height: auto;
+    }
+  }
+</style>
