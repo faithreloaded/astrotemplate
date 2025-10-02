@@ -6,41 +6,86 @@ import './FeaturesSplitRight.css';
   <div class="container">
     <div class="features-split-grid">
       <!-- Left Column - Content -->
-      <div class="features-split-content">
+      <div class="features-split-content features-split-animate">
         <!-- First Container: Title + CTA -->
-        <div class="features-split-header">
-          <h2 class="features-split-title">We identify the best solution for you.</h2>
-          <div class="features-split-cta">
+        <div class="features-split-header features-split-animate">
+          <h2 class="features-split-title features-split-animate">We identify the best solution for you.</h2>
+          <div class="features-split-cta features-split-animate">
             <p>Ready to get started? <a href="#" class="features-split-link">Contact us</a></p>
           </div>
         </div>
 
         <!-- Second Container: Content Items -->
-        <div class="features-split-items-container">
-          <div class="features-split-item">
-            <h3 class="features-split-subtitle">Meet growing tenant demand</h3>
-            <p class="features-split-description">
+        <div class="features-split-items-container features-split-animate">
+          <div class="features-split-item features-split-animate">
+            <h3 class="features-split-subtitle features-split-animate">Meet growing tenant demand</h3>
+            <p class="features-split-description features-split-animate">
               With EV ownership on the rise, home charging is set to become an essential requirement for an increasing number of tenants. Preparing for this growing demand now will help to future-proof your site and increase appeal among current and future tenants.
             </p>
           </div>
 
-          <div class="features-split-item">
-            <h3 class="features-split-subtitle">A funded solution</h3>
-            <p class="features-split-description">
+          <div class="features-split-item features-split-animate">
+            <h3 class="features-split-subtitle features-split-animate">A funded solution</h3>
+            <p class="features-split-description features-split-animate">
               We remove many of the financial and operational barriers to large-scale EV infrastructure investment for residential landlords by offering a fully funded, maintained and managed EV charging solution.
             </p>
           </div>
 
-          <div class="features-split-cta">
+          <div class="features-split-cta features-split-animate">
             <p><a href="#" class="features-split-link">Contact us</a> to find out more about our funded solutions.</p>
           </div>
         </div>
       </div>
 
       <!-- Right Column - Image -->
-      <div class="features-split-image">
-        <div class="features-split-image-bg"></div>
+      <div class="features-split-image features-split-animate-sync">
+        <div class="features-split-image-bg features-split-animate-sync"></div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Staggered animation for all elements
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.features-split-animate');
+    const syncElements = document.querySelectorAll('.features-split-animate-sync');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 80);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Animate sync elements (image) with the title (index 1)
+    const syncObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, 80); // Same delay as title
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    animatedElements.forEach(element => {
+      observer.observe(element);
+    });
+
+    syncElements.forEach(element => {
+      syncObserver.observe(element);
+    });
+  });
+</script>

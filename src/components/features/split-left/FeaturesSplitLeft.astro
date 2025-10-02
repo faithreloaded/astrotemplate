@@ -6,17 +6,42 @@ import './FeaturesSplitLeft.css';
   <div class="container">
     <div class="features-split-reverse-grid">
       <!-- Left Column - Image -->
-      <div class="features-split-reverse-image">
-        <div class="features-split-reverse-image-bg"></div>
+      <div class="features-split-reverse-image features-split-reverse-animate">
+        <div class="features-split-reverse-image-bg features-split-reverse-animate"></div>
       </div>
 
       <!-- Right Column - Content -->
-      <div class="features-split-reverse-content">
-        <h2 class="features-split-reverse-title">Modern solutions for your business</h2>
-        <p class="features-split-reverse-description">
+      <div class="features-split-reverse-content features-split-reverse-animate">
+        <h2 class="features-split-reverse-title features-split-reverse-animate">Modern solutions for your business</h2>
+        <p class="features-split-reverse-description features-split-reverse-animate">
           Discover innovative approaches that transform your workflow and drive exceptional results for your organization. Our comprehensive solutions are designed to streamline processes, enhance productivity, and deliver measurable value across all business functions.
         </p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Staggered animation for all elements
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.features-split-reverse-animate');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 150);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    animatedElements.forEach(element => {
+      observer.observe(element);
+    });
+  });
+</script>

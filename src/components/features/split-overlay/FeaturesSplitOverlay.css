@@ -6,6 +6,13 @@
   overflow: hidden;
 }
 
+/* Animation base styles */
+.features-split-overlay-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -49,7 +56,7 @@
 
 .features-split-overlay-title {
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-black);
   margin: 0 0 24px 0;
   font-family: var(--font-sans);
@@ -98,7 +105,13 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
+  .features-split-overlay-overlap {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
   .features-split-overlay-grid {
     grid-template-columns: 1fr;
     gap: 0;
@@ -111,21 +124,6 @@
   .features-split-overlay-right {
     min-height: 300px;
     padding: 80px 40px;
-  }
-
-  .features-split-overlay-overlap {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    width: 300px;
-    height: 200px;
-    margin: -25px auto 0;
-    order: 3;
-  }
-
-  .features-split-overlay-content {
-    max-width: 500px;
-    padding: 30px;
   }
 
   .features-split-overlay-title {
@@ -148,11 +146,7 @@
 
   .features-split-overlay-right {
     min-height: 250px;
-    padding: 60px 30px;
-  }
-
-  .features-split-overlay-content {
-    padding: 20px;
+    padding: 60px 0;
   }
 
   .features-split-overlay-title {
@@ -165,19 +159,8 @@
     margin-bottom: 24px;
   }
 
-  .features-split-overlay-subtitle {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-
   .features-split-overlay-text-description {
     font-size: 15px;
-  }
-
-  .features-split-overlay-overlap {
-    width: 250px;
-    height: 160px;
-    margin: -20px auto 0;
   }
 }
 
@@ -188,11 +171,7 @@
 
   .features-split-overlay-right {
     min-height: 200px;
-    padding: 40px 20px;
-  }
-
-  .features-split-overlay-content {
-    padding: 16px;
+    padding: 40px 0;
   }
 
   .features-split-overlay-title {
@@ -205,18 +184,8 @@
     margin-bottom: 20px;
   }
 
-  .features-split-overlay-subtitle {
-    font-size: 20px;
-    margin-bottom: 12px;
-  }
-
   .features-split-overlay-text-description {
     font-size: 14px;
   }
-
-  .features-split-overlay-overlap {
-    width: 200px;
-    height: 130px;
-    margin: -15px auto 0;
-  }
 }
+

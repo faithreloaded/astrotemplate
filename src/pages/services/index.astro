@@ -1,0 +1,212 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
+import ServiciosCards from '../../components/services/cards-carousel/ServiciosCards.astro';
+import ServicesSimpleCards from '../../components/services/simple-cards/ServicesSimpleCards.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+---
+
+<BaseLayout 
+  title="Services - Starter UI" 
+  description="Service components with clean, engaging designs to showcase your business offerings and capabilities."
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="services-page">
+        <header class="services-page-header">
+          <h1 class="services-page-title">Service Components</h1>
+          <p class="services-page-description">
+            Showcase your business services with clean, modern components designed to highlight your offerings and capabilities
+          </p>
+        </header>
+
+        <div class="services-showcase">
+          <div class="services-showcase-item">
+            <div class="services-showcase-header">
+              <h2 class="services-showcase-title">Services carousel</h2>
+              <p class="services-showcase-description">Interactive carousel showcasing multiple services with smooth transitions</p>
+            </div>
+            <div class="services-showcase-preview">
+              <ServiciosCards />
+            </div>
+          </div>
+
+          <div class="services-showcase-item">
+            <div class="services-showcase-header">
+              <h2 class="services-showcase-title">Simple service cards</h2>
+              <p class="services-showcase-description">Clean service cards with blur overlay effects and pricing information</p>
+            </div>
+            <div class="services-showcase-preview">
+              <ServicesSimpleCards />
+            </div>
+          </div>
+
+          <div class="services-showcase-item">
+            <div class="services-showcase-header">
+              <h2 class="services-showcase-title">Services with expandable cards</h2>
+              <p class="services-showcase-description">Service cards that expand downward with animated arrows and hover effects</p>
+            </div>
+            <div class="services-showcase-preview">
+              <ServicesGrid />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .services-page {
+    padding: var(--space-8) 0;
+  }
+
+  .services-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .services-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .services-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .services-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .services-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .services-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .services-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .services-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .services-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: auto;
+    position: relative;
+  }
+
+  /* Resetear estilos de los componentes Services para que se vean bien en el contenedor */
+  .services-showcase-preview :global(.services-grid-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .services-showcase-preview :global(.servicios-cards-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+  }
+
+  .services-showcase-preview :global(.services-simple-cards-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+  }
+
+  .services-showcase-preview :global(.container) {
+    max-width: 100% !important;
+    padding: 0 var(--space-6) !important;
+  }
+
+  @media (max-width: 768px) {
+    .services-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .services-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+    
+    .services-showcase {
+      gap: var(--space-12);
+    }
+    
+    .services-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+    
+    .services-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+    
+    .services-page-title {
+      font-size: 36px;
+    }
+    
+    .services-showcase-title {
+      font-size: 16px;
+    }
+    
+    .services-showcase-description {
+      font-size: 13px;
+    }
+    
+    .services-showcase-preview {
+      height: auto;
+    }
+    
+    .services-showcase-preview :global(.services-grid-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .services-showcase-preview :global(.servicios-cards-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .services-showcase-preview :global(.services-simple-cards-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .services-showcase-preview :global(.container) {
+      padding: 0 var(--space-4) !important;
+    }
+  }
+</style>

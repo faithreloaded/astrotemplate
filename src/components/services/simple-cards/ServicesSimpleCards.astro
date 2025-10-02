@@ -1,0 +1,86 @@
+---
+import './ServicesSimpleCards.css';
+---
+
+<section class="services-simple-cards-section">
+  <div class="container">
+    <div class="services-simple-cards-header">
+      <span class="section-pill">Services</span>
+      <h2 class="services-simple-cards-title">Professional Solutions</h2>
+    </div>
+    
+    <div class="services-simple-cards-grid">
+      <div class="simple-servicio-card">
+        <img class="simple-card-bg" src="/images/images/placeholder/placeholder.jpg" alt="Service A" />
+        <div class="simple-card-overlay-bottom">
+          <div class="simple-card-row">
+            <h4 class="simple-card-heading">Service A</h4>
+            <div class="simple-price-pill">750€</div>
+          </div>
+          <p class="simple-card-description">Brief service description. Quick and professional results.</p>
+          <div class="simple-card-tags">
+            <span class="simple-tag">Nature</span>
+            <span class="simple-tag">5-day stay</span>
+          </div>
+          <button class="simple-card-cta">Learn more</button>
+        </div>
+      </div>
+
+      <div class="simple-servicio-card">
+        <img class="simple-card-bg" src="/images/images/placeholder/placeholder.jpg" alt="Service B" />
+        <div class="simple-card-overlay-bottom">
+          <div class="simple-card-row">
+            <h4 class="simple-card-heading">Service B</h4>
+            <div class="simple-price-pill">950€</div>
+          </div>
+          <p class="simple-card-description">Brief and subtle text to explain the service.</p>
+          <div class="simple-card-tags">
+            <span class="simple-tag">Business</span>
+            <span class="simple-tag">Consulting</span>
+          </div>
+          <button class="simple-card-cta">Learn more</button>
+        </div>
+      </div>
+
+      <div class="simple-servicio-card">
+        <img class="simple-card-bg" src="/images/images/placeholder/placeholder.jpg" alt="Service C" />
+        <div class="simple-card-overlay-bottom">
+          <div class="simple-card-row">
+            <h4 class="simple-card-heading">Service C</h4>
+            <div class="simple-price-pill">1200€</div>
+          </div>
+          <p class="simple-card-description">Small description that doesn't take up much space.</p>
+          <div class="simple-card-tags">
+            <span class="simple-tag">Design</span>
+            <span class="simple-tag">Web</span>
+          </div>
+          <button class="simple-card-cta">Learn more</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animaciones de scroll para ServicesSimpleCards
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, observerOptions);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.services-simple-cards-header');
+    const cards = document.querySelectorAll('.simple-servicio-card');
+    
+    if (header) observer.observe(header);
+    cards.forEach(card => observer.observe(card));
+  });
+</script>

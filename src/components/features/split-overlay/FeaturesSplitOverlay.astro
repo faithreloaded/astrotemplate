@@ -7,26 +7,26 @@ import ButtonLink from '../../buttons/link/ButtonLink.astro';
   <div class="container">
     <div class="features-split-overlay-grid">
       <!-- Left Container - Image Background Only -->
-      <div class="features-split-overlay-left">
+      <div class="features-split-overlay-left features-split-overlay-animate">
         <!-- Overlapping Image - On top of left container -->
-        <div class="features-split-overlay-overlap">
+        <div class="features-split-overlay-overlap features-split-overlay-animate">
           <img src="/images/images/placeholder/paceholder2.jpg" alt="Team collaboration" />
         </div>
       </div>
 
       <!-- Right Container - Text Content -->
-      <div class="features-split-overlay-right">
+      <div class="features-split-overlay-right features-split-overlay-animate">
         <div class="features-split-overlay-text">
-          <h2 class="features-split-overlay-title">A Present Partnership</h2>
-          <p class="features-split-overlay-description">
+          <h2 class="features-split-overlay-title features-split-overlay-animate">A Present Partnership</h2>
+          <p class="features-split-overlay-description features-split-overlay-animate">
             We focus on solving strategic challenges for our portfolio companies. 
             The team has experience both as founders and from strategic work in a variety of industries.
           </p>
-          <p class="features-split-overlay-text-description">
+          <p class="features-split-overlay-text-description features-split-overlay-animate">
             Our working method is proven, and we give our companies access to an extensive network 
             of industry experts and strategic partners.
           </p>
-          <div class="features-split-overlay-action">
+          <div class="features-split-overlay-action features-split-overlay-animate">
             <ButtonLink href="#">Read more about our method</ButtonLink>
           </div>
         </div>
@@ -34,3 +34,28 @@ import ButtonLink from '../../buttons/link/ButtonLink.astro';
     </div>
   </div>
 </section>
+
+<script>
+  // Staggered animation for all elements
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.features-split-overlay-animate');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 150);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    animatedElements.forEach(element => {
+      observer.observe(element);
+    });
+  });
+</script>

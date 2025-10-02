@@ -2,10 +2,12 @@
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeaderMega from '../../components/header/header-mega/Header.astro';
+import FeaturesSplitOverlay from '../../components/features/split-overlay/FeaturesSplitOverlay.astro';
 import FeaturesSplitRight from '../../components/features/split-right/FeaturesSplitRight.astro';
 import FeaturesSplitLeft from '../../components/features/split-left/FeaturesSplitLeft.astro';
 import FeaturesGrid from '../../components/features/grid/FeaturesGrid.astro';
 import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
+import AboutUs from '../../components/about/img-right-left/AboutUs.astro';
 import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
 ---
 
@@ -26,6 +28,16 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
         </header>
 
             <div class="features-showcase">
+              <div class="features-showcase-item">
+                <div class="features-showcase-header">
+                  <h2 class="features-showcase-title">Split layout with overlapping image</h2>
+                  <p class="features-showcase-description">Two-column layout with background image on the left and overlapping image in the corner</p>
+                </div>
+                <div class="features-showcase-preview">
+                  <FeaturesSplitOverlay />
+                </div>
+              </div>
+
               <div class="features-showcase-item">
                 <div class="features-showcase-header">
                   <h2 class="features-showcase-title">Split layout - Image Right</h2>
@@ -63,6 +75,16 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 </div>
                 <div class="features-showcase-preview">
                   <ServicesGrid />
+                </div>
+              </div>
+
+              <div class="features-showcase-item">
+                <div class="features-showcase-header">
+                  <h2 class="features-showcase-title">About section with image</h2>
+                  <p class="features-showcase-description">Two-column layout with content on the left and image on the right</p>
+                </div>
+                <div class="features-showcase-preview">
+                  <AboutUs />
                 </div>
               </div>
             </div>
@@ -161,6 +183,16 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
       }
 
       .features-showcase-preview :global(.features-split-reverse-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+      }
+
+      .features-showcase-preview :global(.features-split-overlay-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+      }
+
+      .features-showcase-preview :global(.about-us-section) {
         padding: var(--space-8) 0 !important;
         background: transparent !important;
       }
