@@ -2,6 +2,7 @@
 import './HeroWithBackground.css';
 import ButtonPrimaryDark from '../../buttons/primary-dark/ButtonPrimaryDark.astro';
 import ButtonLinkDark from '../../buttons/link-dark/ButtonLinkDark.astro';
+import PillOutline from '../../pills/outline/PillOutline.astro';
 ---
 
 <section class="hero-with-background">
@@ -13,12 +14,10 @@ import ButtonLinkDark from '../../buttons/link-dark/ButtonLinkDark.astro';
   <div class="hero-with-bg-container">
     <div class="hero-with-bg-content">
       <!-- Banner de anuncio -->
-      <div class="pill-outline-hero">
-        <span class="hero-with-bg-banner-text">
-          Lorem ipsum dolor. 
-          <ButtonLinkDark href="#">Read more →</ButtonLinkDark>
-        </span>
-      </div>
+      <PillOutline size="md">
+        Lorem ipsum dolor. 
+        <ButtonLinkDark href="#"> Read more</ButtonLinkDark>
+      </PillOutline>
       
       <!-- Título principal -->
       <h1 class="hero-with-bg-title">

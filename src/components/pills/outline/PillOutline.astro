@@ -15,7 +15,7 @@ const {
   disabled = false
 } = Astro.props;
 
-const baseClasses = `pill pill-soft pill-${variant} pill-${size}`;
+const baseClasses = `pill pill-outline pill-${variant} pill-${size}`;
 const element = href ? 'a' : 'span';
 const elementProps = href ? { href, target, title: "" } : {};
 ---
@@ -38,12 +38,12 @@ const elementProps = href ? { href, target, title: "" } : {};
     text-decoration: none;
     border-radius: var(--radius-full);
     transition: all 0.3s ease;
-    border: none;
+    border: 1px solid;
     position: relative;
     overflow: hidden;
     white-space: nowrap;
+    background-color: transparent;
     user-select: none;
-    gap: 6px;
   }
 
   .pill:focus {
@@ -62,89 +62,46 @@ const elementProps = href ? { href, target, title: "" } : {};
     padding: 2px 8px;
     font-size: 10px;
     font-weight: 500;
+    line-height: 1.2;
   }
 
   .pill-sm {
     padding: 4px 12px;
     font-size: 12px;
     font-weight: 500;
+    line-height: 1.2;
   }
 
   .pill-md {
     padding: 6px 16px;
     font-size: 14px;
     font-weight: 500;
+    line-height: 1.2;
   }
 
   .pill-lg {
     padding: 8px 20px;
     font-size: 16px;
     font-weight: 500;
+    line-height: 1.2;
   }
 
-
-  /* Soft Variants */
-  .pill-soft.pill-primary {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: var(--color-black);
+  /* Outline Variants */
+  .pill-outline {
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
-  .pill-soft.pill-primary:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+  .pill-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-1px);
   }
 
-  .pill-soft.pill-secondary {
-    background-color: rgba(102, 102, 102, 0.1);
-    color: var(--color-gray);
-  }
-
-  .pill-soft.pill-secondary:hover {
-    background-color: rgba(102, 102, 102, 0.15);
-    transform: translateY(-1px);
-  }
-
-  .pill-soft.pill-success {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: #10b981;
-  }
-
-  .pill-soft.pill-success:hover {
-    background-color: rgba(16, 185, 129, 0.15);
-    transform: translateY(-1px);
-  }
-
-  .pill-soft.pill-warning {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: #f59e0b;
-  }
-
-  .pill-soft.pill-warning:hover {
-    background-color: rgba(245, 158, 11, 0.15);
-    transform: translateY(-1px);
-  }
-
-  .pill-soft.pill-error {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
-  }
-
-  .pill-soft.pill-error:hover {
-    background-color: rgba(239, 68, 68, 0.15);
-    transform: translateY(-1px);
-  }
-
-  .pill-soft.pill-info {
-    background-color: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-  }
-
-  .pill-soft.pill-info:hover {
-    background-color: rgba(59, 130, 246, 0.15);
-    transform: translateY(-1px);
-  }
-
-  .pill-soft:active {
+  .pill-outline:active {
     transform: translateY(0);
   }
 </style>

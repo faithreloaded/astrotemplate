@@ -7,6 +7,7 @@ import SimpleCentered from '../../components/hero/simple-centered/SimpleCentered
 import BentoLeft from '../../components/hero/bento-left/Hero.astro';
 import BentoRight from '../../components/hero/bento-right/Hero.astro';
 import SplitWithImage from '../../components/hero/split-with-image/SplitWithImage.astro';
+import HeroSplitImageRight from '../../components/hero/split-image-right/Hero.astro';
 import HeroWithBackground from '../../components/hero/with-background/HeroWithBackground.astro';
 import HeroWithCarousel from '../../components/hero/with-carousel/HeroWithCarousel.astro';
 ---
@@ -45,6 +46,17 @@ import HeroWithCarousel from '../../components/hero/with-carousel/HeroWithCarous
             </div>
             <div class="hero-showcase-preview">
               <SplitWithImage />
+            </div>
+          </div>
+
+          <!-- Split Image Right Hero -->
+          <div class="hero-showcase-item">
+            <div class="hero-showcase-header">
+              <h2 class="hero-showcase-title">Split Image Right</h2>
+              <p class="hero-showcase-description">Text on the left, single image on the right</p>
+            </div>
+            <div class="hero-showcase-preview">
+              <HeroSplitImageRight />
             </div>
           </div>
 

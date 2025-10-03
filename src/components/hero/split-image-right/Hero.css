@@ -1,4 +1,4 @@
-/* ===== HERO SECTION STYLES ===== */
+/* ===== HERO SPLIT IMAGE RIGHT STYLES ===== */
 
 /* Animaciones */
 @keyframes fadeInUp {
@@ -21,54 +21,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: stretch;
+  align-items: center;
   min-height: 500px;
-}
-
-.hero-images {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-}
-
-.hero-image-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-image-large {
-  grid-column: 1;
-  grid-row: 1 / 3;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease 0.5s forwards;
-}
-
-.hero-image-small {
-  grid-column: 2;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease 0.6s forwards;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-
-.hero-image-large .hero-img {
-  height: 100%;
-}
-
-.hero-image-small .hero-img {
-  height: 100%;
 }
 
 .hero-text {
@@ -80,7 +34,7 @@
   align-items: flex-start;
 }
 
-.hero-pill {
+.pill-outline-hero {
   display: inline-block;
   background: rgba(0,0,0,0.1);
   color: rgba(0,0,0,0.8);
@@ -89,6 +43,9 @@
   font-size: 14px;
   font-weight: 500;
   align-self: flex-start;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease 0.1s forwards;
 }
 
 .hero-title {
@@ -119,6 +76,25 @@
   animation: fadeInUp 0.6s ease 0.4s forwards;
 }
 
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease 0.5s forwards;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
 .hero-cta:hover {
   background-color: rgba(0,0,0,0.8);
   transform: translateY(-2px);
@@ -141,12 +117,11 @@
     line-height: 30px;
   }
   
-  .hero-image-grid {
-    width: 100%;
+  .hero-image {
+    order: -1;
   }
   
-  .hero-image-small .hero-img {
-    height: 100%;
+  .hero-img {
+    max-height: 300px;
   }
 }
-

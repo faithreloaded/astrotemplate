@@ -62,4 +62,13 @@ const {
     color: #2563eb;
     text-decoration: none;
   }
+
+  .btn-link-blue::after {
+    content: " →";
+    transition: transform 0.2s ease;
+  }
+
+  .btn-link-blue:hover::after {
+    transform: translateX(2px);
+  }
 </style>

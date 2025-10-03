@@ -1,6 +1,7 @@
 ---
 import './Hero.css';
 import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
+import PillSoft from '../../pills/soft/PillSoft.astro';
 ---
 
 <section class="hero-section">
@@ -21,11 +22,11 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
       </div>
       
       <div class="hero-text">
-        <span class="pill-outline-hero-original">Lorem ipsum</span>
+        <PillSoft variant="primary" size="md">Lorem ipsum</PillSoft>
         <h1 class="hero-title">Lorem ipsum dolor sit amet consectetur</h1>
         <p class="hero-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <div class="hero-cta-container">
-          <ButtonPrimary href="#" class="hero-cta" width="fit-content">See open jobs</ButtonPrimary>
+          <ButtonPrimary href="#" width="fit-content">See open jobs</ButtonPrimary>
         </div>
       </div>
     </div>
