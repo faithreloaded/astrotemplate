@@ -1,19 +1,15 @@
 ---
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeaderMega from '../../components/header/header-mega/Header.astro';
 import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
 import ServiciosCards from '../../components/services/cards-carousel/ServiciosCards.astro';
 import ServicesSimpleCards from '../../components/services/simple-cards/ServicesSimpleCards.astro';
-import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
 ---
 
 <BaseLayout 
   title="Services - Starter UI" 
   description="Service components with clean, engaging designs to showcase your business offerings and capabilities."
 >
-  <HeaderMega />
-  
   <main class="main">
     <div class="container">
       <div class="services-page">
@@ -58,8 +54,6 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
       </div>
     </div>
   </main>
-  
-  <FooterGrid />
 </BaseLayout>
 
 <style>

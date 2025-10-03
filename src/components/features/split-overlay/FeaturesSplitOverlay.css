@@ -37,6 +37,14 @@
   position: relative;
   min-height: 600px;
   border-radius: var(--radius-lg);
+  /* Optimize image loading */
+  background-attachment: scroll;
+  will-change: transform;
+}
+
+/* Fast loading elements */
+.features-split-overlay-fast {
+  transition: all 0.4s ease !important;
 }
 
 /* Right Container - Text Content */

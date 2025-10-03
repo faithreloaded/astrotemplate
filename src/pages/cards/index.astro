@@ -1,8 +1,6 @@
 ---
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeaderMega from '../../components/header/header-mega/Header.astro';
-import Footer from '../../components/footer/footer-grid/Footer.astro';
 
 // Importar todos los componentes Cards
 import ElegantCards from '../../components/cards/elegant/ElegantCards.astro';
@@ -15,8 +13,6 @@ import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
   title="Cards | Starter UI" 
   description="Collection of card components for modern web design"
 >
-  <HeaderMega />
-  
   <main class="main">
     <div class="container">
       <div class="cards-page">
@@ -75,8 +71,6 @@ import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
       </div>
     </div>
   </main>
-  
-  <Footer />
 </BaseLayout>
 
 <style>

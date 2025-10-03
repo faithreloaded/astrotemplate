@@ -1,0 +1,585 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+---
+
+<BaseLayout 
+  title="Global Styles | Starter UI" 
+  description="Global styles, design tokens, and CSS variables for consistent design across the entire template"
+>
+  <HeaderMega />
+
+  <main class="main">
+    <div class="container">
+      <div class="global-styles-page">
+        <header class="global-styles-page-header">
+          <h1 class="global-styles-page-title">Global Styles</h1>
+          <p class="global-styles-page-description">
+            Design system, CSS variables, and global styles that ensure consistency across all components
+          </p>
+        </header>
+
+        <div class="global-styles-content">
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">Color Palette</h2>
+            <p class="global-styles-section-description">
+              Primary colors used throughout the template
+            </p>
+            <div class="color-grid">
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-primary);"></div>
+                <div class="color-info">
+                  <h4>Primary</h4>
+                  <code>var(--color-primary)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-secondary);"></div>
+                <div class="color-info">
+                  <h4>Secondary</h4>
+                  <code>var(--color-secondary)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-background);"></div>
+                <div class="color-info">
+                  <h4>Background</h4>
+                  <code>var(--color-background)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-background-alt);"></div>
+                <div class="color-info">
+                  <h4>Background Alt</h4>
+                  <code>var(--color-background-alt)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-accent);"></div>
+                <div class="color-info">
+                  <h4>Accent</h4>
+                  <code>var(--color-accent)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-container);"></div>
+                <div class="color-info">
+                  <h4>Container</h4>
+                  <code>var(--color-container)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-text);"></div>
+                <div class="color-info">
+                  <h4>Text</h4>
+                  <code>var(--color-text)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-text-secondary);"></div>
+                <div class="color-info">
+                  <h4>Text Secondary</h4>
+                  <code>var(--color-text-secondary)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-text-muted);"></div>
+                <div class="color-info">
+                  <h4>Text Muted</h4>
+                  <code>var(--color-text-muted)</code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">Typography</h2>
+            <p class="global-styles-section-description">
+              Complete typography system using Inter font with fallbacks, including all heading levels, body text, and weight variations
+            </p>
+            <div class="typography-examples">
+              <div class="typography-item">
+                <h1>Heading 1 - Main Title</h1>
+                <code>font-size: 48px; font-weight: 500;</code>
+              </div>
+              <div class="typography-item">
+                <h2>Heading 2 - Section Title</h2>
+                <code>font-size: 32px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <h3>Heading 3 - Subsection</h3>
+                <code>font-size: 24px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <h4>Heading 4 - Card Title</h4>
+                <code>font-size: 20px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <h5>Heading 5 - Small Title</h5>
+                <code>font-size: 18px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <h6>Heading 6 - Label</h6>
+                <code>font-size: 16px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <p>Body text - Regular paragraph text used throughout the template for readability and consistency.</p>
+                <code>font-size: 16px; line-height: 1.6;</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-size: 14px; color: var(--color-text-secondary);">Small text - Used for captions, labels, and secondary information.</p>
+                <code>font-size: 14px; color: var(--color-text-secondary);</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-weight: 500;">Medium weight text - Used for emphasis and important information.</p>
+                <code>font-weight: 500;</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-weight: 600;">Semi-bold text - Used for strong emphasis and call-to-action elements.</p>
+                <code>font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-weight: 700;">Bold text - Used for maximum emphasis and important headings.</p>
+                <code>font-weight: 700;</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-size: 12px; color: var(--color-text-muted);">Caption text - Used for very small text like footnotes and metadata.</p>
+                <code>font-size: 12px; color: var(--color-text-muted);</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-family: var(--font-family);">Inter Font Family - Modern, highly legible typeface designed for user interfaces.</p>
+                <code>font-family: var(--font-family);</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-family: var(--font-sans);">Font Sans - System font stack with Inter as primary, includes fallbacks for maximum compatibility.</p>
+                <code>font-family: var(--font-sans);</code>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">Spacing System</h2>
+            <p class="global-styles-section-description">
+              Consistent spacing variables used across components
+            </p>
+            <div class="spacing-examples">
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-1);"></div>
+                <div class="spacing-info">
+                  <code>--space-1</code>
+                  <span class="spacing-value">8px</span>
+                  <span class="spacing-usage">Padding interno, gaps pequeños</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-2);"></div>
+                <div class="spacing-info">
+                  <code>--space-2</code>
+                  <span class="spacing-value">16px</span>
+                  <span class="spacing-usage">Margins pequeños, padding de botones</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-3);"></div>
+                <div class="spacing-info">
+                  <code>--space-3</code>
+                  <span class="spacing-value">24px</span>
+                  <span class="spacing-usage">Espaciado entre elementos</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-4);"></div>
+                <div class="spacing-info">
+                  <code>--space-4</code>
+                  <span class="spacing-value">32px</span>
+                  <span class="spacing-usage">Padding de contenedores</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-5);"></div>
+                <div class="spacing-info">
+                  <code>--space-5</code>
+                  <span class="spacing-value">48px</span>
+                  <span class="spacing-usage">Espaciado entre secciones</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-6);"></div>
+                <div class="spacing-info">
+                  <code>--space-6</code>
+                  <span class="spacing-value">64px</span>
+                  <span class="spacing-usage">Margins grandes</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-7);"></div>
+                <div class="spacing-info">
+                  <code>--space-7</code>
+                  <span class="spacing-value">80px</span>
+                  <span class="spacing-usage">Espaciado de hero sections</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-8);"></div>
+                <div class="spacing-info">
+                  <code>--space-8</code>
+                  <span class="spacing-value">96px</span>
+                  <span class="spacing-usage">Espaciado máximo entre páginas</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">CSS Variables</h2>
+            <p class="global-styles-section-description">
+              All available CSS custom properties
+            </p>
+            <div class="css-variables">
+              <div class="variable-section">
+                <h4 class="variable-section-title">Colors (Semantic)</h4>
+                <div class="variable-list">
+                  <code>--color-primary</code>
+                  <code>--color-secondary</code>
+                  <code>--color-background</code>
+                  <code>--color-background-alt</code>
+                  <code>--color-accent</code>
+                  <code>--color-container</code>
+                  <code>--color-text</code>
+                  <code>--color-text-secondary</code>
+                  <code>--color-text-muted</code>
+                  <code>--color-border</code>
+                  <code>--color-border-light</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">Colors (Legacy)</h4>
+                <div class="variable-list">
+                  <code>--color-black</code>
+                  <code>--color-white</code>
+                  <code>--color-cream</code>
+                  <code>--color-gray</code>
+                  <code>--color-light-gray</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">Typography - Font Sizes</h4>
+                <div class="variable-list">
+                  <code>--font-size-xs: 12px</code>
+                  <code>--font-size-sm: 14px</code>
+                  <code>--font-size-base: 16px</code>
+                  <code>--font-size-lg: 18px</code>
+                  <code>--font-size-xl: 20px</code>
+                  <code>--font-size-2xl: 24px</code>
+                  <code>--font-size-3xl: 32px</code>
+                  <code>--font-size-4xl: 36px</code>
+                  <code>--font-size-5xl: 48px</code>
+                  <code>--font-size-6xl: 64px</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">Typography - Font Weights</h4>
+                <div class="variable-list">
+                  <code>--font-weight-thin: 100</code>
+                  <code>--font-weight-light: 300</code>
+                  <code>--font-weight-regular: 400</code>
+                  <code>--font-weight-medium: 500</code>
+                  <code>--font-weight-semibold: 600</code>
+                  <code>--font-weight-bold: 700</code>
+                  <code>--font-weight-extrabold: 800</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">Typography - Line Heights</h4>
+                <div class="variable-list">
+                  <code>--line-height-tight: 1.2</code>
+                  <code>--line-height-normal: 1.4</code>
+                  <code>--line-height-relaxed: 1.6</code>
+                  <code>--line-height-loose: 1.8</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">Typography - Font Family</h4>
+                <div class="variable-list">
+                  <code>--font-family: 'Inter', sans-serif</code>
+                  <code>--font-sans: "Inter", system-ui, sans-serif</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">Spacing</h4>
+                <div class="variable-list">
+                  <code>--space-1</code>
+                  <code>--space-2</code>
+                  <code>--space-3</code>
+                  <code>--space-4</code>
+                  <code>--space-5</code>
+                  <code>--space-6</code>
+                  <code>--space-7</code>
+                  <code>--space-8</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">Layout</h4>
+                <div class="variable-list">
+                  <code>--max-width</code>
+                  <code>--transition</code>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .global-styles-page {
+    padding: var(--space-8) 0;
+  }
+
+  .global-styles-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .global-styles-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .global-styles-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .global-styles-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .global-styles-section {
+    /* Sin fondo, sin bordes, sin padding - contenido directo */
+    margin-bottom: var(--space-8);
+  }
+
+  .global-styles-section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .global-styles-section-description {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 var(--space-8) 0;
+    line-height: 1.5;
+    max-width: 600px;
+  }
+
+  /* Color Grid */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .color-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background: var(--color-container);
+  }
+
+  .color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .color-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 var(--space-1) 0;
+  }
+
+  .color-info code {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* Typography Examples */
+  .typography-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .typography-item {
+    padding: var(--space-3);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background: var(--color-container);
+  }
+
+  .typography-item h1,
+  .typography-item h2,
+  .typography-item h3,
+  .typography-item p {
+    margin: 0 0 var(--space-2) 0;
+  }
+
+  .typography-item code {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* Spacing Examples */
+  .spacing-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .spacing-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    background: var(--color-container);
+  }
+
+  .spacing-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    text-align: center;
+  }
+
+  .spacing-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .spacing-usage {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .spacing-visual {
+    height: 20px;
+    background: var(--color-black);
+    border-radius: 4px;
+  }
+
+  .spacing-item code {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* CSS Variables */
+  .css-variables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .variable-section {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+    padding: var(--space-4);
+  }
+
+  .variable-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .variable-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .variable-list code {
+    font-size: 12px;
+    color: var(--color-text);
+    font-family: 'Monaco', 'Menlo', monospace;
+    background: var(--color-background);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .global-styles-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .global-styles-page-header {
+      margin-bottom: var(--space-6);
+    }
+    
+    .global-styles-content {
+      gap: var(--space-6);
+    }
+    
+    .global-styles-section {
+      margin-bottom: var(--space-6);
+    }
+    
+    .global-styles-page-title {
+      font-size: 36px;
+    }
+    
+    .typography-examples {
+      grid-template-columns: 1fr;
+    }
+    
+    .css-variables {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

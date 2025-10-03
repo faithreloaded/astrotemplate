@@ -1,22 +1,18 @@
 ---
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeaderMega from '../../components/header/header-mega/Header.astro';
 import FeaturesSplitOverlay from '../../components/features/split-overlay/FeaturesSplitOverlay.astro';
 import FeaturesSplitRight from '../../components/features/split-right/FeaturesSplitRight.astro';
 import FeaturesSplitLeft from '../../components/features/split-left/FeaturesSplitLeft.astro';
 import FeaturesGrid from '../../components/features/grid/FeaturesGrid.astro';
 import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
 import AboutUs from '../../components/about/img-right-left/AboutUs.astro';
-import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
 ---
 
 <BaseLayout 
   title="Features - Starter UI" 
   description="Feature components with clean, engaging designs to showcase your product capabilities and benefits."
 >
-  <HeaderMega />
-  
   <main class="main">
     <div class="container">
       <div class="features-page">
@@ -91,8 +87,6 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
       </div>
     </div>
   </main>
-  
-  <FooterGrid />
 </BaseLayout>
 
 <style>

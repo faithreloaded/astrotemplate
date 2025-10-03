@@ -1,8 +1,6 @@
 ---
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeaderMega from '../../components/header/header-mega/Header.astro';
-import Footer from '../../components/footer/footer-grid/Footer.astro';
 
 // Importar todos los componentes FAQ
 import FAQListCenter from '../../components/faq/list-center/FAQ.astro';
@@ -14,8 +12,6 @@ import FAQSideLayout from '../../components/faq/side-layout/FAQ.astro';
   title="FAQ Sections | Starter UI" 
   description="Collection of FAQ section components for modern web design"
 >
-  <HeaderMega />
-  
   <main class="main">
     <div class="container">
       <div class="faq-page">
@@ -63,8 +59,6 @@ import FAQSideLayout from '../../components/faq/side-layout/FAQ.astro';
       </div>
     </div>
   </main>
-  
-  <Footer />
 </BaseLayout>
 
 <style>

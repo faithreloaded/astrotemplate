@@ -1,0 +1,60 @@
+---
+import './LogoGrid.css';
+---
+
+<section class="logo-grid-section">
+  <div class="container">
+    <div class="logo-grid-container">
+      <!-- Row 1 -->
+      <div class="logo-grid-item">
+        <img src="/images/logos/placeholder1.svg" alt="Company 1" class="logo-grid-image" />
+      </div>
+      
+      <div class="logo-grid-item">
+        <img src="/images/logos/placeholder2.svg" alt="Company 2" class="logo-grid-image" />
+      </div>
+      
+      <div class="logo-grid-item">
+        <img src="/images/logos/placeholder3.svg" alt="Company 3" class="logo-grid-image" />
+      </div>
+      
+      <!-- Row 2 -->
+      <div class="logo-grid-item">
+        <img src="/images/logos/placeholder4.svg" alt="Company 4" class="logo-grid-image" />
+      </div>
+      
+      <div class="logo-grid-item">
+        <img src="/images/logos/placeholder5.svg" alt="Company 5" class="logo-grid-image" />
+      </div>
+      
+      <div class="logo-grid-item">
+        <img src="/images/logos/placeholder1.svg" alt="Company 6" class="logo-grid-image" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Staggered animation for grid items
+  document.addEventListener('DOMContentLoaded', function() {
+    const gridItems = document.querySelectorAll('.logo-grid-item');
+    if (!gridItems.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('animate-in');
+          }, index * 100); // Staggered animation with 100ms delay
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    gridItems.forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>

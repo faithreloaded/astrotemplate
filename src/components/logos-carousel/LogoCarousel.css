@@ -1,0 +1,139 @@
+/* Logo Carousel Component */
+.logos-carousel-section {
+  padding: 80px 0;
+  background: var(--color-background);
+  overflow: hidden;
+}
+
+/* Animation base styles */
+.logos-carousel-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.logos-carousel-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.logos-carousel-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.logos-carousel-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-gray);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.logos-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logos-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: max-content; /* Let content determine width */
+  will-change: transform; /* Optimize for animations */
+}
+
+.logos-carousel-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 120px; /* Fixed width for consistent spacing */
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.logos-carousel-item:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.logos-carousel-item img {
+  max-height: 40px;
+  max-width: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.logos-carousel-item:hover img {
+  filter: grayscale(0%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logos-carousel-section {
+    padding: 60px 0;
+  }
+  
+  .logos-carousel-header {
+    margin-bottom: 40px;
+  }
+  
+  .logos-carousel-title {
+    font-size: 16px;
+  }
+  
+  .logos-carousel-track {
+    gap: 40px;
+  }
+  
+  .logos-carousel-item {
+    height: 50px;
+    width: 100px;
+  }
+  
+  .logos-carousel-item img {
+    max-height: 30px;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logos-carousel-section {
+    padding: 40px 0;
+  }
+  
+  .logos-carousel-header {
+    margin-bottom: 30px;
+  }
+  
+  .logos-carousel-title {
+    font-size: 14px;
+  }
+  
+  .logos-carousel-track {
+    gap: 30px;
+  }
+  
+  .logos-carousel-item {
+    height: 40px;
+    width: 80px;
+  }
+  
+  .logos-carousel-item img {
+    max-height: 25px;
+    max-width: 80px;
+  }
+}

@@ -1,0 +1,277 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+import FooterCTA from '../../components/footer/footer-cta/Footer.astro';
+import FooterNewsletter from '../../components/footer/footer-newsletter/Footer.astro';
+---
+
+<BaseLayout 
+  title="Footers | Starter UI" 
+  description="Collection of footer components with links, contact information, and responsive designs"
+>
+  <main class="main">
+    <div class="container">
+      <div class="footers-page">
+        <header class="footers-page-header">
+          <h1 class="footers-page-title">Footers</h1>
+          <p class="footers-page-description">
+            A curated collection of footer components designed for modern websites with links, contact information, and responsive layouts
+          </p>
+        </header>
+
+        <div class="footers-showcase">
+          <div class="footers-showcase-item">
+            <div class="footers-showcase-header">
+              <h2 class="footers-showcase-title">Grid Footer</h2>
+              <p class="footers-showcase-description">Comprehensive footer with organized links, contact information, and social media integration</p>
+            </div>
+            <div class="footers-showcase-preview">
+              <FooterGrid />
+            </div>
+          </div>
+
+          <div class="footers-showcase-item">
+            <div class="footers-showcase-header">
+              <h2 class="footers-showcase-title">CTA Footer</h2>
+              <p class="footers-showcase-description">Footer with call-to-action section, perfect for driving conversions and engagement</p>
+            </div>
+            <div class="footers-showcase-preview">
+              <FooterCTA />
+            </div>
+          </div>
+
+          <div class="footers-showcase-item">
+            <div class="footers-showcase-header">
+              <h2 class="footers-showcase-title">Newsletter Footer</h2>
+              <p class="footers-showcase-description">Footer with newsletter subscription, ideal for building email lists and maintaining user engagement</p>
+            </div>
+            <div class="footers-showcase-preview">
+              <FooterNewsletter />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .footers-page {
+    padding: var(--space-8) 0;
+  }
+
+  .footers-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footers-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .footers-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .footers-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .footers-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .footers-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .footers-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .footers-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .footers-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: visible;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    min-height: 400px;
+    position: relative;
+    padding: var(--space-4);
+  }
+
+  /* Reset styles for the footer component - using higher specificity */
+  .footers-showcase-preview.footers-showcase-preview :global(.footer) {
+    position: relative !important;
+    top: auto !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+    background-color: transparent !important;
+    padding: var(--space-4) 0 var(--space-3) 0 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .footers-showcase-preview.footers-showcase-preview :global(.container) {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+
+  /* Reset any potential shadows or visual artifacts */
+  .footers-showcase-preview :global(*) {
+    box-shadow: none !important;
+  }
+
+  /* CTA Footer styles */
+  .footers-showcase-preview.footers-showcase-preview :global(.footer-cta) {
+    position: relative !important;
+    top: auto !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+    background-color: transparent !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+
+  /* Newsletter Footer styles */
+  .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter) {
+    position: relative !important;
+    top: auto !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+    margin-top: 0 !important;
+    background-color: transparent !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 3rem 0 1rem !important;
+  }
+
+
+  /* Force newsletter footer content to be visible */
+  .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .footer-grid) {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .footer-col) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .footer-col-newsletter) {
+    grid-column: span 2 !important;
+  }
+
+  .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .footer-bottom) {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 2rem !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+
+  @media (max-width: 768px) {
+    .footers-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .footers-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+    
+    .footers-showcase {
+      gap: var(--space-12);
+    }
+    
+    .footers-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+    
+    .footers-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+    
+    .footers-page-title {
+      font-size: 36px;
+    }
+    
+    .footers-showcase-title {
+      font-size: 16px;
+    }
+    
+    .footers-showcase-description {
+      font-size: 13px;
+    }
+    
+    .footers-showcase-preview {
+      min-height: 300px;
+      padding: var(--space-3);
+    }
+    
+    .footers-showcase-preview.footers-showcase-preview :global(.container) {
+      padding: 0 !important;
+    }
+
+    /* Mobile newsletter footer styles */
+    .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .footer-grid) {
+      grid-template-columns: 1fr !important;
+    }
+
+    .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .footer-col-newsletter) {
+      grid-column: span 1 !important;
+    }
+
+    .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .footer-bottom) {
+      flex-direction: column !important;
+      text-align: center !important;
+    }
+
+    .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .newsletter-form) {
+      flex-direction: column !important;
+    }
+
+    .footers-showcase-preview.footers-showcase-preview :global(.footer-newsletter .newsletter-input) {
+      min-width: auto !important;
+    }
+  }
+</style>

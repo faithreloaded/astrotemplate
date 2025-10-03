@@ -1,8 +1,6 @@
 ---
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeaderMega from '../../components/header/header-mega/Header.astro';
-import Footer from '../../components/footer/footer-grid/Footer.astro';
 import ButtonPrimary from '../../components/buttons/primary/ButtonPrimary.astro';
 import ButtonSecondary from '../../components/buttons/secondary/ButtonSecondary.astro';
 import ButtonLink from '../../components/buttons/link/ButtonLink.astro';
@@ -18,8 +16,6 @@ import './_buttons.css';
   title="Buttons | Starter UI" 
   description="Button system design gallery"
 >
-  <HeaderMega />
-  
   <main class="main">
     <div class="container">
       <div class="buttons-page">
@@ -48,7 +44,7 @@ import './_buttons.css';
             <h2>Secondary</h2>
             <div class="button-examples">
               <ButtonSecondary>Learn more</ButtonSecondary>
-              <ButtonSecondary class="learn-more-btn">Learn more</ButtonSecondary>
+              <ButtonSecondary>Learn more</ButtonSecondary>
             </div>
           </div>
 
@@ -86,6 +82,4 @@ import './_buttons.css';
       </div>
     </div>
   </main>
-  
-  <Footer />
 </BaseLayout>

@@ -1,19 +1,15 @@
 ---
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeaderMega from '../../components/header/header-mega/Header.astro';
 import BadgeFilled from '../../components/badges/filled/BadgeFilled.astro';
 import BadgeOutlined from '../../components/badges/outlined/BadgeOutlined.astro';
 import BadgeSoft from '../../components/badges/soft/BadgeSoft.astro';
-import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
 ---
 
 <BaseLayout 
   title="Badges - Starter UI" 
   description="Badge components with Material UI inspired design. Choose from filled, outlined, and soft variants in multiple colors and sizes."
 >
-  <HeaderMega />
-  
   <main class="main">
     <div class="container">
       <div class="badges-page">
@@ -253,8 +249,6 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
       </div>
     </div>
   </main>
-  
-  <FooterGrid />
 </BaseLayout>
 
 <style>
@@ -488,7 +482,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
 }
 
 .badges-showcase-preview.badges-dark-preview .badge-filled-error:hover {
-  background: #dc2626 !important;
+  background: var(--color-black) !important;
 }
 
 .badges-showcase-preview.badges-dark-preview .badge-filled-info {

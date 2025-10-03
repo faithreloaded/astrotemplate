@@ -1,0 +1,206 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LogoCarousel from '../../components/logos-carousel/LogoCarousel.astro';
+import LogoCloud from '../../components/logos-carousel/LogoCloud.astro';
+import LogoGrid from '../../components/logos-carousel/LogoGrid.astro';
+---
+
+<BaseLayout 
+  title="Logo Clouds | Starter UI" 
+  description="Collection of logo carousel components for showcasing client logos and partnerships"
+>
+  <main class="main">
+    <div class="container">
+      <div class="logo-clouds-page">
+        <header class="logo-clouds-page-header">
+          <h1 class="logo-clouds-page-title">Logo Clouds</h1>
+          <p class="logo-clouds-page-description">
+            A curated collection of logo carousel components designed to showcase client logos, partnerships, and brand trust
+          </p>
+        </header>
+
+        <div class="logo-clouds-showcase">
+          <div class="logo-clouds-showcase-item">
+            <div class="logo-clouds-showcase-header">
+              <h2 class="logo-clouds-showcase-title">Grid Layout</h2>
+              <p class="logo-clouds-showcase-description">Clean grid layout with content and logos side by side, perfect for showcasing partnerships</p>
+            </div>
+            <div class="logo-clouds-showcase-preview">
+              <LogoCloud />
+            </div>
+          </div>
+
+          <div class="logo-clouds-showcase-item">
+            <div class="logo-clouds-showcase-header">
+              <h2 class="logo-clouds-showcase-title">Infinite Carousel</h2>
+              <p class="logo-clouds-showcase-description">Seamless infinite scrolling logo carousel with smooth animations and hover effects</p>
+            </div>
+            <div class="logo-clouds-showcase-preview">
+              <LogoCarousel />
+            </div>
+          </div>
+
+          <div class="logo-clouds-showcase-item">
+            <div class="logo-clouds-showcase-header">
+              <h2 class="logo-clouds-showcase-title">Grid Layout</h2>
+              <p class="logo-clouds-showcase-description">Clean 3x2 grid layout with subtle animations, perfect for showcasing multiple brand partnerships</p>
+            </div>
+            <div class="logo-clouds-showcase-preview">
+              <LogoGrid />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .logo-clouds-page {
+    padding: var(--space-8) 0;
+  }
+
+  .logo-clouds-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .logo-clouds-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-clouds-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .logo-clouds-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .logo-clouds-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .logo-clouds-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .logo-clouds-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .logo-clouds-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .logo-clouds-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: auto;
+    position: relative;
+  }
+
+  /* Reset styles for the LogoCarousel component */
+  .logo-clouds-showcase-preview :global(.logos-carousel-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+  }
+
+  /* Reset styles for the LogoCloud component */
+  .logo-clouds-showcase-preview :global(.logo-cloud-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+  }
+
+  /* Reset styles for the LogoGrid component */
+  .logo-clouds-showcase-preview :global(.logo-grid-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+  }
+
+  .logo-clouds-showcase-preview :global(.container) {
+    max-width: 100% !important;
+    padding: 0 var(--space-6) !important;
+  }
+
+  @media (max-width: 768px) {
+    .logo-clouds-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .logo-clouds-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+    
+    .logo-clouds-showcase {
+      gap: var(--space-12);
+    }
+    
+    .logo-clouds-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+    
+    .logo-clouds-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+    
+    .logo-clouds-page-title {
+      font-size: 36px;
+    }
+    
+    .logo-clouds-showcase-title {
+      font-size: 16px;
+    }
+    
+    .logo-clouds-showcase-description {
+      font-size: 13px;
+    }
+    
+    .logo-clouds-showcase-preview {
+      height: auto;
+    }
+    
+    .logo-clouds-showcase-preview :global(.logos-carousel-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .logo-clouds-showcase-preview :global(.logo-cloud-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .logo-clouds-showcase-preview :global(.logo-grid-section) {
+      padding: var(--space-6) 0 !important;
+    }
+    
+    .logo-clouds-showcase-preview :global(.container) {
+      padding: 0 var(--space-4) !important;
+    }
+  }
+</style>

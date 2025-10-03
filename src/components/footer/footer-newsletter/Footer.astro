@@ -1,4 +1,5 @@
 ---
+import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
 const year = new Date().getFullYear();
 ---
 
@@ -41,7 +42,7 @@ const year = new Date().getFullYear();
         <p class="footer-news-desc">The latest news, articles, and resources, sent to your inbox weekly.</p>
         <form class="newsletter-form" onsubmit="event.preventDefault()">
           <input type="email" class="newsletter-input" placeholder="Enter your email" aria-label="Email" required />
-          <button type="submit" class="btn-primary newsletter-btn">Subscribe</button>
+          <ButtonPrimary>Subscribe</ButtonPrimary>
         </form>
       </div>
     </div>

@@ -1,0 +1,115 @@
+---
+import './LogoCarousel.css';
+
+// Logo data
+const logos = [
+  { src: '/images/logos/placeholder1.svg', alt: 'Company 1' },
+  { src: '/images/logos/placeholder2.svg', alt: 'Company 2' },
+  { src: '/images/logos/placeholder3.svg', alt: 'Company 3' },
+  { src: '/images/logos/placeholder4.svg', alt: 'Company 4' },
+  { src: '/images/logos/placeholder5.svg', alt: 'Company 5' }
+];
+
+// Create multiple sets for seamless infinite scroll
+const logoSets = [...logos, ...logos, ...logos, ...logos];
+---
+
+<section class="logos-carousel-section">
+  <div class="container">
+    <div class="logos-carousel-header logos-carousel-animate">
+      <h2 class="logos-carousel-title">Trusted by the World's Most Innovative Teams</h2>
+    </div>
+    
+    <div class="logos-carousel-container logos-carousel-animate">
+      <div class="logos-carousel-track">
+        {logoSets.map((logo, index) => (
+          <div class="logos-carousel-item">
+            <img src={logo.src} alt={logo.alt} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Robust infinite carousel logic with animations
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.logos-carousel-track') as HTMLElement;
+    if (!track) return;
+
+    let animationId: number;
+    let currentPosition = 0;
+    const speed = 0.5; // pixels per frame
+    const logoWidth = 180; // width of each logo + gap
+    const totalLogos = 5; // original number of logos
+    const resetPoint = logoWidth * totalLogos; // when to reset position
+
+    function animate() {
+      currentPosition -= speed;
+      
+      // Reset position when we've scrolled through one complete set
+      if (Math.abs(currentPosition) >= resetPoint) {
+        currentPosition = 0;
+      }
+      
+      track.style.transform = `translateX(${currentPosition}px)`;
+      animationId = requestAnimationFrame(animate);
+    }
+
+    // Section entrance animations
+    const animatedElements = document.querySelectorAll('.logos-carousel-animate');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('animate-in');
+          }, index * 200); // Staggered animation
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    animatedElements.forEach(element => {
+      observer.observe(element);
+    });
+
+    // Start carousel animation only after section is visible
+    const section = document.querySelector('.logos-carousel-section');
+    if (section) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Start carousel animation when section is visible
+            animate();
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+      
+      sectionObserver.observe(section);
+    }
+
+    // Pause on hover
+    const container = document.querySelector('.logos-carousel-container');
+    if (container) {
+      container.addEventListener('mouseenter', () => {
+        cancelAnimationFrame(animationId);
+      });
+      
+      container.addEventListener('mouseleave', () => {
+        animate();
+      });
+    }
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+      cancelAnimationFrame(animationId);
+    });
+  });
+</script>

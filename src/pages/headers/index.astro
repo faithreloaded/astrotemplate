@@ -1,0 +1,248 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderLoginSignup from '../../components/header/header-login-signup/Header.astro';
+import HeaderCenter from '../../components/header/header-center/Header.astro';
+import HeaderLeft from '../../components/header/header-left/Header.astro';
+import HeaderRight from '../../components/header/header-right/Header.astro';
+---
+
+<BaseLayout 
+  title="Headers | Starter UI" 
+  description="Collection of header components with navigation, mega menus, and responsive designs"
+>
+  <main class="main">
+    <div class="container">
+      <div class="headers-page">
+        <header class="headers-page-header">
+          <h1 class="headers-page-title">Headers</h1>
+          <p class="headers-page-description">
+            A curated collection of header components designed for modern websites with navigation, mega menus, and responsive layouts
+          </p>
+        </header>
+
+        <div class="headers-showcase">
+          <div class="headers-showcase-item">
+            <div class="headers-showcase-header">
+              <h2 class="headers-showcase-title">Mega Menu Header</h2>
+              <p class="headers-showcase-description">Advanced header with mega menu dropdowns, perfect for complex navigation structures</p>
+            </div>
+            <div class="headers-showcase-preview">
+              <div class="header-demo-container">
+                <HeaderLoginSignup />
+              </div>
+            </div>
+          </div>
+
+          <div class="headers-showcase-item">
+            <div class="headers-showcase-header">
+              <h2 class="headers-showcase-title">Center Header</h2>
+              <p class="headers-showcase-description">Clean header with centered navigation and call-to-action button, ideal for simple layouts</p>
+            </div>
+            <div class="headers-showcase-preview headers-showcase-preview-simple">
+              <HeaderCenter />
+            </div>
+          </div>
+
+          <div class="headers-showcase-item">
+            <div class="headers-showcase-header">
+              <h2 class="headers-showcase-title">Left Header</h2>
+              <p class="headers-showcase-description">Header with logo and navigation on the left, call-to-action button on the right</p>
+            </div>
+            <div class="headers-showcase-preview headers-showcase-preview-simple">
+              <HeaderLeft />
+            </div>
+          </div>
+
+          <div class="headers-showcase-item">
+            <div class="headers-showcase-header">
+              <h2 class="headers-showcase-title">Right Header</h2>
+              <p class="headers-showcase-description">Header with logo on the left and navigation with CTA button on the right</p>
+            </div>
+            <div class="headers-showcase-preview headers-showcase-preview-simple">
+              <HeaderRight />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .headers-page {
+    padding: var(--space-8) 0;
+  }
+
+  .headers-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .headers-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .headers-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .headers-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .headers-showcase-item {
+    margin-bottom: var(--space-8);
+  }
+
+  .headers-showcase-header {
+    margin-bottom: var(--space-6);
+    text-align: left;
+  }
+
+  .headers-showcase-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+  }
+
+  .headers-showcase-description {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .headers-showcase-preview {
+    background: var(--color-preview-bg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    overflow: visible;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: auto;
+    position: relative;
+    min-height: 400px;
+    padding-bottom: 200px;
+  }
+
+  .headers-showcase-preview-simple {
+    min-height: auto !important;
+    padding-bottom: 0 !important;
+    overflow: hidden;
+  }
+
+  /* Reset styles for the header components */
+  .headers-showcase-preview :global(.header-login-signup),
+  .headers-showcase-preview :global(.header-center),
+  .headers-showcase-preview :global(.header-left),
+  .headers-showcase-preview :global(.header) {
+    position: relative !important;
+    top: auto !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+  }
+
+  .headers-showcase-preview :global(.container) {
+    max-width: 100% !important;
+    padding: 0 var(--space-6) !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Reset any potential shadows or visual artifacts */
+  .headers-showcase-preview :global(*) {
+    box-shadow: none !important;
+  }
+  
+  .headers-showcase-preview :global(.header-login-signup *),
+  .headers-showcase-preview :global(.header-center *),
+  .headers-showcase-preview :global(.header-left *),
+  .headers-showcase-preview :global(.header *) {
+    box-shadow: none !important;
+  }
+
+  /* Demo styles - show mega menu open by default */
+  .header-demo-container {
+    position: relative;
+  }
+
+  .header-demo-container :global(.dropdown-login-signup:hover .mega-menu),
+  .header-demo-container :global(.mega-menu) {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) !important;
+    position: absolute !important;
+    z-index: 10 !important;
+  }
+
+  /* Ensure the mega menu has proper spacing */
+  .header-demo-container :global(.mega-menu) {
+    margin-top: 8px !important;
+  }
+
+  @media (max-width: 768px) {
+    .headers-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .headers-page-header {
+      margin-bottom: var(--space-8);
+      padding: 0 var(--space-4);
+    }
+    
+    .headers-showcase {
+      gap: var(--space-12);
+    }
+    
+    .headers-showcase-item {
+      margin-bottom: var(--space-6);
+    }
+    
+    .headers-showcase-header {
+      margin-bottom: var(--space-4);
+      padding: 0 var(--space-4);
+    }
+    
+    .headers-page-title {
+      font-size: 36px;
+    }
+    
+    .headers-showcase-title {
+      font-size: 16px;
+    }
+    
+    .headers-showcase-description {
+      font-size: 13px;
+    }
+    
+    .headers-showcase-preview {
+      height: auto;
+      min-height: 300px;
+      padding-bottom: 150px;
+    }
+    
+    .headers-showcase-preview-simple {
+      min-height: auto !important;
+      padding-bottom: 0 !important;
+    }
+    
+    .headers-showcase-preview :global(.container) {
+      padding: 0 var(--space-4) !important;
+    }
+  }
+</style>

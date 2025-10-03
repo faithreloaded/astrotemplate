@@ -243,6 +243,77 @@ body.menu-open {
   display: none;
 }
 
+/* Button Styles */
+.header .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.header .btn-primary:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.header .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  background-color: transparent;
+  color: var(--color-black);
+  border: 1px solid var(--color-black);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.header .btn-secondary:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.header .btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  background-color: transparent;
+  color: var(--color-black);
+  border: none;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.header .btn-link:hover {
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .desktop-nav {
     display: none;

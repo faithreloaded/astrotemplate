@@ -1,0 +1,78 @@
+---
+import './LogoCloud.css';
+import ButtonPrimary from '../buttons/primary/ButtonPrimary.astro';
+import ButtonLink from '../buttons/link/ButtonLink.astro';
+---
+
+<section class="logo-cloud-section logo-cloud-animate">
+  <div class="container">
+    <div class="logo-cloud-grid">
+      <!-- Left Content -->
+      <div class="logo-cloud-content">
+        <h2 class="logo-cloud-title">Build amazing products with confidence</h2>
+        <p class="logo-cloud-description">
+          Join thousands of developers and companies who trust our platform to build, deploy, and scale their applications. 
+          From startups to enterprise, we provide the tools you need to succeed.
+        </p>
+        <div class="logo-cloud-actions">
+          <ButtonPrimary>Create account</ButtonPrimary>
+          <ButtonLink href="#">Contact us</ButtonLink>
+        </div>
+      </div>
+
+      <!-- Right Logos Grid -->
+      <div class="logo-cloud-logos">
+        <div class="logo-cloud-grid-logos">
+          <!-- Row 1 -->
+          <div class="logo-cloud-item">
+            <img src="/images/logos/placeholder1.svg" alt="Company 1" class="logo-cloud-image" />
+          </div>
+
+          <div class="logo-cloud-item">
+            <img src="/images/logos/placeholder2.svg" alt="Company 2" class="logo-cloud-image" />
+          </div>
+
+          <!-- Row 2 -->
+          <div class="logo-cloud-item">
+            <img src="/images/logos/placeholder3.svg" alt="Company 3" class="logo-cloud-image" />
+          </div>
+
+          <div class="logo-cloud-item">
+            <img src="/images/logos/placeholder4.svg" alt="Company 4" class="logo-cloud-image" />
+          </div>
+
+          <!-- Row 3 -->
+          <div class="logo-cloud-item">
+            <img src="/images/logos/placeholder5.svg" alt="Company 5" class="logo-cloud-image" />
+          </div>
+
+          <div class="logo-cloud-item">
+            <img src="/images/logos/placeholder1.svg" alt="Company 6" class="logo-cloud-image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Section entrance animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('.logo-cloud-animate');
+    if (!section) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    observer.observe(section);
+  });
+</script>

@@ -1,0 +1,207 @@
+/* Logo Cloud Component */
+.logo-cloud-section {
+  padding: 120px 0;
+  background: var(--color-background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.logo-cloud-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Left Content */
+.logo-cloud-content {
+  max-width: 500px;
+}
+
+.logo-cloud-title {
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--color-black);
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+}
+
+.logo-cloud-description {
+  font-size: 18px;
+  color: var(--color-gray);
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.logo-cloud-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Right Logos Grid */
+.logo-cloud-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-cloud-grid-logos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Animation base styles */
+.logo-cloud-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.logo-cloud-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logo-cloud-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo-cloud-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.logo-cloud-image {
+  max-width: 120px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.3s ease;
+}
+
+.logo-cloud-item:hover .logo-cloud-image {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .logo-cloud-grid {
+    gap: 60px;
+  }
+  
+  .logo-cloud-title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-cloud-section {
+    padding: 80px 0;
+  }
+  
+  .logo-cloud-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+  
+  .logo-cloud-content {
+    max-width: 100%;
+  }
+  
+  .logo-cloud-title {
+    font-size: 36px;
+  }
+  
+  .logo-cloud-description {
+    font-size: 16px;
+  }
+  
+  .logo-cloud-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .logo-cloud-grid-logos {
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .logo-cloud-item {
+    padding: 24px;
+  }
+  
+  .logo-cloud-image {
+    max-width: 80px;
+    max-height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-cloud-section {
+    padding: 60px 0;
+  }
+  
+  .logo-cloud-title {
+    font-size: 28px;
+  }
+  
+  .logo-cloud-description {
+    font-size: 15px;
+  }
+  
+  .logo-cloud-actions {
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+  }
+  
+  /* Si los botones no caben, que ocupen todo el ancho */
+  @media (max-width: 400px) {
+    .logo-cloud-actions {
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .logo-cloud-actions > * {
+      width: 100%;
+    }
+  }
+  
+  .logo-cloud-grid-logos {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .logo-cloud-item {
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .logo-cloud-image {
+    max-width: 70px;
+    max-height: 25px;
+  }
+}

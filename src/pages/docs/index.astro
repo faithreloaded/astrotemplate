@@ -1,0 +1,451 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+import './_docs.css';
+---
+
+<BaseLayout 
+  title="Documentation | Starter UI" 
+  description="Complete documentation for the Starter UI template. Learn how to get started, customize, and deploy your project."
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="docs-page">
+        <div class="page-header">
+          <h1>Documentation</h1>
+          <p>Everything you need to know to get started with Starter UI template.</p>
+        </div>
+
+        <div class="docs-layout">
+          <!-- Sidebar Navigation -->
+          <nav class="docs-sidebar">
+            <div class="sidebar-content">
+              <h3>Documentation</h3>
+              <ul class="sidebar-nav">
+                <li><a href="#getting-started" class="nav-link">Getting Started</a></li>
+                <li><a href="#project-structure" class="nav-link">Project Structure</a></li>
+                <li><a href="#styling" class="nav-link">Styling</a></li>
+                <li><a href="#components" class="nav-link">Components</a></li>
+                <li><a href="#deployment" class="nav-link">Deployment</a></li>
+                <li><a href="#customization" class="nav-link">Customization</a></li>
+                <li><a href="#support" class="nav-link">Support</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <!-- Main Content -->
+          <div class="docs-content">
+            <!-- Getting Started -->
+            <section id="getting-started" class="docs-section">
+              <h2>Getting Started</h2>
+            <div class="docs-card">
+              <h3>Installation</h3>
+              <p>Clone the repository and install dependencies:</p>
+              <div class="code-block">
+                <code>git clone [repository-url]<br>
+cd astrotemplate<br>
+npm install</code>
+              </div>
+            </div>
+            
+            <div class="docs-card">
+              <h3>Development</h3>
+              <p>Start the development server:</p>
+              <div class="code-block">
+                <code>npm run dev</code>
+              </div>
+              <p>The site will be available at <code>http://localhost:4321</code></p>
+            </div>
+
+            <div class="docs-card">
+              <h3>Build</h3>
+              <p>Build the project for production:</p>
+              <div class="code-block">
+                <code>npm run build</code>
+              </div>
+            </div>
+          </section>
+
+            <!-- Project Structure -->
+            <section id="project-structure" class="docs-section">
+              <h2>Project Structure</h2>
+            <div class="docs-card">
+              <h3>Directory Layout</h3>
+              <div class="code-block">
+                <code>src/<br>
+├── components/          # Reusable components<br>
+│   ├── header/         # Header variations<br>
+│   ├── hero/           # Hero sections<br>
+│   ├── about/          # About sections<br>
+│   ├── services/       # Services sections<br>
+│   ├── testimonials/   # Testimonials<br>
+│   ├── faq/            # FAQ sections<br>
+│   ├── cta/            # Call-to-action<br>
+│   ├── footer/         # Footer variations<br>
+│   └── ...<br>
+├── layouts/            # Page layouts<br>
+├── pages/              # Astro pages<br>
+└── styles/             # Global styles<br>
+    ├── tokens.css      # Design tokens<br>
+    ├── globals.css     # Global styles<br>
+    └── main.css        # Main stylesheet</code>
+              </div>
+            </div>
+          </section>
+
+            <!-- Styling -->
+            <section id="styling" class="docs-section">
+              <h2>Styling</h2>
+            <div class="docs-card">
+              <h3>Design Tokens</h3>
+              <p>All design tokens are defined in <code>src/styles/tokens.css</code>:</p>
+              <ul>
+                <li><strong>Colors:</strong> <code>--color-black</code>, <code>--color-white</code>, etc.</li>
+                <li><strong>Typography:</strong> <code>--font-family</code>, <code>--font-size-*</code></li>
+                <li><strong>Spacing:</strong> <code>--space-1</code> to <code>--space-8</code></li>
+                <li><strong>Layout:</strong> <code>--max-width</code>, <code>--radius-lg</code></li>
+              </ul>
+            </div>
+
+            <div class="docs-card">
+              <h3>Global Classes</h3>
+              <p>Pre-built utility classes available:</p>
+              <ul>
+                <li><strong>Buttons:</strong> <code>.btn-primary</code>, <code>.btn-secondary</code>, <code>.btn-link</code></li>
+                <li><strong>Pills:</strong> <code>.section-pill</code>, <code>.pill-outline</code></li>
+                <li><strong>Layout:</strong> <code>.container</code>, <code>.section</code></li>
+                <li><strong>Typography:</strong> <code>.section-title</code></li>
+              </ul>
+            </div>
+
+            <div class="docs-card">
+              <h3>Customization</h3>
+              <p>To customize the design:</p>
+              <ol>
+                <li>Modify variables in <code>tokens.css</code></li>
+                <li>Override component styles in their respective CSS files</li>
+                <li>Add custom styles in <code>globals.css</code></li>
+              </ol>
+            </div>
+          </section>
+
+            <!-- Components -->
+            <section id="components" class="docs-section">
+              <h2>Components</h2>
+            <div class="docs-card">
+              <h3>Using Components</h3>
+              <p>Import and use components in your Astro pages:</p>
+              <div class="code-block">
+                <code>---<br>
+import HeaderMega from '../components/header/header-mega/Header.astro';<br>
+import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.astro';<br>
+---<br><br>
+&lt;HeaderMega /&gt;<br>
+&lt;SimpleCentered /&gt;</code>
+              </div>
+            </div>
+
+            <div class="docs-card">
+              <h3>Available Sections</h3>
+              <ul>
+                <li><strong>Headers:</strong> Multiple variations (center, left, right, mega, login)</li>
+                <li><strong>Heroes:</strong> Simple, split, bento, carousel, background</li>
+                <li><strong>About:</strong> Image layouts with content</li>
+                <li><strong>Services:</strong> Cards and carousels</li>
+                <li><strong>Testimonials:</strong> Masonry and grid layouts</li>
+                <li><strong>FAQ:</strong> List, minimal, and side layouts</li>
+                <li><strong>CTA:</strong> Clean avatars and call-to-action</li>
+                <li><strong>Footers:</strong> Grid, CTA, and newsletter variations</li>
+              </ul>
+            </div>
+          </section>
+
+            <!-- Deployment -->
+            <section id="deployment" class="docs-section">
+              <h2>Deployment</h2>
+            <div class="docs-card">
+              <h3>Static Hosting</h3>
+              <p>This template generates static files perfect for:</p>
+              <ul>
+                <li><strong>Vercel:</strong> Connect your GitHub repo for automatic deployments</li>
+                <li><strong>Netlify:</strong> Drag and drop the <code>dist</code> folder</li>
+                <li><strong>GitHub Pages:</strong> Use GitHub Actions for automated builds</li>
+                <li><strong>Any static host:</strong> Upload the <code>dist</code> folder contents</li>
+              </ul>
+            </div>
+
+            <div class="docs-card">
+              <h3>Build Output</h3>
+              <p>After running <code>npm run build</code>, your static site will be in the <code>dist</code> folder.</p>
+            </div>
+
+            <div class="docs-card">
+              <h3>Environment Variables</h3>
+              <p>No environment variables required for basic usage. The template works out of the box.</p>
+            </div>
+          </section>
+
+            <!-- Customization -->
+            <section id="customization" class="docs-section">
+              <h2>Customization</h2>
+            <div class="docs-card">
+              <h3>Content</h3>
+              <p>Update content by editing the component files directly. All text and images can be customized in their respective components.</p>
+            </div>
+
+            <div class="docs-card">
+              <h3>Images</h3>
+              <p>Replace placeholder images in the <code>public/images</code> directory:</p>
+              <ul>
+                <li><code>logo.svg</code> - Main logo</li>
+                <li><code>isotipo.svg</code> - Mobile menu logo</li>
+                <li><code>favicon.png</code> - Site favicon</li>
+                <li><code>images/placeholder/</code> - Content images</li>
+                <li><code>images/logos-carousel/</code> - Logo carousel images</li>
+              </ul>
+            </div>
+
+            <div class="docs-card">
+              <h3>Navigation</h3>
+              <p>Update navigation links in the header components. The mega menu structure can be modified in <code>Header.astro</code> files.</p>
+            </div>
+          </section>
+
+            <!-- Support -->
+            <section id="support" class="docs-section">
+              <h2>Support</h2>
+            <div class="docs-card">
+              <h3>Resources</h3>
+              <ul>
+                <li><a href="https://docs.astro.build/" target="_blank">Astro Documentation</a></li>
+                <li><a href="https://lucide.dev/" target="_blank">Lucide Icons</a></li>
+                <li><a href="/global-styles">Global Styles Reference</a></li>
+              </ul>
+            </div>
+
+            <div class="docs-card">
+              <h3>Template Features</h3>
+              <ul>
+                <li>✅ Responsive design</li>
+                <li>✅ Modern CSS with custom properties</li>
+                <li>✅ Component-based architecture</li>
+                <li>✅ SEO optimized</li>
+                <li>✅ Fast static generation</li>
+                <li>✅ No JavaScript framework required</li>
+              </ul>
+            </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .docs-page {
+    padding: var(--space-8) 0;
+  }
+
+  .docs-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .docs-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .docs-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .docs-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .docs-section {
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    padding: var(--space-8);
+  }
+
+  .docs-section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 var(--space-6) 0;
+  }
+
+  .docs-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .docs-section-content h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .docs-section-content p {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  .docs-section-content ul {
+    margin: 0 0 var(--space-4) 0;
+    padding-left: var(--space-6);
+  }
+
+  .docs-section-content li {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+  }
+
+  .docs-section-content a {
+    color: var(--color-black);
+    text-decoration: none;
+  }
+
+  .docs-section-content a:hover {
+    text-decoration: underline;
+  }
+
+  pre {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: var(--space-4);
+    overflow-x: auto;
+    margin: var(--space-4) 0;
+  }
+
+  code {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 14px;
+    color: var(--color-black);
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+  }
+
+  .docs-section-content code {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    .docs-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .docs-page-header {
+      margin-bottom: var(--space-6);
+      padding: 0 var(--space-4);
+    }
+    
+    .docs-content {
+      gap: var(--space-6);
+    }
+    
+    .docs-section {
+      padding: var(--space-6);
+    }
+    
+    .docs-page-title {
+      font-size: 36px;
+    }
+    
+    pre {
+      padding: var(--space-3);
+      font-size: 12px;
+    }
+  }
+</style>
+
+<script>
+  // Smooth scroll and active navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.docs-section');
+
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(this: HTMLAnchorElement, e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href')?.substring(1);
+        if (targetId) {
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+
+    // Update active navigation on scroll
+    function updateActiveNav() {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = (section as HTMLElement).offsetTop - 150;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+          const sectionId = section.getAttribute('id');
+          if (sectionId) {
+            current = sectionId;
+          }
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', updateActiveNav);
+    
+    // Set initial active state
+    updateActiveNav();
+  });
+</script>

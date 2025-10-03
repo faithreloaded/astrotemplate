@@ -1,6 +1,5 @@
 ---
 import "./Header.css";
-import { MegaMenuIcon } from '../../MegaMenuIcons.tsx';
 import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
 ---
 
@@ -18,20 +17,17 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
           <a href="/" class="nav-link-mega">Home</a>
         </div>
         
-        
-        
         <div class="nav-item-mega">
           <a href="/components" class="nav-link-mega">Components</a>
         </div>
         
         <div class="nav-item-mega">
-          <a href="/global-styles/global-styles" class="nav-link-mega">Global Styles</a>
+          <a href="/global-styles" class="nav-link-mega">Global Styles</a>
         </div>
         
         <div class="nav-item-mega">
-          <a href="/docs/docs" class="nav-link-mega">Docs</a>
+          <a href="/docs" class="nav-link-mega">Docs</a>
         </div>
-        
       </nav>
       
       <div class="header-mega-actions">
@@ -65,14 +61,9 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
       </div>
       <div class="mobile-nav-links">
         <a href="/" class="mobile-nav-link">Home</a>
-        
-        
-        
         <a href="/components" class="mobile-nav-link">Components</a>
-        
-        <a href="/global-styles/global-styles" class="mobile-nav-link">Global Styles</a>
-        <a href="/docs/docs" class="mobile-nav-link">Docs</a>
-        
+        <a href="/global-styles" class="mobile-nav-link">Global Styles</a>
+        <a href="/docs" class="mobile-nav-link">Docs</a>
       </div>
       <div class="mobile-nav-footer">
         <ButtonPrimary href="/buy">
@@ -115,33 +106,10 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
     mobileClose.addEventListener('click', closeMenu);
     mobileOverlay.addEventListener('click', closeMenu);
 
-    // Close menu when clicking on links (but not on toggle links)
-    const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link:not(.mobile-nav-toggle), .mobile-submenu-link, .mobile-login-btn');
+    // Close menu when clicking on links
+    const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link');
     mobileLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
     });
-
-    // Handle mobile submenu toggles
-    const mobileToggles = mobileNav.querySelectorAll('.mobile-nav-toggle');
-    mobileToggles.forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        const navItem = toggle.parentElement;
-        if (!navItem) return;
-        
-        const isOpen = navItem.classList.contains('open');
-        
-        // Close all other submenus
-        mobileNav.querySelectorAll('.mobile-nav-item').forEach(item => {
-          item.classList.remove('open');
-        });
-        
-        // Toggle current submenu
-        if (!isOpen) {
-          navItem.classList.add('open');
-        }
-      });
-    });
   }
 </script>
-
