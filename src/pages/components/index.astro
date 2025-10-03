@@ -85,7 +85,7 @@ import { MegaMenuIcon } from '../../components/MegaMenuIcons.tsx';
   .sections-link.active { background: rgba(0,0,0,0.08); color: var(--color-black); }
 
   .sections-content { overflow: hidden; margin-left: 280px; }
-  .sections-frame { display: block; width: 100%; height: auto; border: 0; background: white; visibility: hidden; }
+  .sections-frame { display: block; width: 100%; height: auto; border: 0; background: var(--color-background); }
 
   @media (max-width: 1024px) {
     .sections-sidebar { width: 240px; }
@@ -135,7 +135,6 @@ import { MegaMenuIcon } from '../../components/MegaMenuIcons.tsx';
 
     function navigate(url, btn) {
       if (frame && url) {
-        frame.style.visibility = 'hidden';
         // Reset scroll de la página y del iframe
         window.scrollTo({ top: 0, behavior: 'instant' });
         try { frame.contentWindow?.scrollTo?.(0, 0); } catch(_) {}
@@ -178,14 +177,13 @@ import { MegaMenuIcon } from '../../components/MegaMenuIcons.tsx';
               img.addEventListener('error', () => resizeToContent(doc));
             }
           });
-          requestAnimationFrame(() => { frame.style.visibility = 'visible'; });
+          // Frame is already visible by default
         }
       } catch (e) {
       }
     });
 
-    // asegurar que el primer render no parpadee
-    frame.style.visibility = 'hidden';
+    // Frame is visible by default
   });
 </script>
 
