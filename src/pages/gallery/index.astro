@@ -1,0 +1,80 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import Footer from '../../components/footer/footer-grid/Footer.astro';
+import SimpleGallery from '../../components/gallery/simple/SimpleGallery.astro';
+---
+
+<BaseLayout 
+  title="Gallery | Starter UI" 
+  description="Showcase of gallery components for visual presentation"
+>
+  <HeaderMega />
+  
+  <main class="main">
+    <div class="container">
+      <div class="gallery-page">
+        <header class="gallery-page-header">
+          <h1 class="gallery-page-title">Gallery</h1>
+          <p class="gallery-page-description">
+            Clean and minimal galleries to present imagery with clarity
+          </p>
+        </header>
+
+        <div class="gallery-showcase">
+          <div class="gallery-showcase-item">
+            <div class="gallery-showcase-header">
+              <h2 class="gallery-showcase-title">Simple Gallery</h2>
+              <p class="gallery-showcase-description">Minimal grid with lightbox navigation</p>
+            </div>
+            <div class="gallery-showcase-preview">
+              <SimpleGallery />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</BaseLayout>
+
+<style>
+  .gallery-page { padding: var(--space-8) 0; }
+  .gallery-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .gallery-page-title { font-size: 48px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-4) 0; letter-spacing: -0.02em; }
+  .gallery-page-description { font-size: 1.125rem; color: rgba(0,0,0,0.6); margin: 0; line-height: 1.6; }
+
+  .gallery-showcase { display: flex; flex-direction: column; gap: var(--space-16); }
+  .gallery-showcase-item { margin-bottom: var(--space-8); }
+  .gallery-showcase-header { margin-bottom: var(--space-6); text-align: left; }
+  .gallery-showcase-title { font-size: 18px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-2) 0; }
+  .gallery-showcase-description { font-size: 14px; color: rgba(0,0,0,0.6); margin: 0; }
+  .gallery-showcase-preview { background: var(--color-preview-bg); border: 1px solid rgba(0,0,0,0.05); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+
+  /* Reset de sección interna para que se vea bien embebida */
+  .gallery-showcase-preview :global(.simple-gallery-section) { padding: var(--space-8) 0 !important; background: transparent !important; }
+  .gallery-showcase-preview :global(.container) { max-width: 100% !important; padding: 0 var(--space-6) !important; }
+
+  @media (max-width: 768px) {
+    .gallery-page { padding: var(--space-6) 0; }
+    .gallery-page-header { margin-bottom: var(--space-8); padding: 0 var(--space-4); }
+    .gallery-showcase { gap: var(--space-12); }
+    .gallery-showcase-item { margin-bottom: var(--space-6); }
+    .gallery-showcase-header { margin-bottom: var(--space-4); padding: 0 var(--space-4); }
+    .gallery-page-title { font-size: 36px; }
+    .gallery-showcase-title { font-size: 16px; }
+    .gallery-showcase-description { font-size: 13px; }
+    .gallery-showcase-preview :global(.simple-gallery-section) { padding: var(--space-6) 0 !important; }
+    .gallery-showcase-preview :global(.container) { padding: 0 var(--space-4) !important; }
+  }
+</style>
+
+

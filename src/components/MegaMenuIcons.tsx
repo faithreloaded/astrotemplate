@@ -1,4 +1,4 @@
-import { Layout, HelpCircle, Users, CreditCard, Zap, Layers, Square, Circle, Calendar, Navigation, Settings, Tag } from 'lucide-react';
+import { Layout, HelpCircle, Users, CreditCard, Zap, Layers, Square, Circle, Calendar, Navigation, Settings, Tag, Image } from 'lucide-react';
 
 interface IconProps {
   name: string;
@@ -18,7 +18,8 @@ export function MegaMenuIcon({ name, size = 20 }: IconProps) {
     Calendar,
     Navigation,
     Settings,
-    Tag
+    Tag,
+    Image
   };
 
   const IconComponent = iconMap[name as keyof typeof iconMap];

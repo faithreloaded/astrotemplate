@@ -12,31 +12,31 @@ import './SimpleGallery.css';
       </p>
     </header>
 
-    <div class="simple-gallery-grid">
-      <figure class="simple-gallery-item">
-        <img src="/images/images/placeholder/placeholder.jpg" alt="Gallery item 1" />
-        <figcaption>Elegant aesthetics</figcaption>
-      </figure>
-      <figure class="simple-gallery-item">
-        <img src="/images/images/placeholder/paceholder2.jpg" alt="Gallery item 2" />
-        <figcaption>Refined details</figcaption>
-      </figure>
-      <figure class="simple-gallery-item">
-        <img src="/images/images/placeholder/placeholder.jpg" alt="Gallery item 3" />
-        <figcaption>Modern composition</figcaption>
-      </figure>
-      <figure class="simple-gallery-item">
-        <img src="/images/images/placeholder/paceholder2.jpg" alt="Gallery item 4" />
-        <figcaption>Subtle lighting</figcaption>
-      </figure>
-      <figure class="simple-gallery-item">
-        <img src="/images/images/placeholder/placeholder.jpg" alt="Gallery item 5" />
-        <figcaption>Minimal framing</figcaption>
-      </figure>
-      <figure class="simple-gallery-item">
-        <img src="/images/images/placeholder/paceholder2.jpg" alt="Gallery item 6" />
-        <figcaption>Soft contrast</figcaption>
-      </figure>
+    <div class="simple-gallery-grid" id="simple-gallery-grid">
+      <figure class="simple-gallery-item"><img src="/images/images/placeholder/placeholder.jpg" alt="Item 1" data-index="0" /></figure>
+      <figure class="simple-gallery-item"><img src="/images/images/placeholder/paceholder2.jpg" alt="Item 2" data-index="1" /></figure>
+      <figure class="simple-gallery-item"><img src="/images/images/placeholder/placeholder.jpg" alt="Item 3" data-index="2" /></figure>
+      <figure class="simple-gallery-item"><img src="/images/images/placeholder/paceholder2.jpg" alt="Item 4" data-index="3" /></figure>
+      <figure class="simple-gallery-item"><img src="/images/images/placeholder/placeholder.jpg" alt="Item 5" data-index="4" /></figure>
+      <figure class="simple-gallery-item"><img src="/images/images/placeholder/paceholder2.jpg" alt="Item 6" data-index="5" /></figure>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="simple-lightbox" id="simple-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="simple-lightbox-backdrop" data-close></div>
+    <div class="simple-lightbox-dialog" role="document">
+      <button class="simple-lightbox-close" type="button" aria-label="Close" data-close>&times;</button>
+      <button class="simple-lightbox-prev" type="button" aria-label="Previous" data-prev>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="simple-lightbox-next" type="button" aria-label="Next" data-next>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="simple-lightbox-content">
+        <img id="simple-lightbox-image" alt="Preview" />
+      </div>
+      <div class="simple-lightbox-counter" id="simple-lightbox-counter"></div>
     </div>
   </div>
 </section>
@@ -63,6 +63,72 @@ import './SimpleGallery.css';
     items.forEach((el, idx) => {
       el.style.transitionDelay = `${150 + idx * 100}ms`;
       observer.observe(el);
+    });
+
+    // Lightbox logic
+    const grid = document.getElementById('simple-gallery-grid');
+    const lightbox = document.getElementById('simple-lightbox');
+    const imgEl = document.getElementById('simple-lightbox-image');
+    const counterEl = document.getElementById('simple-lightbox-counter');
+    const btnPrev = lightbox.querySelector('[data-prev]');
+    const btnNext = lightbox.querySelector('[data-next]');
+    const closeEls = lightbox.querySelectorAll('[data-close]');
+
+    const images = Array.from(grid.querySelectorAll('img'));
+    let currentIndex = 0;
+
+    function updateCounter() {
+      counterEl.textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      imgEl.src = images[currentIndex].src;
+      updateCounter();
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.documentElement.style.overflow = 'hidden';
+      setTimeout(() => lightbox.classList.add('open'), 0);
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.documentElement.style.overflow = '';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      imgEl.src = images[currentIndex].src;
+      updateCounter();
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      imgEl.src = images[currentIndex].src;
+      updateCounter();
+    }
+
+    grid.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && target.tagName === 'IMG') {
+        const index = Number(target.getAttribute('data-index')) || images.indexOf(target);
+        openLightbox(index);
+      }
+    });
+
+    btnNext.addEventListener('click', showNext);
+    btnPrev.addEventListener('click', showPrev);
+    closeEls.forEach(el => el.addEventListener('click', closeLightbox));
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.getAttribute('aria-hidden') === 'true') return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
     });
   });
 </script>
