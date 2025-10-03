@@ -1,7 +1,7 @@
 /* Features Split Overlay Component */
 .features-split-overlay-section {
   padding: 120px 0;
-  background: var(--color-background);
+  background: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -49,7 +49,7 @@
 
 /* Right Container - Text Content */
 .features-split-overlay-right {
-  background: var(--color-background);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -63,7 +63,7 @@
 }
 
 .minimal-card {
-  background: transparent;
+  background: var(--color-container);
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius-lg);
   padding: 32px;

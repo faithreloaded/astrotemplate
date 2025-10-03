@@ -9,7 +9,7 @@ html, body {
 
 .main {
   flex: 1;
-  background-color: var(--color-cream);
+  background-color: var(--color-white);
   padding: var(--space-20) 0;
 }
 

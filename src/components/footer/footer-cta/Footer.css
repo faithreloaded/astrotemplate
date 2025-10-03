@@ -1,7 +1,7 @@
 /* ===== FOOTER CTA STYLES ===== */
 
 .footer-cta {
-  background-color: var(--color-cream);
+  background-color: var(--color-background);
   padding: var(--space-6) 0 var(--space-4);
 }
 

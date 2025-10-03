@@ -82,7 +82,7 @@
 }
 
 .testimonials-single-card {
-  background: #f0ede4;
+  background: var(--color-container);
   border-radius: 12px;
   padding: 80px;
   margin: 0 auto;

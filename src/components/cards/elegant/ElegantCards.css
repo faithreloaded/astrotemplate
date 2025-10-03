@@ -1,7 +1,7 @@
 /* Elegant Cards Component Styles */
 
 .elegant-cards-section {
-  background: transparent;
+  background: var(--color-background);
   padding: 120px 0;
   opacity: 0;
   transform: translateY(20px);
@@ -68,7 +68,7 @@
 }
 
 .elegant-card {
-  background: transparent;
+  background: var(--color-container);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-lg);
   overflow: hidden;

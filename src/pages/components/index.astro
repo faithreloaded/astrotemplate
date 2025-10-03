@@ -63,7 +63,7 @@ import { MegaMenuIcon } from '../../components/MegaMenuIcons.tsx';
   .sections-dashboard { padding: 0; background: var(--color-background); }
   .sections-layout { position: relative; min-height: auto; }
 
-  .sections-sidebar { position: fixed; top: 0; left: 0; width: 280px; height: 100vh; background: var(--color-cream); border-right: 1px solid rgba(0,0,0,0.08); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); padding: 96px 16px 16px; z-index: 900; }
+  .sections-sidebar { position: fixed; top: 0; left: 0; width: 280px; height: 100vh; background: var(--color-background); border-right: 1px solid rgba(0,0,0,0.08); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); padding: 96px 16px 16px; z-index: 900; }
   .sections-sidebar-header { padding: 4px 8px 12px; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 12px; }
   /* Más aire entre el título "Components" y el primer bloque */
   .sections-sidebar-header { padding: 6px 8px 16px; margin-bottom: 20px; }
@@ -84,7 +84,7 @@ import { MegaMenuIcon } from '../../components/MegaMenuIcons.tsx';
   .sections-link.active { color: rgba(0,0,0,0.9); font-weight: 500; }
   .sections-link.active::before { content: ""; position: absolute; left: -14px; top: 10px; bottom: 10px; width: 2px; background: rgba(0,0,0,0.35); border-radius: 2px; }
   .group-icon { display:inline-flex; align-items:center; justify-content:center; width: 16px; height: 16px; margin-right: 6px; color: rgba(0,0,0,0.55); }
-  .sections-link:hover { background: rgba(0,0,0,0.05); }
+  .sections-link:hover { background: var(--color-hover); }
   .sections-link.active { background: rgba(0,0,0,0.08); color: var(--color-black); }
 
   .sections-content { overflow: hidden; margin-left: 280px; }
