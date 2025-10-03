@@ -18,205 +18,10 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
           <a href="/" class="nav-link-mega">Home</a>
         </div>
         
-        <div class="nav-item-mega dropdown-mega">
-          <span class="nav-link-mega">
-            Sections
-            <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <div class="mega-menu">
-            <div class="mega-menu-content">
-              <div class="mega-menu-column">
-                <a href="/heroes" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Layout" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Hero</h4>
-                    <p>Landing page hero sections</p>
-                  </div>
-                </a>
-                
-                <a href="/faqs" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="HelpCircle" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>FAQ</h4>
-                    <p>Frequently asked questions</p>
-                  </div>
-                </a>
-                
-                <a href="/testimonials" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Users" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Testimonials</h4>
-                    <p>Customer reviews and testimonials</p>
-                  </div>
-                </a>
-
-                <a href="/gallery" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Image" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Gallery</h4>
-                    <p>Image gallery sections</p>
-                  </div>
-                </a>
-              </div>
-              
-              <div class="mega-menu-column">
-                <a href="/pricing" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="CreditCard" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Pricing</h4>
-                    <p>Plans and pricing tables</p>
-                  </div>
-                </a>
-                
-                <a href="/ctas" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Zap" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>CTA</h4>
-                    <p>Call-to-action sections</p>
-                  </div>
-                </a>
-                
-                <a href="/features" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Layers" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Features</h4>
-                    <p>Product features showcase</p>
-                  </div>
-                </a>
-                
-                <a href="/services" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Settings" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Services</h4>
-                    <p>Business services showcase</p>
-                  </div>
-                </a>
-                
-              </div>
-            </div>
-            
-            <div class="mega-menu-actions">
-                  <ButtonPrimary href="/sections" width="full">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polygon points="5,3 19,12 5,21 5,3"/>
-                    </svg>
-                    View All Sections
-                  </ButtonPrimary>
-            </div>
-          </div>
-        </div>
         
-        <div class="nav-item-mega dropdown-mega">
-          <a href="/components" class="nav-link-mega">
-            Components
-            <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="mega-menu">
-            <div class="mega-menu-content">
-              <div class="mega-menu-column">
-                <a href="/buttons" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Square" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Buttons</h4>
-                    <p>Interactive button components</p>
-                  </div>
-                </a>
-                
-                <div class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Navigation" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Headers</h4>
-                    <p>Navigation header layouts</p>
-                  </div>
-                </div>
-                
-                <div class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Layout" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Footers</h4>
-                    <p>Footer layout components</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="mega-menu-column">
-                <a href="/cards" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Calendar" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Cards</h4>
-                    <p>Content card layouts</p>
-                  </div>
-                </a>
-                
-                <a href="/badges" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Tag" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Badges</h4>
-                    <p>Material UI inspired badges</p>
-                  </div>
-                </a>
-                
-                <a href="/pills" class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Circle" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Pills</h4>
-                    <p>Elegant pill components</p>
-                  </div>
-                </a>
-                
-                <div class="mega-menu-item">
-                  <div class="mega-menu-icon">
-                    <MegaMenuIcon name="Settings" size={20} client:load />
-                  </div>
-                  <div class="mega-menu-text">
-                    <h4>Modals</h4>
-                    <p>Dialog and modal windows</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="mega-menu-actions">
-                  <ButtonPrimary href="/components" width="full">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polygon points="5,3 19,12 5,21 5,3"/>
-                    </svg>
-                    View All Components
-                  </ButtonPrimary>
-            </div>
-          </div>
+        
+        <div class="nav-item-mega">
+          <a href="/components" class="nav-link-mega">Components</a>
         </div>
         
         <div class="nav-item-mega">
@@ -230,12 +35,14 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
       </nav>
       
       <div class="header-mega-actions">
-        <ButtonPrimary href="/buy" class="desktop-nav">
-          Buy Template
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M17 7H7M17 7V17"/>
-          </svg>
-        </ButtonPrimary>
+        <div class="buy-desktop">
+          <ButtonPrimary href="/buy">
+            Buy Template
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </ButtonPrimary>
+        </div>
         
         <button class="menu-toggle mobile-nav" id="menu-toggle-mega">
           <span></span>
@@ -259,43 +66,9 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
       <div class="mobile-nav-links">
         <a href="/" class="mobile-nav-link">Home</a>
         
-        <div class="mobile-nav-item">
-          <a href="/sections" class="mobile-nav-link mobile-nav-toggle">
-            Sections
-            <svg class="mobile-dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="mobile-submenu">
-            <a href="/heroes" class="mobile-submenu-link">Hero</a>
-            <a href="/faqs" class="mobile-submenu-link">FAQ</a>
-            <a href="/testimonials" class="mobile-submenu-link">Testimonials</a>
-            <a href="/pricing" class="mobile-submenu-link">Pricing</a>
-            <a href="/ctas" class="mobile-submenu-link">CTA</a>
-            <a href="/features" class="mobile-submenu-link">Features</a>
-            <a href="/services" class="mobile-submenu-link">Services</a>
-            <a href="/gallery" class="mobile-submenu-link">Gallery</a>
-            <a href="/badges" class="mobile-submenu-link">Badges</a>
-          </div>
-        </div>
         
-        <div class="mobile-nav-item">
-          <a href="/components" class="mobile-nav-link mobile-nav-toggle">
-            Components
-            <svg class="mobile-dropdown-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="mobile-submenu">
-            <a href="/buttons" class="mobile-submenu-link">Buttons</a>
-            <a href="/headers" class="mobile-submenu-link">Headers</a>
-            <a href="/footers" class="mobile-submenu-link">Footers</a>
-            <a href="/cards" class="mobile-submenu-link">Cards</a>
-            <a href="/badges" class="mobile-submenu-link">Badges</a>
-            <a href="/pills" class="mobile-submenu-link">Pills</a>
-            <a href="/modals" class="mobile-submenu-link">Modals</a>
-          </div>
-        </div>
+        
+        <a href="/components" class="mobile-nav-link">Components</a>
         
         <a href="/global-styles/global-styles" class="mobile-nav-link">Global Styles</a>
         <a href="/docs/docs" class="mobile-nav-link">Docs</a>

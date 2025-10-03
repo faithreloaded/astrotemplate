@@ -1,0 +1,40 @@
+---
+import './Error404Modern.css';
+---
+
+<section class="error404modern-section">
+  <div class="container">
+    <div class="e4m-wrap">
+      <div class="e4m-grid">
+        <div class="e4m-left">
+          <span class="section-pill fade-item">Error Page</span>
+          <h2 class="e4m-code fade-item">404</h2>
+          <h3 class="e4m-title fade-item">This page could not be found</h3>
+          <p class="e4m-desc fade-item">The URL may be mistyped or the page no longer exists.</p>
+          <div class="e4m-actions fade-item">
+            <a href="/" class="e4m-btn primary">Back to Home</a>
+            <a href="/components" class="e4m-btn link">Explore Components</a>
+          </div>
+        </div>
+        <div class="e4m-hero fade-item"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const items = document.querySelectorAll('.fade-item');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach((entry, idx)=>{
+        if(entry.isIntersecting){
+          entry.target.style.transitionDelay = `${idx*120}ms`;
+          entry.target.classList.add('animate');
+        }
+      })
+    }, { threshold: .2, rootMargin: '0px 0px -80px 0px' });
+    items.forEach(el=>obs.observe(el));
+  })
+</script>
+
+

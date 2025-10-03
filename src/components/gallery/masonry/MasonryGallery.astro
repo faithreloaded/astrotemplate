@@ -1,0 +1,56 @@
+---
+import './MasonryGallery.css';
+---
+
+<section class="masonry-gallery-section">
+  <div class="container">
+    <header class="masonry-gallery-header">
+      <span class="section-pill mg-header-item">Gallery</span>
+      <h2 class="masonry-gallery-title mg-header-item">Masonry Grid</h2>
+      <p class="masonry-gallery-description mg-header-item">An organic grid with balanced columns</p>
+    </header>
+
+    <div class="masonry-grid" id="masonry-grid">
+      {(() => {
+        const imgs = ['/images/images/placeholder/placeholder.jpg','/images/images/placeholder/paceholder2.jpg'];
+        const plan = [
+          { src: imgs[0], size: 'h-md' },
+          { src: imgs[1], size: 'h-lg' },
+          { src: imgs[0], size: 'h-sm' },
+          { src: imgs[1], size: 'h-md' },
+          { src: imgs[0], size: 'h-lg' },
+          { src: imgs[1], size: 'h-sm' }
+        ];
+        return plan.map((it, i) => (
+          <figure class={`masonry-item ${it.size}`} key={i}>
+            <img src={it.src} alt={`Item ${i+1}`} />
+          </figure>
+        ));
+      })()}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.masonry-item');
+    const headerItems = document.querySelectorAll('.mg-header-item');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('animate');
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    headerItems.forEach((el, idx) => {
+      el.style.transitionDelay = `${idx * 100}ms`;
+      observer.observe(el);
+    });
+    items.forEach((el, idx) => {
+      el.style.transitionDelay = `${150 + idx * 70}ms`;
+      observer.observe(el);
+    });
+  });
+</script>
+
+

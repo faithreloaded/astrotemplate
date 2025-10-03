@@ -1,0 +1,35 @@
+---
+import './Error404.css';
+---
+
+<section class="error404-section">
+  <div class="container">
+    <div class="error404-wrap">
+      <div class="error404-code e-item">404</div>
+      <h1 class="error404-title e-item">Page not found</h1>
+      <p class="error404-desc e-item">The page you’re looking for doesn’t exist or was moved.</p>
+      <div class="error404-actions e-item">
+        <a href="/" class="error404-link primary">Go home</a>
+        <a href="/components" class="error404-link secondary">Browse components</a>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.e-item');
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach((entry, idx)=>{
+        if(entry.isIntersecting){
+          entry.target.style.transitionDelay = `${idx * 120}ms`;
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -80px 0px' });
+    items.forEach(el=>observer.observe(el));
+  });
+</script>
+
+

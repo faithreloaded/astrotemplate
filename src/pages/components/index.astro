@@ -1,0 +1,192 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeaderMega from '../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+import { MegaMenuIcon } from '../../components/MegaMenuIcons.tsx';
+---
+
+<BaseLayout 
+  title="Components | Starter UI" 
+  description="Browse all components and sections from a clean dashboard"
+>
+  <HeaderMega />
+
+  <main class="main">
+    <section class="sections-dashboard">
+      <div class="sections-layout">
+        <aside class="sections-sidebar" id="sections-sidebar">
+            <div class="sections-sidebar-header">
+              <h2>Components</h2>
+            </div>
+            <nav class="sections-nav" aria-label="Components navigation">
+              <div class="sections-group">
+                <h3 class="sections-group-title"><span class="group-icon"><MegaMenuIcon name="Layout" size={12} client:load /></span> Elements</h3>
+                <ul class="sections-list">
+                  <li><button class="sections-link" data-url="/buttons">Buttons</button></li>
+                  <li><button class="sections-link" data-url="/badges">Badges</button></li>
+                  <li><button class="sections-link" data-url="/pills">Pills</button></li>
+                  <li><button class="sections-link" data-url="/cards">Cards</button></li>
+                  <li><button class="sections-link" data-url="/404">Error 404</button></li>
+                </ul>
+              </div>
+              <div class="sections-group">
+                <h3 class="sections-group-title"><span class="group-icon"><MegaMenuIcon name="Layers" size={12} client:load /></span> Sections</h3>
+                <ul class="sections-list">
+                  <li><button class="sections-link active" data-url="/heroes">Hero Sections</button></li>
+                  <li><button class="sections-link" data-url="/features">Feature Sections</button></li>
+                  <li><button class="sections-link" data-url="/ctas">CTA Sections</button></li>
+                  <li><button class="sections-link" data-url="/pricing">Pricing Sections</button></li>
+                  <li><button class="sections-link" data-url="/faqs">FAQ Sections</button></li>
+                  <li><button class="sections-link" data-url="/testimonials">Testimonials</button></li>
+                  <li><button class="sections-link" data-url="/services">Services</button></li>
+                  <li><button class="sections-link" data-url="/gallery">Gallery</button></li>
+                </ul>
+              </div>
+            </nav>
+        </aside>
+
+        <section class="sections-content">
+          <iframe id="sections-frame" class="sections-frame" title="Components Preview" src="/heroes" loading="lazy" scrolling="no"></iframe>
+        </section>
+      </div>
+    </section>
+  </main>
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  :global(.header-mega .container) { max-width: 100%; padding-left: var(--space-4); padding-right: var(--space-4); }
+  .sections-dashboard { padding: 0; background: var(--color-background); }
+  .sections-layout { position: relative; min-height: auto; }
+
+  .sections-sidebar { position: fixed; top: 0; left: 0; width: 280px; height: 100vh; background: var(--color-cream); border-right: 1px solid rgba(0,0,0,0.08); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); padding: 96px 16px 16px; z-index: 900; }
+  .sections-sidebar-header { padding: 4px 8px 12px; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 12px; }
+  /* Más aire entre el título "Components" y el primer bloque */
+  .sections-sidebar-header { padding: 6px 8px 16px; margin-bottom: 20px; }
+  .sections-sidebar-header h2 { font-size: 14px; margin: 0; color: rgba(0,0,0,0.7); font-weight: 600; letter-spacing: 0.02em; }
+
+  /* Más separación entre bloques y mejor jerarquía */
+  .sections-nav { display: flex; flex-direction: column; gap: 32px; position: relative; }
+  /* Sin rail continuo (pedido) */
+  .sections-nav::before { content: none; }
+  .sections-group { display: flex; flex-direction: column; gap: 10px; }
+  .sections-group-title { font-size: 12px; letter-spacing: 0.14em; color: rgba(0,0,0,0.55); margin: 0; text-transform: uppercase; font-weight: 600; padding-left: 16px; }
+  .sections-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  /* Indentación de items y marcador activo sobre el rail */
+  .sections-list li { position: relative; padding-left: 16px; }
+  .sections-link { position: relative; text-align: left; background: transparent; border: 0; padding: 10px 10px; padding-left: 12px; border-radius: var(--radius-md); font-size: 14px; color: rgba(0,0,0,0.72); cursor: pointer; transition: color 0.2s ease; }
+  .sections-link:hover { color: rgba(0,0,0,0.85); }
+  /* Estado activo sutil: sin negrita, solo tono y marca fina */
+  .sections-link.active { color: rgba(0,0,0,0.9); font-weight: 500; }
+  .sections-link.active::before { content: ""; position: absolute; left: -14px; top: 10px; bottom: 10px; width: 2px; background: rgba(0,0,0,0.35); border-radius: 2px; }
+  .group-icon { display:inline-flex; align-items:center; justify-content:center; width: 16px; height: 16px; margin-right: 6px; color: rgba(0,0,0,0.55); }
+  .sections-link:hover { background: rgba(0,0,0,0.05); }
+  .sections-link.active { background: rgba(0,0,0,0.08); color: var(--color-black); }
+
+  .sections-content { overflow: hidden; margin-left: 280px; }
+  .sections-frame { display: block; width: 100%; height: auto; border: 0; background: white; visibility: hidden; }
+
+  @media (max-width: 1024px) {
+    .sections-sidebar { width: 240px; }
+    .sections-content { margin-left: 240px; }
+  }
+
+  @media (max-width: 768px) {
+    .sections-sidebar { position: relative; top: 0; left: 0; width: 100%; height: auto; border-right: 0; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 16px; }
+    .sections-content { margin-left: 0; }
+    .sections-frame { height: 70vh; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Permitir scroll del documento, el footer es global
+    document.documentElement.style.overscrollBehavior = 'none';
+    document.body.style.overscrollBehavior = 'none';
+    document.body.style.overflow = 'auto';
+
+    const links = Array.from(document.querySelectorAll('.sections-link'));
+    const frame = document.getElementById('sections-frame');
+
+    function setActive(btn) {
+      links.forEach(l => l.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function injectEmbedStyles(doc) {
+      const style = doc.createElement('style');
+      style.textContent = `.header-mega, header.header-mega, .footer-grid, footer { display: none !important; } html, body { margin: 0 !important; padding: 0 !important; } .main { padding-top: 0 !important; margin: 0 !important; } body { background: var(--color-background); }`;
+      doc.head.appendChild(style);
+    }
+
+    function resizeToContent(doc) {
+      try {
+        // Altura del documento embebido
+        const contentHeight = Math.max(
+          doc.body.scrollHeight,
+          doc.documentElement.scrollHeight,
+          doc.body.offsetHeight,
+          doc.documentElement.offsetHeight
+        );
+        frame.style.height = `${contentHeight}px`;
+      } catch (_) {}
+    }
+
+    function navigate(url, btn) {
+      if (frame && url) {
+        frame.style.visibility = 'hidden';
+        // Reset scroll de la página y del iframe
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        try { frame.contentWindow?.scrollTo?.(0, 0); } catch(_) {}
+        frame.style.height = '1px';
+        frame.src = url;
+        setActive(btn);
+        history.replaceState({}, '', `/components?p=${encodeURIComponent(url)}`);
+      }
+    }
+
+    const params = new URLSearchParams(location.search);
+    const initial = params.get('p');
+    if (initial) {
+      const btn = links.find(b => b.getAttribute('data-url') === initial);
+      if (btn) navigate(initial, btn);
+      else frame.src = initial;
+    }
+
+    links.forEach(btn => {
+      btn.addEventListener('click', () => navigate(btn.getAttribute('data-url'), btn));
+    });
+
+    frame.addEventListener('load', () => {
+      try {
+        const doc = frame.contentDocument || frame.contentWindow?.document;
+        if (doc) {
+          injectEmbedStyles(doc);
+          resizeToContent(doc);
+          // Recalcular tras posibles cargas diferidas (imágenes, fuentes)
+          setTimeout(() => resizeToContent(doc), 50);
+          setTimeout(() => resizeToContent(doc), 200);
+          setTimeout(() => resizeToContent(doc), 500);
+          // Recalcular al redimensionar ventana
+          window.addEventListener('resize', () => resizeToContent(doc));
+          // Recalcular cuando carguen imágenes internas
+          const imgs = doc.images || [];
+          Array.from(imgs).forEach(img => {
+            if (!img.complete) {
+              img.addEventListener('load', () => resizeToContent(doc));
+              img.addEventListener('error', () => resizeToContent(doc));
+            }
+          });
+          requestAnimationFrame(() => { frame.style.visibility = 'visible'; });
+        }
+      } catch (e) {
+      }
+    });
+
+    // asegurar que el primer render no parpadee
+    frame.style.visibility = 'hidden';
+  });
+</script>
+
+

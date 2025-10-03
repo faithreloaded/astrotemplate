@@ -6,6 +6,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.08); /* línea 1px inferior visible sobre el dashboard */
 }
 
 .header-mega-content {
@@ -463,6 +464,11 @@ body.menu-open {
   
   .header-mega .mobile-nav {
     display: flex;
+  }
+
+  /* Ocultar botón Buy Template en mobile */
+  .header-mega-actions .buy-desktop {
+    display: none !important;
   }
   
   .header-mega-actions {

@@ -1,0 +1,16 @@
+.error404-section { padding: 120px 0; background: var(--color-background); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.error404-wrap { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.e-item { opacity: 0; transform: translateY(16px); transition: all .6s ease; }
+.e-item.animate { opacity: 1; transform: translateY(0); }
+.error404-code { font-size: 88px; font-weight: 500; letter-spacing: -0.04em; color: var(--color-black); line-height: 1; }
+.error404-title { font-size: 36px; font-weight: 500; color: var(--color-black); margin: 0; letter-spacing: -0.02em; }
+.error404-desc { font-size: 16px; color: rgba(0,0,0,0.6); margin: 0 0 12px 0; }
+.error404-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+.error404-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); text-decoration: none; font-weight: 500; transition: all .2s ease; }
+.error404-link.primary { background: var(--color-black); color: #fff; }
+.error404-link.primary:hover { background: rgba(0,0,0,0.85); }
+.error404-link.secondary { background: rgba(0,0,0,0.05); color: var(--color-black); }
+.error404-link.secondary:hover { background: rgba(0,0,0,0.10); }
+@media (max-width: 768px){ .error404-section{ padding: 80px 0;} .error404-code{ font-size: 64px;} .error404-title{ font-size: 28px;} }
+

@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeaderMega from '../../components/header/header-mega/Header.astro';
 import Footer from '../../components/footer/footer-grid/Footer.astro';
 import SimpleGallery from '../../components/gallery/simple/SimpleGallery.astro';
+import MasonryGallery from '../../components/gallery/masonry/MasonryGallery.astro';
 ---
 
 <BaseLayout 
@@ -30,6 +31,16 @@ import SimpleGallery from '../../components/gallery/simple/SimpleGallery.astro';
             </div>
             <div class="gallery-showcase-preview">
               <SimpleGallery />
+            </div>
+          </div>
+
+          <div class="gallery-showcase-item">
+            <div class="gallery-showcase-header">
+              <h2 class="gallery-showcase-title">Masonry Gallery</h2>
+              <p class="gallery-showcase-description">Organic masonry grid with balanced columns</p>
+            </div>
+            <div class="gallery-showcase-preview">
+              <MasonryGallery />
             </div>
           </div>
         </div>
@@ -61,6 +72,7 @@ import SimpleGallery from '../../components/gallery/simple/SimpleGallery.astro';
 
   /* Reset de sección interna para que se vea bien embebida */
   .gallery-showcase-preview :global(.simple-gallery-section) { padding: var(--space-8) 0 !important; background: transparent !important; }
+  .gallery-showcase-preview :global(.masonry-gallery-section) { padding: var(--space-8) 0 !important; background: transparent !important; }
   .gallery-showcase-preview :global(.container) { max-width: 100% !important; padding: 0 var(--space-6) !important; }
 
   @media (max-width: 768px) {
