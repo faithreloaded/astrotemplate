@@ -1,0 +1,70 @@
+---
+import './SimpleGallery.css';
+---
+
+<section class="simple-gallery-section">
+  <div class="container">
+    <header class="simple-gallery-header">
+      <span class="section-pill gallery-header-item">Gallery</span>
+      <h2 class="simple-gallery-title gallery-header-item">Visual Showcase</h2>
+      <p class="simple-gallery-description gallery-header-item">
+        A subtle and clean image gallery to present your work with clarity
+      </p>
+    </header>
+
+    <div class="simple-gallery-grid">
+      <figure class="simple-gallery-item">
+        <img src="/images/images/placeholder/placeholder.jpg" alt="Gallery item 1" />
+        <figcaption>Elegant aesthetics</figcaption>
+      </figure>
+      <figure class="simple-gallery-item">
+        <img src="/images/images/placeholder/paceholder2.jpg" alt="Gallery item 2" />
+        <figcaption>Refined details</figcaption>
+      </figure>
+      <figure class="simple-gallery-item">
+        <img src="/images/images/placeholder/placeholder.jpg" alt="Gallery item 3" />
+        <figcaption>Modern composition</figcaption>
+      </figure>
+      <figure class="simple-gallery-item">
+        <img src="/images/images/placeholder/paceholder2.jpg" alt="Gallery item 4" />
+        <figcaption>Subtle lighting</figcaption>
+      </figure>
+      <figure class="simple-gallery-item">
+        <img src="/images/images/placeholder/placeholder.jpg" alt="Gallery item 5" />
+        <figcaption>Minimal framing</figcaption>
+      </figure>
+      <figure class="simple-gallery-item">
+        <img src="/images/images/placeholder/paceholder2.jpg" alt="Gallery item 6" />
+        <figcaption>Soft contrast</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Staggered animation for header and items
+  document.addEventListener('DOMContentLoaded', function() {
+    const headerItems = document.querySelectorAll('.gallery-header-item');
+    const items = document.querySelectorAll('.simple-gallery-item');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    headerItems.forEach((el, idx) => {
+      el.style.transitionDelay = `${idx * 100}ms`;
+      observer.observe(el);
+    });
+
+    items.forEach((el, idx) => {
+      el.style.transitionDelay = `${150 + idx * 100}ms`;
+      observer.observe(el);
+    });
+  });
+</script>
+
+
