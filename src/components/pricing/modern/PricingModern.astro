@@ -1,0 +1,73 @@
+---
+import './PricingModern.css';
+import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
+import ButtonSecondary from '../../buttons/secondary/ButtonSecondary.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  planName?: string;
+  price?: string;
+  currency?: string;
+  features?: string[];
+  buttonText?: string;
+  buttonHref?: string;
+  showHeader?: boolean;
+}
+
+const { 
+  title = "Choose Your Plan",
+  description = "Flexible pricing options for teams of all sizes",
+  planName = "Pro",
+  price = "99",
+  currency = "$",
+  features = [
+    "Unlimited projects",
+    "Priority support", 
+    "Premium templates",
+    "Advanced analytics"
+  ],
+  buttonText = "Get Started",
+  buttonHref = "#",
+  showHeader = true
+} = Astro.props;
+---
+
+<section class="pricing-modern-section">
+  <div class="container">
+    {showHeader && (
+      <div class="pricing-modern-header">
+        <span class="pricing-modern-pill">Pricing</span>
+        <h2 class="pricing-modern-title">{title}</h2>
+        <p class="pricing-modern-description">{description}</p>
+      </div>
+    )}
+    
+    <div class="pricing-modern-cards">
+      <div class="pricing-modern-card pricing-modern-card-pro">
+        <div class="pricing-modern-card-header">
+          <h3 class="pricing-modern-plan">{planName}</h3>
+          <div class="pricing-modern-price">
+            <span class="pricing-modern-currency">{currency}</span>
+            <span class="pricing-modern-amount">{price}</span>
+          </div>
+        </div>
+        
+        <div class="pricing-modern-features">
+          {features.map((feature) => (
+            <div class="pricing-modern-feature">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20,6 9,17 4,12"/>
+              </svg>
+              <span>{feature}</span>
+            </div>
+          ))}
+        </div>
+        
+        <div class="pricing-modern-cta">
+          <ButtonPrimary href={buttonHref}>{buttonText}</ButtonPrimary>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

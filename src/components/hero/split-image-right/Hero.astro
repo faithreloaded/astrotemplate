@@ -1,18 +1,44 @@
 ---
 import './Hero.css';
 import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
+import ButtonSecondary from '../../buttons/secondary/ButtonSecondary.astro';
 import PillSoft from '../../pills/soft/PillSoft.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  showPill?: boolean;
+  pillText?: string;
+  buttonText?: string;
+  secondButtonText?: string;
+  showSecondButton?: boolean;
+}
+
+const { 
+  title = "Lorem ipsum dolor sit amet consectetur",
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  showPill = true,
+  pillText = "Lorem ipsum",
+  buttonText = "Get started",
+  secondButtonText = "Learn more",
+  showSecondButton = false
+} = Astro.props;
 ---
 
 <section class="hero-section">
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <PillSoft variant="primary" size="md">Lorem ipsum</PillSoft>
-        <h1 class="hero-title">Lorem ipsum dolor sit amet consectetur</h1>
-        <p class="hero-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        {showPill && (
+          <PillSoft variant="primary" size="md">{pillText}</PillSoft>
+        )}
+        <h1 class="hero-title">{title}</h1>
+        <p class="hero-description">{description}</p>
         <div class="hero-cta-container">
-          <ButtonPrimary href="#" width="fit-content">Get started</ButtonPrimary>
+          <ButtonPrimary href="#" width="fit-content">{buttonText}</ButtonPrimary>
+          {showSecondButton && (
+            <ButtonSecondary href="#">{secondButtonText}</ButtonSecondary>
+          )}
         </div>
       </div>
       

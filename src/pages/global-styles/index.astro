@@ -247,6 +247,79 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
           </section>
 
           <section class="global-styles-section">
+            <h2 class="global-styles-section-title">Border Radius</h2>
+            <p class="global-styles-section-description">
+              Consistent border radius values for rounded corners across all components
+            </p>
+            <div class="border-radius-examples">
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-xs);"></div>
+                <div class="border-radius-info">
+                  <h4>Extra Small</h4>
+                  <code>var(--radius-xs)</code>
+                  <span class="border-radius-value">2px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-sm);"></div>
+                <div class="border-radius-info">
+                  <h4>Small</h4>
+                  <code>var(--radius-sm)</code>
+                  <span class="border-radius-value">4px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-md);"></div>
+                <div class="border-radius-info">
+                  <h4>Medium</h4>
+                  <code>var(--radius-md)</code>
+                  <span class="border-radius-value">6px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-lg);"></div>
+                <div class="border-radius-info">
+                  <h4>Large</h4>
+                  <code>var(--radius-lg)</code>
+                  <span class="border-radius-value">8px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-xl);"></div>
+                <div class="border-radius-info">
+                  <h4>Extra Large</h4>
+                  <code>var(--radius-xl)</code>
+                  <span class="border-radius-value">12px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-2xl);"></div>
+                <div class="border-radius-info">
+                  <h4>2X Large</h4>
+                  <code>var(--radius-2xl)</code>
+                  <span class="border-radius-value">16px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-3xl);"></div>
+                <div class="border-radius-info">
+                  <h4>3X Large</h4>
+                  <code>var(--radius-3xl)</code>
+                  <span class="border-radius-value">24px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-full);"></div>
+                <div class="border-radius-info">
+                  <h4>Full</h4>
+                  <code>var(--radius-full)</code>
+                  <span class="border-radius-value">9999px</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section">
             <h2 class="global-styles-section-title">CSS Variables</h2>
             <p class="global-styles-section-description">
               All available CSS custom properties
@@ -522,6 +595,61 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
     height: 20px;
     background: var(--color-black);
     border-radius: 4px;
+  }
+
+  /* Border Radius Styles */
+  .border-radius-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .border-radius-item {
+    background: var(--color-container);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .border-radius-item:hover {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .border-radius-preview {
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    margin-bottom: var(--space-2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .border-radius-info h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin: 0 0 var(--space-1) 0;
+  }
+
+  .border-radius-info code {
+    display: block;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    background: var(--color-background);
+    padding: 4px 8px;
+    border-radius: 2px;
+    margin-bottom: var(--space-1);
+    font-family: 'Monaco', 'Menlo', monospace;
+  }
+
+  .border-radius-value {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    font-weight: 500;
   }
 
   .spacing-item code {
