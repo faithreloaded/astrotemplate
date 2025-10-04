@@ -7,6 +7,7 @@ import FeaturesSplitLeft from '../../components/features/split-left/FeaturesSpli
 import FeaturesGrid from '../../components/features/grid/FeaturesGrid.astro';
 import ServicesGrid from '../../components/services/grid/ServicesGrid.astro';
 import AboutUs from '../../components/about/img-right-left/AboutUs.astro';
+import VideoDemo from '../../components/features/video-demo/VideoDemo.astro';
 ---
 
 <BaseLayout 
@@ -81,6 +82,16 @@ import AboutUs from '../../components/about/img-right-left/AboutUs.astro';
                 </div>
                 <div class="features-showcase-preview">
                   <AboutUs />
+                </div>
+              </div>
+
+              <div class="features-showcase-item">
+                <div class="features-showcase-header">
+                  <h2 class="features-showcase-title">Video Demo Section</h2>
+                  <p class="features-showcase-description">Clean video showcase with pill, title, description and responsive video player</p>
+                </div>
+                <div class="features-showcase-preview">
+                  <VideoDemo />
                 </div>
               </div>
             </div>
@@ -187,6 +198,11 @@ import AboutUs from '../../components/about/img-right-left/AboutUs.astro';
       }
 
       .features-showcase-preview :global(.about-us-section) {
+        padding: var(--space-8) 0 !important;
+        background: transparent !important;
+      }
+
+      .features-showcase-preview :global(.video-demo-section) {
         padding: var(--space-8) 0 !important;
         background: transparent !important;
       }

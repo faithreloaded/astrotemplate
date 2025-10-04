@@ -1,0 +1,70 @@
+---
+import './VideoDemo.css';
+import PillSoft from '../../pills/soft/PillSoft.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  videoSrc?: string;
+  videoPoster?: string;
+  showPill?: boolean;
+  pillText?: string;
+}
+
+const { 
+  title = "See it in action",
+  description = "Watch how our components work in real projects and see the quality you can expect",
+  videoSrc = "https://www.w3schools.com/html/mov_bbb.mp4",
+  videoPoster = "/images/images/placeholder/placeholder.jpg",
+  showPill = true,
+  pillText = "Demo"
+} = Astro.props;
+---
+
+<section class="video-demo-section">
+  <div class="container">
+    <div class="video-demo-header">
+      {showPill && (
+        <PillSoft variant="primary" size="md">{pillText}</PillSoft>
+      )}
+      <h2 class="video-demo-title">{title}</h2>
+      <p class="video-demo-description">{description}</p>
+    </div>
+    
+    <div class="video-demo-container">
+      <video 
+        class="video-demo-player"
+        poster={videoPoster}
+        controls
+        preload="metadata"
+      >
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Video Demo Animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observar todas las secciones video-demo
+    const videoDemoSections = document.querySelectorAll('.video-demo-section');
+    videoDemoSections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>
