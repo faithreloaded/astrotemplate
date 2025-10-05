@@ -1,10 +1,20 @@
 ---
-import { LOCALES, type Locale } from '../../../i18n';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ComponentsLayout from '../../../layouts/ComponentsLayout.astro';
+import HeroesView from '../../heroes/index.astro';
+import { LOCALES, type Locale, loadT } from '../../../i18n';
 
 export function getStaticPaths() {
   return (LOCALES as readonly string[]).map((lang) => ({ params: { lang } }));
 }
 
 const { lang } = Astro.params as { lang: Locale };
-export const prerender = true;
-return Astro.redirect(`/${lang}/components/heroes`, 302);
+const t = await loadT(lang);
+const key = 'heroes';
+---
+
+<BaseLayout title={`${t('header.nav.components')} | Starter UI`} description="Browse all components and sections from a clean dashboard" lang={lang}>
+  <ComponentsLayout active={key} lang={lang}>
+    <HeroesView />
+  </ComponentsLayout>
+</BaseLayout>
