@@ -95,6 +95,18 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
   }
 
   if (menuToggle && mobileNav && mobileOverlay && mobileClose) {
+    // Desactivar transiciones durante la inicialización para evitar flashes
+    mobileNav.classList.add('no-transition');
+    mobileOverlay.classList.add('no-transition');
+
+    // Asegurar estado inicial cerrado para evitar flashes
+    closeMenu();
+
+    // Rehabilitar transiciones tras el primer frame
+    requestAnimationFrame(() => {
+      mobileNav.classList.remove('no-transition');
+      mobileOverlay.classList.remove('no-transition');
+    });
     menuToggle.addEventListener('click', () => {
       if (mobileNav.classList.contains('active')) {
         closeMenu();
@@ -111,5 +123,9 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
     mobileLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
     });
+    // Cerrar de forma defensiva ante eventos de navegación/carga
+    window.addEventListener('pageshow', closeMenu);
+    window.addEventListener('load', closeMenu);
+    window.addEventListener('beforeunload', closeMenu);
   }
 </script>

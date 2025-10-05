@@ -114,8 +114,8 @@
 
 .testimonials-simple-prev,
 .testimonials-simple-next {
-  background: #f0ede4;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--color-container);
+  border: 1px solid var(--color-border);
   border-radius: 50%;
   width: 44px;
   height: 44px;
@@ -130,7 +130,7 @@
 
 .testimonials-simple-prev:hover,
 .testimonials-simple-next:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--color-hover);
   color: rgba(0, 0, 0, 0.8);
   border-color: rgba(0, 0, 0, 0.15);
 }

@@ -21,26 +21,12 @@ import ButtonLink from '../../buttons/link/ButtonLink.astro';
   // Observar elementos de Testimonials
   document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
-      // Buscar específicamente la sección del carousel
       const testimonialsSection = document.querySelector('.testimonials-section');
-      console.log('Carousel section found:', testimonialsSection);
-      
       if (testimonialsSection) {
         const testimonialsHeader = testimonialsSection.querySelector('.testimonials-header-carousel');
-        console.log('Carousel header found:', testimonialsHeader);
-        
         const carousels = testimonialsSection.querySelectorAll('.carousel');
-        console.log('Carousels found:', carousels);
-        
-        if (testimonialsHeader) {
-          observer.observe(testimonialsHeader);
-          console.log('Carousel header observer added');
-        }
-        
-        carousels.forEach((carousel, index) => {
-          observer.observe(carousel);
-          console.log(`Carousel ${index} observer added`);
-        });
+        if (testimonialsHeader) observer.observe(testimonialsHeader);
+        carousels.forEach((carousel) => observer.observe(carousel));
       }
     }, 100);
   });
@@ -51,7 +37,9 @@ import ButtonLink from '../../buttons/link/ButtonLink.astro';
   // Soporta múltiples .carousel, direcciones y velocidades por data-atributos.
   const mqlReduce = matchMedia('(prefers-reduced-motion: reduce)');
 
-  document.querySelectorAll('.carousel').forEach(initCarousel);
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.carousel').forEach(initCarousel);
+  });
 
   function initCarousel(root) {
     const track = root.querySelector('.carousel-track');
@@ -78,6 +66,11 @@ import ButtonLink from '../../buttons/link/ButtonLink.astro';
 
     // Iniciar bucle
     loop(performance.now());
+
+    // Pausar cuando la pestaña no está visible
+    document.addEventListener('visibilitychange', () => {
+      paused = document.hidden ? true : paused;
+    });
 
     function loop(now) {
       const dt = (now - last) / 1000;

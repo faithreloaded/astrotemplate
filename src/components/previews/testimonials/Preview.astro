@@ -1,0 +1,148 @@
+---
+import '../../../styles/main.css';
+// import TestimonialsMasonry from '../../testimonials/masonry/Testimonials.astro';
+// import TestimonialCarousel from '../../testimonials/carousel/TestimonialCarousel.astro';
+import TestimonialsSimple from '../../testimonials/simple/TestimonialsSimple.astro';
+import TestimonialSingle from '../../testimonials/single/TestimonialSingle.astro';
+import TestimonialsGrid from '../../testimonials/grid/TestimonialsGrid.astro';
+// Los CSS se importan en cada variante .astro; no duplicar aquí
+---
+
+<div class="components-preview">
+  <div class="container">
+    <div class="testimonials-page">
+      <header class="testimonials-page-header">
+        <h1 class="testimonials-page-title">Testimonials</h1>
+        <p class="testimonials-page-description">
+          A curated collection of testimonials section components designed for modern web experiences
+        </p>
+      </header>
+
+      <div class="testimonials-showcase">
+        <!-- Simple -->
+        <div class="testimonials-showcase-item">
+          <div class="testimonials-showcase-header">
+            <h2 class="testimonials-showcase-title">Simple</h2>
+            <p class="testimonials-showcase-description">Clean and minimal testimonial slider with drag support</p>
+          </div>
+          <div class="testimonials-showcase-preview">
+            <TestimonialsSimple />
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="testimonials-showcase-item">
+          <div class="testimonials-showcase-header">
+            <h2 class="testimonials-showcase-title">Grid</h2>
+            <p class="testimonials-showcase-description">Three-card grid layout with navigation arrows and drag support</p>
+          </div>
+          <div class="testimonials-showcase-preview">
+            <TestimonialsGrid />
+          </div>
+        </div>
+
+        <!-- Carousel (temporalmente deshabilitado en preview) -->
+        <!--
+        <div class="testimonials-showcase-item">
+          <div class="testimonials-showcase-header">
+            <h2 class="testimonials-showcase-title">Carousel</h2>
+            <p class="testimonials-showcase-description">Infinite scrolling carousel with dual-direction testimonials</p>
+          </div>
+          <div class="testimonials-showcase-preview">
+            <TestimonialCarousel />
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Page header */
+  .components-preview .testimonials-page { padding: var(--space-8) 0; }
+  .components-preview .testimonials-page-header { text-align: center; margin-bottom: var(--space-8); max-width: 600px; margin-left: auto; margin-right: auto; }
+  .components-preview .testimonials-page-title { font-size: 48px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-4) 0; letter-spacing: -0.02em; }
+  .components-preview .testimonials-page-description { font-size: 1.125rem; color: rgba(0, 0, 0, 0.6); margin: 0; line-height: 1.6; }
+
+  /* Showcase list */
+  .components-preview .testimonials-showcase { display: flex; flex-direction: column; gap: var(--space-16); }
+  .components-preview .testimonials-showcase-item { margin-bottom: var(--space-8); }
+  .components-preview .testimonials-showcase-header { margin-bottom: var(--space-6); text-align: left; }
+  .components-preview .testimonials-showcase-title { font-size: 18px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-2) 0; line-height: 1.3; }
+  .components-preview .testimonials-showcase-description { font-size: 14px; color: rgba(0, 0, 0, 0.6); margin: 0; line-height: 1.4; }
+  .components-preview .testimonials-showcase-preview { background: var(--color-preview-bg); border: 1px solid rgba(0, 0, 0, 0.05); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); height: auto; position: relative; }
+  @media (max-width: 768px) {
+    .components-preview .testimonials-page { padding: var(--space-6) 0; }
+    .components-preview .testimonials-page-header { margin-bottom: var(--space-8); padding: 0 var(--space-4); }
+    .components-preview .testimonials-page-title { font-size: 36px; }
+    .components-preview .testimonials-showcase { gap: var(--space-12); }
+    .components-preview .testimonials-showcase-item { margin-bottom: var(--space-6); }
+    .components-preview .testimonials-showcase-header { margin-bottom: var(--space-4); padding: 0 var(--space-4); }
+    .components-preview .testimonials-showcase-title { font-size: 16px; }
+    .components-preview .testimonials-showcase-description { font-size: 13px; }
+  }
+
+  /* Resets de embebido para secciones de Testimonials dentro del dashboard */
+  .components-preview :global(.container) {
+    max-width: 100% !important;
+    padding: 0 var(--space-6) !important;
+  }
+
+  /* Masonry */
+  .components-preview :global(.masonry-testimonials-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Carousel */
+  .components-preview :global(.testimonials-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Grid */
+  .components-preview :global(.testimonials-grid-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Simple */
+  .components-preview :global(.testimonials-simple-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Single */
+  .components-preview :global(.testimonials-single-section) {
+    padding: var(--space-8) 0 !important;
+    background: transparent !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  @media (max-width: 768px) {
+    .components-preview :global(.container) { padding: 0 var(--space-4) !important; }
+    .components-preview :global(.masonry-testimonials-section),
+    .components-preview :global(.testimonials-section),
+    .components-preview :global(.testimonials-grid-section),
+    .components-preview :global(.testimonials-simple-section),
+    .components-preview :global(.testimonials-single-section) {
+      padding: var(--space-6) 0 !important;
+    }
+  }
+</style>
+

@@ -11,56 +11,9 @@ import Error404Modern from '../components/errors/Error404Modern.astro';
   <HeaderMega />
   <main class="main">
     <div class="container">
-      <div class="gallery-page">
-        <header class="gallery-page-header">
-          <h1 class="gallery-page-title">Error Pages</h1>
-          <p class="gallery-page-description">Showcase of error page designs for consistent UX</p>
-        </header>
-
-        <div class="gallery-showcase">
-          <div class="gallery-showcase-item">
-            <div class="gallery-showcase-header">
-              <h2 class="gallery-showcase-title">Modern 404</h2>
-              <p class="gallery-showcase-description">Two-column hero with image and CTAs</p>
-            </div>
-            <div class="gallery-showcase-preview">
-              <Error404Modern />
-            </div>
-          </div>
-
-          <div class="gallery-showcase-item">
-            <div class="gallery-showcase-header">
-              <h2 class="gallery-showcase-title">Minimal 404</h2>
-              <p class="gallery-showcase-description">Clean error layout with primary and secondary actions</p>
-            </div>
-            <div class="gallery-showcase-preview">
-              <Error404 />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Error404Modern />
     </div>
   </main>
-  
-  <style>
-    .gallery-page { padding: var(--space-8) 0; }
-    .gallery-page-header { text-align: center; margin-bottom: var(--space-8); max-width: 600px; margin-left:auto; margin-right:auto; }
-    .gallery-page-title { font-size: 48px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-4) 0; letter-spacing: -0.02em; }
-    .gallery-page-description { font-size: 1.125rem; color: rgba(0,0,0,0.6); margin: 0; line-height: 1.6; }
-    .gallery-showcase { display:flex; flex-direction:column; gap: var(--space-16); }
-    .gallery-showcase-header { margin-bottom: var(--space-6); text-align:left; }
-    .gallery-showcase-title { font-size: 18px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-2) 0; }
-    .gallery-showcase-description { font-size: 14px; color: rgba(0,0,0,0.6); margin: 0; }
-    .gallery-showcase-preview { background: var(--color-preview-bg); border:1px solid rgba(0,0,0,0.05); border-radius:16px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.05); padding: var(--space-10); }
-    /* Reset internos para embebidos */
-    .gallery-showcase-preview :global(.error404-section),
-    .gallery-showcase-preview :global(.error404modern-section) { padding: var(--space-6) 0 !important; background: transparent !important; }
-    @media (max-width: 768px){
-      .gallery-showcase { gap: var(--space-12); }
-      .gallery-showcase-preview { padding: var(--space-6); }
-    }
-    @media (max-width: 768px) { .gallery-page{ padding: var(--space-6) 0;} .gallery-page-title{ font-size:36px;} .gallery-showcase-preview{ padding: var(--space-6);} }
-  </style>
   <FooterGrid />
 </BaseLayout>
 

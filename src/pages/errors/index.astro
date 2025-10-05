@@ -1,0 +1,80 @@
+---
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Error404 from '../../components/errors/Error404.astro';
+import Error404Modern from '../../components/errors/Error404Modern.astro';
+---
+
+<BaseLayout 
+  title="Errors | Starter UI" 
+  description="Showcase of error pages (404) for clean empty/error states"
+>
+  <main class="main">
+    <div class="container">
+      <div class="errors-page">
+        <header class="errors-page-header">
+          <h1 class="errors-page-title">Error Pages</h1>
+          <p class="errors-page-description">
+            Clean, modern 404 pages to handle not found routes with style
+          </p>
+        </header>
+
+        <div class="errors-showcase">
+          <div class="errors-showcase-item">
+            <div class="errors-showcase-header">
+              <h2 class="errors-showcase-title">Classic 404</h2>
+              <p class="errors-showcase-description">Simple and minimal 404 page</p>
+            </div>
+            <div class="errors-showcase-preview">
+              <Error404 />
+            </div>
+          </div>
+
+          <div class="errors-showcase-item">
+            <div class="errors-showcase-header">
+              <h2 class="errors-showcase-title">Modern 404</h2>
+              <p class="errors-showcase-description">Contemporary 404 layout with modern styling</p>
+            </div>
+            <div class="errors-showcase-preview">
+              <Error404Modern />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .errors-page { padding: var(--space-8) 0; }
+  .errors-page-header { text-align: center; margin-bottom: var(--space-8); max-width: 600px; margin-left: auto; margin-right: auto; }
+  .errors-page-title { font-size: 48px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-4) 0; letter-spacing: -0.02em; }
+  .errors-page-description { font-size: 1.125rem; color: rgba(0,0,0,0.6); margin: 0; line-height: 1.6; }
+
+  .errors-showcase { display: flex; flex-direction: column; gap: var(--space-16); }
+  .errors-showcase-item { margin-bottom: var(--space-8); }
+  .errors-showcase-header { margin-bottom: var(--space-6); text-align: left; }
+  .errors-showcase-title { font-size: 18px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-2) 0; }
+  .errors-showcase-description { font-size: 14px; color: rgba(0,0,0,0.6); margin: 0; }
+  .errors-showcase-preview { background: var(--color-preview-bg); border: 1px solid rgba(0,0,0,0.05); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+
+  /* Reset de sección interna para que se vean bien embebidas */
+  .errors-showcase-preview :global(.error-404-section) { padding: var(--space-8) 0 !important; background: transparent !important; }
+  .errors-showcase-preview :global(.error-404-modern-section) { padding: var(--space-8) 0 !important; background: transparent !important; }
+  .errors-showcase-preview :global(.container) { max-width: 100% !important; padding: 0 var(--space-6) !important; }
+
+  @media (max-width: 768px) {
+    .errors-page { padding: var(--space-6) 0; }
+    .errors-page-header { margin-bottom: var(--space-8); padding: 0 var(--space-4); }
+    .errors-showcase { gap: var(--space-12); }
+    .errors-showcase-item { margin-bottom: var(--space-6); }
+    .errors-showcase-header { margin-bottom: var(--space-4); padding: 0 var(--space-4); }
+    .errors-page-title { font-size: 36px; }
+    .errors-showcase-title { font-size: 16px; }
+    .errors-showcase-description { font-size: 13px; }
+    .errors-showcase-preview :global(.error-404-section) { padding: var(--space-6) 0 !important; }
+    .errors-showcase-preview :global(.error-404-modern-section) { padding: var(--space-6) 0 !important; }
+    .errors-showcase-preview :global(.container) { padding: 0 var(--space-4) !important; }
+  }
+</style>
+

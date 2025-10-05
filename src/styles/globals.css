@@ -18,6 +18,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Evitar scroll chaining/rebote que empuja el header (Home y Dashboard) */
+html, body {
+  overscroll-behavior-y: none;
+}
+
 /* Container con ancho máximo */
 .container {
   max-width: var(--max-width);
