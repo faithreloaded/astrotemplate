@@ -7,4 +7,4 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params as { lang: Locale };
 export const prerender = true;
-return Astro.redirect(`/${lang}/components/heroes`, 301);
+return Astro.redirect(`/${lang}/components/heroes`, 302);
