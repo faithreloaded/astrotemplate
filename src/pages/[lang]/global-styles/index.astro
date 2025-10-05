@@ -1,14 +1,753 @@
 ---
-import { LOCALES, type Locale } from '../../../i18n';
-import BasePage from '../../../pages/global-styles/index.astro';
+import { LOCALES, type Locale, loadT } from '../../../i18n';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeaderMega from '../../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../../components/footer/footer-grid/Footer.astro';
 
 export function getStaticPaths() {
   return (LOCALES as readonly string[]).map((lang) => ({ params: { lang } }));
 }
 
 const { lang } = Astro.params as { lang: Locale };
+const t = await loadT(lang);
 ---
 
-<BasePage lang={lang} />
+<BaseLayout 
+  title={t('globalStyles.headTitle')}
+  description={t('globalStyles.headDescription')}
+  lang={lang}
+>
+  <HeaderMega lang={lang} />
+
+  <main class="main">
+    <div class="container">
+      <div class="global-styles-page">
+        <header class="global-styles-page-header">
+          <h1 class="global-styles-page-title">{t('globalStyles.pageTitle')}</h1>
+          <p class="global-styles-page-description">
+            {t('globalStyles.pageDescription')}
+          </p>
+        </header>
+
+        <div class="global-styles-content">
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">{t('globalStyles.colorPalette.title')}</h2>
+            <p class="global-styles-section-description">
+              {t('globalStyles.colorPalette.description')}
+            </p>
+            <div class="color-grid">
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-primary);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.primary')}</h4>
+                  <code>var(--color-primary)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-secondary);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.secondary')}</h4>
+                  <code>var(--color-secondary)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-background);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.background')}</h4>
+                  <code>var(--color-background)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-background-alt);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.backgroundAlt')}</h4>
+                  <code>var(--color-background-alt)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-accent);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.accent')}</h4>
+                  <code>var(--color-accent)</code>
+                </div>
+              </div>
+             <div class="color-item">
+               <div class="color-swatch" style="background-color: var(--color-container);"></div>
+               <div class="color-info">
+                 <h4>{t('globalStyles.colorPalette.container')}</h4>
+                 <code>var(--color-container)</code>
+               </div>
+             </div>
+             <div class="color-item">
+               <div class="color-swatch" style="background-color: var(--color-hover);"></div>
+               <div class="color-info">
+                 <h4>{t('globalStyles.colorPalette.hover')}</h4>
+                 <code>var(--color-hover)</code>
+               </div>
+             </div>
+             <div class="color-item">
+               <div class="color-swatch" style="background-color: var(--color-preview-bg);"></div>
+               <div class="color-info">
+                 <h4>{t('globalStyles.colorPalette.previewBackground')}</h4>
+                 <code>var(--color-preview-bg)</code>
+               </div>
+             </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-text);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.text')}</h4>
+                  <code>var(--color-text)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-text-secondary);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.textSecondary')}</h4>
+                  <code>var(--color-text-secondary)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-text-muted);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.textMuted')}</h4>
+                  <code>var(--color-text-muted)</code>
+                </div>
+              </div>
+              <div class="color-item">
+                <div class="color-swatch" style="background-color: var(--color-text-accent);"></div>
+                <div class="color-info">
+                  <h4>{t('globalStyles.colorPalette.textAccent')}</h4>
+                  <code>var(--color-text-accent)</code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">{t('globalStyles.typography.title')}</h2>
+            <p class="global-styles-section-description">
+              {t('globalStyles.typography.description')}
+            </p>
+            <div class="typography-examples">
+              <div class="typography-item">
+                <h1>{t('globalStyles.typography.h1')}</h1>
+                <code>font-size: 48px; font-weight: 500;</code>
+              </div>
+              <div class="typography-item">
+                <h2>{t('globalStyles.typography.h2')}</h2>
+                <code>font-size: 32px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <h3>{t('globalStyles.typography.h3')}</h3>
+                <code>font-size: 24px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <h4>{t('globalStyles.typography.h4')}</h4>
+                <code>font-size: 20px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <h5>{t('globalStyles.typography.h5')}</h5>
+                <code>font-size: 18px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <h6>{t('globalStyles.typography.h6')}</h6>
+                <code>font-size: 16px; font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <p>{t('globalStyles.typography.bodyText')}</p>
+                <code>font-size: 16px; line-height: 1.6;</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-size: 14px; color: var(--color-text-secondary);">{t('globalStyles.typography.smallText')}</p>
+                <code>font-size: 14px; color: var(--color-text-secondary);</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-weight: 500;">{t('globalStyles.typography.mediumWeight')}</p>
+                <code>font-weight: 500;</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-weight: 600;">{t('globalStyles.typography.semiBold')}</p>
+                <code>font-weight: 600;</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-weight: 700;">{t('globalStyles.typography.bold')}</p>
+                <code>font-weight: 700;</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-size: 12px; color: var(--color-text-muted);">{t('globalStyles.typography.captionText')}</p>
+                <code>font-size: 12px; color: var(--color-text-muted);</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-family: var(--font-family);">{t('globalStyles.typography.interFont')}</p>
+                <code>font-family: var(--font-family);</code>
+              </div>
+              <div class="typography-item">
+                <p style="font-family: var(--font-sans);">{t('globalStyles.typography.fontSans')}</p>
+                <code>font-family: var(--font-sans);</code>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">{t('globalStyles.spacingSystem.title')}</h2>
+            <p class="global-styles-section-description">
+              {t('globalStyles.spacingSystem.description')}
+            </p>
+            <div class="spacing-examples">
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-1);"></div>
+                <div class="spacing-info">
+                  <code>--space-1</code>
+                  <span class="spacing-value">8px</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space1Usage')}</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-2);"></div>
+                <div class="spacing-info">
+                  <code>--space-2</code>
+                  <span class="spacing-value">16px</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space2Usage')}</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-3);"></div>
+                <div class="spacing-info">
+                  <code>--space-3</code>
+                  <span class="spacing-value">24px</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space3Usage')}</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-4);"></div>
+                <div class="spacing-info">
+                  <code>--space-4</code>
+                  <span class="spacing-value">32px</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space4Usage')}</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-5);"></div>
+                <div class="spacing-info">
+                  <code>--space-5</code>
+                  <span class="spacing-value">48px</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space5Usage')}</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-6);"></div>
+                <div class="spacing-info">
+                  <code>--space-6</code>
+                  <span class="spacing-value">64px</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space6Usage')}</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-7);"></div>
+                <div class="spacing-info">
+                  <code>--space-7</code>
+                  <span class="spacing-value">80px</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space7Usage')}</span>
+                </div>
+              </div>
+              <div class="spacing-item">
+                <div class="spacing-visual" style="width: var(--space-8);"></div>
+                <div class="spacing-info">
+                  <code>--space-8</code>
+                  <span class="spacing-value">96px</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space8Usage')}</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">{t('globalStyles.borderRadius.title')}</h2>
+            <p class="global-styles-section-description">
+              {t('globalStyles.borderRadius.description')}
+            </p>
+            <div class="border-radius-examples">
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-xs);"></div>
+                <div class="border-radius-info">
+                  <h4>{t('globalStyles.borderRadius.extraSmall')}</h4>
+                  <code>var(--radius-xs)</code>
+                  <span class="border-radius-value">2px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-sm);"></div>
+                <div class="border-radius-info">
+                  <h4>{t('globalStyles.borderRadius.small')}</h4>
+                  <code>var(--radius-sm)</code>
+                  <span class="border-radius-value">4px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-md);"></div>
+                <div class="border-radius-info">
+                  <h4>{t('globalStyles.borderRadius.medium')}</h4>
+                  <code>var(--radius-md)</code>
+                  <span class="border-radius-value">6px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-lg);"></div>
+                <div class="border-radius-info">
+                  <h4>{t('globalStyles.borderRadius.large')}</h4>
+                  <code>var(--radius-lg)</code>
+                  <span class="border-radius-value">8px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-xl);"></div>
+                <div class="border-radius-info">
+                  <h4>{t('globalStyles.borderRadius.extraLarge')}</h4>
+                  <code>var(--radius-xl)</code>
+                  <span class="border-radius-value">12px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-2xl);"></div>
+                <div class="border-radius-info">
+                  <h4>{t('globalStyles.borderRadius.2xLarge')}</h4>
+                  <code>var(--radius-2xl)</code>
+                  <span class="border-radius-value">16px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-3xl);"></div>
+                <div class="border-radius-info">
+                  <h4>{t('globalStyles.borderRadius.3xLarge')}</h4>
+                  <code>var(--radius-3xl)</code>
+                  <span class="border-radius-value">24px</span>
+                </div>
+              </div>
+              <div class="border-radius-item">
+                <div class="border-radius-preview" style="border-radius: var(--radius-full);"></div>
+                <div class="border-radius-info">
+                  <h4>{t('globalStyles.borderRadius.full')}</h4>
+                  <code>var(--radius-full)</code>
+                  <span class="border-radius-value">9999px</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section">
+            <h2 class="global-styles-section-title">{t('globalStyles.cssVariables.title')}</h2>
+            <p class="global-styles-section-description">
+              {t('globalStyles.cssVariables.description')}
+            </p>
+            <div class="css-variables">
+              <div class="variable-section">
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.colorsSemantic')}</h4>
+                <div class="variable-list">
+                  <code>--color-primary</code>
+                  <code>--color-secondary</code>
+                  <code>--color-background</code>
+                  <code>--color-background-alt</code>
+                  <code>--color-accent</code>
+                 <code>--color-container</code>
+                 <code>--color-hover</code>
+                 <code>--color-preview-bg</code>
+                 <code>--color-text</code>
+                  <code>--color-text-secondary</code>
+                  <code>--color-text-muted</code>
+                  <code>--color-border</code>
+                  <code>--color-border-light</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.colorsLegacy')}</h4>
+                <div class="variable-list">
+                  <code>--color-black</code>
+                  <code>--color-white</code>
+                  <code>--color-cream</code>
+                  <code>--color-gray</code>
+                  <code>--color-light-gray</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.typographyFontSizes')}</h4>
+                <div class="variable-list">
+                  <code>--font-size-xs: 12px</code>
+                  <code>--font-size-sm: 14px</code>
+                  <code>--font-size-base: 16px</code>
+                  <code>--font-size-lg: 18px</code>
+                  <code>--font-size-xl: 20px</code>
+                  <code>--font-size-2xl: 24px</code>
+                  <code>--font-size-3xl: 32px</code>
+                  <code>--font-size-4xl: 36px</code>
+                  <code>--font-size-5xl: 48px</code>
+                  <code>--font-size-6xl: 64px</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.typographyFontWeights')}</h4>
+                <div class="variable-list">
+                  <code>--font-weight-thin: 100</code>
+                  <code>--font-weight-light: 300</code>
+                  <code>--font-weight-regular: 400</code>
+                  <code>--font-weight-medium: 500</code>
+                  <code>--font-weight-semibold: 600</code>
+                  <code>--font-weight-bold: 700</code>
+                  <code>--font-weight-extrabold: 800</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.typographyLineHeights')}</h4>
+                <div class="variable-list">
+                  <code>--line-height-tight: 1.2</code>
+                  <code>--line-height-normal: 1.4</code>
+                  <code>--line-height-relaxed: 1.6</code>
+                  <code>--line-height-loose: 1.8</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.typographyFontFamily')}</h4>
+                <div class="variable-list">
+                  <code>--font-family: 'Inter', sans-serif</code>
+                  <code>--font-sans: "Inter", system-ui, sans-serif</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.spacing')}</h4>
+                <div class="variable-list">
+                  <code>--space-1</code>
+                  <code>--space-2</code>
+                  <code>--space-3</code>
+                  <code>--space-4</code>
+                  <code>--space-5</code>
+                  <code>--space-6</code>
+                  <code>--space-7</code>
+                  <code>--space-8</code>
+                </div>
+              </div>
+              
+              <div class="variable-section">
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.layout')}</h4>
+                <div class="variable-list">
+                  <code>--max-width</code>
+                  <code>--transition</code>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .global-styles-page {
+    padding: var(--space-8) 0;
+  }
+
+  .global-styles-page-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .global-styles-page-title {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-black);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .global-styles-page-description {
+    font-size: 1.125rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .global-styles-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .global-styles-section {
+    /* Sin fondo, sin bordes, sin padding - contenido directo */
+    margin-bottom: var(--space-8);
+  }
+
+  .global-styles-section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .global-styles-section-description {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0 0 var(--space-8) 0;
+    line-height: 1.5;
+    max-width: 600px;
+  }
+
+  /* Color Grid */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .color-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background: var(--color-container);
+  }
+
+  .color-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .color-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 var(--space-1) 0;
+  }
+
+  .color-info code {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* Typography Examples */
+  .typography-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .typography-item {
+    padding: var(--space-3);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background: var(--color-container);
+  }
+
+  .typography-item h1,
+  .typography-item h2,
+  .typography-item h3,
+  .typography-item p {
+    margin: 0 0 var(--space-2) 0;
+  }
+
+  .typography-item code {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* Spacing Examples */
+  .spacing-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .spacing-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    background: var(--color-container);
+  }
+
+  .spacing-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    text-align: center;
+  }
+
+  .spacing-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .spacing-usage {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+  }
+
+  .spacing-visual {
+    height: 20px;
+    background: var(--color-black);
+    border-radius: 4px;
+  }
+
+  /* Border Radius Styles */
+  .border-radius-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .border-radius-item {
+    background: var(--color-container);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .border-radius-item:hover {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .border-radius-preview {
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    margin-bottom: var(--space-2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .border-radius-info h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin: 0 0 var(--space-1) 0;
+  }
+
+  .border-radius-info code {
+    display: block;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    background: var(--color-background);
+    padding: 4px 8px;
+    border-radius: 2px;
+    margin-bottom: var(--space-1);
+    font-family: 'Monaco', 'Menlo', monospace;
+  }
+
+  .border-radius-value {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .spacing-item code {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* CSS Variables */
+  .css-variables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4);
+    max-width: 100%;
+  }
+
+  .variable-section {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: var(--space-4);
+  }
+
+  .variable-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .variable-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .variable-list code {
+    font-size: 12px;
+    color: var(--color-text);
+    font-family: 'Monaco', 'Menlo', monospace;
+    background: var(--color-background);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    white-space: normal;
+    word-break: break-all;
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    .global-styles-page {
+      padding: var(--space-6) 0;
+    }
+    
+    .global-styles-page-header {
+      margin-bottom: var(--space-6);
+    }
+    
+    .global-styles-content {
+      gap: var(--space-6);
+    }
+    
+    .global-styles-section {
+      margin-bottom: var(--space-6);
+    }
+    
+    .global-styles-page-title {
+      font-size: 36px;
+    }
+    
+    .typography-examples {
+      grid-template-columns: 1fr;
+    }
+    
+    .css-variables {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 
 
