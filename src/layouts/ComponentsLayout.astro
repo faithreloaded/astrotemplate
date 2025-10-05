@@ -2,6 +2,7 @@
 import '../styles/main.css';
 import HeaderMega from '../components/header/header-mega/Header.astro';
 import { MegaMenuIcon } from '../components/MegaMenuIcons.tsx';
+import { SECTIONS_META, type Section } from '../data/sections';
 
 export interface Props {
   title?: string;
@@ -25,27 +26,27 @@ const { title = 'Components | Starter UI', description = 'Browse all components 
             <div class="sections-group">
               <h3 class="sections-group-title"><span class="group-icon"><MegaMenuIcon name="Layout" size={12} client:load /></span> Elements</h3>
               <ul class="sections-list">
-                <li><a class={`sections-link ${active === 'headers' ? 'active' : ''}`} href="/components/headers">Headers</a></li>
-                <li><a class={`sections-link ${active === 'footers' ? 'active' : ''}`} href="/components/footers">Footers</a></li>
-                <li><a class={`sections-link ${active === 'buttons' ? 'active' : ''}`} href="/components/buttons">Buttons</a></li>
-                <li><a class={`sections-link ${active === 'badges' ? 'active' : ''}`} href="/components/badges">Badges</a></li>
-                <li><a class={`sections-link ${active === 'pills' ? 'active' : ''}`} href="/components/pills">Pills</a></li>
-                <li><a class={`sections-link ${active === 'cards' ? 'active' : ''}`} href="/components/cards">Cards</a></li>
-                <li><a class={`sections-link ${active === 'errors' ? 'active' : ''}`} href="/components/errors">Errors</a></li>
+                {(() => {
+                  const order: Section[] = ['headers','footers','buttons','badges','pills','cards','errors'];
+                  return order.map((s) => (
+                    <li>
+                      <a class={`sections-link ${active === s ? 'active' : ''}`} href={`/components/${s}`} aria-current={active === s ? 'page' : undefined}>{SECTIONS_META[s].label}</a>
+                    </li>
+                  ));
+                })()}
               </ul>
             </div>
             <div class="sections-group">
               <h3 class="sections-group-title"><span class="group-icon"><MegaMenuIcon name="Layers" size={12} client:load /></span> Sections</h3>
               <ul class="sections-list">
-                <li><a class={`sections-link ${active === 'heroes' ? 'active' : ''}`} href="/components/heroes">Hero Sections</a></li>
-                <li><a class={`sections-link ${active === 'features' ? 'active' : ''}`} href="/components/features">Feature Sections</a></li>
-                <li><a class={`sections-link ${active === 'ctas' ? 'active' : ''}`} href="/components/ctas">CTA Sections</a></li>
-                <li><a class={`sections-link ${active === 'pricing' ? 'active' : ''}`} href="/components/pricing">Pricing Sections</a></li>
-                <li><a class={`sections-link ${active === 'faqs' ? 'active' : ''}`} href="/components/faqs">FAQ Sections</a></li>
-                <li><a class={`sections-link ${active === 'testimonials' ? 'active' : ''}`} href="/components/testimonials">Testimonials</a></li>
-                <li><a class={`sections-link ${active === 'services' ? 'active' : ''}`} href="/components/services">Services</a></li>
-                <li><a class={`sections-link ${active === 'logo-clouds' ? 'active' : ''}`} href="/components/logo-clouds">Logo Clouds</a></li>
-                <li><a class={`sections-link ${active === 'gallery' ? 'active' : ''}`} href="/components/gallery">Gallery</a></li>
+                {(() => {
+                  const order: Section[] = ['heroes','features','ctas','pricing','faqs','testimonials','services','logo-clouds','gallery'];
+                  return order.map((s) => (
+                    <li>
+                      <a class={`sections-link ${active === s ? 'active' : ''}`} href={`/components/${s}`} aria-current={active === s ? 'page' : undefined}>{SECTIONS_META[s].label}</a>
+                    </li>
+                  ));
+                })()}
               </ul>
             </div>
           </nav>

@@ -18,10 +18,7 @@ import PillsView from '../../pages/pills/index.astro';
 import CardsView from '../../pages/cards/index.astro';
 import ErrorView from '../../pages/404.astro';
 import ErrorsView from '../../pages/errors/index.astro';
-
-const SECTIONS = ['heroes','headers','footers','buttons','badges','pills','cards','features','ctas','pricing','faqs','testimonials','services','logo-clouds','gallery','errors'] as const;
-
-type Section = typeof SECTIONS[number];
+import { SECTIONS, type Section } from '../../data/sections';
 
 const { section } = Astro.params as { section: string };
 const key = (section || '').toLowerCase();
@@ -51,11 +48,6 @@ const views: Record<Section, any> = {
 
 const View = views[key as Section] ?? HeroesView;
 export async function getStaticPaths() {
-  const SECTIONS = [
-    'heroes','headers','footers','buttons','badges','pills','cards',
-    'features','ctas','pricing','faqs','testimonials','services',
-    'logo-clouds','gallery','errors'
-  ];
   return SECTIONS.map(section => ({ params: { section } }));
 }
 ---
