@@ -81,6 +81,7 @@ const { title = 'Components | Starter UI', description = 'Browse all components 
   .sections-list li { position: relative; padding-left: 16px; }
   .sections-link { position: relative; text-align: left; background: transparent; border: 0; padding: 10px 10px; padding-left: 12px; border-radius: var(--radius-md); font-size: 14px; color: rgba(0,0,0,0.72); cursor: pointer; transition: color 0.2s ease; text-decoration: none; display: inline-block; }
   .sections-link:hover { color: rgba(0,0,0,0.85); }
+  .sections-link:focus-visible { outline: 2px solid rgba(0,0,0,0.35); outline-offset: 2px; box-shadow: 0 0 0 3px rgba(0,0,0,0.08); }
   /* Estado activo sutil: sin negrita, solo tono y marca fina */
   .sections-link.active { color: rgba(0,0,0,0.9); font-weight: 500; }
   .sections-link.active::before { content: ""; position: absolute; left: -14px; top: 10px; bottom: 10px; width: 2px; background: rgba(0,0,0,0.35); border-radius: 2px; }
