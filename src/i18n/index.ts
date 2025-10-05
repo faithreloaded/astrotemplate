@@ -8,9 +8,17 @@ export function getLangFromUrl(url: URL): Locale {
   return DEFAULT_LANG;
 }
 
+// Importaciones estáticas para evitar problemas de build
+import esTranslations from './es.json';
+import enTranslations from './en.json';
+
+const translations = {
+  es: esTranslations,
+  en: enTranslations
+};
+
 export async function loadT(lang: Locale) {
-  const mod = await import(`./${lang}.json`);
-  const dict = (mod as any).default ?? mod;
+  const dict = translations[lang];
   const t = (path: string) => path.split('.').reduce((o: any, k: string) => (o && o[k] !== undefined) ? o[k] : path, dict);
   return t as (path: string) => string;
 }
