@@ -1,4 +1,61 @@
 ---
-export const prerender = true;
-return Astro.redirect('/en/', 302);
+import '../styles/main.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderMega from '../components/header/header-mega/Header.astro';
+import FooterGrid from '../components/footer/footer-grid/Footer.astro';
+import HeroSplitImageRight from '../components/hero/split-image-right/Hero.astro';
+import PricingModern from '../components/pricing/modern/PricingModern.astro';
+import VideoDemo from '../components/features/video-demo/VideoDemo.astro';
+import '../components/services/simple-cards/ServicesSimpleCards.css';
+import { loadT } from '../i18n';
+import HomeHero from '../components/hero/home-hero/HomeHero.astro';
+
+// Set default language to English for the root page
+const lang = 'en' as const;
+const t = await loadT(lang);
 ---
+
+<BaseLayout 
+  title="Home | Starter UI" 
+  description="A minimal Astro boilerplate with ready-to-use sections like Hero, FAQ, and Testimonials. Build fast, clean websites with ease."
+>
+  <HeaderMega lang={lang} />
+  
+  <main class="main">
+    <HomeHero />
+    
+    <VideoDemo 
+      title="Build a landing in minutes."
+      description="See how Starter UI lets you spin up a clean landing page in less than 5 minutes. No fluff, just production-ready components you can drop and ship."
+    />
+    
+    <VideoDemo 
+      title="Change one token, change it all."
+      description="Update your brand colors once and watch the entire design adapt instantly. Starter UI is built on simple global tokens — no messy overrides."
+    />
+    
+    <VideoDemo 
+      title="From idea to shipped component."
+      description="Starter UI gives you clean, reusable components you can trust. Focus on your app, not reinventing buttons or layouts."
+    />
+    
+    <PricingModern 
+      title="Pay once, use forever."
+      description="Simple licensing for developers."
+      planName="Starter UI"
+      price="199"
+      currency="€"
+      features={[
+        "Clean, responsive components",
+        "Global design tokens", 
+        "Easy to customize CSS",
+        "Lifetime updates included"
+      ]}
+      buttonText="Buy now on Gumroad"
+      buttonHref="#"
+      showHeader={true}
+    />
+  </main>
+  
+  <FooterGrid />
+</BaseLayout>
