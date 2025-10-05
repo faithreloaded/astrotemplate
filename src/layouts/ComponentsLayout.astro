@@ -3,47 +3,52 @@ import '../styles/main.css';
 import HeaderMega from '../components/header/header-mega/Header.astro';
 import { MegaMenuIcon } from '../components/MegaMenuIcons.tsx';
 import { SECTIONS_META, type Section } from '../data/sections';
+import { loadT, getLangFromUrl, type Locale } from '../i18n';
 
 export interface Props {
   title?: string;
   description?: string;
   active?: string;
+  lang?: Locale;
 }
 
-const { title = 'Components | Starter UI', description = 'Browse all components and sections from a clean dashboard', active = 'heroes' } = Astro.props as Props;
+const { title = 'Components | Starter UI', description = 'Browse all components and sections from a clean dashboard', active = 'heroes', lang: langProp } = Astro.props as Props;
+const lang: Locale = langProp ?? getLangFromUrl(Astro.url);
+const t = await loadT(lang);
+const withLang = (path: string) => `/${lang}${path}`;
 ---
 
-<HeaderMega />
+<HeaderMega lang={lang} />
 
 <main class="main">
   <section class="sections-dashboard">
     <div class="sections-layout">
       <aside class="sections-sidebar" id="sections-sidebar">
           <div class="sections-sidebar-header">
-            <h2>Components</h2>
+            <h2>{t('componentsDashboard.title')}</h2>
           </div>
           <nav class="sections-nav" aria-label="Components navigation">
             <div class="sections-group">
-              <h3 class="sections-group-title"><span class="group-icon"><MegaMenuIcon name="Layout" size={12} client:load /></span> Elements</h3>
+              <h3 class="sections-group-title"><span class="group-icon"><MegaMenuIcon name="Layout" size={12} client:load /></span> {t('componentsDashboard.groups.elements')}</h3>
               <ul class="sections-list">
                 {(() => {
                   const order: Section[] = ['headers','footers','buttons','badges','pills','cards','errors'];
                   return order.map((s) => (
                     <li>
-                      <a class={`sections-link ${active === s ? 'active' : ''}`} href={`/components/${s}`} aria-current={active === s ? 'page' : undefined}>{SECTIONS_META[s].label}</a>
+                      <a class={`sections-link ${active === s ? 'active' : ''}`} href={withLang(`/components/${s}`)} aria-current={active === s ? 'page' : undefined}>{t(`sections.${s}.label`)}</a>
                     </li>
                   ));
                 })()}
               </ul>
             </div>
             <div class="sections-group">
-              <h3 class="sections-group-title"><span class="group-icon"><MegaMenuIcon name="Layers" size={12} client:load /></span> Sections</h3>
+              <h3 class="sections-group-title"><span class="group-icon"><MegaMenuIcon name="Layers" size={12} client:load /></span> {t('componentsDashboard.groups.sections')}</h3>
               <ul class="sections-list">
                 {(() => {
                   const order: Section[] = ['heroes','features','ctas','pricing','faqs','testimonials','services','logo-clouds','gallery'];
                   return order.map((s) => (
                     <li>
-                      <a class={`sections-link ${active === s ? 'active' : ''}`} href={`/components/${s}`} aria-current={active === s ? 'page' : undefined}>{SECTIONS_META[s].label}</a>
+                      <a class={`sections-link ${active === s ? 'active' : ''}`} href={withLang(`/components/${s}`)} aria-current={active === s ? 'page' : undefined}>{t(`sections.${s}.label`)}</a>
                     </li>
                   ));
                 })()}

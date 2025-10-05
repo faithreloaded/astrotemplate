@@ -3,112 +3,116 @@ import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeaderMega from '../../components/header/header-mega/Header.astro';
 import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
+import { getLangFromUrl, loadT, type Locale } from '../../i18n';
+const lang: Locale = getLangFromUrl(Astro.url);
+const t = await loadT(lang);
 ---
 
 <BaseLayout 
-  title="Global Styles | Starter UI" 
-  description="Global styles, design tokens, and CSS variables for consistent design across the entire template"
+  title={t('globalStyles.headTitle')}
+  description={t('globalStyles.headDescription')}
+  lang={lang}
 >
-  <HeaderMega />
+  <HeaderMega lang={lang} />
 
   <main class="main">
     <div class="container">
       <div class="global-styles-page">
         <header class="global-styles-page-header">
-          <h1 class="global-styles-page-title">Global Styles</h1>
+          <h1 class="global-styles-page-title">{t('globalStyles.pageTitle')}</h1>
           <p class="global-styles-page-description">
-            Design system, CSS variables, and global styles that ensure consistency across all components
+            {t('globalStyles.pageDescription')}
           </p>
         </header>
 
         <div class="global-styles-content">
           <section class="global-styles-section">
-            <h2 class="global-styles-section-title">Color Palette</h2>
+            <h2 class="global-styles-section-title">{t('globalStyles.colorPalette.title')}</h2>
             <p class="global-styles-section-description">
-              Primary colors used throughout the template
+              {t('globalStyles.colorPalette.description')}
             </p>
             <div class="color-grid">
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-primary);"></div>
                 <div class="color-info">
-                  <h4>Primary</h4>
+                  <h4>{t('globalStyles.colorPalette.primary')}</h4>
                   <code>var(--color-primary)</code>
                 </div>
               </div>
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-secondary);"></div>
                 <div class="color-info">
-                  <h4>Secondary</h4>
+                  <h4>{t('globalStyles.colorPalette.secondary')}</h4>
                   <code>var(--color-secondary)</code>
                 </div>
               </div>
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-background);"></div>
                 <div class="color-info">
-                  <h4>Background</h4>
+                  <h4>{t('globalStyles.colorPalette.background')}</h4>
                   <code>var(--color-background)</code>
                 </div>
               </div>
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-background-alt);"></div>
                 <div class="color-info">
-                  <h4>Background Alt</h4>
+                  <h4>{t('globalStyles.colorPalette.backgroundAlt')}</h4>
                   <code>var(--color-background-alt)</code>
                 </div>
               </div>
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-accent);"></div>
                 <div class="color-info">
-                  <h4>Accent</h4>
+                  <h4>{t('globalStyles.colorPalette.accent')}</h4>
                   <code>var(--color-accent)</code>
                 </div>
               </div>
              <div class="color-item">
                <div class="color-swatch" style="background-color: var(--color-container);"></div>
                <div class="color-info">
-                 <h4>Container</h4>
+                 <h4>{t('globalStyles.colorPalette.container')}</h4>
                  <code>var(--color-container)</code>
                </div>
              </div>
              <div class="color-item">
                <div class="color-swatch" style="background-color: var(--color-hover);"></div>
                <div class="color-info">
-                 <h4>Hover</h4>
+                 <h4>{t('globalStyles.colorPalette.hover')}</h4>
                  <code>var(--color-hover)</code>
                </div>
              </div>
              <div class="color-item">
                <div class="color-swatch" style="background-color: var(--color-preview-bg);"></div>
                <div class="color-info">
-                 <h4>Preview Background</h4>
+                 <h4>{t('globalStyles.colorPalette.previewBackground')}</h4>
                  <code>var(--color-preview-bg)</code>
                </div>
              </div>
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-text);"></div>
                 <div class="color-info">
-                  <h4>Text</h4>
+                  <h4>{t('globalStyles.colorPalette.text')}</h4>
                   <code>var(--color-text)</code>
                 </div>
               </div>
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-text-secondary);"></div>
                 <div class="color-info">
-                  <h4>Text Secondary</h4>
+                  <h4>{t('globalStyles.colorPalette.textSecondary')}</h4>
                   <code>var(--color-text-secondary)</code>
                 </div>
               </div>
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-text-muted);"></div>
                 <div class="color-info">
-                  <h4>Text Muted</h4>
+                  <h4>{t('globalStyles.colorPalette.textMuted')}</h4>
                   <code>var(--color-text-muted)</code>
                 </div>
               </div>
               <div class="color-item">
                 <div class="color-swatch" style="background-color: var(--color-text-accent);"></div>
                 <div class="color-info">
-                  <h4>Text Accent</h4>
+                  <h4>{t('globalStyles.colorPalette.textAccent')}</h4>
                   <code>var(--color-text-accent)</code>
                 </div>
               </div>
@@ -116,74 +120,74 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
           </section>
 
           <section class="global-styles-section">
-            <h2 class="global-styles-section-title">Typography</h2>
+            <h2 class="global-styles-section-title">{t('globalStyles.typography.title')}</h2>
             <p class="global-styles-section-description">
-              Complete typography system using Inter font with fallbacks, including all heading levels, body text, and weight variations
+              {t('globalStyles.typography.description')}
             </p>
             <div class="typography-examples">
               <div class="typography-item">
-                <h1>Heading 1 - Main Title</h1>
+                <h1>{t('globalStyles.typography.h1')}</h1>
                 <code>font-size: 48px; font-weight: 500;</code>
               </div>
               <div class="typography-item">
-                <h2>Heading 2 - Section Title</h2>
+                <h2>{t('globalStyles.typography.h2')}</h2>
                 <code>font-size: 32px; font-weight: 600;</code>
               </div>
               <div class="typography-item">
-                <h3>Heading 3 - Subsection</h3>
+                <h3>{t('globalStyles.typography.h3')}</h3>
                 <code>font-size: 24px; font-weight: 600;</code>
               </div>
               <div class="typography-item">
-                <h4>Heading 4 - Card Title</h4>
+                <h4>{t('globalStyles.typography.h4')}</h4>
                 <code>font-size: 20px; font-weight: 600;</code>
               </div>
               <div class="typography-item">
-                <h5>Heading 5 - Small Title</h5>
+                <h5>{t('globalStyles.typography.h5')}</h5>
                 <code>font-size: 18px; font-weight: 600;</code>
               </div>
               <div class="typography-item">
-                <h6>Heading 6 - Label</h6>
+                <h6>{t('globalStyles.typography.h6')}</h6>
                 <code>font-size: 16px; font-weight: 600;</code>
               </div>
               <div class="typography-item">
-                <p>Body text - Regular paragraph text used throughout the template for readability and consistency.</p>
+                <p>{t('globalStyles.typography.bodyText')}</p>
                 <code>font-size: 16px; line-height: 1.6;</code>
               </div>
               <div class="typography-item">
-                <p style="font-size: 14px; color: var(--color-text-secondary);">Small text - Used for captions, labels, and secondary information.</p>
+                <p style="font-size: 14px; color: var(--color-text-secondary);">{t('globalStyles.typography.smallText')}</p>
                 <code>font-size: 14px; color: var(--color-text-secondary);</code>
               </div>
               <div class="typography-item">
-                <p style="font-weight: 500;">Medium weight text - Used for emphasis and important information.</p>
+                <p style="font-weight: 500;">{t('globalStyles.typography.mediumWeight')}</p>
                 <code>font-weight: 500;</code>
               </div>
               <div class="typography-item">
-                <p style="font-weight: 600;">Semi-bold text - Used for strong emphasis and call-to-action elements.</p>
+                <p style="font-weight: 600;">{t('globalStyles.typography.semiBold')}</p>
                 <code>font-weight: 600;</code>
               </div>
               <div class="typography-item">
-                <p style="font-weight: 700;">Bold text - Used for maximum emphasis and important headings.</p>
+                <p style="font-weight: 700;">{t('globalStyles.typography.bold')}</p>
                 <code>font-weight: 700;</code>
               </div>
               <div class="typography-item">
-                <p style="font-size: 12px; color: var(--color-text-muted);">Caption text - Used for very small text like footnotes and metadata.</p>
+                <p style="font-size: 12px; color: var(--color-text-muted);">{t('globalStyles.typography.captionText')}</p>
                 <code>font-size: 12px; color: var(--color-text-muted);</code>
               </div>
               <div class="typography-item">
-                <p style="font-family: var(--font-family);">Inter Font Family - Modern, highly legible typeface designed for user interfaces.</p>
+                <p style="font-family: var(--font-family);">{t('globalStyles.typography.interFont')}</p>
                 <code>font-family: var(--font-family);</code>
               </div>
               <div class="typography-item">
-                <p style="font-family: var(--font-sans);">Font Sans - System font stack with Inter as primary, includes fallbacks for maximum compatibility.</p>
+                <p style="font-family: var(--font-sans);">{t('globalStyles.typography.fontSans')}</p>
                 <code>font-family: var(--font-sans);</code>
               </div>
             </div>
           </section>
 
           <section class="global-styles-section">
-            <h2 class="global-styles-section-title">Spacing System</h2>
+            <h2 class="global-styles-section-title">{t('globalStyles.spacingSystem.title')}</h2>
             <p class="global-styles-section-description">
-              Consistent spacing variables used across components
+              {t('globalStyles.spacingSystem.description')}
             </p>
             <div class="spacing-examples">
               <div class="spacing-item">
@@ -191,7 +195,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 <div class="spacing-info">
                   <code>--space-1</code>
                   <span class="spacing-value">8px</span>
-                  <span class="spacing-usage">Padding interno, gaps pequeños</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space1Usage')}</span>
                 </div>
               </div>
               <div class="spacing-item">
@@ -199,7 +203,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 <div class="spacing-info">
                   <code>--space-2</code>
                   <span class="spacing-value">16px</span>
-                  <span class="spacing-usage">Margins pequeños, padding de botones</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space2Usage')}</span>
                 </div>
               </div>
               <div class="spacing-item">
@@ -207,7 +211,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 <div class="spacing-info">
                   <code>--space-3</code>
                   <span class="spacing-value">24px</span>
-                  <span class="spacing-usage">Espaciado entre elementos</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space3Usage')}</span>
                 </div>
               </div>
               <div class="spacing-item">
@@ -215,7 +219,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 <div class="spacing-info">
                   <code>--space-4</code>
                   <span class="spacing-value">32px</span>
-                  <span class="spacing-usage">Padding de contenedores</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space4Usage')}</span>
                 </div>
               </div>
               <div class="spacing-item">
@@ -223,7 +227,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 <div class="spacing-info">
                   <code>--space-5</code>
                   <span class="spacing-value">48px</span>
-                  <span class="spacing-usage">Espaciado entre secciones</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space5Usage')}</span>
                 </div>
               </div>
               <div class="spacing-item">
@@ -231,7 +235,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 <div class="spacing-info">
                   <code>--space-6</code>
                   <span class="spacing-value">64px</span>
-                  <span class="spacing-usage">Margins grandes</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space6Usage')}</span>
                 </div>
               </div>
               <div class="spacing-item">
@@ -239,7 +243,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 <div class="spacing-info">
                   <code>--space-7</code>
                   <span class="spacing-value">80px</span>
-                  <span class="spacing-usage">Espaciado de hero sections</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space7Usage')}</span>
                 </div>
               </div>
               <div class="spacing-item">
@@ -247,22 +251,22 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
                 <div class="spacing-info">
                   <code>--space-8</code>
                   <span class="spacing-value">96px</span>
-                  <span class="spacing-usage">Espaciado máximo entre páginas</span>
+                  <span class="spacing-usage">{t('globalStyles.spacingSystem.space8Usage')}</span>
                 </div>
               </div>
             </div>
           </section>
 
           <section class="global-styles-section">
-            <h2 class="global-styles-section-title">Border Radius</h2>
+            <h2 class="global-styles-section-title">{t('globalStyles.borderRadius.title')}</h2>
             <p class="global-styles-section-description">
-              Consistent border radius values for rounded corners across all components
+              {t('globalStyles.borderRadius.description')}
             </p>
             <div class="border-radius-examples">
               <div class="border-radius-item">
                 <div class="border-radius-preview" style="border-radius: var(--radius-xs);"></div>
                 <div class="border-radius-info">
-                  <h4>Extra Small</h4>
+                  <h4>{t('globalStyles.borderRadius.extraSmall')}</h4>
                   <code>var(--radius-xs)</code>
                   <span class="border-radius-value">2px</span>
                 </div>
@@ -270,7 +274,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               <div class="border-radius-item">
                 <div class="border-radius-preview" style="border-radius: var(--radius-sm);"></div>
                 <div class="border-radius-info">
-                  <h4>Small</h4>
+                  <h4>{t('globalStyles.borderRadius.small')}</h4>
                   <code>var(--radius-sm)</code>
                   <span class="border-radius-value">4px</span>
                 </div>
@@ -278,7 +282,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               <div class="border-radius-item">
                 <div class="border-radius-preview" style="border-radius: var(--radius-md);"></div>
                 <div class="border-radius-info">
-                  <h4>Medium</h4>
+                  <h4>{t('globalStyles.borderRadius.medium')}</h4>
                   <code>var(--radius-md)</code>
                   <span class="border-radius-value">6px</span>
                 </div>
@@ -286,7 +290,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               <div class="border-radius-item">
                 <div class="border-radius-preview" style="border-radius: var(--radius-lg);"></div>
                 <div class="border-radius-info">
-                  <h4>Large</h4>
+                  <h4>{t('globalStyles.borderRadius.large')}</h4>
                   <code>var(--radius-lg)</code>
                   <span class="border-radius-value">8px</span>
                 </div>
@@ -294,7 +298,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               <div class="border-radius-item">
                 <div class="border-radius-preview" style="border-radius: var(--radius-xl);"></div>
                 <div class="border-radius-info">
-                  <h4>Extra Large</h4>
+                  <h4>{t('globalStyles.borderRadius.extraLarge')}</h4>
                   <code>var(--radius-xl)</code>
                   <span class="border-radius-value">12px</span>
                 </div>
@@ -302,7 +306,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               <div class="border-radius-item">
                 <div class="border-radius-preview" style="border-radius: var(--radius-2xl);"></div>
                 <div class="border-radius-info">
-                  <h4>2X Large</h4>
+                  <h4>{t('globalStyles.borderRadius.2xLarge')}</h4>
                   <code>var(--radius-2xl)</code>
                   <span class="border-radius-value">16px</span>
                 </div>
@@ -310,7 +314,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               <div class="border-radius-item">
                 <div class="border-radius-preview" style="border-radius: var(--radius-3xl);"></div>
                 <div class="border-radius-info">
-                  <h4>3X Large</h4>
+                  <h4>{t('globalStyles.borderRadius.3xLarge')}</h4>
                   <code>var(--radius-3xl)</code>
                   <span class="border-radius-value">24px</span>
                 </div>
@@ -318,7 +322,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               <div class="border-radius-item">
                 <div class="border-radius-preview" style="border-radius: var(--radius-full);"></div>
                 <div class="border-radius-info">
-                  <h4>Full</h4>
+                  <h4>{t('globalStyles.borderRadius.full')}</h4>
                   <code>var(--radius-full)</code>
                   <span class="border-radius-value">9999px</span>
                 </div>
@@ -327,13 +331,13 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
           </section>
 
           <section class="global-styles-section">
-            <h2 class="global-styles-section-title">CSS Variables</h2>
+            <h2 class="global-styles-section-title">{t('globalStyles.cssVariables.title')}</h2>
             <p class="global-styles-section-description">
-              All available CSS custom properties
+              {t('globalStyles.cssVariables.description')}
             </p>
             <div class="css-variables">
               <div class="variable-section">
-                <h4 class="variable-section-title">Colors (Semantic)</h4>
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.colorsSemantic')}</h4>
                 <div class="variable-list">
                   <code>--color-primary</code>
                   <code>--color-secondary</code>
@@ -352,7 +356,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               </div>
               
               <div class="variable-section">
-                <h4 class="variable-section-title">Colors (Legacy)</h4>
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.colorsLegacy')}</h4>
                 <div class="variable-list">
                   <code>--color-black</code>
                   <code>--color-white</code>
@@ -363,7 +367,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               </div>
               
               <div class="variable-section">
-                <h4 class="variable-section-title">Typography - Font Sizes</h4>
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.typographyFontSizes')}</h4>
                 <div class="variable-list">
                   <code>--font-size-xs: 12px</code>
                   <code>--font-size-sm: 14px</code>
@@ -379,7 +383,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               </div>
               
               <div class="variable-section">
-                <h4 class="variable-section-title">Typography - Font Weights</h4>
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.typographyFontWeights')}</h4>
                 <div class="variable-list">
                   <code>--font-weight-thin: 100</code>
                   <code>--font-weight-light: 300</code>
@@ -392,7 +396,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               </div>
               
               <div class="variable-section">
-                <h4 class="variable-section-title">Typography - Line Heights</h4>
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.typographyLineHeights')}</h4>
                 <div class="variable-list">
                   <code>--line-height-tight: 1.2</code>
                   <code>--line-height-normal: 1.4</code>
@@ -402,7 +406,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               </div>
               
               <div class="variable-section">
-                <h4 class="variable-section-title">Typography - Font Family</h4>
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.typographyFontFamily')}</h4>
                 <div class="variable-list">
                   <code>--font-family: 'Inter', sans-serif</code>
                   <code>--font-sans: "Inter", system-ui, sans-serif</code>
@@ -410,7 +414,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               </div>
               
               <div class="variable-section">
-                <h4 class="variable-section-title">Spacing</h4>
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.spacing')}</h4>
                 <div class="variable-list">
                   <code>--space-1</code>
                   <code>--space-2</code>
@@ -424,7 +428,7 @@ import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
               </div>
               
               <div class="variable-section">
-                <h4 class="variable-section-title">Layout</h4>
+                <h4 class="variable-section-title">{t('globalStyles.cssVariables.layout')}</h4>
                 <div class="variable-list">
                   <code>--max-width</code>
                   <code>--transition</code>

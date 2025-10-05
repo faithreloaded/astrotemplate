@@ -1,0 +1,231 @@
+{
+  "header": {
+    "nav": { "home": "Inicio", "components": "Componentes", "globalStyles": "Estilos Globales", "docs": "Docs" },
+    "actions": { "buy": "Comprar plantilla" },
+    "lang": { "es": "ES", "en": "EN", "sep": "/" }
+  },
+  "globalStyles": {
+    "headTitle": "Estilos Globales | Starter UI",
+    "headDescription": "Estilos globales, design tokens y variables CSS para un diseño consistente en toda la plantilla",
+    "pageTitle": "Estilos globales",
+    "pageDescription": "Design system, variables CSS y estilos globales que garantizan consistencia en todos los componentes",
+    "colorPalette": {
+      "title": "Paleta de colores",
+      "description": "Colores principales utilizados en toda la plantilla",
+      "primary": "Primario",
+      "secondary": "Secundario",
+      "background": "Fondo",
+      "backgroundAlt": "Fondo alternativo",
+      "accent": "Acento",
+      "container": "Contenedor",
+      "hover": "Hover",
+      "previewBackground": "Fondo de preview",
+      "text": "Texto",
+      "textSecondary": "Texto secundario",
+      "textMuted": "Texto atenuado",
+      "textAccent": "Texto acentuado"
+    },
+    "typography": {
+      "title": "Tipografía",
+      "description": "Sistema tipográfico completo usando Inter con fallbacks, incluyendo todos los niveles de encabezado, cuerpo de texto y variaciones de peso",
+      "h1": "Encabezado 1 - Título principal",
+      "h2": "Encabezado 2 - Título de sección",
+      "h3": "Encabezado 3 - Subsección",
+      "h4": "Encabezado 4 - Título de tarjeta",
+      "h5": "Encabezado 5 - Título pequeño",
+      "h6": "Encabezado 6 - Etiqueta",
+      "bodyText": "Texto de cuerpo - Párrafo regular utilizado en toda la plantilla por legibilidad y consistencia.",
+      "smallText": "Texto pequeño - Usado para captions, etiquetas e información secundaria.",
+      "mediumWeight": "Peso medio - Para énfasis e información importante.",
+      "semiBold": "Seminegrita - Para énfasis fuerte y llamadas a la acción.",
+      "bold": "Negrita - Para máximo énfasis y encabezados importantes.",
+      "captionText": "Texto de pie - Para textos muy pequeños como notas y metadatos.",
+      "interFont": "Familia Inter - Tipografía moderna y muy legible pensada para interfaces.",
+      "fontSans": "Sans - Pila de sistema con Inter como primaria y fallbacks para compatibilidad."
+    },
+    "spacingSystem": {
+      "title": "Sistema de espaciado",
+      "description": "Variables de espacio consistentes usadas en los componentes",
+      "space1Usage": "Padding interno, gaps pequeños",
+      "space2Usage": "Márgenes pequeños, padding de botones",
+      "space3Usage": "Espaciado entre elementos",
+      "space4Usage": "Padding de contenedores",
+      "space5Usage": "Espaciado entre secciones",
+      "space6Usage": "Márgenes grandes",
+      "space7Usage": "Espaciado en secciones hero",
+      "space8Usage": "Espaciado máximo entre páginas"
+    },
+    "borderRadius": {
+      "title": "Border radius",
+      "description": "Valores consistentes de border radius para esquinas redondeadas en todos los componentes",
+      "extraSmall": "Extra pequeño",
+      "small": "Pequeño",
+      "medium": "Mediano",
+      "large": "Grande",
+      "extraLarge": "Extra grande",
+      "2xLarge": "2X grande",
+      "3xLarge": "3X grande",
+      "full": "Completo"
+    },
+    "cssVariables": {
+      "title": "Variables CSS",
+      "description": "Todas las propiedades personalizadas disponibles",
+      "colorsSemantic": "Colores (Semánticos)",
+      "colorsLegacy": "Colores (Legado)",
+      "typographyFontSizes": "Tipografía - Tamaños de fuente",
+      "typographyFontWeights": "Tipografía - Pesos de fuente",
+      "typographyLineHeights": "Tipografía - Alturas de línea",
+      "typographyFontFamily": "Tipografía - Familia",
+      "spacing": "Espaciado",
+      "layout": "Layout"
+    }
+  }
+  ,
+  "docs": {
+    "headTitle": "Documentación | Starter UI",
+    "headDescription": "Documentación completa de la plantilla Starter UI. Aprende a empezar, personalizar y desplegar tu proyecto.",
+    "pageTitle": "Documentación",
+    "pageDescription": "Todo lo que necesitas para empezar con la plantilla Starter UI.",
+    "sidebarTitle": "Documentación",
+    "nav": {
+      "gettingStarted": "Primeros pasos",
+      "projectStructure": "Estructura del proyecto",
+      "styling": "Estilos",
+      "components": "Componentes",
+      "deployment": "Despliegue",
+      "customization": "Personalización",
+      "support": "Soporte"
+    },
+    "gettingStarted": {
+      "title": "Primeros pasos",
+      "installationTitle": "Instalación",
+      "installationText": "Clona el repositorio e instala las dependencias:",
+      "developmentTitle": "Desarrollo",
+      "developmentText": "Inicia el servidor de desarrollo:",
+      "siteAvailable": "El sitio estará disponible en",
+      "buildTitle": "Build",
+      "buildText": "Genera el proyecto para producción:"
+    },
+    "projectStructure": {
+      "title": "Estructura del proyecto",
+      "directoryLayoutTitle": "Estructura de directorios"
+    },
+    "styling": {
+      "title": "Estilos",
+      "designTokensTitle": "Design Tokens",
+      "designTokensText": "Todos los design tokens se definen en",
+      "list": {
+        "colors": "Colores:",
+        "typography": "Tipografía:",
+        "spacing": "Espaciado:",
+        "layout": "Layout:"
+      },
+      "globalClassesTitle": "Clases globales",
+      "globalClassesText": "Clases utilitarias preconstruidas disponibles:",
+      "globalList": {
+        "buttons": "Botones:",
+        "pills": "Pills:",
+        "layout": "Layout:",
+        "typography": "Tipografía:"
+      },
+      "customizationTitle": "Personalización",
+      "customizationText": "Para personalizar el diseño:",
+      "customizationSteps": {
+        "s1": "Modifica variables en",
+        "s2": "Sobrescribe estilos de componentes en sus CSS",
+        "s3": "Añade estilos propios en"
+      }
+    },
+    "components": {
+      "title": "Componentes",
+      "usingComponentsTitle": "Uso de componentes",
+      "usingComponentsText": "Importa y usa componentes en tus páginas Astro:",
+      "availableSectionsTitle": "Secciones disponibles",
+      "availableList": {
+        "headers": "Headers: Múltiples variantes (center, left, right, mega, login)",
+        "heroes": "Heroes: Simple, split, bento, carousel, background",
+        "about": "About: Diseños de imagen con contenido",
+        "services": "Services: Tarjetas y carruseles",
+        "testimonials": "Testimonials: Masonry y grid",
+        "faq": "FAQ: Lista, minimal y side",
+        "cta": "CTA: Avatares limpios y llamadas a la acción",
+        "footers": "Footers: Grid, CTA y newsletter"
+      }
+    },
+    "deployment": {
+      "title": "Despliegue",
+      "staticHostingTitle": "Hosting estático",
+      "staticHostingText": "Esta plantilla genera archivos estáticos perfectos para:",
+      "list": {
+        "vercel": "Vercel: Conecta tu repo de GitHub para despliegues automáticos",
+        "netlify": "Netlify: Arrastra y suelta la carpeta dist",
+        "ghpages": "GitHub Pages: Usa GitHub Actions para builds automáticas",
+        "any": "Cualquier host estático: Sube el contenido de la carpeta dist"
+      },
+      "buildOutputTitle": "Resultado de compilación",
+      "buildOutputText": "Tras ejecutar npm run build, tu sitio estará en la carpeta dist.",
+      "envTitle": "Variables de entorno",
+      "envText": "No se requieren variables de entorno para el uso básico. La plantilla funciona out of the box."
+    },
+    "customization": {
+      "title": "Personalización",
+      "contentTitle": "Contenido",
+      "contentText": "Actualiza el contenido editando directamente los archivos de los componentes. Todo el texto e imágenes se pueden personalizar en sus respectivos componentes.",
+      "imagesTitle": "Imágenes",
+      "imagesText": "Sustituye las imágenes placeholder en el directorio",
+      "imagesList": {
+        "logo": "logo.svg - Logo principal",
+        "isotipo": "isotipo.svg - Logo del menú móvil",
+        "favicon": "favicon.png - Favicon del sitio",
+        "placeholder": "images/placeholder/ - Imágenes de contenido",
+        "logos": "images/logos-carousel/ - Imágenes del carrusel de logos"
+      },
+      "navigationTitle": "Navegación",
+      "navigationText": "Actualiza los enlaces de navegación en los componentes de header. La estructura del mega menú se puede modificar en los archivos Header.astro."
+    },
+    "support": {
+      "title": "Soporte",
+      "resourcesTitle": "Recursos",
+      "astroDocs": "Documentación de Astro",
+      "lucide": "Lucide Icons",
+      "globalStylesRef": "Referencia de Estilos Globales",
+      "featuresTitle": "Características de la plantilla",
+      "featuresList": {
+        "responsive": "✅ Diseño responsive",
+        "modernCss": "✅ CSS moderno con custom properties",
+        "componentArch": "✅ Arquitectura basada en componentes",
+        "seo": "✅ SEO optimizado",
+        "fast": "✅ Generación estática rápida",
+        "noFramework": "✅ No requiere framework de JavaScript"
+      }
+    }
+  }
+  ,
+  "componentsDashboard": {
+    "title": "Componentes",
+    "groups": {
+      "elements": "Elementos",
+      "sections": "Secciones"
+    }
+  },
+  "sections": {
+    "heroes": { "label": "Secciones Hero" },
+    "headers": { "label": "Headers" },
+    "footers": { "label": "Footers" },
+    "buttons": { "label": "Botones" },
+    "badges": { "label": "Badges" },
+    "pills": { "label": "Pills" },
+    "cards": { "label": "Tarjetas" },
+    "features": { "label": "Secciones de Features" },
+    "ctas": { "label": "Secciones CTA" },
+    "pricing": { "label": "Secciones de Precios" },
+    "faqs": { "label": "Secciones FAQ" },
+    "testimonials": { "label": "Testimonios" },
+    "services": { "label": "Servicios" },
+    "logo-clouds": { "label": "Nubes de logos" },
+    "gallery": { "label": "Galería" },
+    "errors": { "label": "Errores" }
+  }
+}
+
+

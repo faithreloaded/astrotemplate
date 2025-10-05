@@ -4,131 +4,45 @@ import ButtonLink from '../../buttons/link/ButtonLink.astro';
 ---
 
 <script>
-  // Animaciones de scroll para Testimonials
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-      }
-    });
-  }, observerOptions);
-
-  // Observar elementos de Testimonials
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-      const testimonialsSection = document.querySelector('.testimonials-section');
-      if (testimonialsSection) {
-        const testimonialsHeader = testimonialsSection.querySelector('.testimonials-header-carousel');
-        const carousels = testimonialsSection.querySelectorAll('.carousel');
-        if (testimonialsHeader) observer.observe(testimonialsHeader);
-        carousels.forEach((carousel) => observer.observe(carousel));
-      }
-    }, 100);
-  });
-</script>
-
-<script type="module" is:inline>
-  // Carrusel infinito sin "reset" usando reciclado de nodos.
-  // Soporta múltiples .carousel, direcciones y velocidades por data-atributos.
-  const mqlReduce = matchMedia('(prefers-reduced-motion: reduce)');
-
-  window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.carousel').forEach(initCarousel);
-  });
-
-  function initCarousel(root) {
-    const track = root.querySelector('.carousel-track');
-    if (!track) return;
-
-    // Dirección: ltr -> desplazar a la izquierda; rtl -> a la derecha
-    let dir = (root.dataset.direction || 'ltr').toLowerCase() === 'rtl' ? 1 : -1;
-    let speed = Number(root.dataset.speed || 50); // px/seg
-    let paused = false;
-    let pos = 0;          // translateX actual
-    let last = performance.now();
-    let raf = null;
-
-    // Pausa en hover (sin "quedarse parado")
-    root.addEventListener('mouseenter', () => paused = true);
-    root.addEventListener('mouseleave', () => paused = false);
-
-    // Clonar hasta garantizar > 2x el ancho del contenedor (cinta larga y estable)
-    ensureLongTrack();
-
-    // Recalcular en resize
-    const ro = new ResizeObserver(() => ensureLongTrack());
-    ro.observe(root);
-
-    // Iniciar bucle
-    loop(performance.now());
-
-    // Pausar cuando la pestaña no está visible
-    document.addEventListener('visibilitychange', () => {
-      paused = document.hidden ? true : paused;
-    });
-
-    function loop(now) {
-      const dt = (now - last) / 1000;
-      last = now;
-
-      if (!paused && !mqlReduce.matches) {
-        pos += dir * speed * dt; // dir: -1 izq, 1 der
-        recycleIfNeeded();
-        track.style.transform = `translate3d(${pos}px,0,0)`;
-      }
-      raf = requestAnimationFrame(loop);
+  // Inicialización mínima: activa marquee en filas marcadas y revela sección
+  const boot = () => {
+    const section = document.querySelector('.testimonials-section');
+    if (section) {
+      section.classList.add('animate');
     }
-
-    function ensureLongTrack() {
-      // Duplicar hijos hasta que el ancho del track sea al menos 2× el ancho del viewport del carrusel
-      const min = root.clientWidth * 2;
-      let guard = 0;
-      while (track.scrollWidth < min && guard < 20) {
-        track.append(...[...track.children].map(n => n.cloneNode(true)));
-        guard++;
-      }
+    const header = document.querySelector('.testimonials-header-carousel');
+    if (header) {
+      header.classList.add('animate');
     }
+    document.querySelectorAll('.carousel').forEach((el) => {
+      const track = (el as HTMLElement).querySelector('.carousel-track');
+      if (!track) return;
+      const rtl = ((el as HTMLElement).dataset.direction || 'ltr').toLowerCase() === 'rtl';
+      track.classList.toggle('dir-rtl', rtl);
 
-    function recycleIfNeeded() {
-      // Reciclar nodos según dirección sin que se note
-      const gap = parseFloat(getComputedStyle(track).columnGap || '0');
-      const rootRect = root.getBoundingClientRect();
-
-      if (dir < 0) {
-        // Nos movemos hacia la izquierda: si el 1º salió por la izquierda -> mandarlo al final
-        let first = track.firstElementChild;
-        // while por si "empujamos" más de un item en frames lentos
-        while (first) {
-          const r = first.getBoundingClientRect();
-          if (r.right <= rootRect.left) {
-            const w = first.offsetWidth + gap;
-            track.appendChild(first);
-            pos += w; // compensar translate para que no haya salto visual
-            // aplicar de inmediato para mantener continuidad
-            track.style.transform = `translate3d(${pos}px,0,0)`;
-            first = track.firstElementChild;
-          } else break;
+      // Fila con marquee
+      if ((el as HTMLElement).dataset.marquee === 'on') {
+        // Duración por defecto si no viene especificada
+        const speed = Number((el as HTMLElement).dataset.speed || 40);
+        const dur = speed > 0 ? Math.max(12, Math.round(120 / speed) * 6) : 30;
+        (track as HTMLElement).style.setProperty('--dur', dur + 's');
+        // Duplicar exactamente una vez
+        if (!(track as any).dataset.cloned) {
+          (track as any).dataset.cloned = '1';
+          const kids = [...track.children].map(n => n.cloneNode(true));
+          track.append(...kids);
         }
+        (el as HTMLElement).classList.add('marquee');
+        (el as HTMLElement).classList.add('animate');
       } else {
-        // Nos movemos hacia la derecha: si el último salió por la derecha -> mandarlo al inicio
-        let lastEl = track.lastElementChild;
-        while (lastEl) {
-          const r = lastEl.getBoundingClientRect();
-          if (r.left >= rootRect.right) {
-            const w = lastEl.offsetWidth + gap;
-            track.prepend(lastEl);
-            pos -= w; // compensar translate
-            track.style.transform = `translate3d(${pos}px,0,0)`;
-            lastEl = track.lastElementChild;
-          } else break;
-        }
+        (el as HTMLElement).classList.add('animate');
       }
-    }
+    });
+  };
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
   }
 </script>
 
@@ -141,8 +55,8 @@ import ButtonLink from '../../buttons/link/ButtonLink.astro';
           <ButtonLink href="/testimonials">View all testimonials</ButtonLink>
         </div>
     
-    <!-- Primera fila: derecha a izquierda -->
-    <div class="carousel" data-speed="40" data-direction="ltr">
+    <!-- Primera fila: derecha a izquierda (marquee) -->
+    <div class="carousel" data-speed="40" data-direction="ltr" data-marquee="on">
       <div class="carousel-track">
         <div class="card">
           <div class="testimonial-card">
@@ -200,9 +114,9 @@ import ButtonLink from '../../buttons/link/ButtonLink.astro';
       </div>
     </div>
 
-    <!-- Segunda fila: izquierda a derecha -->
-    <div class="carousel" data-speed="40" data-direction="rtl">
-      <div class="carousel-track">
+    <!-- Segunda fila: marquee inverso -->
+    <div class="carousel dir-rtl" data-speed="40" data-direction="rtl" data-marquee="on">
+      <div class="carousel-track dir-rtl">
         <div class="card">
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>

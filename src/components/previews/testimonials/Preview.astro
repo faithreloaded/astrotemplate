@@ -1,7 +1,7 @@
 ---
 import '../../../styles/main.css';
-// import TestimonialsMasonry from '../../testimonials/masonry/Testimonials.astro';
-// import TestimonialCarousel from '../../testimonials/carousel/TestimonialCarousel.astro';
+import TestimonialsMasonry from '../../testimonials/masonry/Testimonials.astro';
+import TestimonialCarousel from '../../testimonials/carousel/TestimonialCarousel.astro';
 import TestimonialsSimple from '../../testimonials/simple/TestimonialsSimple.astro';
 import TestimonialSingle from '../../testimonials/single/TestimonialSingle.astro';
 import TestimonialsGrid from '../../testimonials/grid/TestimonialsGrid.astro';
@@ -19,6 +19,28 @@ import TestimonialsGrid from '../../testimonials/grid/TestimonialsGrid.astro';
       </header>
 
       <div class="testimonials-showcase">
+        <!-- Masonry -->
+        <div class="testimonials-showcase-item">
+          <div class="testimonials-showcase-header">
+            <h2 class="testimonials-showcase-title">Masonry</h2>
+            <p class="testimonials-showcase-description">Dynamic masonry layout for customer testimonials</p>
+          </div>
+          <div class="testimonials-showcase-preview">
+            <TestimonialsMasonry />
+          </div>
+        </div>
+
+        <!-- Carousel -->
+        <div class="testimonials-showcase-item">
+          <div class="testimonials-showcase-header">
+            <h2 class="testimonials-showcase-title">Carousel</h2>
+            <p class="testimonials-showcase-description">Infinite scrolling carousel with dual-direction testimonials</p>
+          </div>
+          <div class="testimonials-showcase-preview">
+            <TestimonialCarousel />
+          </div>
+        </div>
+
         <!-- Simple -->
         <div class="testimonials-showcase-item">
           <div class="testimonials-showcase-header">
@@ -27,6 +49,17 @@ import TestimonialsGrid from '../../testimonials/grid/TestimonialsGrid.astro';
           </div>
           <div class="testimonials-showcase-preview">
             <TestimonialsSimple />
+          </div>
+        </div>
+
+        <!-- Single -->
+        <div class="testimonials-showcase-item">
+          <div class="testimonials-showcase-header">
+            <h2 class="testimonials-showcase-title">Single</h2>
+            <p class="testimonials-showcase-description">Featured testimonial with prominent quote and detailed feedback</p>
+          </div>
+          <div class="testimonials-showcase-preview">
+            <TestimonialSingle />
           </div>
         </div>
 
@@ -41,18 +74,6 @@ import TestimonialsGrid from '../../testimonials/grid/TestimonialsGrid.astro';
           </div>
         </div>
 
-        <!-- Carousel (temporalmente deshabilitado en preview) -->
-        <!--
-        <div class="testimonials-showcase-item">
-          <div class="testimonials-showcase-header">
-            <h2 class="testimonials-showcase-title">Carousel</h2>
-            <p class="testimonials-showcase-description">Infinite scrolling carousel with dual-direction testimonials</p>
-          </div>
-          <div class="testimonials-showcase-preview">
-            <TestimonialCarousel />
-          </div>
-        </div>
-        -->
       </div>
     </div>
   </div>
@@ -85,7 +106,6 @@ import TestimonialsGrid from '../../testimonials/grid/TestimonialsGrid.astro';
 
   /* Resets de embebido para secciones de Testimonials dentro del dashboard */
   .components-preview :global(.container) {
-    max-width: 100% !important;
     padding: 0 var(--space-6) !important;
   }
 

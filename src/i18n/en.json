@@ -1,0 +1,231 @@
+{
+  "header": {
+    "nav": { "home": "Home", "components": "Components", "globalStyles": "Global Styles", "docs": "Docs" },
+    "actions": { "buy": "Buy template" },
+    "lang": { "es": "ES", "en": "EN", "sep": "/" }
+  },
+  "globalStyles": {
+    "headTitle": "Global Styles | Starter UI",
+    "headDescription": "Global styles, design tokens, and CSS variables for consistent design across the entire template",
+    "pageTitle": "Global Styles",
+    "pageDescription": "Design system, CSS variables, and global styles that ensure consistency across all components",
+    "colorPalette": {
+      "title": "Color Palette",
+      "description": "Primary colors used throughout the template",
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "background": "Background",
+      "backgroundAlt": "Background Alt",
+      "accent": "Accent",
+      "container": "Container",
+      "hover": "Hover",
+      "previewBackground": "Preview Background",
+      "text": "Text",
+      "textSecondary": "Text Secondary",
+      "textMuted": "Text Muted",
+      "textAccent": "Text Accent"
+    },
+    "typography": {
+      "title": "Typography",
+      "description": "Complete typography system using Inter font with fallbacks, including all heading levels, body text, and weight variations",
+      "h1": "Heading 1 - Main Title",
+      "h2": "Heading 2 - Section Title",
+      "h3": "Heading 3 - Subsection",
+      "h4": "Heading 4 - Card Title",
+      "h5": "Heading 5 - Small Title",
+      "h6": "Heading 6 - Label",
+      "bodyText": "Body text - Regular paragraph text used throughout the template for readability and consistency.",
+      "smallText": "Small text - Used for captions, labels, and secondary information.",
+      "mediumWeight": "Medium weight text - Used for emphasis and important information.",
+      "semiBold": "Semi-bold text - Used for strong emphasis and call-to-action elements.",
+      "bold": "Bold text - Used for maximum emphasis and important headings.",
+      "captionText": "Caption text - Used for very small text like footnotes and metadata.",
+      "interFont": "Inter Font Family - Modern, highly legible typeface designed for user interfaces.",
+      "fontSans": "Font Sans - System font stack with Inter as primary, includes fallbacks for maximum compatibility."
+    },
+    "spacingSystem": {
+      "title": "Spacing System",
+      "description": "Consistent spacing variables used across components",
+      "space1Usage": "Inner padding, small gaps",
+      "space2Usage": "Small margins, button padding",
+      "space3Usage": "Spacing between elements",
+      "space4Usage": "Container padding",
+      "space5Usage": "Spacing between sections",
+      "space6Usage": "Large margins",
+      "space7Usage": "Hero sections spacing",
+      "space8Usage": "Maximum spacing between pages"
+    },
+    "borderRadius": {
+      "title": "Border radius",
+      "description": "Consistent border radius values for rounded corners across all components",
+      "extraSmall": "Extra Small",
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large",
+      "extraLarge": "Extra Large",
+      "2xLarge": "2X Large",
+      "3xLarge": "3X Large",
+      "full": "Full"
+    },
+    "cssVariables": {
+      "title": "CSS Variables",
+      "description": "All available CSS custom properties",
+      "colorsSemantic": "Colors (Semantic)",
+      "colorsLegacy": "Colors (Legacy)",
+      "typographyFontSizes": "Typography - Font Sizes",
+      "typographyFontWeights": "Typography - Font Weights",
+      "typographyLineHeights": "Typography - Line Heights",
+      "typographyFontFamily": "Typography - Font Family",
+      "spacing": "Spacing",
+      "layout": "Layout"
+    }
+  }
+  ,
+  "docs": {
+    "headTitle": "Documentation | Starter UI",
+    "headDescription": "Complete documentation for the Starter UI template. Learn how to get started, customize, and deploy your project.",
+    "pageTitle": "Documentation",
+    "pageDescription": "Everything you need to know to get started with Starter UI template.",
+    "sidebarTitle": "Documentation",
+    "nav": {
+      "gettingStarted": "Getting Started",
+      "projectStructure": "Project Structure",
+      "styling": "Styling",
+      "components": "Components",
+      "deployment": "Deployment",
+      "customization": "Customization",
+      "support": "Support"
+    },
+    "gettingStarted": {
+      "title": "Getting Started",
+      "installationTitle": "Installation",
+      "installationText": "Clone the repository and install dependencies:",
+      "developmentTitle": "Development",
+      "developmentText": "Start the development server:",
+      "siteAvailable": "The site will be available at",
+      "buildTitle": "Build",
+      "buildText": "Build the project for production:"
+    },
+    "projectStructure": {
+      "title": "Project Structure",
+      "directoryLayoutTitle": "Directory Layout"
+    },
+    "styling": {
+      "title": "Styling",
+      "designTokensTitle": "Design Tokens",
+      "designTokensText": "All design tokens are defined in",
+      "list": {
+        "colors": "Colors:",
+        "typography": "Typography:",
+        "spacing": "Spacing:",
+        "layout": "Layout:"
+      },
+      "globalClassesTitle": "Global Classes",
+      "globalClassesText": "Pre-built utility classes available:",
+      "globalList": {
+        "buttons": "Buttons:",
+        "pills": "Pills:",
+        "layout": "Layout:",
+        "typography": "Typography:"
+      },
+      "customizationTitle": "Customization",
+      "customizationText": "To customize the design:",
+      "customizationSteps": {
+        "s1": "Modify variables in",
+        "s2": "Override component styles in their respective CSS files",
+        "s3": "Add custom styles in"
+      }
+    },
+    "components": {
+      "title": "Components",
+      "usingComponentsTitle": "Using Components",
+      "usingComponentsText": "Import and use components in your Astro pages:",
+      "availableSectionsTitle": "Available Sections",
+      "availableList": {
+        "headers": "Headers: Multiple variations (center, left, right, mega, login)",
+        "heroes": "Heroes: Simple, split, bento, carousel, background",
+        "about": "About: Image layouts with content",
+        "services": "Services: Cards and carousels",
+        "testimonials": "Testimonials: Masonry and grid layouts",
+        "faq": "FAQ: List, minimal, and side layouts",
+        "cta": "CTA: Clean avatars and call-to-action",
+        "footers": "Footers: Grid, CTA, and newsletter variations"
+      }
+    },
+    "deployment": {
+      "title": "Deployment",
+      "staticHostingTitle": "Static Hosting",
+      "staticHostingText": "This template generates static files perfect for:",
+      "list": {
+        "vercel": "Vercel: Connect your GitHub repo for automatic deployments",
+        "netlify": "Netlify: Drag and drop the dist folder",
+        "ghpages": "GitHub Pages: Use GitHub Actions for automated builds",
+        "any": "Any static host: Upload the dist folder contents"
+      },
+      "buildOutputTitle": "Build Output",
+      "buildOutputText": "After running npm run build, your static site will be in the dist folder.",
+      "envTitle": "Environment Variables",
+      "envText": "No environment variables required for basic usage. The template works out of the box."
+    },
+    "customization": {
+      "title": "Customization",
+      "contentTitle": "Content",
+      "contentText": "Update content by editing the component files directly. All text and images can be customized in their respective components.",
+      "imagesTitle": "Images",
+      "imagesText": "Replace placeholder images in the directory",
+      "imagesList": {
+        "logo": "logo.svg - Main logo",
+        "isotipo": "isotipo.svg - Mobile menu logo",
+        "favicon": "favicon.png - Site favicon",
+        "placeholder": "images/placeholder/ - Content images",
+        "logos": "images/logos-carousel/ - Logo carousel images"
+      },
+      "navigationTitle": "Navigation",
+      "navigationText": "Update navigation links in the header components. The mega menu structure can be modified in Header.astro files."
+    },
+    "support": {
+      "title": "Support",
+      "resourcesTitle": "Resources",
+      "astroDocs": "Astro Documentation",
+      "lucide": "Lucide Icons",
+      "globalStylesRef": "Global Styles Reference",
+      "featuresTitle": "Template Features",
+      "featuresList": {
+        "responsive": "✅ Responsive design",
+        "modernCss": "✅ Modern CSS with custom properties",
+        "componentArch": "✅ Component-based architecture",
+        "seo": "✅ SEO optimized",
+        "fast": "✅ Fast static generation",
+        "noFramework": "✅ No JavaScript framework required"
+      }
+    }
+  }
+  ,
+  "componentsDashboard": {
+    "title": "Components",
+    "groups": {
+      "elements": "Elements",
+      "sections": "Sections"
+    }
+  },
+  "sections": {
+    "heroes": { "label": "Hero Sections" },
+    "headers": { "label": "Headers" },
+    "footers": { "label": "Footers" },
+    "buttons": { "label": "Buttons" },
+    "badges": { "label": "Badges" },
+    "pills": { "label": "Pills" },
+    "cards": { "label": "Cards" },
+    "features": { "label": "Feature Sections" },
+    "ctas": { "label": "CTA Sections" },
+    "pricing": { "label": "Pricing Sections" },
+    "faqs": { "label": "FAQ Sections" },
+    "testimonials": { "label": "Testimonials" },
+    "services": { "label": "Services" },
+    "logo-clouds": { "label": "Logo Clouds" },
+    "gallery": { "label": "Gallery" },
+    "errors": { "label": "Errors" }
+  }
+}
+
+

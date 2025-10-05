@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ComponentsLayout from '../../../layouts/ComponentsLayout.astro';
+import HeroesView from '../../heroes/index.astro';
+import FeaturesView from '../../features/index.astro';
+import CtasView from '../../ctas/index.astro';
+import PricingView from '../../pricing/index.astro';
+import FaqsView from '../../faqs/index.astro';
+import TestimonialsPreview from '../../../components/previews/testimonials/Preview.astro';
+import ServicesView from '../../services/index.astro';
+import LogoCloudsView from '../../logo-clouds/index.astro';
+import GalleryView from '../../gallery/index.astro';
+import HeadersView from '../../headers/index.astro';
+import FootersView from '../../footers/index.astro';
+import ButtonsView from '../../buttons/index.astro';
+import BadgesView from '../../badges/index.astro';
+import PillsView from '../../pills/index.astro';
+import CardsView from '../../cards/index.astro';
+import ErrorsView from '../../errors/index.astro';
+import { SECTIONS, type Section } from '../../../data/sections';
+import { LOCALES, type Locale, loadT } from '../../../i18n';
+
+const { lang, section } = Astro.params as { lang: Locale; section: string };
+const t = await loadT(lang);
+const key = (section || '').toLowerCase();
+const validLang = (LOCALES as readonly string[]).includes(lang);
+const validSection = SECTIONS.includes(key as Section);
+if (!validLang || !validSection) {
+  return Astro.redirect('/es/components/heroes');
+}
+
+const views: Record<Section, any> = {
+  heroes: HeroesView,
+  headers: HeadersView,
+  footers: FootersView,
+  buttons: ButtonsView,
+  badges: BadgesView,
+  pills: PillsView,
+  cards: CardsView,
+  features: FeaturesView,
+  ctas: CtasView,
+  pricing: PricingView,
+  faqs: FaqsView,
+  testimonials: TestimonialsPreview,
+  services: ServicesView,
+  'logo-clouds': LogoCloudsView,
+  gallery: GalleryView,
+  errors: ErrorsView,
+};
+
+const View = views[key as Section] ?? HeroesView;
+
+export async function getStaticPaths() {
+  const paths: { params: { lang: Locale; section: Section } }[] = [];
+  for (const L of LOCALES) {
+    for (const S of SECTIONS) {
+      paths.push({ params: { lang: L, section: S as Section } });
+    }
+  }
+  return paths;
+}
+---
+
+<BaseLayout title={`${t('header.nav.components')} | Starter UI`} description="Browse all components and sections from a clean dashboard" lang={lang}>
+  <ComponentsLayout active={key} lang={lang}>
+    <View />
+  </ComponentsLayout>
+</BaseLayout>
+

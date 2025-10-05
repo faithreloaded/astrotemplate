@@ -12,6 +12,13 @@
   }
 }
 
+/* Marquee simple para el carrusel (requiere duplicar contenido) */
+/* Marquee solo si el contenedor lo pide */
+@keyframes marquee {
+  0%   { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-50%,0,0); }
+}
+
 .testimonials-section {
   background: transparent;
   padding: 80px 0;
@@ -61,7 +68,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
-  transition-delay: 0.3s;
+  transition-delay: 0.45s; /* aparece después del subtítulo de forma escalonada */
 }
 
 .testimonials-header-carousel.animate .section-pill,
@@ -83,13 +90,12 @@
 }
 
 
-/* ===== CARRUSEL INFINITO ===== */
+/* ===== CARRUSEL ===== */
 
 .carousel {
   position: relative;
   overflow: hidden;
   width: 100%;
-  /* opcional: altura mínima para ver tarjetas */
   min-height: 160px;
   margin-bottom: 24px;
   opacity: 0;
@@ -108,15 +114,27 @@
 
 .carousel-track {
   display: flex;
-  /* usa gap; el JS leerá este valor para reciclar sin saltos */
   column-gap: 24px;
+}
+
+.marquee .carousel-track {
   will-change: transform;
-  transform: translate3d(0,0,0);
+  animation: marquee var(--dur, 30s) linear infinite;
+}
+
+/* Dirección RTL */
+.marquee .carousel-track.dir-rtl { animation-direction: reverse; }
+/* Hijos en línea, sin salto */
+.carousel-track > * { flex: 0 0 auto; }
+
+/* Pausa en hover */
+.carousel:hover .carousel-track {
+  animation-play-state: paused;
 }
 
 .card {
-  flex: 0 0 auto;         /* no romper línea */
-  width: 350px;           /* o auto, pero fija es más estable */
+  flex: 0 0 auto;
+  width: 350px;
 }
 
 /* Testimonial Cards */
@@ -125,7 +143,7 @@
   border-radius: 12px;
   padding: 24px;
   border: 1px solid transparent;
-  transition: all 0.4s ease;
+  transition: background 0.2s ease;
   opacity: 1;
   transform: translateY(0);
   height: 100%;
@@ -143,9 +161,9 @@
   z-index: 1;
 }
 
+/* Solo la card en hover se oscurece */
 .testimonial-card:hover {
-  background: var(--color-hover);
-  transition: background 0.2s ease;
+  background: #e1e1e1; /* más oscuro */
 }
 
 .testimonial-card.animate {
@@ -198,7 +216,6 @@
 
 /* Card Content */
 .testimonial-content {
-  /* Sin estilos adicionales */
 }
 
 .testimonial-text {
@@ -227,73 +244,22 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .testimonials-section {
-    padding: 60px 0;
-  }
-  
-  .section-subtitle-carousel {
-    font-size: 16px;
-    line-height: 24px;
-    margin: var(--space-1) 0 var(--space-1) 0;
-  }
-  
-  .card {
-    width: 300px;
-  }
-  
-  .testimonial-card {
-    padding: 20px;
-  }
-  
-  .testimonial-header {
-    gap: 10px;
-  }
-  
-  .testimonial-avatar {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .testimonial-name {
-    font-size: 15px;
-  }
-  
-  .testimonial-role {
-    font-size: 12px;
-  }
-  
-  .testimonial-text {
-    font-size: 14px;
-    line-height: 20px;
-  }
-  
-  .testimonial-stars {
-    top: 12px;
-    right: 12px;
-    font-size: 10px;
-  }
-  
-  .carousel {
-    margin-bottom: 20px;
-  }
-  
-  .carousel::before,
-  .carousel::after {
-    width: 60px;
-  }
+  .testimonials-section { padding: 60px 0; }
+  .section-subtitle-carousel { font-size: 16px; line-height: 24px; margin: var(--space-1) 0 var(--space-1) 0; }
+  .card { width: 300px; }
+  .testimonial-card { padding: 20px; }
+  .testimonial-header { gap: 10px; }
+  .testimonial-avatar { width: 40px; height: 40px; }
+  .testimonial-name { font-size: 15px; }
+  .testimonial-role { font-size: 12px; }
+  .testimonial-text { font-size: 14px; line-height: 20px; }
+  .testimonial-stars { top: 12px; right: 12px; font-size: 10px; }
+  .carousel { margin-bottom: 20px; }
+  .carousel::before, .carousel::after { width: 60px; }
 }
 
 @media (max-width: 480px) {
-  .card {
-    width: 280px;
-  }
-  
-  .carousel {
-    margin-bottom: 16px;
-  }
-  
-  .carousel::before,
-  .carousel::after {
-    width: 40px;
-  }
+  .card { width: 280px; }
+  .carousel { margin-bottom: 16px; }
+  .carousel::before, .carousel::after { width: 40px; }
 }

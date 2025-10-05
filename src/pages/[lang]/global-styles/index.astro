@@ -1,0 +1,14 @@
+---
+import { LOCALES, type Locale } from '../../../i18n';
+import BasePage from '../../../pages/global-styles/index.astro';
+
+export function getStaticPaths() {
+  return (LOCALES as readonly string[]).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+---
+
+<BasePage lang={lang} />
+
+

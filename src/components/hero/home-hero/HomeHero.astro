@@ -1,0 +1,58 @@
+---
+import './HomeHero.css';
+---
+
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="pill">New</span>
+        <h1 class="hero-title">Code less, build faster.</h1>
+        <p class="hero-description">A clean component kit for developers who want speed and good taste.</p>
+        <div class="hero-cta-container">
+          <a href="#" class="btn btn-primary">Get started</a>
+          <a href="#" class="btn btn-secondary">View components</a>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <article class="simple-servicio-card">
+          <img class="simple-card-bg" src="/images/images/placeholder/placeholder.jpg" alt="Premium Components" />
+          <div class="simple-card-overlay-bottom">
+            <div class="simple-card-row">
+              <h4 class="simple-card-heading">Premium Components</h4>
+              <div class="simple-price-pill">199€</div>
+            </div>
+            <p class="simple-card-description">Access to our complete library of clean, responsive components with lifetime updates</p>
+            <div class="simple-card-tags">
+              <span class="simple-tag">Components</span>
+              <span class="simple-tag">Lifetime</span>
+            </div>
+            <button class="simple-card-cta">Get Started</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Restaurar animación al entrar en viewport
+  document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero-section');
+    const card = document.querySelector('.hero-section .simple-servicio-card');
+    if (!hero) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          hero.classList.add('animate');
+          if (card) card.classList.add('animate');
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(hero);
+  });
+</script>
+
+

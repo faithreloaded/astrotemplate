@@ -1,39 +1,55 @@
 ---
-import "./Header.css";
+import './Header.css';
 import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
+import { loadT, getLangFromUrl, type Locale } from '../../../i18n';
+interface Props { lang?: Locale }
+const { lang: langProp } = Astro.props as Props;
+const lang: Locale = langProp ?? getLangFromUrl(Astro.url);
+const t = await loadT(lang);
+const path = Astro.url.pathname.replace(/^\/\/(es|en)/,'') || '/';
+const toES = `/es${Astro.url.pathname.replace(/^\/(es|en)/,'') || '/'}`;
+const toEN = `/en${Astro.url.pathname.replace(/^\/(es|en)/,'') || '/'}`;
+const prefix = `/${lang}`;
 ---
 
-<header class="header-mega">
+<header class="header-mega" data-lang={lang}>
   <div class="container">
     <div class="header-mega-content">
       <div class="logo">
-        <a href="/">
+        <a href={`${prefix}/`}>
           <img src="/images/logo.svg" alt="Logo" class="logo-img" />
         </a>
       </div>
       
       <nav class="nav-mega desktop-nav">
         <div class="nav-item-mega">
-          <a href="/" class="nav-link-mega">Home</a>
+          <a href={`${prefix}/`} class="nav-link-mega">{t('header.nav.home')}</a>
         </div>
         
         <div class="nav-item-mega">
-          <a href="/components/heroes" class="nav-link-mega">Components</a>
+          <a href={`${prefix}/components`} class="nav-link-mega">{t('header.nav.components')}</a>
         </div>
         
         <div class="nav-item-mega">
-          <a href="/global-styles" class="nav-link-mega">Global Styles</a>
+          <a href={`${prefix}/global-styles`} class="nav-link-mega">{t('header.nav.globalStyles')}</a>
         </div>
         
         <div class="nav-item-mega">
-          <a href="/docs" class="nav-link-mega">Docs</a>
+          <a href={`${prefix}/docs`} class="nav-link-mega">{t('header.nav.docs')}</a>
         </div>
       </nav>
       
       <div class="header-mega-actions">
+        <div class="lang-toggle" aria-label="Language selector">
+          <div class="lang-switch" data-active={lang.toUpperCase()} id="lang-switch">
+            <div class="lang-highlight" aria-hidden="true"></div>
+            <a class="lang-option" href={toES} aria-pressed={lang==='es'} data-lang="ES">ES</a>
+            <a class="lang-option" href={toEN} aria-pressed={lang==='en'} data-lang="EN">EN</a>
+          </div>
+        </div>
         <div class="buy-desktop">
-          <ButtonPrimary href="/buy">
-            Buy Template
+          <ButtonPrimary href={`${prefix}/buy`}>
+            {t('header.actions.buy')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M7 17L17 7M17 7H7M17 7V17"/>
             </svg>
@@ -60,14 +76,14 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
         </button>
       </div>
       <div class="mobile-nav-links">
-        <a href="/" class="mobile-nav-link">Home</a>
-        <a href="/components/heroes" class="mobile-nav-link">Components</a>
-        <a href="/global-styles" class="mobile-nav-link">Global Styles</a>
-        <a href="/docs" class="mobile-nav-link">Docs</a>
+        <a href={`${prefix}/`} class="mobile-nav-link">{t('header.nav.home')}</a>
+        <a href={`${prefix}/components`} class="mobile-nav-link">{t('header.nav.components')}</a>
+        <a href={`${prefix}/global-styles`} class="mobile-nav-link">{t('header.nav.globalStyles')}</a>
+        <a href={`${prefix}/docs`} class="mobile-nav-link">{t('header.nav.docs')}</a>
       </div>
       <div class="mobile-nav-footer">
-        <ButtonPrimary href="/buy">
-          Buy Template
+        <ButtonPrimary href={`${prefix}/buy`}>
+          {t('header.actions.buy')}
         </ButtonPrimary>
       </div>
     </nav>
@@ -95,14 +111,9 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
   }
 
   if (menuToggle && mobileNav && mobileOverlay && mobileClose) {
-    // Desactivar transiciones durante la inicialización para evitar flashes
     mobileNav.classList.add('no-transition');
     mobileOverlay.classList.add('no-transition');
-
-    // Asegurar estado inicial cerrado para evitar flashes
     closeMenu();
-
-    // Rehabilitar transiciones tras el primer frame
     requestAnimationFrame(() => {
       mobileNav.classList.remove('no-transition');
       mobileOverlay.classList.remove('no-transition');
@@ -118,14 +129,32 @@ import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
     mobileClose.addEventListener('click', closeMenu);
     mobileOverlay.addEventListener('click', closeMenu);
 
-    // Close menu when clicking on links
     const mobileLinks = mobileNav.querySelectorAll('.mobile-nav-link');
     mobileLinks.forEach(link => {
       link.addEventListener('click', closeMenu);
     });
-    // Cerrar de forma defensiva ante eventos de navegación/carga
     window.addEventListener('pageshow', closeMenu);
     window.addEventListener('load', closeMenu);
     window.addEventListener('beforeunload', closeMenu);
+  }
+
+  // Animación del toggle de idioma antes de navegar
+  const langSwitch = document.getElementById('lang-switch');
+  if (langSwitch) {
+    const options = langSwitch.querySelectorAll('.lang-option');
+    options.forEach((opt) => {
+      opt.addEventListener('click', (e) => {
+        const href = (opt as HTMLAnchorElement).getAttribute('href');
+        const targetLang = opt.getAttribute('data-lang');
+        if (!href || !targetLang) return;
+        e.preventDefault();
+        // Mover la pastilla
+        langSwitch.setAttribute('data-active', targetLang);
+        // Navegar tras la animación
+        setTimeout(() => {
+          window.location.assign(href);
+        }, 140);
+      });
+    });
   }
 </script>

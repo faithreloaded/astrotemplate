@@ -1,11 +1,16 @@
 ---
-import '../../styles/main.css';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeaderMega from '../../components/header/header-mega/Header.astro';
-import FooterGrid from '../../components/footer/footer-grid/Footer.astro';
-import './_docs.css';
-import { getLangFromUrl, loadT, type Locale } from '../../i18n';
-const lang: Locale = getLangFromUrl(Astro.url);
+import '../../../styles/main.css';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeaderMega from '../../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../../components/footer/footer-grid/Footer.astro';
+import '../../docs/_docs.css';
+import { LOCALES, type Locale, loadT } from '../../../i18n';
+
+export function getStaticPaths() {
+  return (LOCALES as readonly string[]).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
 const t = await loadT(lang);
 ---
 
@@ -227,7 +232,7 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
               <ul>
                 <li><a href="https://docs.astro.build/" target="_blank">{t('docs.support.astroDocs')}</a></li>
                 <li><a href="https://lucide.dev/" target="_blank">{t('docs.support.lucide')}</a></li>
-                <li><a href="/global-styles">{t('docs.support.globalStylesRef')}</a></li>
+                <li><a href={`/${lang}/global-styles`}>{t('docs.support.globalStylesRef')}</a></li>
               </ul>
             </div>
 
@@ -252,7 +257,6 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
   <FooterGrid />
 </BaseLayout>
 
-
 <script>
   // Smooth scroll and active navigation
   document.addEventListener('DOMContentLoaded', function() {
@@ -263,14 +267,16 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
     navLinks.forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        
-        if (targetSection) {
-          targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+        const targetId = this.getAttribute('href')?.substring(1);
+        if (targetId) {
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
         }
       });
     });
@@ -279,10 +285,13 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
     function updateActiveNav() {
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
+        const sectionTop = (section as HTMLElement).offsetTop - 150;
         const sectionHeight = section.clientHeight;
         if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-          current = section.getAttribute('id');
+          const sectionId = section.getAttribute('id');
+          if (sectionId) {
+            current = sectionId;
+          }
         }
       });
 
