@@ -1,0 +1,364 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeaderMega from '../../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../../components/footer/footer-grid/Footer.astro';
+import { LOCALES, type Locale, loadT } from '../../../i18n';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  return (LOCALES as readonly string[]).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+const t = await loadT(lang);
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((p) => p.id.startsWith(`${lang}/`))
+  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date));
+
+console.log('Posts found:', posts.length);
+console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
+---
+
+<BaseLayout title={`${lang==='es' ? 'Blog' : 'Blog'} | Starter UI`} description={lang==='es' ? 'Artículos y novedades' : 'Articles and updates'} lang={lang}>
+  <HeaderMega lang={lang} />
+  <main class="main">
+    <div class="container blog-list">
+      <header class="blog-header">
+        <h1 class="blog-title">{lang==='es' ? 'Blog' : 'Blog'}</h1>
+        <p class="blog-sub">{lang==='es' ? 'Artículos y novedades' : 'Articles and updates'}</p>
+            <div class="blog-filters">
+              <button class="chip">{lang==='es' ? 'Todos' : 'All'}</button>
+              <button class="chip">{lang==='es' ? 'Diseño' : 'Design'}</button>
+              <button class="chip">{lang==='es' ? 'Código' : 'Code'}</button>
+            </div>
+      </header>
+
+          <section class="latest">
+            <h3 class="latest-title">{lang==='es' ? 'Últimos posts' : 'Latest posts'}</h3>
+            <div class="latest-grid">
+              {posts.length > 0 ? Array.from({ length: 3 }, (_, index) => {
+                const post = posts[0]; // Usar el primer (y único) post
+                return (
+                  <a class="blog-card" href={`/${lang}/blog/${post.slug.replace(`${lang}/`, '')}`} key={index}>
+                    <img class="blog-card-bg" src={post.data.image || "/images/images/placeholder/placeholder.jpg"} alt={post.data.title} />
+                    <div class="blog-card-overlay-bottom">
+                      <div class="blog-card-row">
+                        <h4 class="blog-card-heading">{post.data.title}</h4>
+                        <div class="blog-date-pill">{new Date(post.data.date).toLocaleDateString(lang)}</div>
+                      </div>
+                      <p class="blog-card-description">{post.data.excerpt}</p>
+                      <div class="blog-card-tags">
+                        <span class="blog-tag">{lang==='es' ? 'Blog' : 'Blog'}</span>
+                        <span class="blog-tag">{lang==='es' ? 'Artículo' : 'Article'}</span>
+                      </div>
+                      <button class="blog-card-cta">{lang==='es' ? 'Leer más' : 'Read more'}</button>
+                    </div>
+                  </a>
+                );
+              }) : (
+                <div class="no-posts">
+                  <p>{lang==='es' ? 'No hay posts disponibles' : 'No posts available'}</p>
+                </div>
+              )}
+            </div>
+          </section>
+    </div>
+  </main>
+  <FooterGrid />
+</BaseLayout>
+
+    <style>
+      .blog-list { 
+        padding: var(--space-8) 0; 
+        min-height: 60vh;
+      }
+      
+      .blog-header { 
+        text-align: center; 
+        margin-bottom: var(--space-8); 
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .blog-title { 
+        font-size: clamp(32px, 5vw, 48px); 
+        font-weight: 400; 
+        margin: 0 0 var(--space-3) 0; 
+        color: var(--color-black);
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+      
+  .blog-sub { 
+    color: var(--color-text); 
+    margin: 0 0 var(--space-6) 0; 
+    font-size: 18px;
+    line-height: 1.5;
+  }
+      
+      .blog-filters { 
+        display: flex; 
+        gap: var(--space-1); 
+        justify-content: center; 
+        flex-wrap: wrap;
+      }
+      
+      .chip { 
+        border: 1px solid var(--color-border); 
+        background: transparent; 
+        padding: var(--space-1) var(--space-3); 
+        border-radius: 16px; 
+        font-size: 12px; 
+        cursor: pointer; 
+        transition: all 0.2s ease;
+        color: var(--color-text-secondary);
+        font-weight: 500;
+      }
+      
+      .chip:hover {
+        background: var(--color-container);
+        color: var(--color-text);
+        border-color: var(--color-text-muted);
+      }
+
+      .latest { 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 var(--space-4);
+        margin-top: var(--space-6);
+      }
+      
+      .latest-title { 
+        font-size: 24px; 
+        font-weight: 400; 
+        margin: 0 0 var(--space-6) 0; 
+        color: var(--color-black);
+        text-align: center;
+      }
+      
+      .latest-grid { 
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 24px; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        align-items: stretch;
+      }
+      
+      .blog-card { 
+        position: relative;
+        border-radius: 18px;
+        overflow: hidden;
+        background: #0b0b0c;
+        min-height: 400px;
+        width: 100%;
+        flex-shrink: 0;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+        display: block;
+      }
+      
+      .blog-card:hover { 
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      }
+      
+      .blog-card-bg { 
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .blog-card:hover .blog-card-bg {
+        transform: scale(1.05);
+      }
+      
+      .blog-card:hover .blog-card-overlay-bottom {
+        bottom: 0;
+      }
+      
+      .blog-card-overlay-bottom {
+        position: absolute;
+        bottom: -60px;
+        left: 0;
+        right: 0;
+        background: rgba(10,10,11,0.30);
+        border-top: 1px solid rgba(255,255,255,0.35);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 16px;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        min-height: 240px;
+        text-align: left;
+        transition: bottom 0.4s ease;
+      }
+      
+      .blog-card-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      
+      .blog-card-heading {
+        margin: 0 0 12px 0;
+        color: white;
+        font-size: 24px;
+        font-weight: 300;
+      }
+      
+      .blog-date-pill {
+        color: white;
+        background: rgba(0,0,0,0.35);
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-weight: var(--font-weight-light);
+        font-size: 14px;
+        backdrop-filter: blur(3px);
+      }
+      
+      .blog-card-description {
+        margin: 0 0 16px 0;
+        color: rgba(240,240,240,0.85);
+        font-size: 14px;
+        line-height: 1.35;
+        font-weight: var(--font-weight-light);
+      }
+      
+      .blog-card-tags {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 16px;
+        justify-content: flex-start;
+      }
+      
+      .blog-tag {
+        color: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.14);
+        border-radius: 10px;
+        padding: 0 10px;
+        font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+        height: 32px;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      
+      .blog-card-cta {
+        width: calc(100% - 32px);
+        background: white;
+        color: black;
+        font-weight: 400;
+        font-size: 14px;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 16px;
+        cursor: pointer;
+        margin-top: auto;
+        transition: filter 0.2s ease;
+      }
+      
+      .blog-card-cta:hover {
+        filter: brightness(0.95);
+      }
+      
+      .no-posts { 
+        text-align: center; 
+        padding: var(--space-8); 
+        color: var(--color-text-muted); 
+        font-size: 16px;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) { 
+        .latest-grid { 
+          grid-template-columns: repeat(2, 1fr); 
+          gap: 20px;
+        }
+        .blog-list { 
+          padding: var(--space-6) 0; 
+        }
+      }
+      
+      @media (max-width: 768px) { 
+        .latest-grid { 
+          grid-template-columns: 1fr; 
+          gap: 16px;
+        }
+        .blog-header { 
+          margin-bottom: var(--space-8); 
+        }
+        .blog-title { 
+          font-size: 36px; 
+        }
+        .blog-sub { 
+          font-size: 16px; 
+        }
+        .blog-card {
+          min-height: 360px;
+        }
+        .blog-card-overlay-bottom {
+          min-height: 200px;
+          padding: 12px;
+          bottom: 0;
+        }
+        .blog-card-heading {
+          font-size: 20px;
+        }
+        .blog-card-description {
+          font-size: 13px;
+        }
+        .blog-card-cta {
+          font-size: 13px;
+          padding: 10px 14px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .blog-list { 
+          padding: var(--space-4) 0; 
+        }
+        .latest { 
+          padding: 0 var(--space-3);
+          margin-top: var(--space-4);
+        }
+        .blog-card {
+          min-height: 340px;
+        }
+        .blog-card-overlay-bottom {
+          min-height: 180px;
+          padding: 10px;
+          bottom: 0;
+        }
+        .blog-card-heading {
+          font-size: 18px;
+        }
+        .blog-card-description {
+          font-size: 12px;
+        }
+        .blog-card-cta {
+          font-size: 12px;
+          padding: 8px 12px;
+        }
+        .blog-filters { 
+          gap: var(--space-1);
+        }
+        .chip { 
+          padding: 6px var(--space-2); 
+          font-size: 11px;
+        }
+      }
+    </style>
+

@@ -1,0 +1,91 @@
+---
+title: "Hello World"
+date: 2025-10-05
+excerpt: "A minimal MDX post to validate the blog system in English."
+image: "/images/images/placeholder/placeholder.jpg"
+translations:
+  es: "hola-mundo"
+---
+
+Welcome to the new blog system. This is a dummy post in English.
+
+## Welcome to the New System
+
+This is a fully functional blog system built with Astro and MDX. It allows you to create rich content with integrated components and complete multi-language support.
+
+### Key Features
+
+- **Multi-language support**: Works perfectly in Spanish and English
+- **MDX content**: You can write rich content with components
+- **Responsive**: Adapts to all devices
+- **SEO optimized**: Correct titles and metadata
+
+## MDX
+
+You can write content in MDX and include components if needed. The system is designed to be flexible and easy to use.
+
+### Folder Structure
+
+The blog system is organized in a very simple way:
+
+```
+src/content/blog/
+├── en/           # English posts
+│   └── hello-world.mdx
+└── es/           # Spanish posts
+    └── hola-mundo.mdx
+```
+
+### Language Configuration
+
+Each post has translation metadata that enables navigation between languages:
+
+```javascript
+// In each post's frontmatter
+---
+title: "Hello World"
+date: 2025-10-05
+excerpt: "A test entry in English"
+translations:
+  es: "hola-mundo"  # Slug of the Spanish post
+---
+```
+
+### Routing System
+
+Routes are automatically generated based on the folder structure:
+
+```javascript
+// Automatically generated routes
+/es/blog/hola-mundo    // Spanish post
+/en/blog/hello-world   // English post
+/es/blog              // Spanish posts list
+/en/blog              // English posts list
+```
+
+### Components and Styles
+
+The system uses reusable components and consistent styles:
+
+```javascript
+// Blog card component
+<BlogCard 
+  title={post.data.title}
+  excerpt={post.data.excerpt}
+  date={post.data.date}
+  image={post.data.image}
+  slug={post.slug}
+/>
+```
+
+### Key Features
+
+- **Multi-language**: Full support for Spanish and English
+- **MDX**: Rich content with integrated components
+- **Responsive**: Automatic adaptation to all devices
+- **SEO**: Optimized metadata for search engines
+- **Navigation**: Automatic translation system between posts
+
+This is just the beginning of what you can do with this blog system.
+
+

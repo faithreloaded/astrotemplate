@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeaderMega from '../../../components/header/header-mega/Header.astro';
+import FooterGrid from '../../../components/footer/footer-grid/Footer.astro';
+import { getCollection } from 'astro:content';
+import { LOCALES, type Locale, loadT } from '../../../i18n';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { 
+      lang: entry.id.split('/')[0] as Locale, 
+      slug: entry.slug.split('/')[1] 
+    },
+  }));
+}
+
+const { lang, slug } = Astro.params as { lang: Locale; slug: string };
+const t = await loadT(lang);
+
+const allPosts = await getCollection('blog');
+const post = allPosts.filter(p => p.id === `${lang}/${slug}.mdx`);
+if (!post || post.length === 0) {
+  return Astro.redirect(`/${lang}/blog`, 301);
+}
+
+const { Content } = await post[0].render();
+const postData = post[0].data;
+---
+
+<BaseLayout title={`Blog | ${postData.title}`} description={postData.excerpt} lang={lang}>
+  <HeaderMega lang={lang} />
+  <main class="main">
+    <div class="container">
+      <article class="blog-post">
+        <header class="post-header">
+          <h1 class="post-title">{postData.title}</h1>
+          <p class="post-excerpt">{postData.excerpt}</p>
+          <div class="post-meta">
+            <time datetime={postData.date.toISOString()}>{postData.date.toLocaleDateString(lang)}</time>
+          </div>
+          {postData.image && (
+            <div class="post-image-container">
+              <img src={postData.image} alt={postData.title} class="post-image" />
+            </div>
+          )}
+        </header>
+        <div class="post-content">
+          <Content />
+        </div>
+        <div class="post-footer">
+          <a href={`/${lang}/blog`} class="back-to-blog">&larr; {lang==='es' ? 'Volver al blog' : 'Back to blog'}</a>
+        </div>
+      </article>
+    </div>
+  </main>
+  <FooterGrid />
+</BaseLayout>
+
+<style>
+  .blog-post { padding: var(--space-8) 0; max-width: 800px; margin: 0 auto; }
+  .post-header { text-align: center; margin-bottom: var(--space-8); }
+  .post-title { font-size: 48px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-4) 0; line-height: 1.1; letter-spacing: -0.02em; }
+  .post-excerpt { font-size: 1.125rem; color: rgba(0,0,0,0.6); margin: 0 0 var(--space-4) 0; line-height: 1.6; }
+  .post-meta { font-size: 14px; color: var(--color-text-secondary); margin-bottom: var(--space-6); }
+  .post-image-container { width: 100%; height: 400px; overflow: hidden; border-radius: var(--radius-xl); margin-top: var(--space-6); }
+  .post-image { width: 100%; height: 100%; object-fit: cover; }
+
+  .post-content {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+  
+  /* Secciones del contenido - más específico */
+  .post-content :global(p) {
+    margin-bottom: var(--space-4) !important;
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+  
+  .post-content :global(h1) { 
+    font-size: 36px !important;
+    color: var(--color-black) !important;
+    margin-top: var(--space-6) !important;
+    margin-bottom: var(--space-3) !important;
+    line-height: 1.3 !important;
+    font-weight: 400 !important;
+  }
+  
+  .post-content :global(h2) { 
+    font-size: 30px !important; 
+    color: var(--color-black) !important;
+    margin-top: var(--space-6) !important;
+    margin-bottom: var(--space-4) !important;
+    padding-bottom: var(--space-2) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+    line-height: 1.3 !important;
+    font-weight: 400 !important;
+  }
+  
+  .post-content :global(h3) { 
+    font-size: 24px !important; 
+    color: var(--color-black) !important;
+    margin-top: var(--space-5) !important;
+    margin-bottom: var(--space-3) !important;
+    line-height: 1.3 !important;
+    font-weight: 400 !important;
+  }
+  
+  .post-content :global(ul), .post-content :global(ol) { 
+    margin: var(--space-4) 0 !important; 
+    padding-left: 0 !important; 
+    list-style: none !important;
+  }
+  
+  .post-content :global(li) { 
+    margin-bottom: var(--space-3) !important; 
+    padding-left: 0 !important;
+    line-height: 1.6 !important;
+  }
+  
+  .post-content :global(a) { 
+    color: var(--color-primary) !important; 
+    text-decoration: underline !important; 
+  }
+  
+  .post-content :global(code) { 
+    background: var(--color-container) !important; 
+    padding: 2px 6px !important; 
+    border-radius: var(--radius-sm) !important; 
+    font-family: 'Monaco', monospace !important; 
+    font-size: 0.9em !important; 
+  }
+  
+  /* Estilos para bloques de código */
+  .post-content :global(pre) { 
+    background: #f6f8fa !important; 
+    border: 1px solid #d0d7de !important; 
+    border-radius: var(--radius-lg) !important; 
+    padding: var(--space-4) !important; 
+    overflow-x: auto !important; 
+    margin: var(--space-4) 0 !important; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12) !important;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+  
+  .post-content :global(pre code) {
+    background: transparent !important;
+    padding: 0 !important;
+    color: #24292f !important;
+    font-family: inherit !important;
+  }
+  
+  /* Colores de sintaxis sutiles */
+  .post-content :global(.astro-code),
+  .post-content :global(pre.astro-code) {
+    background: #f6f8fa !important;
+    color: #24292f !important;
+  }
+  
+  .post-content :global(.astro-code *),
+  .post-content :global(pre.astro-code *) {
+    color: #24292f !important;
+  }
+  
+  /* Colores específicos para elementos de código */
+  .post-content :global(.astro-code .token.comment),
+  .post-content :global(pre.astro-code .token.comment) {
+    color: #6a737d !important;
+    font-style: italic !important;
+  }
+  
+  .post-content :global(.astro-code .token.string),
+  .post-content :global(pre.astro-code .token.string) {
+    color: #0969da !important;
+  }
+  
+  .post-content :global(.astro-code .token.keyword),
+  .post-content :global(pre.astro-code .token.keyword) {
+    color: #cf222e !important;
+  }
+  
+  .post-content :global(.astro-code .token.function),
+  .post-content :global(pre.astro-code .token.function) {
+    color: #8250df !important;
+  }
+  
+  .post-content :global(.astro-code .token.number),
+  .post-content :global(pre.astro-code .token.number) {
+    color: #0550ae !important;
+  }
+  
+  /* Forzar override de todos los estilos inline */
+  .post-content :global(pre[style*="background-color"]) {
+    background: #f6f8fa !important;
+  }
+  
+  .post-content :global(pre[style*="color"]) {
+    color: #24292f !important;
+  }
+
+  .post-footer { margin-top: var(--space-8); text-align: center; }
+  .back-to-blog { display: inline-flex; align-items: center; gap: 8px; color: var(--color-primary); text-decoration: none; font-weight: 500; }
+  .back-to-blog:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .blog-post { padding: var(--space-6) 0; }
+    .post-header { margin-bottom: var(--space-6); }
+    .post-title { font-size: 36px; }
+    .post-excerpt { font-size: 1rem; }
+    .post-image-container { height: 300px; }
+    .post-content h1 { font-size: 30px; }
+    .post-content h2 { font-size: 24px; }
+    .post-content h3 { font-size: 20px; }
+  }
+</style>

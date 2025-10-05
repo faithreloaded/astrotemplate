@@ -1,0 +1,91 @@
+---
+title: "Hola Mundo"
+date: 2025-10-05
+excerpt: "Entrada de prueba en español para validar el sistema de blog."
+image: "/images/images/placeholder/placeholder.jpg"
+translations:
+  en: "hello-world"
+---
+
+Bienvenido al nuevo sistema de blog. Este es un post de prueba en español.
+
+## Bienvenido al Nuevo Sistema
+
+Este es un sistema de blog completamente funcional construido con Astro y MDX. Permite crear contenido rico con componentes integrados y soporte completo para múltiples idiomas.
+
+### Características principales
+
+- **Soporte multiidioma**: Funciona perfectamente en español e inglés
+- **Contenido MDX**: Puedes escribir contenido rico con componentes
+- **Responsive**: Se adapta a todos los dispositivos
+- **SEO optimizado**: Títulos y metadatos correctos
+
+## MDX
+
+Puedes escribir contenido en MDX e incluir componentes si lo necesitas. El sistema está diseñado para ser flexible y fácil de usar.
+
+### Estructura de carpetas
+
+El sistema de blog está organizado de manera muy sencilla:
+
+```
+src/content/blog/
+├── en/           # Posts en inglés
+│   └── hello-world.mdx
+└── es/           # Posts en español
+    └── hola-mundo.mdx
+```
+
+### Configuración de idiomas
+
+Cada post tiene metadatos de traducción que permiten la navegación entre idiomas:
+
+```javascript
+// En el frontmatter de cada post
+---
+title: "Hola Mundo"
+date: 2025-10-05
+excerpt: "Entrada de prueba en español"
+translations:
+  en: "hello-world"  # Slug del post en inglés
+---
+```
+
+### Sistema de rutas
+
+Las rutas se generan automáticamente basándose en la estructura de carpetas:
+
+```javascript
+// Rutas generadas automáticamente
+/es/blog/hola-mundo    // Post en español
+/en/blog/hello-world   // Post en inglés
+/es/blog              // Lista de posts en español
+/en/blog              // Lista de posts en inglés
+```
+
+### Componentes y estilos
+
+El sistema utiliza componentes reutilizables y estilos consistentes:
+
+```javascript
+// Componente de blog card
+<BlogCard 
+  title={post.data.title}
+  excerpt={post.data.excerpt}
+  date={post.data.date}
+  image={post.data.image}
+  slug={post.slug}
+/>
+```
+
+### Funcionalidades principales
+
+- **Multiidioma**: Soporte completo para español e inglés
+- **MDX**: Contenido rico con componentes integrados
+- **Responsive**: Adaptación automática a todos los dispositivos
+- **SEO**: Metadatos optimizados para motores de búsqueda
+- **Navegación**: Sistema de traducción automática entre posts
+
+Este es solo el comienzo de lo que puedes hacer con este sistema de blog.
+
+

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",
+    "@astrojs/mdx": "^4.0.0",
     "astro": "^5.13.8",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",

@@ -2,13 +2,46 @@
 import './Header.css';
 import ButtonPrimary from '../../buttons/primary/ButtonPrimary.astro';
 import { loadT, getLangFromUrl, type Locale } from '../../../i18n';
+import { getCollection } from 'astro:content';
+
 interface Props { lang?: Locale }
 const { lang: langProp } = Astro.props as Props;
 const lang: Locale = langProp ?? getLangFromUrl(Astro.url);
 const t = await loadT(lang);
-const path = Astro.url.pathname.replace(/^\/\/(es|en)/,'') || '/';
-const toES = `/es${Astro.url.pathname.replace(/^\/(es|en)/,'') || '/'}`;
-const toEN = `/en${Astro.url.pathname.replace(/^\/(es|en)/,'') || '/'}`;
+
+// Obtener posts para manejar traducciones del blog
+const allPosts = await getCollection('blog');
+
+// Función para manejar las rutas del blog
+function getBlogTranslationUrl(currentLang: Locale, targetLang: Locale, currentPath: string): string {
+  // Si estamos en una ruta de blog individual (/es/blog/slug o /en/blog/slug)
+  const blogMatch = currentPath.match(/^\/(es|en)\/blog\/(.+)$/);
+  if (blogMatch) {
+    const [, currentBlogLang, slug] = blogMatch;
+    
+    // Buscar el post actual para obtener sus traducciones
+    const currentPost = allPosts.find(p => p.id === `${currentBlogLang}/${slug}.mdx`);
+    
+    if (currentPost && currentPost.data.translations && currentPost.data.translations[targetLang]) {
+      // Si existe traducción, ir al post traducido
+      return `/${targetLang}/blog/${currentPost.data.translations[targetLang]}`;
+    } else {
+      // Si no hay traducción, ir al blog del idioma objetivo
+      return `/${targetLang}/blog`;
+    }
+  }
+  
+  // Si estamos en la página de blog (/es/blog o /en/blog)
+  if (currentPath.match(/^\/(es|en)\/blog\/?$/)) {
+    return `/${targetLang}/blog`;
+  }
+  
+  // Para cualquier otra ruta, cambiar solo el prefijo
+  return currentPath.replace(/^\/(es|en)/, `/${targetLang}`);
+}
+
+const toES = getBlogTranslationUrl(lang, 'es', Astro.url.pathname);
+const toEN = getBlogTranslationUrl(lang, 'en', Astro.url.pathname);
 const prefix = `/${lang}`;
 ---
 
@@ -36,6 +69,9 @@ const prefix = `/${lang}`;
         
         <div class="nav-item-mega">
           <a href={`${prefix}/docs`} class="nav-link-mega">{t('header.nav.docs')}</a>
+        </div>
+        <div class="nav-item-mega">
+          <a href={`${prefix}/blog`} class="nav-link-mega">Blog</a>
         </div>
       </nav>
       
@@ -80,6 +116,7 @@ const prefix = `/${lang}`;
         <a href={`${prefix}/components`} class="mobile-nav-link">{t('header.nav.components')}</a>
         <a href={`${prefix}/global-styles`} class="mobile-nav-link">{t('header.nav.globalStyles')}</a>
         <a href={`${prefix}/docs`} class="mobile-nav-link">{t('header.nav.docs')}</a>
+        <a href={`${prefix}/blog`} class="mobile-nav-link">Blog</a>
       </div>
       <div class="mobile-nav-footer">
         <ButtonPrimary href={`${prefix}/buy`}>
