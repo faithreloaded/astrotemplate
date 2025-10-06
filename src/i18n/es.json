@@ -77,7 +77,8 @@
       "typographyLineHeights": "Tipografía - Alturas de línea",
       "typographyFontFamily": "Tipografía - Familia",
       "spacing": "Espaciado",
-      "layout": "Layout"
+      "layout": "Layout",
+      "shadows": "Sombras (Box Shadows)"
     }
   }
   ,
@@ -225,6 +226,83 @@
     "logo-clouds": { "label": "Nubes de logos" },
     "gallery": { "label": "Galería" },
     "errors": { "label": "Errores" }
+  }
+  ,
+  "homeHero": {
+    "pill": "Nuevo",
+    "title": "Programa menos, construye más rápido.",
+    "description": "Un kit de componentes limpio para desarrolladores que valoran la velocidad y el buen gusto.",
+    "ctaPrimary": "Empezar",
+    "ctaSecondary": "Ver componentes",
+    "card": {
+      "title": "Componentes premium",
+      "price": "199€",
+      "description": "Acceso a nuestra librería completa de componentes limpios y responsivos con actualizaciones de por vida",
+      "tag1": "Componentes",
+      "tag2": "De por vida",
+      "cta": "Empezar"
+    }
+  }
+  ,
+  "homeFaq": {
+    "pill": "FAQ",
+    "title": "Preguntas frecuentes",
+    "q1": {
+      "question": "¿Qué es Starter UI?",
+      "answer": "Es una plantilla minimalista de Astro con secciones listas (Hero, Pricing, FAQ…), tokens CSS limpios y blog en MDX."
+    },
+    "q2": {
+      "question": "¿Soporta varios idiomas?",
+      "answer": "Sí. Usa i18n por carpetas (ES/EN) y diccionarios JSON estáticos. Los posts enlazan traducciones desde el frontmatter."
+    },
+    "q3": {
+      "question": "¿Puedo escribir posts en MDX?",
+      "answer": "Claro. Content Collections con MDX permiten contenido rico y validación con Zod."
+    },
+    "q4": {
+      "question": "¿Cómo personalizo el diseño?",
+      "answer": "Usa los tokens en src/styles/tokens.css (colores, espaciado, sombras, transiciones). Las secciones tienen CSS aislado."
+    }
+  }
+  ,
+  "home": {
+    "video1": {
+      "title": "Crea una landing en minutos.",
+      "description": "Mira cómo Starter UI te permite montar una landing limpia en menos de 5 minutos. Sin relleno, solo componentes listos para producción."
+    },
+    "video2": {
+      "title": "Cambia un token, cámbialo todo.",
+      "description": "Actualiza tus colores de marca una vez y verás cómo todo el diseño se adapta al instante. Starter UI está construido con tokens globales simples."
+    },
+    "video3": {
+      "title": "De la idea al componente enviado.",
+      "description": "Starter UI te da componentes limpios y reutilizables en los que puedes confiar. Enfócate en tu app, no en reinventar botones o layouts."
+    },
+    "pricing": {
+      "title": "Paga una vez, úsalo para siempre.",
+      "description": "Licencia simple para desarrolladores.",
+      "planName": "Starter UI",
+      "price": "199",
+      "currency": "€",
+      "buttonText": "Comprar ahora en Gumroad",
+      "features": [
+        "Componentes limpios y responsive",
+        "Design tokens globales",
+        "CSS fácil de personalizar",
+        "Actualizaciones de por vida incluidas"
+      ]
+    }
+  }
+  ,
+  "footer": {
+    "description": "Sitio web profesional y moderno.",
+    "linksTitle": "Enlaces",
+    "legalTitle": "Legal",
+    "privacy": "Política de privacidad",
+    "legal": "Aviso legal",
+    "contactTitle": "Contacto",
+    "credit1": "© {year} Tu Empresa, S.L. Todos los derechos reservados.",
+    "credit2": "Diseño web por "
   }
 }
 

@@ -76,11 +76,20 @@ const prefix = `/${lang}`;
       </nav>
       
       <div class="header-mega-actions">
-        <div class="lang-toggle" aria-label="Language selector">
-          <div class="lang-switch" data-active={lang.toUpperCase()} id="lang-switch">
-            <div class="lang-highlight" aria-hidden="true"></div>
-            <a class="lang-option" href={toES} aria-pressed={lang==='es'} data-lang="ES">ES</a>
-            <a class="lang-option" href={toEN} aria-pressed={lang==='en'} data-lang="EN">EN</a>
+        <div class="lang-dropdown" aria-label="Language selector" data-current={lang} id="lang-dropdown">
+          <button class="lang-button" id="lang-button" aria-haspopup="true" aria-expanded="false">
+            <svg class="lang-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18"></path>
+              <path d="M12 3a15 15 0 0 1 0 18"></path>
+              <path d="M12 21a15 15 0 0 1 0-18"></path>
+            </svg>
+            {lang.toUpperCase()}
+          </button>
+          <div class="lang-menu" id="lang-menu" role="menu">
+            <a class="lang-item" role="menuitem" href={lang==='es' ? toEN : toES}>
+              {lang==='es' ? '🇬🇧 EN' : '🇪🇸 ES'}
+            </a>
           </div>
         </div>
         <div class="buy-desktop">
@@ -175,23 +184,30 @@ const prefix = `/${lang}`;
     window.addEventListener('beforeunload', closeMenu);
   }
 
-  // Animación del toggle de idioma antes de navegar
-  const langSwitch = document.getElementById('lang-switch');
-  if (langSwitch) {
-    const options = langSwitch.querySelectorAll('.lang-option');
-    options.forEach((opt) => {
-      opt.addEventListener('click', (e) => {
-        const href = (opt as HTMLAnchorElement).getAttribute('href');
-        const targetLang = opt.getAttribute('data-lang');
-        if (!href || !targetLang) return;
-        e.preventDefault();
-        // Mover la pastilla
-        langSwitch.setAttribute('data-active', targetLang);
-        // Navegar tras la animación
-        setTimeout(() => {
-          window.location.assign(href);
-        }, 140);
-      });
+  // Dropdown de idioma simple
+  (function(){
+    const dropdown = document.getElementById('lang-dropdown');
+    const button = document.getElementById('lang-button');
+    const menu = document.getElementById('lang-menu');
+    if (!dropdown || !button || !menu) return;
+    function closeAll(){
+      dropdown.classList.remove('open');
+      button.setAttribute('aria-expanded', 'false');
+    }
+    button.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const isOpen = dropdown.classList.toggle('open');
+      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-  }
+    document.addEventListener('click', (e)=>{
+      if (!dropdown.contains(e.target as Node)) closeAll();
+    });
+    dropdown.addEventListener('mouseenter', ()=>{
+      dropdown.classList.add('open');
+      button.setAttribute('aria-expanded', 'true');
+    });
+    dropdown.addEventListener('mouseleave', ()=>{
+      closeAll();
+    });
+  })();
 </script>

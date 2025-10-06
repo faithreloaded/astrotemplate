@@ -98,14 +98,34 @@
   /* Layout */
   --max-width: 1140px;
   
+  /* Breakpoints */
+  --bp-xs: 360px;
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1536px;
+  
   /* Radios de borde */
   --radius-lg: 8px;
   
-  /* Sombras */
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* Sombras (box-shadows) */
+  --shadow-none: none;
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 2px 6px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 20px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 40px rgba(0,0,0,0.16);
+  --shadow-inset: inset 0 1px 3px rgba(0,0,0,0.08);
   
     /* Transiciones */
-    --transition: 0.3s ease;
+    --transition-xfast: 120ms ease;
+    --transition-fast: 160ms ease;
+    --transition-base: 200ms ease;
+    --transition-slow: 250ms ease;
+    --transition-xslow: 320ms ease;
+    /* Compatibilidad: token base */
+    --transition: var(--transition-base);
   }
 
 

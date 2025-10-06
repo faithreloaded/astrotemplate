@@ -1,34 +1,40 @@
 ---
 import './HomeHero.css';
+import { loadT, getLangFromUrl, type Locale } from '../../../i18n';
+
+interface Props { lang?: Locale }
+const { lang: langProp } = Astro.props as Props;
+const lang: Locale = langProp ?? getLangFromUrl(Astro.url);
+const t = await loadT(lang);
 ---
 
 <section class="hero-section">
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <span class="pill">New</span>
-        <h1 class="hero-title">Code less, build faster.</h1>
-        <p class="hero-description">A clean component kit for developers who want speed and good taste.</p>
+        <span class="pill">{t('homeHero.pill')}</span>
+        <h1 class="hero-title">{t('homeHero.title')}</h1>
+        <p class="hero-description">{t('homeHero.description')}</p>
         <div class="hero-cta-container">
-          <a href="#" class="btn btn-primary">Get started</a>
-          <a href="#" class="btn btn-secondary">View components</a>
+          <a href="#" class="btn btn-primary">{t('homeHero.ctaPrimary')}</a>
+          <a href="#" class="btn btn-secondary">{t('homeHero.ctaSecondary')}</a>
         </div>
       </div>
       
       <div class="hero-image">
         <article class="simple-servicio-card">
-          <img class="simple-card-bg" src="/images/images/placeholder/placeholder.jpg" alt="Premium Components" />
+          <img class="simple-card-bg" src="/images/images/placeholder/placeholder.jpg" alt={t('homeHero.card.title')} />
           <div class="simple-card-overlay-bottom">
             <div class="simple-card-row">
-              <h4 class="simple-card-heading">Premium Components</h4>
-              <div class="simple-price-pill">199€</div>
+              <h4 class="simple-card-heading">{t('homeHero.card.title')}</h4>
+              <div class="simple-price-pill">{t('homeHero.card.price')}</div>
             </div>
-            <p class="simple-card-description">Access to our complete library of clean, responsive components with lifetime updates</p>
+            <p class="simple-card-description">{t('homeHero.card.description')}</p>
             <div class="simple-card-tags">
-              <span class="simple-tag">Components</span>
-              <span class="simple-tag">Lifetime</span>
+              <span class="simple-tag">{t('homeHero.card.tag1')}</span>
+              <span class="simple-tag">{t('homeHero.card.tag2')}</span>
             </div>
-            <button class="simple-card-cta">Get Started</button>
+            <button class="simple-card-cta">{t('homeHero.card.cta')}</button>
           </div>
         </article>
       </div>

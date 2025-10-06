@@ -93,7 +93,7 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
       
   .blog-sub { 
     color: var(--color-text); 
-    margin: 0 0 var(--space-2) 0; 
+    margin: 0 0 var(--space-3) 0; /* un poco más de espacio antes de los filtros */
     font-size: 18px;
     line-height: 1.5;
   }
@@ -152,7 +152,7 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         border-radius: 18px;
         overflow: hidden;
         background: #0b0b0c;
-        aspect-ratio: 4 / 3; /* relación de aspecto constante */
+        aspect-ratio: 4 / 5; /* punto intermedio */
         width: 100%;
         flex-shrink: 0;
         text-decoration: none;
@@ -198,7 +198,7 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         border-bottom-right-radius: 18px;
         display: flex;
         flex-direction: column;
-        min-height: 240px;
+        min-height: 34%; /* equilibrado para el punto intermedio */
         text-align: left;
         transition: bottom 0.4s ease;
       }
@@ -294,7 +294,7 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
       
       @media (max-width: 768px) { 
         .latest-grid { 
-          grid-template-columns: 1fr; 
+          grid-template-columns: repeat(2, 1fr); 
           gap: 16px;
         }
         .blog-header { 
@@ -307,7 +307,7 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
           font-size: 16px; 
         }
         .blog-card {
-          aspect-ratio: 4 / 3;
+          aspect-ratio: 4 / 5;
         }
         .blog-card-overlay-bottom {
           min-height: 200px;
@@ -335,7 +335,7 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
           margin-top: var(--space-3);
         }
         .blog-card {
-          aspect-ratio: 4 / 3;
+          aspect-ratio: 4 / 5;
         }
         .blog-card-overlay-bottom {
           min-height: 180px;
@@ -358,6 +358,12 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         .chip { 
           padding: 6px var(--space-2); 
           font-size: 11px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .latest-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
