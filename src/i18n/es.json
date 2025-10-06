@@ -295,13 +295,13 @@
   }
   ,
   "footer": {
-    "description": "Sitio web profesional y moderno.",
+    "description": "Starter UI — kit de componentes profesional y moderno.",
     "linksTitle": "Enlaces",
     "legalTitle": "Legal",
     "privacy": "Política de privacidad",
     "legal": "Aviso legal",
     "contactTitle": "Contacto",
-    "credit1": "© {year} Tu Empresa, S.L. Todos los derechos reservados.",
+    "credit1": "© {year} Starter UI. Todos los derechos reservados.",
     "credit2": "Diseño web por "
   }
 }

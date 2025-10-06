@@ -295,13 +295,13 @@
   }
   ,
   "footer": {
-    "description": "Professional and modern website.",
+    "description": "Starter UI — professional and modern component kit.",
     "linksTitle": "Links",
     "legalTitle": "Legal",
     "privacy": "Privacy Policy",
     "legal": "Legal Notice",
     "contactTitle": "Contact",
-    "credit1": "© {year} Your Company, Inc. All rights reserved.",
+    "credit1": "© {year} Starter UI. All rights reserved.",
     "credit2": "Web design by "
   }
 }
