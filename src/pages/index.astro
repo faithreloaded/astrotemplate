@@ -1,96 +1,31 @@
 ---
-import '../styles/main.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import HeaderMega from '../components/header/header-mega/Header.astro';
-import FooterGrid from '../components/footer/footer-grid/Footer.astro';
-import HeroSplitImageRight from '../components/hero/split-image-right/Hero.astro';
-import PricingModern from '../components/pricing/modern/PricingModern.astro';
-import VideoDemo from '../components/features/video-demo/VideoDemo.astro';
-import '../components/services/simple-cards/ServicesSimpleCards.css';
-import { loadT } from '../i18n';
-import HomeHero from '../components/hero/home-hero/HomeHero.astro';
-import FAQListCenter from '../components/faq/list-center/FAQ.astro';
-
-// Set default language to English for the root page
-const lang = 'en' as const;
-const t = await loadT(lang);
+export const prerender = true;
 ---
 
-<BaseLayout 
-  title="Home | Starter UI" 
-  description="A minimal Astro boilerplate with ready-to-use sections like Hero, FAQ, and Testimonials. Build fast, clean websites with ease."
->
-  <HeaderMega lang={lang} />
-  
-  <main class="main">
-    <HomeHero />
-    
-    <VideoDemo 
-      title={t('home.video1.title')}
-      description={t('home.video1.description')}
-    />
-    
-    <VideoDemo 
-      title={t('home.video2.title')}
-      description={t('home.video2.description')}
-    />
-    
-    <VideoDemo 
-      title={t('home.video3.title')}
-      description={t('home.video3.description')}
-    />
-    
-    <PricingModern 
-      title={t('home.pricing.title')}
-      description={t('home.pricing.description')}
-      planName={t('home.pricing.planName')}
-      price={t('home.pricing.price')}
-      currency={t('home.pricing.currency')}
-      features={[
-        t('home.pricing.features.0'),
-        t('home.pricing.features.1'),
-        t('home.pricing.features.2'),
-        t('home.pricing.features.3')
-      ]}
-      buttonText={t('home.pricing.buttonText')}
-      buttonHref="#"
-      showHeader={true}
-    />
-
-    <FAQListCenter
-      pill={t('homeFaq.pill')}
-      title={t('homeFaq.title')}
-      items={[
-        { question: t('homeFaq.q1.question'), answer: t('homeFaq.q1.answer') },
-        { question: t('homeFaq.q2.question'), answer: t('homeFaq.q2.answer') },
-        { question: t('homeFaq.q3.question'), answer: t('homeFaq.q3.answer') },
-        { question: t('homeFaq.q4.question'), answer: t('homeFaq.q4.answer') }
-      ]}
-    />
-  </main>
-  
-  
-  <FooterGrid 
-    description={t('footer.description')}
-    linksTitle={t('footer.linksTitle')}
-    links={[
-      { label: t('header.nav.home'), href: '/en/' },
-      { label: t('header.nav.components'), href: '/en/components' },
-      { label: t('header.nav.globalStyles'), href: '/en/global-styles' },
-      { label: t('header.nav.docs'), href: '/en/docs' },
-      { label: 'Blog', href: '/en/blog' }
-    ]}
-    legalTitle={t('footer.legalTitle')}
-    legalLinks={[
-      { label: t('footer.privacy'), href: '/en/privacy' },
-      { label: t('footer.legal'), href: '/en/legal' }
-    ]}
-    contactTitle={t('footer.contactTitle')}
-    contactEmail="info@example.com"
-    contactPhone="+1 (555) 123-4567"
-    contactLocation="New York, USA"
-    creditLine1={t('footer.credit1')}
-    creditLine2={t('footer.credit2')}
-    creditUrl="https://example.com"
-  />
-</BaseLayout>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Starter UI</title>
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('preferredLang');
+          var nav = ((navigator && navigator.language) ? navigator.language : 'en').toLowerCase();
+          var inferred = nav.indexOf('es') === 0 ? 'es' : 'en';
+          var lang = (stored === 'es' || stored === 'en') ? stored : inferred;
+          if (lang !== 'en' && lang !== 'es') lang = 'en';
+          if (location.pathname === '/' || location.pathname === '') {
+            location.replace('/' + lang + '/');
+          }
+        } catch (e) {
+          location.replace('/en/');
+        }
+      })();
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=/en/" />
+    </noscript>
+  </head>
+  <body></body>
+</html>
