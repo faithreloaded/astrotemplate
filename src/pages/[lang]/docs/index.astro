@@ -13,239 +13,483 @@ const { lang } = Astro.params as { lang: Locale };
 const t = await loadT(lang);
 ---
 
-<BaseLayout 
-  title={t('docs.headTitle')} 
-  description={t('docs.headDescription')}
-  lang={lang}
->
+<BaseLayout title={`${t('docs.title')} | Starter UI`} description={t('docs.description')}>
   <HeaderMega lang={lang} />
   
   <main class="main">
     <div class="container">
-      <div class="docs-page">
-        <div class="page-header">
-          <h1>{t('docs.pageTitle')}</h1>
-          <p>{t('docs.pageDescription')}</p>
-        </div>
+      <div class="page-header">
+        <h1>{t('docs.title')}</h1>
+        <p>{t('docs.description')}</p>
+      </div>
 
+      <div class="docs-container">
         <div class="docs-layout">
           <!-- Sidebar Navigation -->
           <nav class="docs-sidebar">
             <div class="sidebar-content">
               <h3>{t('docs.sidebarTitle')}</h3>
               <ul class="sidebar-nav">
-                <li><a href="#getting-started" class="nav-link">{t('docs.nav.gettingStarted')}</a></li>
-                <li><a href="#project-structure" class="nav-link">{t('docs.nav.projectStructure')}</a></li>
-                <li><a href="#styling" class="nav-link">{t('docs.nav.styling')}</a></li>
-                <li><a href="#components" class="nav-link">{t('docs.nav.components')}</a></li>
-                <li><a href="#deployment" class="nav-link">{t('docs.nav.deployment')}</a></li>
-                <li><a href="#customization" class="nav-link">{t('docs.nav.customization')}</a></li>
-                <li><a href="#support" class="nav-link">{t('docs.nav.support')}</a></li>
+                <li><a href="#introduction" class="nav-link active">{lang === 'es' ? 'Introducción' : 'Introduction'}</a></li>
+                <li><a href="#installation" class="nav-link">{lang === 'es' ? 'Instalación' : 'Installation'}</a></li>
+                <li><a href="#project-structure" class="nav-link">{lang === 'es' ? 'Estructura del proyecto' : 'Project Structure'}</a></li>
+                <li><a href="#customization" class="nav-link">{lang === 'es' ? 'Personalización' : 'Customization'}</a></li>
+                <li><a href="#components" class="nav-link">{lang === 'es' ? 'Componentes' : 'Components'}</a></li>
+                <li><a href="#translations" class="nav-link">{lang === 'es' ? 'Traducciones' : 'Translations'}</a></li>
               </ul>
             </div>
           </nav>
 
           <!-- Main Content -->
           <div class="docs-content">
-            <!-- Getting Started -->
-            <section id="getting-started" class="docs-section">
-              <h2>{t('docs.gettingStarted.title')}</h2>
-            <div class="docs-card">
-              <h3>{t('docs.gettingStarted.installationTitle')}</h3>
-              <p>{t('docs.gettingStarted.installationText')}</p>
+            <!-- Introduction -->
+            <section id="introduction" class="docs-section">
+              <h2>{lang === 'es' ? 'Introducción' : 'Introduction'}</h2>
+              <hr class="section-divider">
+              
+              <h3>{lang === 'es' ? '¿Qué es Starter UI?' : 'What is Starter UI?'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Starter UI es una plantilla base para crear sitios web rápidos, modernos y fáciles de mantener con Astro. Incluye una colección de componentes listos para usar (headers, heroes, testimonios, footers, etc.) y una estructura clara para que puedas empezar a construir sin perder tiempo.'
+                  : 'Starter UI is a base template for creating fast, modern and easy-to-maintain websites with Astro. It includes a collection of ready-to-use components (headers, heroes, testimonials, footers, etc.) and a clear structure so you can start building without wasting time.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Objetivo' : 'Objective'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'El objetivo de Starter UI es que puedas crear una web profesional en horas, no en días, con un código limpio y coherente. Está pensado para desarrolladores, diseñadores y agencias que quieran centrarse en el contenido y el diseño, no en la configuración inicial.'
+                  : 'The goal of Starter UI is to let you create a professional website in hours, not days, with clean and coherent code. It\'s designed for developers, designers and agencies who want to focus on content and design, not initial setup.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Tecnologías' : 'Technologies'}</h3>
+              <ul>
+                <li>{lang === 'es' ? 'Astro como generador estático principal' : 'Astro as main static generator'}</li>
+                <li>{lang === 'es' ? 'CSS con custom properties (tokens de diseño globales)' : 'CSS with custom properties (global design tokens)'}</li>
+                <li>{lang === 'es' ? 'Sin dependencias de frameworks pesados' : 'No heavy framework dependencies'}</li>
+                <li>{lang === 'es' ? 'Compatibilidad total con Markdown y MDX' : 'Full compatibility with Markdown and MDX'}</li>
+              </ul>
+
+              <h3>{lang === 'es' ? 'Qué incluye' : 'What it includes'}</h3>
+              <ul>
+                <li>{lang === 'es' ? 'Estructura base optimizada para SEO' : 'SEO-optimized base structure'}</li>
+                <li>{lang === 'es' ? 'Componentes reutilizables y responsivos' : 'Reusable and responsive components'}</li>
+                <li>{lang === 'es' ? 'Paleta de colores y tipografía personalizable' : 'Customizable color palette and typography'}</li>
+                <li>{lang === 'es' ? 'Sistema de traducciones (ES/EN)' : 'Translation system (ES/EN)'}</li>
+                <li>{lang === 'es' ? 'Documentación y ejemplos listos para copiar y pegar' : 'Documentation and examples ready to copy and paste'}</li>
+              </ul>
+
+              <h3>{lang === 'es' ? 'Antes de empezar' : 'Before starting'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Solo necesitas tener instalado Node 18+ y un gestor de paquetes como npm o pnpm. Una vez clonado el proyecto, estarás listo para desarrollar desde el minuto uno.'
+                  : 'You only need to have Node 18+ installed and a package manager like npm or pnpm. Once you clone the project, you\'ll be ready to develop from minute one.'
+                }
+              </p>
+            </section>
+
+            <!-- Installation -->
+            <section id="installation" class="docs-section">
+              <h2>{lang === 'es' ? 'Instalación' : 'Installation'}</h2>
+              <hr class="section-divider">
+              
+              <h3>{lang === 'es' ? 'Requisitos previos' : 'Prerequisites'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Asegúrate de tener instalado:'
+                  : 'Make sure you have installed:'
+                }
+              </p>
+              <ul>
+                <li>Node.js 18 o superior</li>
+                <li>npm o pnpm</li>
+              </ul>
+              <p>
+                {lang === 'es' 
+                  ? 'Comprueba tu versión con:'
+                  : 'Check your version with:'
+                }
+              </p>
               <div class="code-block">
-                <code>git clone [repository-url]<br>
-cd astrotemplate<br>
-npm install</code>
+                <code>node -v<br>npm -v</code>
               </div>
-            </div>
-            
-            <div class="docs-card">
-              <h3>{t('docs.gettingStarted.developmentTitle')}</h3>
-              <p>{t('docs.gettingStarted.developmentText')}</p>
+
+              <h3>{lang === 'es' ? 'Clonar el proyecto' : 'Clone the project'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Copia el repositorio en tu equipo:'
+                  : 'Copy the repository to your computer:'
+                }
+              </p>
+              <div class="code-block">
+                <code>git clone https://github.com/tu-usuario/starter-ui.git<br>cd starter-ui</code>
+              </div>
+
+              <h3>{lang === 'es' ? 'Instalar dependencias' : 'Install dependencies'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Ejecuta en la raíz del proyecto:'
+                  : 'Run in the project root:'
+                }
+              </p>
+              <div class="code-block">
+                <code>npm install</code>
+              </div>
+
+              <h3>{lang === 'es' ? 'Iniciar servidor de desarrollo' : 'Start development server'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Inicia Astro en modo desarrollo:'
+                  : 'Start Astro in development mode:'
+                }
+              </p>
               <div class="code-block">
                 <code>npm run dev</code>
               </div>
-              <p>{t('docs.gettingStarted.siteAvailable')} <code>http://localhost:4321</code></p>
-            </div>
+              <p>
+                {lang === 'es' 
+                  ? 'Luego abre: http://localhost:4321'
+                  : 'Then open: http://localhost:4321'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Ahí verás la plantilla funcionando con recarga automática.'
+                  : 'There you\'ll see the template working with automatic reload.'
+                }
+              </p>
 
-            <div class="docs-card">
-              <h3>{t('docs.gettingStarted.buildTitle')}</h3>
-              <p>{t('docs.gettingStarted.buildText')}</p>
+              <h3>{lang === 'es' ? 'Generar versión de producción' : 'Build for production'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Cuando quieras compilar el sitio:'
+                  : 'When you want to compile the site:'
+                }
+              </p>
               <div class="code-block">
                 <code>npm run build</code>
               </div>
-            </div>
-          </section>
+              <p>
+                {lang === 'es' 
+                  ? 'El resultado estará en la carpeta /dist, lista para subir a tu hosting o a plataformas como Vercel, Netlify o GitHub Pages.'
+                  : 'The result will be in the /dist folder, ready to upload to your hosting or platforms like Vercel, Netlify or GitHub Pages.'
+                }
+              </p>
+            </section>
 
             <!-- Project Structure -->
             <section id="project-structure" class="docs-section">
-              <h2>{t('docs.projectStructure.title')}</h2>
-            <div class="docs-card">
-              <h3>{t('docs.projectStructure.directoryLayoutTitle')}</h3>
+              <h2>{lang === 'es' ? 'Estructura del proyecto' : 'Project Structure'}</h2>
+              <hr class="section-divider">
+              
+              <h3>{lang === 'es' ? 'Vista general' : 'Overview'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'El proyecto está pensado para que puedas moverte rápido y entender qué hace cada parte.'
+                  : 'The project is designed so you can move quickly and understand what each part does.'
+                }
+              </p>
+
               <div class="code-block">
-                <code>src/<br>
-├── components/          # Reusable components<br>
-│   ├── header/         # Header variations<br>
-│   ├── hero/           # Hero sections<br>
-│   ├── about/          # About sections<br>
-│   ├── services/       # Services sections<br>
-│   ├── testimonials/   # Testimonials<br>
-│   ├── faq/            # FAQ sections<br>
-│   ├── cta/            # Call-to-action<br>
-│   ├── footer/         # Footer variations<br>
-│   └── ...<br>
-├── layouts/            # Page layouts<br>
-├── pages/              # Astro pages<br>
-└── styles/             # Global styles<br>
-    ├── tokens.css      # Design tokens<br>
-    ├── globals.css     # Global styles<br>
-    └── main.css        # Main stylesheet</code>
+                <code>src/<br>├── components/        → {lang === 'es' ? 'Componentes reutilizables' : 'Reusable components'}<br>│   ├── header/        → {lang === 'es' ? 'Encabezados' : 'Headers'}<br>│   ├── hero/          → {lang === 'es' ? 'Portadas' : 'Heroes'}<br>│   ├── services/      → {lang === 'es' ? 'Tarjetas de servicios' : 'Service cards'}<br>│   ├── testimonials/  → {lang === 'es' ? 'Opiniones' : 'Testimonials'}<br>│   ├── faq/           → {lang === 'es' ? 'Preguntas frecuentes' : 'FAQ'}<br>│   ├── footer/        → {lang === 'es' ? 'Pies de página' : 'Footers'}<br>│   └── ...<br>│<br>├── layouts/           → {lang === 'es' ? 'Plantillas base' : 'Base templates'} (BaseLayout, ComponentsLayout…)<br>│<br>├── pages/             → {lang === 'es' ? 'Páginas principales' : 'Main pages'}<br>│   ├── index.astro    → Home<br>│   ├── [lang]/        → {lang === 'es' ? 'Versiones por idioma' : 'Language versions'} (es/en)<br>│   └── ...<br>│<br>├── styles/            → {lang === 'es' ? 'Estilos globales' : 'Global styles'}<br>│   ├── tokens.css     → {lang === 'es' ? 'Variables de color, tipografía y espaciado' : 'Color, typography and spacing variables'}<br>│   ├── globals.css    → {lang === 'es' ? 'Reglas globales' : 'Global rules'}<br>│   └── main.css       → {lang === 'es' ? 'Archivo principal' : 'Main file'}<br>│<br>└── i18n/              → {lang === 'es' ? 'Traducciones en JSON' : 'JSON translations'} (es.json / en.json)</code>
               </div>
-            </div>
-          </section>
 
-            <!-- Styling -->
-            <section id="styling" class="docs-section">
-              <h2>{t('docs.styling.title')}</h2>
-            <div class="docs-card">
-              <h3>{t('docs.styling.designTokensTitle')}</h3>
-              <p>{t('docs.styling.designTokensText')} <code>src/styles/tokens.css</code>:</p>
+              <h3>{lang === 'es' ? 'Recomendaciones' : 'Recommendations'}</h3>
               <ul>
-                <li><strong>{t('docs.styling.list.colors')}</strong> <code>--color-black</code>, <code>--color-white</code>, etc.</li>
-                <li><strong>{t('docs.styling.list.typography')}</strong> <code>--font-family</code>, <code>--font-size-*</code></li>
-                <li><strong>{t('docs.styling.list.spacing')}</strong> <code>--space-1</code> to <code>--space-8</code></li>
-                <li><strong>{t('docs.styling.list.layout')}</strong> <code>--max-width</code>, <code>--radius-lg</code></li>
+                <li>{lang === 'es' ? 'Cada componente debe tener su propio CSS.' : 'Each component should have its own CSS.'}</li>
+                <li>{lang === 'es' ? 'Los colores y tamaños deben venir de tokens.css.' : 'Colors and sizes should come from tokens.css.'}</li>
+                <li>{lang === 'es' ? 'Evita duplicar estilos, importa los globales cuando sea posible.' : 'Avoid duplicating styles, import globals when possible.'}</li>
+                <li>{lang === 'es' ? 'Si cambias el idioma o la estructura, hazlo siempre desde /[lang]/... para mantener el orden.' : 'If you change language or structure, always do it from /[lang]/... to maintain order.'}</li>
               </ul>
-            </div>
-
-            <div class="docs-card">
-              <h3>{t('docs.styling.globalClassesTitle')}</h3>
-              <p>{t('docs.styling.globalClassesText')}</p>
-              <ul>
-                <li><strong>{t('docs.styling.globalList.buttons')}</strong> <code>.btn-primary</code>, <code>.btn-secondary</code>, <code>.btn-link</code></li>
-                <li><strong>{t('docs.styling.globalList.pills')}</strong> <code>.section-pill</code>, <code>.pill-outline</code></li>
-                <li><strong>{t('docs.styling.globalList.layout')}</strong> <code>.container</code>, <code>.section</code></li>
-                <li><strong>{t('docs.styling.globalList.typography')}</strong> <code>.section-title</code></li>
-              </ul>
-            </div>
-
-            <div class="docs-card">
-              <h3>{t('docs.styling.customizationTitle')}</h3>
-              <p>{t('docs.styling.customizationText')}</p>
-              <ol>
-                <li>{t('docs.styling.customizationSteps.s1')} <code>tokens.css</code></li>
-                <li>{t('docs.styling.customizationSteps.s2')}</li>
-                <li>{t('docs.styling.customizationSteps.s3')} <code>globals.css</code></li>
-              </ol>
-            </div>
-          </section>
-
-            <!-- Components -->
-            <section id="components" class="docs-section">
-              <h2>{t('docs.components.title')}</h2>
-            <div class="docs-card">
-              <h3>{t('docs.components.usingComponentsTitle')}</h3>
-              <p>{t('docs.components.usingComponentsText')}</p>
-              <div class="code-block">
-                <code>---<br>
-import HeaderMega from '../components/header/header-mega/Header.astro';<br>
-import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.astro';<br>
----<br><br>
-&lt;HeaderMega /&gt;<br>
-&lt;SimpleCentered /&gt;</code>
-              </div>
-            </div>
-
-            <div class="docs-card">
-              <h3>{t('docs.components.availableSectionsTitle')}</h3>
-              <ul>
-                <li><strong>{t('docs.components.availableList.headers')}</strong></li>
-                <li><strong>{t('docs.components.availableList.heroes')}</strong></li>
-                <li><strong>{t('docs.components.availableList.about')}</strong></li>
-                <li><strong>{t('docs.components.availableList.services')}</strong></li>
-                <li><strong>{t('docs.components.availableList.testimonials')}</strong></li>
-                <li><strong>{t('docs.components.availableList.faq')}</strong></li>
-                <li><strong>{t('docs.components.availableList.cta')}</strong></li>
-                <li><strong>{t('docs.components.availableList.footers')}</strong></li>
-              </ul>
-            </div>
-          </section>
-
-            <!-- Deployment -->
-            <section id="deployment" class="docs-section">
-              <h2>{t('docs.deployment.title')}</h2>
-            <div class="docs-card">
-              <h3>{t('docs.deployment.staticHostingTitle')}</h3>
-              <p>{t('docs.deployment.staticHostingText')}</p>
-              <ul>
-                <li><strong>{t('docs.deployment.list.vercel')}</strong></li>
-                <li><strong>{t('docs.deployment.list.netlify')}</strong> <code>dist</code></li>
-                <li><strong>{t('docs.deployment.list.ghpages')}</strong></li>
-                <li><strong>{t('docs.deployment.list.any')}</strong> <code>dist</code></li>
-              </ul>
-            </div>
-
-            <div class="docs-card">
-              <h3>{t('docs.deployment.buildOutputTitle')}</h3>
-              <p>{t('docs.deployment.buildOutputText')} <code>dist</code>.</p>
-            </div>
-
-            <div class="docs-card">
-              <h3>{t('docs.deployment.envTitle')}</h3>
-              <p>{t('docs.deployment.envText')}</p>
-            </div>
-          </section>
+            </section>
 
             <!-- Customization -->
             <section id="customization" class="docs-section">
-              <h2>{t('docs.customization.title')}</h2>
-            <div class="docs-card">
-              <h3>{t('docs.customization.contentTitle')}</h3>
-              <p>{t('docs.customization.contentText')}</p>
-            </div>
+              <h2>{lang === 'es' ? 'Personalización' : 'Customization'}</h2>
+              <hr class="section-divider">
+              
+              <p>
+                {lang === 'es' 
+                  ? 'La plantilla Starter UI está pensada para que puedas adaptarla a tu estilo sin romper nada del diseño base. Todo se organiza con variables CSS (tokens) y archivos bien estructurados que te permiten cambiar colores, tipografías y espaciados fácilmente.'
+                  : 'The Starter UI template is designed so you can adapt it to your style without breaking the base design. Everything is organized with CSS variables (tokens) and well-structured files that allow you to easily change colors, typography and spacing.'
+                }
+              </p>
 
-            <div class="docs-card">
-              <h3>{t('docs.customization.imagesTitle')}</h3>
-              <p>{t('docs.customization.imagesText')} <code>public/images</code>:</p>
+              <h3>{lang === 'es' ? 'Colores' : 'Colors'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Todos los colores del sistema están en src/styles/tokens.css.'
+                  : 'All system colors are in src/styles/tokens.css.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Ahí puedes cambiar valores como --color-primary, --color-secondary, --color-bg o --color-text.'
+                  : 'There you can change values like --color-primary, --color-secondary, --color-bg or --color-text.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Por ejemplo, si quieres que el color principal sea azul, basta con editar esa variable y toda la web usará ese tono.'
+                  : 'For example, if you want the primary color to be blue, just edit that variable and the entire website will use that tone.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Tipografía' : 'Typography'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'En el mismo archivo también puedes cambiar la familia de fuentes y los tamaños: --font-family-base, --font-size-base, --font-size-h1, etc.'
+                  : 'In the same file you can also change the font family and sizes: --font-family-base, --font-size-base, --font-size-h1, etc.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Esto te permite unificar el estilo de texto en toda la web sin editar componente por componente.'
+                  : 'This allows you to unify the text style across the entire website without editing component by component.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Espaciado y radios' : 'Spacing and radius'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Las distancias (márgenes, paddings, gaps…) y las esquinas redondeadas también usan tokens, como --space-1, --space-8 o --radius-lg.'
+                  : 'Distances (margins, paddings, gaps…) and rounded corners also use tokens, like --space-1, --space-8 or --radius-lg.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Si aumentas o reduces estos valores, todos los componentes mantienen proporciones coherentes.'
+                  : 'If you increase or reduce these values, all components maintain coherent proportions.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Sobrescribir estilos por componente' : 'Override styles per component'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Cada bloque (hero, about, footer…) tiene su propio archivo CSS dentro de su carpeta, por ejemplo:'
+                  : 'Each block (hero, about, footer…) has its own CSS file within its folder, for example:'
+                }
+              </p>
+              <div class="code-block">
+                <code>src/components/hero/simple-centered/Hero.css</code>
+              </div>
+              <p>
+                {lang === 'es' 
+                  ? 'Ahí puedes ajustar estilos sin afectar a otros componentes. Es ideal si solo quieres modificar algo puntual.'
+                  : 'There you can adjust styles without affecting other components. It\'s ideal if you only want to modify something specific.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Estilos globales personalizados' : 'Custom global styles'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Si quieres aplicar reglas generales (por ejemplo, cambiar el scroll o el fondo del body), hazlo en src/styles/globals.css.'
+                  : 'If you want to apply general rules (for example, change the scroll or body background), do it in src/styles/globals.css.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Ahí puedes añadir tus propias clases o ajustes globales, sin tocar los componentes base.'
+                  : 'There you can add your own classes or global adjustments, without touching the base components.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Consejo final' : 'Final tip'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Usa los tokens siempre que puedas. Mantienen coherencia visual y te permiten cambiar el estilo completo del sitio modificando solo unas pocas líneas.'
+                  : 'Use tokens whenever possible. They maintain visual coherence and allow you to change the entire site\'s style by modifying just a few lines.'
+                }
+              </p>
+            </section>
+
+            <!-- Components -->
+            <section id="components" class="docs-section">
+              <h2>{lang === 'es' ? 'Componentes' : 'Components'}</h2>
+              <hr class="section-divider">
+              
+              <p>
+                {lang === 'es' 
+                  ? 'Starter UI incluye una colección de componentes listos para usar, diseñados para mantener una estética limpia y profesional. Están organizados por tipo dentro de la carpeta src/components/.'
+                  : 'Starter UI includes a collection of ready-to-use components, designed to maintain a clean and professional aesthetic. They are organized by type within the src/components/ folder.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Estructura de componentes' : 'Component structure'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Cada componente tiene su propia carpeta con su archivo .astro y su CSS independiente.'
+                  : 'Each component has its own folder with its .astro file and independent CSS.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Ejemplo:'
+                  : 'Example:'
+                }
+              </p>
+              <div class="code-block">
+                <code>src/components/hero/simple-centered/SimpleCentered.astro<br>src/components/hero/simple-centered/SimpleCentered.css</code>
+              </div>
+              <p>
+                {lang === 'es' 
+                  ? 'Esto permite editar, reemplazar o duplicar componentes sin afectar al resto del sistema.'
+                  : 'This allows editing, replacing or duplicating components without affecting the rest of the system.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Tipos de componentes incluidos' : 'Types of included components'}</h3>
               <ul>
-                <li><code>logo.svg</code> - {t('docs.customization.imagesList.logo')}</li>
-                <li><code>isotipo.svg</code> - {t('docs.customization.imagesList.isotipo')}</li>
-                <li><code>favicon.png</code> - {t('docs.customization.imagesList.favicon')}</li>
-                <li><code>images/placeholder/</code> - {t('docs.customization.imagesList.placeholder')}</li>
-                <li><code>images/logos-carousel/</code> - {t('docs.customization.imagesList.logos')}</li>
+                <li>{lang === 'es' ? 'Headers: distintos tipos de cabeceras (básico, centrado, con login, mega menú).' : 'Headers: different types of headers (basic, centered, with login, mega menu).'}</li>
+                <li>{lang === 'es' ? 'Heroes: versiones con fondo, dividido, minimalista, o con carrusel.' : 'Heroes: versions with background, split, minimalist, or with carousel.'}</li>
+                <li>{lang === 'es' ? 'About: secciones de presentación con imagen y texto.' : 'About: presentation sections with image and text.'}</li>
+                <li>{lang === 'es' ? 'Services: tarjetas y grids para mostrar servicios o características.' : 'Services: cards and grids to display services or features.'}</li>
+                <li>{lang === 'es' ? 'Testimonials: diseños en mosaico o en cuadrícula.' : 'Testimonials: mosaic or grid designs.'}</li>
+                <li>{lang === 'es' ? 'FAQ: listas desplegables o layouts minimalistas.' : 'FAQ: dropdown lists or minimalist layouts.'}</li>
+                <li>{lang === 'es' ? 'CTA (Call to Action): secciones con botones y mensajes clave.' : 'CTA (Call to Action): sections with buttons and key messages.'}</li>
+                <li>{lang === 'es' ? 'Footers: versiones con columnas, CTA o newsletter.' : 'Footers: versions with columns, CTA or newsletter.'}</li>
               </ul>
-            </div>
 
-            <div class="docs-card">
-              <h3>{t('docs.customization.navigationTitle')}</h3>
-              <p>{t('docs.customization.navigationText')}</p>
-            </div>
-          </section>
+              <h3>{lang === 'es' ? 'Cómo usarlos' : 'How to use them'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'En cualquier página .astro, importa el componente y añádelo al layout:'
+                  : 'In any .astro page, import the component and add it to the layout:'
+                }
+              </p>
+              <div class="code-block">
+                <code>---<br>import HeaderMega from '../components/header/header-mega/Header.astro';<br>import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.astro';<br>---<br>&lt;HeaderMega /&gt;<br>&lt;SimpleCentered /&gt;</code>
+              </div>
 
-            <!-- Support -->
-            <section id="support" class="docs-section">
-              <h2>{t('docs.support.title')}</h2>
-            <div class="docs-card">
-              <h3>{t('docs.support.resourcesTitle')}</h3>
-              <ul>
-                <li><a href="https://docs.astro.build/" target="_blank">{t('docs.support.astroDocs')}</a></li>
-                <li><a href="https://lucide.dev/" target="_blank">{t('docs.support.lucide')}</a></li>
-                <li><a href={`/${lang}/global-styles`}>{t('docs.support.globalStylesRef')}</a></li>
-              </ul>
-            </div>
+              <h3>{lang === 'es' ? 'Personalización rápida' : 'Quick customization'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Cada componente usa variables del sistema (--color-primary, --radius-lg, --space-4…), por lo que mantener coherencia visual es automático. Puedes ver todas las variables disponibles en la página de '
+                  : 'Each component uses system variables (--color-primary, --radius-lg, --space-4…), so maintaining visual coherence is automatic. You can see all available variables on the '
+                }
+                <a href={`/${lang}/global-styles`} class="docs-link">
+                  {lang === 'es' ? 'Estilos Globales' : 'Global Styles'}
+                </a>
+                {lang === 'es' ? '.' : ' page.'}
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Si necesitas algo único, puedes duplicar el componente, renombrarlo y editar solo su CSS o contenido interno.'
+                  : 'If you need something unique, you can duplicate the component, rename it and edit only its CSS or internal content.'
+                }
+              </p>
 
-            <div class="docs-card">
-              <h3>{t('docs.support.featuresTitle')}</h3>
-              <ul>
-                <li>{t('docs.support.featuresList.responsive')}</li>
-                <li>{t('docs.support.featuresList.modernCss')}</li>
-                <li>{t('docs.support.featuresList.componentArch')}</li>
-                <li>{t('docs.support.featuresList.seo')}</li>
-                <li>{t('docs.support.featuresList.fast')}</li>
-                <li>{t('docs.support.featuresList.noFramework')}</li>
-              </ul>
-            </div>
+              <h3>{lang === 'es' ? 'Consejo' : 'Tip'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Empieza construyendo páginas combinando secciones ya existentes. Cuando necesites algo distinto, crea una copia y ajusta solo lo necesario. Así tu sitio sigue ordenado, ligero y fácil de mantener.'
+                  : 'Start building pages by combining existing sections. When you need something different, create a copy and adjust only what\'s necessary. This way your site stays organized, lightweight and easy to maintain.'
+                }
+              </p>
+            </section>
+
+            <!-- Translations -->
+            <section id="translations" class="docs-section">
+              <h2>{lang === 'es' ? 'Traducciones (i18n)' : 'Translations (i18n)'}</h2>
+              <hr class="section-divider">
+              
+              <p>
+                {lang === 'es' 
+                  ? 'Starter UI incluye soporte multilenguaje mediante un sistema de i18n (internationalization) simple y escalable.'
+                  : 'Starter UI includes multi-language support through a simple and scalable i18n (internationalization) system.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Cómo funciona' : 'How it works'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Cada idioma tiene su propio archivo JSON dentro de la carpeta src/i18n/.'
+                  : 'Each language has its own JSON file within the src/i18n/ folder.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Por ejemplo: src/i18n/es.json (español) y src/i18n/en.json (inglés).'
+                  : 'For example: src/i18n/es.json (Spanish) and src/i18n/en.json (English).'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Dentro de esos archivos defines las claves y sus traducciones, por ejemplo:'
+                  : 'Within those files you define the keys and their translations, for example:'
+                }
+              </p>
+              <div class="code-block">
+                <code>{lang === 'es' 
+                  ? '{ "header": { "home": "Inicio", "components": "Componentes", "docs": "Documentación" } }'
+                  : '{ "header": { "home": "Home", "components": "Components", "docs": "Documentation" } }'
+                }</code>
+              </div>
+
+              <h3>{lang === 'es' ? 'Rutas por idioma' : 'Language routes'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Cada página tiene una versión localizada dentro de la carpeta src/pages/[lang]/.'
+                  : 'Each page has a localized version within the src/pages/[lang]/ folder.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Por ejemplo: /es/docs o /en/docs.'
+                  : 'For example: /es/docs or /en/docs.'
+                }
+              </p>
+              <p>
+                {lang === 'es' 
+                  ? 'Astro genera automáticamente las rutas con getStaticPaths(), recorriendo los idiomas definidos en LOCALES.'
+                  : 'Astro automatically generates routes with getStaticPaths(), going through the languages defined in LOCALES.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Cómo usar traducciones en una página' : 'How to use translations in a page'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Dentro de cualquier página .astro importas el helper y lo usas así:'
+                  : 'Within any .astro page you import the helper and use it like this:'
+                }
+              </p>
+              <div class="code-block">
+                <code>{lang === 'es' 
+                  ? 'import { loadT } from \'../../i18n\';<br>const t = await loadT(lang);<br>{t(\'header.docs\')}'
+                  : 'import { loadT } from \'../../i18n\';<br>const t = await loadT(lang);<br>{t(\'header.docs\')}'
+                }</code>
+              </div>
+              <p>
+                {lang === 'es' 
+                  ? 'Así evitas duplicar HTML: solo cambias el texto según el idioma activo.'
+                  : 'This way you avoid duplicating HTML: you only change the text according to the active language.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Detección de idioma' : 'Language detection'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'El idioma se determina por el prefijo de la URL (/es/, /en/). Si no hay prefijo, puedes configurar un idioma por defecto (por ejemplo, español).'
+                  : 'The language is determined by the URL prefix (/es/, /en/). If there is no prefix, you can configure a default language (for example, Spanish).'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Cambio de idioma' : 'Language switching'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'El botón toggle del header cambia automáticamente el prefijo en la URL y recarga la misma página en el idioma seleccionado.'
+                  : 'The header toggle button automatically changes the prefix in the URL and reloads the same page in the selected language.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Consejo' : 'Tip'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Empieza con un idioma (por ejemplo, español) y añade los demás cuando el contenido esté estable. No traduzcas todo desde el principio: primero valida el diseño y las secciones principales.'
+                  : 'Start with one language (for example, Spanish) and add the others when the content is stable. Don\'t translate everything from the beginning: first validate the design and main sections.'
+                }
+              </p>
             </section>
           </div>
         </div>
@@ -257,63 +501,67 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
 </BaseLayout>
 
 <script>
-  // Smooth scroll and active navigation
-  document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-link');
+  // Activar sección en sidebar según scroll
+  function updateActiveSection() {
     const sections = document.querySelectorAll('.docs-section');
-
-    // Smooth scroll for navigation links
-    navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href')?.substring(1);
-        if (targetId) {
-          const targetSection = document.getElementById(targetId);
-          
-          if (targetSection) {
-            targetSection.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-        }
-      });
-    });
-
-    // Update active navigation on scroll
-    function updateActiveNav() {
-      let current = '';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let currentSection = '';
+    
+    // Si estamos muy arriba, activar Introduction por defecto
+    if (window.scrollY < 200) {
+      currentSection = 'introduction';
+    } else {
       sections.forEach(section => {
-        const sectionTop = (section as HTMLElement).offsetTop - 150;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-          const sectionId = section.getAttribute('id');
-          if (sectionId) {
-            current = sectionId;
-          }
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
+        const rect = section.getBoundingClientRect();
+        // Activar cuando el título esté a 200px del top (antes de que llegue)
+        if (rect.top <= 200 && rect.bottom >= 200) {
+          currentSection = section.id;
         }
       });
     }
-
-    // Listen for scroll events
-    window.addEventListener('scroll', updateActiveNav);
     
-    // Set initial active state
-    updateActiveNav();
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+  
+  // Smooth scroll con offset para mostrar el título
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        const offset = 120; // Offset para mostrar el título
+        const targetPosition = targetElement.offsetTop - offset;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
+
+  // Ejecutar al cargar y al hacer scroll
+  window.addEventListener('load', updateActiveSection);
+  window.addEventListener('scroll', updateActiveSection);
 </script>
 
 <style>
-  .docs-page {
+  .main {
     padding: var(--space-8) 0;
-    min-height: 60vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
   }
 
   .page-header {
@@ -351,10 +599,10 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
 
   .docs-sidebar {
     position: sticky;
-    top: var(--space-6);
+    top: var(--space-8);
     background: var(--color-container);
     border-radius: var(--radius-lg);
-    padding: var(--space-6);
+    padding: var(--space-4);
     border: 1px solid var(--color-border);
   }
 
@@ -378,21 +626,21 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
   .nav-link {
     display: block;
     padding: var(--space-2) var(--space-3);
-    color: var(--color-text-secondary);
+    color: var(--color-text);
     text-decoration: none;
     border-radius: var(--radius-md);
-    transition: all 0.2s ease;
     font-size: 14px;
+    transition: all var(--transition-fast);
   }
 
   .nav-link:hover {
-    background: var(--color-hover);
+    background: rgba(0, 0, 0, 0.05);
     color: var(--color-text);
   }
 
   .nav-link.active {
-    background: var(--color-primary);
-    color: white;
+    background: rgba(0, 0, 0, 0.08);
+    color: var(--color-text);
   }
 
   .docs-content {
@@ -405,47 +653,41 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
 
   .docs-section h2 {
     font-size: 32px;
-    font-weight: 600;
-    color: var(--color-black);
+    font-weight: 500;
     margin: 0 0 var(--space-6) 0;
-    padding-bottom: var(--space-3);
-    border-bottom: 2px solid var(--color-border);
-  }
-
-  .docs-card {
-    background: var(--color-container);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
-    margin-bottom: var(--space-6);
-  }
-
-  .docs-card h3 {
-    font-size: 20px;
-    font-weight: 600;
     color: var(--color-black);
-    margin: 0 0 var(--space-3) 0;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
   }
 
-  .docs-card p {
+  .docs-section h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: var(--space-6) 0 var(--space-4) 0;
+    color: var(--color-black);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .docs-section p {
     color: var(--color-text);
     line-height: 1.6;
     margin: 0 0 var(--space-4) 0;
   }
 
-  .docs-card ul,
-  .docs-card ol {
+  .docs-section ul,
+  .docs-section ol {
     margin: 0 0 var(--space-4) 0;
     padding-left: var(--space-5);
   }
 
-  .docs-card li {
+  .docs-section li {
     margin-bottom: var(--space-2);
     color: var(--color-text);
     line-height: 1.5;
   }
 
-  .docs-card strong {
+  .docs-section strong {
     color: var(--color-black);
     font-weight: 600;
   }
@@ -468,7 +710,8 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
     padding: 0;
   }
 
-  .docs-card code {
+  .docs-section p code,
+  .docs-section li code {
     background: var(--color-hover);
     padding: 2px 6px;
     border-radius: var(--radius-sm);
@@ -477,90 +720,69 @@ import SimpleCentered from '../components/hero/simple-centered/SimpleCentered.as
     color: var(--color-text);
   }
 
-  .docs-card a {
+  .docs-section a {
     color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .docs-section a:hover {
     text-decoration: underline;
   }
 
-  .docs-card a:hover {
-    color: var(--color-primary);
+  .docs-section .docs-link {
+    color: var(--color-link) !important;
     text-decoration: none;
+    font-weight: 500;
+  }
+
+  .docs-section .docs-link:hover {
+    color: var(--color-link-hover) !important;
+    text-decoration: underline;
+  }
+
+  .section-divider {
+    border: none;
+    height: 1px;
+    background: var(--color-border);
+    margin: var(--space-6) 0;
+    opacity: 0.6;
   }
 
   /* Responsive */
   @media (max-width: 1024px) {
     .docs-layout {
       grid-template-columns: 1fr;
-      gap: var(--space-6);
     }
 
     .docs-sidebar {
       position: static;
-      order: 2;
-    }
-
-    .docs-content {
-      order: 1;
+      margin-bottom: var(--space-6);
     }
   }
 
   @media (max-width: 768px) {
-    .docs-page {
+    .main {
       padding: var(--space-6) 0;
+    }
+
+    .container {
+      padding: 0 var(--space-3);
     }
 
     .page-header {
       margin-bottom: var(--space-6);
     }
 
-    .page-header h1 {
-      font-size: 36px;
-    }
-
-    .page-header p {
-      font-size: 1rem;
-    }
-
-    .docs-layout {
-      gap: var(--space-4);
-    }
-
     .docs-sidebar {
-      padding: var(--space-4);
-    }
-
-    .docs-card {
-      padding: var(--space-4);
+      padding: var(--space-3);
     }
 
     .docs-section h2 {
       font-size: 28px;
     }
-  }
 
-  @media (max-width: 480px) {
-    .docs-page {
-      padding: var(--space-4) 0;
-    }
-
-    .page-header {
-      margin-bottom: var(--space-4);
-    }
-
-    .page-header h1 {
-      font-size: 32px;
-    }
-
-    .docs-sidebar {
-      padding: var(--space-3);
-    }
-
-    .docs-card {
-      padding: var(--space-3);
-    }
-
-    .docs-section h2 {
-      font-size: 24px;
+    .docs-section h3 {
+      font-size: 20px;
     }
   }
 </style>

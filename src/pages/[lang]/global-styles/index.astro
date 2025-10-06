@@ -30,64 +30,7 @@ const t = await loadT(lang);
         </header>
 
         <div class="global-styles-content">
-          <section class="global-styles-section" id="ShadowSection">
-            <h2 class="global-styles-section-title">{t('globalStyles.cssVariables.shadows')}</h2>
-            <p class="global-styles-section-description">
-              {lang==='es' ? 'Sombras predefinidas para elevación sutil y capas.' : 'Predefined shadows for subtle elevation and layering.'}
-            </p>
-            <div class="shadow-grid">
-              <div class="shadow-item" style="box-shadow: var(--shadow-none);">
-                <div class="shadow-box"></div>
-                <div class="shadow-info">
-                  <h4>--shadow-none</h4>
-                  <code>var(--shadow-none)</code>
-                </div>
-              </div>
-              <div class="shadow-item" style="box-shadow: var(--shadow-xs);">
-                <div class="shadow-box"></div>
-                <div class="shadow-info">
-                  <h4>--shadow-xs</h4>
-                  <code>var(--shadow-xs)</code>
-                </div>
-              </div>
-              <div class="shadow-item" style="box-shadow: var(--shadow-sm);">
-                <div class="shadow-box"></div>
-                <div class="shadow-info">
-                  <h4>--shadow-sm</h4>
-                  <code>var(--shadow-sm)</code>
-                </div>
-              </div>
-              <div class="shadow-item" style="box-shadow: var(--shadow-md);">
-                <div class="shadow-box"></div>
-                <div class="shadow-info">
-                  <h4>--shadow-md</h4>
-                  <code>var(--shadow-md)</code>
-                </div>
-              </div>
-              <div class="shadow-item" style="box-shadow: var(--shadow-lg);">
-                <div class="shadow-box"></div>
-                <div class="shadow-info">
-                  <h4>--shadow-lg</h4>
-                  <code>var(--shadow-lg)</code>
-                </div>
-              </div>
-              <div class="shadow-item" style="box-shadow: var(--shadow-xl);">
-                <div class="shadow-box"></div>
-                <div class="shadow-info">
-                  <h4>--shadow-xl</h4>
-                  <code>var(--shadow-xl)</code>
-                </div>
-              </div>
-              <div class="shadow-item" style="box-shadow: var(--shadow-inset);">
-                <div class="shadow-box"></div>
-                <div class="shadow-info">
-                  <h4>--shadow-inset</h4>
-                  <code>var(--shadow-inset)</code>
-                </div>
-              </div>
-            </div>
-          </section>
-           <section class="global-styles-section" id="ColorSection">
+          <section class="global-styles-section" id="ColorSection">
             <h2 class="global-styles-section-title">{t('globalStyles.colorPalette.title')}</h2>
             <p class="global-styles-section-description">
               {t('globalStyles.colorPalette.description')}
@@ -175,6 +118,64 @@ const t = await loadT(lang);
                 <div class="color-info">
                   <h4>{t('globalStyles.colorPalette.textAccent')}</h4>
                   <code>var(--color-text-accent)</code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="global-styles-section" id="ShadowSection">
+            <h2 class="global-styles-section-title">{t('globalStyles.cssVariables.shadows')}</h2>
+            <p class="global-styles-section-description">
+              {lang==='es' ? 'Sombras predefinidas para elevación sutil y capas.' : 'Predefined shadows for subtle elevation and layering.'}
+            </p>
+            <div class="shadow-grid">
+              <div class="shadow-item" style="box-shadow: var(--shadow-none);">
+                <div class="shadow-box"></div>
+                <div class="shadow-info">
+                  <h4>--shadow-none</h4>
+                  <code>var(--shadow-none)</code>
+                </div>
+              </div>
+              <div class="shadow-item" style="box-shadow: var(--shadow-xs);">
+                <div class="shadow-box"></div>
+                <div class="shadow-info">
+                  <h4>--shadow-xs</h4>
+                  <code>var(--shadow-xs)</code>
+                </div>
+              </div>
+              <div class="shadow-item" style="box-shadow: var(--shadow-sm);">
+                <div class="shadow-box"></div>
+                <div class="shadow-info">
+                  <h4>--shadow-sm</h4>
+                  <code>var(--shadow-sm)</code>
+                </div>
+              </div>
+              <div class="shadow-item" style="box-shadow: var(--shadow-md);">
+                <div class="shadow-box"></div>
+                <div class="shadow-info">
+                  <h4>--shadow-md</h4>
+                  <code>var(--shadow-md)</code>
+                </div>
+              </div>
+              <div class="shadow-item" style="box-shadow: var(--shadow-lg);">
+                <div class="shadow-box"></div>
+                <div class="shadow-info">
+                  <h4>--shadow-lg</h4>
+                  <code>var(--shadow-lg)</code>
+                </div>
+              </div>
+              <div class="shadow-item" style="box-shadow: var(--shadow-xl);">
+                <div class="shadow-box"></div>
+                <div class="shadow-info">
+                  <h4>--shadow-xl</h4>
+                  <code>var(--shadow-xl)</code>
+                </div>
+              </div>
+              <div class="shadow-item" style="box-shadow: var(--shadow-inset);">
+                <div class="shadow-box"></div>
+                <div class="shadow-info">
+                  <h4>--shadow-inset</h4>
+                  <code>var(--shadow-inset)</code>
                 </div>
               </div>
             </div>

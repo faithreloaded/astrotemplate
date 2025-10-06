@@ -4,6 +4,11 @@
     "actions": { "buy": "Comprar plantilla" },
     "lang": { "es": "ES", "en": "EN", "sep": "/" }
   },
+  "docs": {
+    "title": "Documentación",
+    "description": "Guía completa para empezar con la plantilla Starter UI",
+    "sidebarTitle": "Contenidos"
+  },
   "globalStyles": {
     "headTitle": "Estilos Globales | Starter UI",
     "headDescription": "Estilos globales, design tokens y variables CSS para un diseño consistente en toda la plantilla",
@@ -80,154 +85,7 @@
       "layout": "Layout",
       "shadows": "Sombras (Box Shadows)"
     }
-  }
-  ,
-  "docs": {
-    "headTitle": "Documentación | Starter UI",
-    "headDescription": "Documentación completa de la plantilla Starter UI. Aprende a empezar, personalizar y desplegar tu proyecto.",
-    "pageTitle": "Documentación",
-    "pageDescription": "Todo lo que necesitas para empezar con la plantilla Starter UI.",
-    "sidebarTitle": "Documentación",
-    "nav": {
-      "gettingStarted": "Primeros pasos",
-      "projectStructure": "Estructura del proyecto",
-      "styling": "Estilos",
-      "components": "Componentes",
-      "deployment": "Despliegue",
-      "customization": "Personalización",
-      "support": "Soporte"
-    },
-    "gettingStarted": {
-      "title": "Primeros pasos",
-      "installationTitle": "Instalación",
-      "installationText": "Clona el repositorio e instala las dependencias:",
-      "developmentTitle": "Desarrollo",
-      "developmentText": "Inicia el servidor de desarrollo:",
-      "siteAvailable": "El sitio estará disponible en",
-      "buildTitle": "Build",
-      "buildText": "Genera el proyecto para producción:"
-    },
-    "projectStructure": {
-      "title": "Estructura del proyecto",
-      "directoryLayoutTitle": "Estructura de directorios"
-    },
-    "styling": {
-      "title": "Estilos",
-      "designTokensTitle": "Design Tokens",
-      "designTokensText": "Todos los design tokens se definen en",
-      "list": {
-        "colors": "Colores:",
-        "typography": "Tipografía:",
-        "spacing": "Espaciado:",
-        "layout": "Layout:"
-      },
-      "globalClassesTitle": "Clases globales",
-      "globalClassesText": "Clases utilitarias preconstruidas disponibles:",
-      "globalList": {
-        "buttons": "Botones:",
-        "pills": "Pills:",
-        "layout": "Layout:",
-        "typography": "Tipografía:"
-      },
-      "customizationTitle": "Personalización",
-      "customizationText": "Para personalizar el diseño:",
-      "customizationSteps": {
-        "s1": "Modifica variables en",
-        "s2": "Sobrescribe estilos de componentes en sus CSS",
-        "s3": "Añade estilos propios en"
-      }
-    },
-    "components": {
-      "title": "Componentes",
-      "usingComponentsTitle": "Uso de componentes",
-      "usingComponentsText": "Importa y usa componentes en tus páginas Astro:",
-      "availableSectionsTitle": "Secciones disponibles",
-      "availableList": {
-        "headers": "Headers: Múltiples variantes (center, left, right, mega, login)",
-        "heroes": "Heroes: Simple, split, bento, carousel, background",
-        "about": "About: Diseños de imagen con contenido",
-        "services": "Services: Tarjetas y carruseles",
-        "testimonials": "Testimonials: Masonry y grid",
-        "faq": "FAQ: Lista, minimal y side",
-        "cta": "CTA: Avatares limpios y llamadas a la acción",
-        "footers": "Footers: Grid, CTA y newsletter"
-      }
-    },
-    "deployment": {
-      "title": "Despliegue",
-      "staticHostingTitle": "Hosting estático",
-      "staticHostingText": "Esta plantilla genera archivos estáticos perfectos para:",
-      "list": {
-        "vercel": "Vercel: Conecta tu repo de GitHub para despliegues automáticos",
-        "netlify": "Netlify: Arrastra y suelta la carpeta dist",
-        "ghpages": "GitHub Pages: Usa GitHub Actions para builds automáticas",
-        "any": "Cualquier host estático: Sube el contenido de la carpeta dist"
-      },
-      "buildOutputTitle": "Resultado de compilación",
-      "buildOutputText": "Tras ejecutar npm run build, tu sitio estará en la carpeta dist.",
-      "envTitle": "Variables de entorno",
-      "envText": "No se requieren variables de entorno para el uso básico. La plantilla funciona out of the box."
-    },
-    "customization": {
-      "title": "Personalización",
-      "contentTitle": "Contenido",
-      "contentText": "Actualiza el contenido editando directamente los archivos de los componentes. Todo el texto e imágenes se pueden personalizar en sus respectivos componentes.",
-      "imagesTitle": "Imágenes",
-      "imagesText": "Sustituye las imágenes placeholder en el directorio",
-      "imagesList": {
-        "logo": "logo.svg - Logo principal",
-        "isotipo": "isotipo.svg - Logo del menú móvil",
-        "favicon": "favicon.png - Favicon del sitio",
-        "placeholder": "images/placeholder/ - Imágenes de contenido",
-        "logos": "images/logos-carousel/ - Imágenes del carrusel de logos"
-      },
-      "navigationTitle": "Navegación",
-      "navigationText": "Actualiza los enlaces de navegación en los componentes de header. La estructura del mega menú se puede modificar en los archivos Header.astro."
-    },
-    "support": {
-      "title": "Soporte",
-      "resourcesTitle": "Recursos",
-      "astroDocs": "Documentación de Astro",
-      "lucide": "Lucide Icons",
-      "globalStylesRef": "Referencia de Estilos Globales",
-      "featuresTitle": "Características de la plantilla",
-      "featuresList": {
-        "responsive": "✅ Diseño responsive",
-        "modernCss": "✅ CSS moderno con custom properties",
-        "componentArch": "✅ Arquitectura basada en componentes",
-        "seo": "✅ SEO optimizado",
-        "fast": "✅ Generación estática rápida",
-        "noFramework": "✅ No requiere framework de JavaScript"
-      }
-    }
-  }
-  ,
-  "componentsDashboard": {
-    "title": "Componentes",
-    "groups": {
-      "elements": "Elementos",
-      "sections": "Secciones"
-    }
   },
-  "sections": {
-    "heroes": { "label": "Secciones Hero" },
-    "headers": { "label": "Headers" },
-    "footers": { "label": "Footers" },
-    "buttons": { "label": "Botones" },
-    "badges": { "label": "Badges" },
-    "pills": { "label": "Pills" },
-    "cards": { "label": "Tarjetas" },
-    "features": { "label": "Secciones de Features" },
-    "ctas": { "label": "Secciones CTA" },
-    "pricing": { "label": "Secciones de Precios" },
-    "faqs": { "label": "Secciones FAQ" },
-    "testimonials": { "label": "Testimonios" },
-    "services": { "label": "Servicios" },
-    "logo-clouds": { "label": "Nubes de logos" },
-    "gallery": { "label": "Galería" },
-    "errors": { "label": "Errores" }
-  }
-  ,
   "homeHero": {
     "pill": "Nuevo",
     "title": "Programa menos, construye más rápido.",
@@ -242,29 +100,27 @@
       "tag2": "De por vida",
       "cta": "Empezar"
     }
-  }
-  ,
+  },
   "homeFaq": {
     "pill": "FAQ",
     "title": "Preguntas frecuentes",
     "q1": {
       "question": "¿Qué es Starter UI?",
-      "answer": "Es una plantilla minimalista de Astro con secciones listas (Hero, Pricing, FAQ…), tokens CSS limpios y blog en MDX."
+      "answer": "Starter UI es una plantilla profesional hecha con Astro, pensada para construir webs limpias y rápidas sin partir desde cero. Incluye secciones listas como Hero, Pricing, FAQ o Blog, con un diseño moderno, tokens CSS bien organizados y componentes listos para producción."
     },
     "q2": {
       "question": "¿Soporta varios idiomas?",
-      "answer": "Sí. Usa i18n por carpetas (ES/EN) y diccionarios JSON estáticos. Los posts enlazan traducciones desde el frontmatter."
+      "answer": "Sí. El sistema usa carpetas separadas por idioma (ES, EN, etc.) junto a diccionarios JSON para los textos. Los posts en el blog también pueden tener traducciones vinculadas desde su frontmatter, así todo el contenido se adapta fácilmente al idioma del usuario."
     },
     "q3": {
       "question": "¿Puedo escribir posts en MDX?",
-      "answer": "Claro. Content Collections con MDX permiten contenido rico y validación con Zod."
+      "answer": "Claro. Starter UI soporta Content Collections con MDX, lo que permite mezclar texto con componentes de Astro o React. Además, cada post se valida con Zod, así mantienes un control total sobre el formato y evitas errores de contenido."
     },
     "q4": {
       "question": "¿Cómo personalizo el diseño?",
-      "answer": "Usa los tokens en src/styles/tokens.css (colores, espaciado, sombras, transiciones). Las secciones tienen CSS aislado."
+      "answer": "Todo el estilo se controla desde los tokens en src/styles/tokens.css: colores, tipografía, espaciado, sombras y animaciones. Solo cambias esos valores y el diseño completo se adapta a tu marca. Cada sección tiene su propio CSS aislado para que puedas modificar sin romper el resto."
     }
-  }
-  ,
+  },
   "home": {
     "video1": {
       "title": "Crea una landing en minutos.",
@@ -292,10 +148,9 @@
         "Actualizaciones de por vida incluidas"
       ]
     }
-  }
-  ,
+  },
   "footer": {
-    "description": "Starter UI — kit de componentes profesional y moderno.",
+    "description": "Una librería de componentes limpia y profesional diseñada para desarrolladores que valoran la velocidad, calidad y principios de diseño moderno.",
     "linksTitle": "Enlaces",
     "legalTitle": "Legal",
     "privacy": "Política de privacidad",
@@ -303,7 +158,30 @@
     "contactTitle": "Contacto",
     "credit1": "© {year} Starter UI. Todos los derechos reservados.",
     "credit2": "Diseño web por "
+  },
+  "componentsDashboard": {
+    "title": "Componentes",
+    "groups": {
+      "elements": "Elementos",
+      "sections": "Secciones"
+    }
+  },
+  "sections": {
+    "heroes": { "label": "Secciones Hero" },
+    "headers": { "label": "Headers" },
+    "footers": { "label": "Footers" },
+    "buttons": { "label": "Botones" },
+    "badges": { "label": "Badges" },
+    "pills": { "label": "Pills" },
+    "cards": { "label": "Tarjetas" },
+    "features": { "label": "Secciones de Features" },
+    "ctas": { "label": "Secciones CTA" },
+    "pricing": { "label": "Secciones de Precios" },
+    "faqs": { "label": "Secciones FAQ" },
+    "testimonials": { "label": "Testimonios" },
+    "services": { "label": "Servicios" },
+    "logo-clouds": { "label": "Nubes de logos" },
+    "gallery": { "label": "Galería" },
+    "errors": { "label": "Errores" }
   }
 }
-
-

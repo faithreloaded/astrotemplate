@@ -22,6 +22,8 @@
          --color-text-accent: #a3a3a3;    /* Texto acentuado - estilo Apple */
          --color-border: rgba(0, 0, 0, 0.1); /* Bordes */
          --color-border-light: rgba(0, 0, 0, 0.05); /* Bordes sutiles */
+         --color-link: #3b82f6;              /* Color de enlaces - azul */
+         --color-link-hover: #2563eb;        /* Color de enlaces hover - azul más oscuro */
   
   /* Colores de preview */
   --color-preview-bg: #fefefe;
