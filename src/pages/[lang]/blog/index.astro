@@ -34,13 +34,24 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
             </div>
       </header>
 
+          <!-- Minimal search between filters and latest title -->
+          <div class="blog-search">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input id="blogSearchInput" type="search" placeholder={lang==='es' ? 'Buscar en el blog…' : 'Search the blog…'} aria-label={lang==='es' ? 'Buscar en el blog' : 'Search the blog'} />
+          </div>
+
           <section class="latest">
             <h3 class="latest-title">{lang==='es' ? 'Últimos posts' : 'Latest posts'}</h3>
             <div class="latest-grid">
               {posts.length > 0 ? Array.from({ length: 3 }, (_, index) => {
                 const post = posts[0]; // Usar el primer (y único) post
                 return (
-                  <a class="blog-card" href={`/${lang}/blog/${post.slug.replace(`${lang}/`, '')}`} key={index}>
+                  <a class="blog-card" data-title={post.data.title} data-excerpt={post.data.excerpt} href={`/${lang}/blog/${post.slug.replace(`${lang}/`, '')}`} key={index}>
                     <img class="blog-card-bg" src={post.data.image || "/images/images/placeholder/placeholder.jpg"} alt={post.data.title} />
                     <div class="blog-card-overlay-bottom">
                       <div class="blog-card-row">
@@ -68,6 +79,21 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
   <FooterGrid />
 </BaseLayout>
 
+<script>
+  const input = document.getElementById('blogSearchInput');
+  const cards = Array.from(document.querySelectorAll('.blog-card'));
+  if (input && cards.length) {
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      cards.forEach((card) => {
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        const excerpt = (card.getAttribute('data-excerpt') || '').toLowerCase();
+        const match = !q || title.includes(q) || excerpt.includes(q);
+        card.style.display = match ? 'block' : 'none';
+      });
+    });
+  }
+</script>
     <style>
       .blog-list { 
         padding: var(--space-8) 0; 
@@ -123,11 +149,31 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         border-color: var(--color-text-muted);
       }
 
+      /* Minimal search */
+      .blog-search { max-width: 680px; margin: 0 auto 0; padding: 0 var(--space-4); position: relative; }
+      .blog-search input[type="search"] {
+        width: 100%;
+        height: 44px;
+        line-height: 44px; /* centra el texto verticalmente */
+        border-radius: 24px;
+        border: 1px solid var(--color-border);
+        background: var(--color-background);
+        padding: 0 16px 0 40px;
+        font-size: 14px;
+        color: var(--color-text);
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+      .blog-search input[type="search"]::placeholder { color: var(--color-text-secondary); }
+      .blog-search input[type="search"]:focus { border-color: var(--color-text-muted); box-shadow: 0 0 0 3px rgba(0,0,0,0.06); }
+      .blog-search .search-icon { position: absolute; left: calc(var(--space-4) + 12px); top: 50%; transform: translateY(-50%); color: var(--color-text-secondary); pointer-events: none; line-height: 0; }
+      .blog-search .search-icon svg { display: block; }
+
       .latest { 
         max-width: 1200px; 
         margin: 0 auto; 
         padding: 0 var(--space-4);
-        margin-top: var(--space-3);
+        margin-top: var(--space-6);
       }
       
       .latest-title { 
@@ -161,9 +207,11 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         display: block;
       }
       
-      .blog-card:hover { 
-        transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      @media (hover: hover) and (pointer: fine) {
+        .blog-card:hover { 
+          transform: translateY(-4px);
+          box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
       }
       
       .blog-card-bg { 
@@ -176,12 +224,16 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         transition: transform 0.3s ease;
       }
       
-      .blog-card:hover .blog-card-bg {
-        transform: scale(1.05);
+      @media (hover: hover) and (pointer: fine) {
+        .blog-card:hover .blog-card-bg {
+          transform: scale(1.05);
+        }
       }
       
-      .blog-card:hover .blog-card-overlay-bottom {
-        bottom: 0;
+      @media (hover: hover) and (pointer: fine) {
+        .blog-card:hover .blog-card-overlay-bottom {
+          bottom: 0;
+        }
       }
       
       .blog-card-overlay-bottom {
@@ -257,7 +309,7 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
       }
       
       .blog-card-cta {
-        width: calc(100% - 32px);
+        width: 100%;
         background: white;
         color: black;
         font-weight: 400;
@@ -270,8 +322,20 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         transition: filter 0.2s ease;
       }
       
-      .blog-card-cta:hover {
-        filter: brightness(0.95);
+      @media (hover: hover) and (pointer: fine) {
+        .blog-card-cta:hover {
+          filter: brightness(0.95);
+        }
+      }
+
+      /* Disable hover effects on touch devices explicitly */
+      @media (hover: none), (pointer: coarse) {
+        .blog-card { transition: none; }
+        .blog-card:hover { transform: none; box-shadow: none; }
+        .blog-card .blog-card-bg { transition: none; transform: none !important; }
+        .blog-card .blog-card-overlay-bottom { transition: none; }
+        .blog-card-cta { transition: none; }
+        .blog-card-cta:hover { filter: none; }
       }
       
       .no-posts { 
@@ -300,6 +364,7 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         .blog-header { 
           margin-bottom: var(--space-6); 
         }
+        .latest { margin-top: var(--space-6); }
         .blog-title { 
           font-size: 36px; 
         }
@@ -308,6 +373,17 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         }
         .blog-card {
           aspect-ratio: 4 / 5;
+        }
+        /* Forzar sin hover en móvil por anchura (modo responsive de escritorio también) */
+        .blog-card:hover { 
+          transform: none !important; 
+          box-shadow: none !important; 
+        }
+        .blog-card:hover .blog-card-bg { 
+          transform: none !important; 
+        }
+        .blog-card:hover .blog-card-overlay-bottom { 
+          bottom: 0 !important; 
         }
         .blog-card-overlay-bottom {
           min-height: 200px;
@@ -322,7 +398,6 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         }
         .blog-card-cta {
           font-size: 13px;
-          padding: 10px 14px;
         }
       }
       
@@ -332,10 +407,21 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         }
         .latest { 
           padding: 0 var(--space-3);
-          margin-top: var(--space-3);
+          margin-top: var(--space-6);
         }
         .blog-card {
           aspect-ratio: 4 / 5;
+        }
+        /* Refuerzo extra en móviles pequeños */
+        .blog-card:hover { 
+          transform: none !important; 
+          box-shadow: none !important; 
+        }
+        .blog-card:hover .blog-card-bg { 
+          transform: none !important; 
+        }
+        .blog-card:hover .blog-card-overlay-bottom { 
+          bottom: 0 !important; 
         }
         .blog-card-overlay-bottom {
           min-height: 180px;
@@ -350,7 +436,6 @@ console.log('All posts:', allPosts.map(p => ({ id: p.id, slug: p.slug })));
         }
         .blog-card-cta {
           font-size: 12px;
-          padding: 8px 12px;
         }
         .blog-filters { 
           gap: var(--space-1);

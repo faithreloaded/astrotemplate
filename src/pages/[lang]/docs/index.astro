@@ -36,6 +36,9 @@ const t = await loadT(lang);
                 <li><a href="#customization" class="nav-link">{lang === 'es' ? 'Personalización' : 'Customization'}</a></li>
                 <li><a href="#components" class="nav-link">{lang === 'es' ? 'Componentes' : 'Components'}</a></li>
                 <li><a href="#translations" class="nav-link">{lang === 'es' ? 'Traducciones' : 'Translations'}</a></li>
+                <li><a href="#deployment" class="nav-link">{lang === 'es' ? 'Despliegue' : 'Deployment'}</a></li>
+                <li><a href="#pro-tips" class="nav-link">{lang === 'es' ? 'Consejos pro' : 'Pro tips'}</a></li>
+                <li><a href="#credits" class="nav-link">{lang === 'es' ? 'Créditos y soporte' : 'Credits & support'}</a></li>
               </ul>
             </div>
           </nav>
@@ -88,6 +91,8 @@ const t = await loadT(lang);
                 }
               </p>
             </section>
+
+            
 
             <!-- Installation -->
             <section id="installation" class="docs-section">
@@ -491,6 +496,193 @@ const t = await loadT(lang);
                 }
               </p>
             </section>
+
+            <!-- Deployment -->
+            <section id="deployment" class="docs-section">
+              <h2>{lang === 'es' ? 'Despliegue' : 'Deployment'}</h2>
+              <hr class="section-divider">
+
+              <p>
+                {lang === 'es' 
+                  ? 'Starter UI genera archivos estáticos, así que puedes alojarlo en cualquier plataforma moderna.'
+                  : 'Starter UI generates static files, so you can host it on any modern platform.'
+                }
+              </p>
+
+              <h3>Vercel</h3>
+              <ul>
+                <li>{lang === 'es' ? 'Conecta tu repositorio, Vercel detecta Astro automáticamente.' : 'Connect your repository, Vercel auto-detects Astro.'}</li>
+                <li>{lang === 'es' ? 'Comando: ' : 'Command: '}<code>npm run build</code></li>
+                <li>{lang === 'es' ? 'Carpeta de salida: ' : 'Output folder: '}<code>dist</code></li>
+              </ul>
+
+              <h3>Netlify</h3>
+              <ul>
+                <li>{lang === 'es' ? 'Importa tu repo desde Git.' : 'Import your repo from Git.'}</li>
+                <li>{lang === 'es' ? 'Build: ' : 'Build: '}<code>npm run build</code></li>
+                <li>{lang === 'es' ? 'Public: ' : 'Public: '}<code>dist</code></li>
+              </ul>
+
+              <h3>GitHub Pages</h3>
+              <p>{lang === 'es' ? 'Ejecuta ' : 'Run '}<code>npm run build</code> {lang === 'es' ? 'y sube la carpeta ' : 'and upload the '}<code>dist</code> {lang === 'es' ? 'al branch ' : 'folder to '}<code>gh-pages</code>.</p>
+
+              <h3>Cloudflare Pages</h3>
+              <ul>
+                <li>{lang === 'es' ? 'Conecta tu repo, usa ' : 'Connect your repo, use '}<code>npm run build</code></li>
+                <li>{lang === 'es' ? 'Salida ' : 'Output '}<code>dist</code></li>
+              </ul>
+
+              <h3>{lang === 'es' ? 'Consejo' : 'Tip'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Usa Vercel si quieres la opción más rápida y sin configuración.'
+                  : 'Use Vercel if you want the fastest, zero-config option.'
+                }
+              </p>
+            </section>
+
+            <!-- Pro Tips -->
+            <section id="pro-tips" class="docs-section">
+              <h2>{lang === 'es' ? 'Consejos pro' : 'Pro tips'}</h2>
+              <hr class="section-divider">
+
+              <p>
+                {lang === 'es' 
+                  ? 'Si quieres aprovechar Starter UI al máximo y trabajar como un profesional, aquí tienes algunos consejos prácticos:'
+                  : 'If you want to get the most out of Starter UI and work like a pro, here are some practical tips:'
+                }
+              </p>
+
+              <h3>1. {lang === 'es' ? 'Empieza limpio' : 'Start clean'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'No copies directamente todo un componente. Duplica solo lo que necesitas y elimina lo que no uses. Así tu proyecto se mantiene ligero y claro.'
+                  : 'Don’t copy an entire component directly. Duplicate only what you need and remove what you don’t use. This keeps your project lightweight and clear.'
+                }
+              </p>
+
+              <h3>2. {lang === 'es' ? 'Usa tokens para todo' : 'Use tokens for everything'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Si cambias un color o un espaciado, hazlo siempre en tokens.css. Así mantienes coherencia en todo el sitio y puedes rediseñar en minutos.'
+                  : 'If you change a color or spacing, always do it in tokens.css. This keeps consistency across the site and lets you redesign in minutes.'
+                }
+              </p>
+
+              <h3>3. {lang === 'es' ? 'Reutiliza layouts' : 'Reuse layouts'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Crea plantillas base (BaseLayout, ComponentsLayout, etc.) para no repetir estructuras. Te ahorrará errores y líneas de código.'
+                  : 'Create base templates (BaseLayout, ComponentsLayout, etc.) to avoid repeating structures. It will save you errors and lines of code.'
+                }
+              </p>
+
+              <h3>4. {lang === 'es' ? 'Agrupa tus componentes' : 'Group your components'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Si creas nuevos, mantenlos dentro de carpetas organizadas como las originales: hero/, services/, cta/, etc.'
+                  : 'If you create new ones, keep them inside organized folders like the originals: hero/, services/, cta/, etc.'
+                }
+              </p>
+
+              <h3>5. {lang === 'es' ? 'Evita estilos inline' : 'Avoid inline styles'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Usa clases o variables. Los estilos inline rompen la escalabilidad y dificultan los temas oscuros o futuros rediseños.'
+                  : 'Use classes or variables. Inline styles break scalability and make dark themes or future redesigns difficult.'
+                }
+              </p>
+
+              <h3>6. {lang === 'es' ? 'Crea secciones antes que páginas' : 'Build sections before pages'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Desarrolla los bloques visuales (hero, testimonials, cta) y luego construye las páginas combinándolos. Es más rápido y flexible.'
+                  : 'Develop visual blocks (hero, testimonials, cta) and then build pages by combining them. It’s faster and more flexible.'
+                }
+              </p>
+
+              <h3>7. {lang === 'es' ? 'Controla el rendimiento' : 'Watch performance'}</h3>
+              <ul>
+                <li>{lang === 'es' ? 'Usa imágenes en formato .webp.' : 'Use images in .webp format.'}</li>
+                <li>{lang === 'es' ? 'Elimina CSS no usado.' : 'Remove unused CSS.'}</li>
+                <li>{lang === 'es' ? 'Evita dependencias innecesarias.' : 'Avoid unnecessary dependencies.'}</li>
+              </ul>
+
+              <h3>8. {lang === 'es' ? 'Prepara tu contenido' : 'Prepare your content'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Antes de maquetar, ten todos los textos e imágenes listos. Esto te permite probar el diseño real sin rehacer bloques después.'
+                  : 'Before laying out, have all texts and images ready. This lets you test the real design without reworking blocks later.'
+                }
+              </p>
+
+              <h3>9. {lang === 'es' ? 'Prueba el diseño en móvil primero' : 'Design mobile-first'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Empieza desde el viewport más pequeño. Starter UI está hecho para adaptarse, pero siempre revisa los detalles manualmente.'
+                  : 'Start from the smallest viewport. Starter UI is built to adapt, but always review details manually.'
+                }
+              </p>
+
+              <h3>10. {lang === 'es' ? 'Crea tu propia “versión Pro”' : 'Create your own “Pro version”'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Una vez domines la estructura, duplica el proyecto, cámbiale nombre y ajusta estilos. Así tendrás tu propio boilerplate listo para clientes o proyectos futuros.'
+                  : 'Once you master the structure, duplicate the project, rename it and adjust styles. This way, you’ll have your own boilerplate ready for clients or future projects.'
+                }
+              </p>
+            </section>
+
+            <!-- Credits & Support -->
+            <section id="credits" class="docs-section">
+              <h2>{lang === 'es' ? 'Créditos y soporte' : 'Credits & support'}</h2>
+              <hr class="section-divider">
+
+              <p>
+                {lang === 'es' 
+                  ? 'Starter UI fue creado para servir como base sólida para desarrolladores, diseñadores y agencias que quieran construir sitios rápidos y bien estructurados sin complicaciones.'
+                  : 'Starter UI was created to serve as a solid foundation for developers, designers, and agencies who want to build fast, well-structured sites without complications.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Autoría y agradecimientos' : 'Authorship and acknowledgments'}</h3>
+              <ul>
+                <li>{lang === 'es' ? 'Desarrollado sobre Astro, un generador estático moderno y ultra rápido.' : 'Built on Astro, a modern and ultra-fast static site generator.'}</li>
+                <li>{lang === 'es' ? 'Inspirado en sistemas de diseño profesionales y metodologías de componentes escalables.' : 'Inspired by professional design systems and scalable component methodologies.'}</li>
+                <li>{lang === 'es' ? 'Agradecimientos especiales a la comunidad de Astro, MDN, y a todos los proyectos open source que hacen posible este stack.' : 'Special thanks to the Astro community, MDN, and all open source projects that make this stack possible.'}</li>
+              </ul>
+
+              <h3>{lang === 'es' ? 'Soporte y contacto' : 'Support & contact'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Si encuentras un error o quieres sugerir mejoras:'
+                  : 'If you find a bug or want to suggest improvements:'
+                }
+              </p>
+              <ul>
+                <li>{lang === 'es' ? 'Abre un issue en el repositorio de GitHub del proyecto.' : 'Open an issue in the project GitHub repository.'}</li>
+                <li>
+                  {lang === 'es' ? 'O contacta directamente a través del correo de soporte: ' : 'Or contact directly via support email: '}
+                  <a href="mailto:hello@starterui.com" class="docs-link">hello@starterui.com</a>
+                </li>
+              </ul>
+
+              <h3>{lang === 'es' ? 'Licencia' : 'License'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Starter UI se distribuye con licencia MIT, lo que significa que puedes usarla, modificarla y adaptarla libremente tanto en proyectos personales como comerciales.'
+                  : 'Starter UI is distributed under the MIT license, which means you can use, modify, and adapt it freely for both personal and commercial projects.'
+                }
+              </p>
+
+              <h3>{lang === 'es' ? 'Consejo final' : 'Final tip'}</h3>
+              <p>
+                {lang === 'es' 
+                  ? 'Úsala como punto de partida, no como un límite. Ajusta los estilos, crea tus propios componentes y convierte Starter UI en tu framework personal.'
+                  : 'Use it as a starting point, not a limit. Adjust styles, create your own components, and turn Starter UI into your personal framework.'
+                }
+              </p>
+            </section>
           </div>
         </div>
       </div>
@@ -602,14 +794,14 @@ const t = await loadT(lang);
     top: var(--space-8);
     background: var(--color-container);
     border-radius: var(--radius-lg);
-    padding: var(--space-4);
+    padding: var(--space-3);
     border: 1px solid var(--color-border);
   }
 
   .sidebar-content h3 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    margin: 0 0 var(--space-4) 0;
+    margin: 0 0 var(--space-3) 0;
     color: var(--color-black);
   }
 
@@ -620,16 +812,16 @@ const t = await loadT(lang);
   }
 
   .sidebar-nav li {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
   }
 
   .nav-link {
     display: block;
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-1) var(--space-2);
     color: var(--color-text);
     text-decoration: none;
     border-radius: var(--radius-md);
-    font-size: 14px;
+    font-size: 13px;
     transition: all var(--transition-fast);
   }
 
@@ -751,12 +943,18 @@ const t = await loadT(lang);
   /* Responsive */
   @media (max-width: 1024px) {
     .docs-layout {
-      grid-template-columns: 1fr;
+      display: block; /* Evita problemas de grid en móvil */
+      gap: var(--space-4);
     }
 
     .docs-sidebar {
       position: static;
-      margin-bottom: var(--space-6);
+      width: 100%;
+      margin-bottom: var(--space-5);
+    }
+
+    .docs-content {
+      margin-top: 0;
     }
   }
 
@@ -774,15 +972,44 @@ const t = await loadT(lang);
     }
 
     .docs-sidebar {
-      padding: var(--space-3);
+      padding: var(--space-2);
     }
 
     .docs-section h2 {
-      font-size: 28px;
+      font-size: 26px;
     }
 
     .docs-section h3 {
-      font-size: 20px;
+      font-size: 18px;
+    }
+
+    .nav-link {
+      padding: var(--space-1) var(--space-2);
+      font-size: 13px;
+    }
+
+    .sidebar-content h3 {
+      font-size: 15px;
+      margin-bottom: var(--space-2);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 var(--space-2);
+    }
+
+    .docs-section h2 {
+      font-size: 24px;
+    }
+
+    .docs-section h3 {
+      font-size: 17px;
+    }
+
+    .code-block {
+      padding: var(--space-3);
+      margin: var(--space-3) 0;
     }
   }
 </style>

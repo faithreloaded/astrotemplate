@@ -227,7 +227,7 @@
 }
 
 .simple-card-cta {
-  width: calc(100% - 32px);
+  width: 100%;
   background: white;
   color: black;
   font-weight: 400;
@@ -285,7 +285,6 @@
   
   .simple-card-cta {
     font-size: 13px;
-    padding: 10px 14px;
   }
 }
 
@@ -318,6 +317,5 @@
   
   .simple-card-cta {
     font-size: 12px;
-    padding: 8px 12px;
   }
 }

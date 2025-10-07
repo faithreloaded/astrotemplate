@@ -37,7 +37,9 @@ const postData = post[0].data;
           <h1 class="post-title">{postData.title}</h1>
           <p class="post-excerpt">{postData.excerpt}</p>
           <div class="post-meta">
-            <time datetime={postData.date.toISOString()}>{postData.date.toLocaleDateString(lang)}</time>
+            <span class="date-pill">
+              <time datetime={postData.date.toISOString()}>{postData.date.toLocaleDateString(lang)}</time>
+            </span>
           </div>
           {postData.image && (
             <div class="post-image-container">
@@ -63,6 +65,8 @@ const postData = post[0].data;
   .post-title { font-size: 48px; font-weight: 500; color: var(--color-black); margin: 0 0 var(--space-4) 0; line-height: 1.1; letter-spacing: -0.02em; }
   .post-excerpt { font-size: 1.125rem; color: rgba(0,0,0,0.6); margin: 0 0 var(--space-4) 0; line-height: 1.6; }
   .post-meta { font-size: 14px; color: var(--color-text-secondary); margin-bottom: var(--space-6); }
+  .date-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid var(--color-border); border-radius: 999px; background: var(--color-container); color: var(--color-text-secondary); }
+  .date-pill time { line-height: 1; }
   .post-image-container { width: 100%; height: 400px; overflow: hidden; border-radius: var(--radius-xl); margin-top: var(--space-6); }
   .post-image { width: 100%; height: 100%; object-fit: cover; }
 
