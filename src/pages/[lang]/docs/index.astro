@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Locale };
-const t = await loadT(lang);
+const t = await loadT(lang, ['header','footer','docs']);
 ---
 
 <BaseLayout title={`${t('docs.title')} | Starter UI`} description={t('docs.description')}>
@@ -722,16 +722,19 @@ const t = await loadT(lang);
   }
   
   // Smooth scroll con offset para mostrar el título
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
+  document.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
+      const current = e.currentTarget as HTMLAnchorElement | null;
+      const href = current ? current.getAttribute('href') : null;
+      if (!href) return;
+      const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
-      
+
       if (targetElement) {
         const offset = 120; // Offset para mostrar el título
         const targetPosition = targetElement.offsetTop - offset;
-        
+
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth'

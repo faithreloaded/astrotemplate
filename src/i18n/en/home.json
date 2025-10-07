@@ -1,0 +1,67 @@
+{
+  "homeHero": {
+    "pill": "New",
+    "title": "Code less, build faster.",
+    "description": "A clean component kit for developers who value speed and good taste.",
+    "ctaPrimary": "Get Started",
+    "ctaSecondary": "View Components",
+    "card": {
+      "title": "Premium Components",
+      "price": "€199",
+      "description": "Access to our complete library of clean and responsive components with lifetime updates",
+      "tag1": "Components",
+      "tag2": "Lifetime",
+      "cta": "Get Started"
+    }
+  },
+  "home": {
+    "video1": {
+      "title": "Create a landing in minutes.",
+      "description": "See how Starter UI lets you set up a clean landing in less than 5 minutes. No filler, just production-ready components."
+    },
+    "video2": {
+      "title": "Change a token, change everything.",
+      "description": "Update your brand colors once and see how the entire design adapts instantly. Starter UI is built with simple global tokens."
+    },
+    "video3": {
+      "title": "From idea to shipped component.",
+      "description": "Starter UI gives you clean, reusable components you can trust. Focus on your app, not reinventing buttons or layouts."
+    },
+    "pricing": {
+      "title": "Pay once, use forever.",
+      "description": "Simple license for developers.",
+      "planName": "Starter UI",
+      "price": "199",
+      "currency": "€",
+      "features": [
+        "Clean and responsive components",
+        "Global design tokens",
+        "Easy to customize CSS",
+        "Lifetime updates included"
+      ],
+      "buttonText": "Buy now on Gumroad"
+    }
+  },
+  "homeFaq": {
+    "pill": "FAQ",
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "question": "What is Starter UI?",
+      "answer": "Starter UI is a professional template made with Astro, designed to build clean and fast websites without starting from scratch. It includes ready sections like Hero, Pricing, FAQ or Blog, with modern design, well-organized CSS tokens and production-ready components."
+    },
+    "q2": {
+      "question": "Does it support multiple languages?",
+      "answer": "Yes. The system uses separate folders by language (ES, EN, etc.) along with JSON dictionaries for texts. Blog posts can also have linked translations from their frontmatter, so all content easily adapts to the user's language."
+    },
+    "q3": {
+      "question": "Can I write posts in MDX?",
+      "answer": "Of course. Starter UI supports Content Collections with MDX, which allows mixing text with Astro or React components. In addition, each post is validated with Zod, so you maintain total control over the format and avoid content errors."
+    },
+    "q4": {
+      "question": "How do I customize the design?",
+      "answer": "All styling is controlled from tokens in src/styles/tokens.css: colors, typography, spacing, shadows and animations. Just change those values and the entire design adapts to your brand. Each section has its own isolated CSS so you can modify without breaking the rest."
+    }
+  }
+}
+
+

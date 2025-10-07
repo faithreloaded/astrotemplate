@@ -9,11 +9,11 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Locale };
-const t = await loadT(lang);
+const t = await loadT(lang, ['header','footer','components']);
 const key = 'heroes';
 ---
 
-<BaseLayout title={`${t('header.nav.components')} | Starter UI`} description="Browse all components and sections from a clean dashboard" lang={lang}>
+<BaseLayout title={`${t('componentsDashboard.title')} | Starter UI`} description={t('componentsDashboard.description')} lang={lang}>
   <ComponentsLayout active={key} lang={lang}>
     <HeroesView />
   </ComponentsLayout>

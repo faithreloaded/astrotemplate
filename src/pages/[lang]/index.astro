@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Locale };
-const t = await loadT(lang);
+const t = await loadT(lang, ['header','footer','home']);
 ---
 
 <BaseLayout 

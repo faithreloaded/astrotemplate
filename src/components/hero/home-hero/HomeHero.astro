@@ -5,7 +5,7 @@ import { loadT, getLangFromUrl, type Locale } from '../../../i18n';
 interface Props { lang?: Locale }
 const { lang: langProp } = Astro.props as Props;
 const lang: Locale = langProp ?? getLangFromUrl(Astro.url);
-const t = await loadT(lang);
+const t = await loadT(lang, ['home']);
 ---
 
 <section class="hero-section">

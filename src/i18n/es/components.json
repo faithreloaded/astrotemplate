@@ -1,0 +1,30 @@
+{
+  "componentsDashboard": {
+    "title": "Componentes",
+    "description": "Explora todos los componentes y secciones desde un panel limpio",
+    "groups": {
+      "elements": "Elementos",
+      "sections": "Secciones"
+    }
+  },
+  "sections": {
+    "heroes": { "label": "Hero" },
+    "headers": { "label": "Headers" },
+    "footers": { "label": "Footers" },
+    "buttons": { "label": "Botones" },
+    "badges": { "label": "Badges" },
+    "pills": { "label": "Pills" },
+    "cards": { "label": "Tarjetas" },
+    "features": { "label": "Features" },
+    "ctas": { "label": "CTA" },
+    "pricing": { "label": "Precios" },
+    "faqs": { "label": "FAQ" },
+    "testimonials": { "label": "Testimonios" },
+    "services": { "label": "Servicios" },
+    "logo-clouds": { "label": "Nubes de logos" },
+    "gallery": { "label": "Galería" },
+    "errors": { "label": "Errores" }
+  }
+}
+
+

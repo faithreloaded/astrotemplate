@@ -9,7 +9,7 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Locale };
-const t = await loadT(lang);
+const t = await loadT(lang, ['header','footer','globalStyles']);
 ---
 
 <BaseLayout 
@@ -393,9 +393,9 @@ const t = await loadT(lang);
           </section>
            
            <section class="global-styles-section" id="BreakpointsSection">
-             <h2 class="global-styles-section-title">{lang==='es' ? 'Breakpoints' : 'Breakpoints'}</h2>
+            <h2 class="global-styles-section-title">{t('globalStyles.breakpoints.title')}</h2>
              <p class="global-styles-section-description">
-               {lang==='es' ? 'Tokens de breakpoints para media queries responsivas.' : 'Breakpoint tokens for responsive media queries.'}
+              {t('globalStyles.breakpoints.description')}
              </p>
              <div class="breakpoints-grid">
                <div class="breakpoint-item">
@@ -438,44 +438,44 @@ const t = await loadT(lang);
            </section>
            
            <section class="global-styles-section" id="TransitionsSection">
-             <h2 class="global-styles-section-title">{lang==='es' ? 'Transiciones' : 'Transitions'}</h2>
+            <h2 class="global-styles-section-title">{t('globalStyles.transitions.title')}</h2>
              <p class="global-styles-section-description">
-               {lang==='es' ? 'Tokens de transición escalonados para animaciones sutiles y consistentes.' : 'Tiered transition tokens for subtle, consistent animations.'}
+              {t('globalStyles.transitions.description')}
              </p>
              <div class="transition-grid">
                <div class="transition-item">
                  <div class="transition-demo" style="transition: var(--transition-xfast);"></div>
                  <div class="transition-info">
-                   <h4>--transition-xfast</h4>
-                   <code>var(--transition-xfast) = 120ms ease</code>
+                  <h4>--transition-xfast</h4>
+                  <code>{t('globalStyles.transitions.xfast')}</code>
                  </div>
                </div>
                <div class="transition-item">
                  <div class="transition-demo" style="transition: var(--transition-fast);"></div>
                  <div class="transition-info">
-                   <h4>--transition-fast</h4>
-                   <code>var(--transition-fast) = 160ms ease</code>
+                  <h4>--transition-fast</h4>
+                  <code>{t('globalStyles.transitions.fast')}</code>
                  </div>
                </div>
                <div class="transition-item">
                  <div class="transition-demo" style="transition: var(--transition-base);"></div>
                  <div class="transition-info">
-                   <h4>--transition-base</h4>
-                   <code>var(--transition-base) = 200ms ease</code>
+                  <h4>--transition-base</h4>
+                  <code>{t('globalStyles.transitions.base')}</code>
                  </div>
                </div>
                <div class="transition-item">
                  <div class="transition-demo" style="transition: var(--transition-slow);"></div>
                  <div class="transition-info">
-                   <h4>--transition-slow</h4>
-                   <code>var(--transition-slow) = 250ms ease</code>
+                  <h4>--transition-slow</h4>
+                  <code>{t('globalStyles.transitions.slow')}</code>
                  </div>
                </div>
                <div class="transition-item">
                  <div class="transition-demo" style="transition: var(--transition-xslow);"></div>
                  <div class="transition-info">
-                   <h4>--transition-xslow</h4>
-                   <code>var(--transition-xslow) = 320ms ease</code>
+                  <h4>--transition-xslow</h4>
+                  <code>{t('globalStyles.transitions.xslow')}</code>
                  </div>
                </div>
              </div>

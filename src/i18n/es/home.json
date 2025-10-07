@@ -1,0 +1,67 @@
+{
+  "homeHero": {
+    "pill": "Nuevo",
+    "title": "Programa menos, construye más rápido.",
+    "description": "Un kit de componentes limpio para desarrolladores que valoran la velocidad y el buen gusto.",
+    "ctaPrimary": "Empezar",
+    "ctaSecondary": "Ver componentes",
+    "card": {
+      "title": "Componentes premium",
+      "price": "199€",
+      "description": "Acceso a nuestra librería completa de componentes limpios y responsivos con actualizaciones de por vida",
+      "tag1": "Componentes",
+      "tag2": "De por vida",
+      "cta": "Empezar"
+    }
+  },
+  "home": {
+    "video1": {
+      "title": "Crea una landing en minutos.",
+      "description": "Mira cómo Starter UI te permite montar una landing limpia en menos de 5 minutos. Sin relleno, solo componentes listos para producción."
+    },
+    "video2": {
+      "title": "Cambia un token, cámbialo todo.",
+      "description": "Actualiza tus colores de marca una vez y verás cómo todo el diseño se adapta al instante. Starter UI está construido con tokens globales simples."
+    },
+    "video3": {
+      "title": "De la idea al componente enviado.",
+      "description": "Starter UI te da componentes limpios y reutilizables en los que puedes confiar. Enfócate en tu app, no en reinventar botones o layouts."
+    },
+    "pricing": {
+      "title": "Paga una vez, úsalo para siempre.",
+      "description": "Licencia simple para desarrolladores.",
+      "planName": "Starter UI",
+      "price": "199",
+      "currency": "€",
+      "features": [
+        "Componentes limpios y responsive",
+        "Design tokens globales",
+        "CSS fácil de personalizar",
+        "Actualizaciones de por vida incluidas"
+      ],
+      "buttonText": "Comprar ahora en Gumroad"
+    }
+  },
+  "homeFaq": {
+    "pill": "FAQ",
+    "title": "Preguntas frecuentes",
+    "q1": {
+      "question": "¿Qué es Starter UI?",
+      "answer": "Starter UI es una plantilla profesional hecha con Astro, pensada para construir webs limpias y rápidas sin partir desde cero. Incluye secciones listas como Hero, Pricing, FAQ o Blog, con un diseño moderno, tokens CSS bien organizados y componentes listos para producción."
+    },
+    "q2": {
+      "question": "¿Soporta varios idiomas?",
+      "answer": "Sí. El sistema usa carpetas separadas por idioma (ES, EN, etc.) junto a diccionarios JSON para los textos. Los posts en el blog también pueden tener traducciones vinculadas desde su frontmatter, así todo el contenido se adapta fácilmente al idioma del usuario."
+    },
+    "q3": {
+      "question": "¿Puedo escribir posts en MDX?",
+      "answer": "Claro. Starter UI soporta Content Collections con MDX, lo que permite mezclar texto con componentes de Astro o React. Además, cada post se valida con Zod, así mantienes un control total sobre el formato y evitas errores de contenido."
+    },
+    "q4": {
+      "question": "¿Cómo personalizo el diseño?",
+      "answer": "Todo el estilo se controla desde los tokens en src/styles/tokens.css: colores, tipografía, espaciado, sombras y animaciones. Solo cambias esos valores y el diseño completo se adapta a tu marca. Cada sección tiene su propio CSS aislado para que puedas modificar sin romper el resto."
+    }
+  }
+}
+
+
