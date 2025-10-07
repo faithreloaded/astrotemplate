@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "components": "Componentes",
+    "globalStyles": "Estilos Globales",
+    "docs": "Docs"
+  },
+  "actions": {
+    "buy": "Comprar plantilla"
+  },
+  "lang": {
+    "es": "ES",
+    "en": "EN",
+    "sep": "/"
+  }
+}
+
+

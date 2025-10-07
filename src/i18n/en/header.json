@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Home",
+    "components": "Components",
+    "globalStyles": "Global Styles",
+    "docs": "Docs"
+  },
+  "actions": {
+    "buy": "Buy template"
+  },
+  "lang": {
+    "es": "ES",
+    "en": "EN",
+    "sep": "/"
+  }
+}
+
+

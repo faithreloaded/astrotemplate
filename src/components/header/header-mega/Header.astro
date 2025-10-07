@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content';
 interface Props { lang?: Locale }
 const { lang: langProp } = Astro.props as Props;
 const lang: Locale = langProp ?? getLangFromUrl(Astro.url);
-const t = await loadT(lang);
+const t = await loadT(lang, ['header']);
 
 // Obtener posts para manejar traducciones del blog
 const allPosts = await getCollection('blog');
@@ -56,19 +56,19 @@ const prefix = `/${lang}`;
       
       <nav class="nav-mega desktop-nav">
         <div class="nav-item-mega">
-          <a href={`${prefix}/`} class="nav-link-mega">{t('header.nav.home')}</a>
+          <a href={`${prefix}/`} class="nav-link-mega">{t('nav.home')}</a>
         </div>
         
         <div class="nav-item-mega">
-          <a href={`${prefix}/components`} class="nav-link-mega">{t('header.nav.components')}</a>
+          <a href={`${prefix}/components`} class="nav-link-mega">{t('nav.components')}</a>
         </div>
         
         <div class="nav-item-mega">
-          <a href={`${prefix}/global-styles`} class="nav-link-mega">{t('header.nav.globalStyles')}</a>
+          <a href={`${prefix}/global-styles`} class="nav-link-mega">{t('nav.globalStyles')}</a>
         </div>
         
         <div class="nav-item-mega">
-          <a href={`${prefix}/docs`} class="nav-link-mega">{t('header.nav.docs')}</a>
+          <a href={`${prefix}/docs`} class="nav-link-mega">{t('nav.docs')}</a>
         </div>
         <div class="nav-item-mega">
           <a href={`${prefix}/blog`} class="nav-link-mega">Blog</a>
@@ -94,7 +94,7 @@ const prefix = `/${lang}`;
         </div>
         <div class="buy-desktop">
           <ButtonPrimary href={`${prefix}/buy`}>
-            {t('header.actions.buy')}
+            {t('actions.buy')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M7 17L17 7M17 7H7M17 7V17"/>
             </svg>
@@ -121,15 +121,15 @@ const prefix = `/${lang}`;
         </button>
       </div>
       <div class="mobile-nav-links">
-        <a href={`${prefix}/`} class="mobile-nav-link">{t('header.nav.home')}</a>
-        <a href={`${prefix}/components`} class="mobile-nav-link">{t('header.nav.components')}</a>
-        <a href={`${prefix}/global-styles`} class="mobile-nav-link">{t('header.nav.globalStyles')}</a>
-        <a href={`${prefix}/docs`} class="mobile-nav-link">{t('header.nav.docs')}</a>
+        <a href={`${prefix}/`} class="mobile-nav-link">{t('nav.home')}</a>
+        <a href={`${prefix}/components`} class="mobile-nav-link">{t('nav.components')}</a>
+        <a href={`${prefix}/global-styles`} class="mobile-nav-link">{t('nav.globalStyles')}</a>
+        <a href={`${prefix}/docs`} class="mobile-nav-link">{t('nav.docs')}</a>
         <a href={`${prefix}/blog`} class="mobile-nav-link">Blog</a>
       </div>
       <div class="mobile-nav-footer">
         <ButtonPrimary href={`${prefix}/buy`}>
-          {t('header.actions.buy')}
+          {t('actions.buy')}
         </ButtonPrimary>
       </div>
     </nav>
